@@ -1,0 +1,18 @@
+{% extends "general/base.html" %}
+{% load crispy_forms_tags %}
+{%  block content %}
+    <h1>{{ user.first_name }} {{ user.m_initial }} {{ user.last_name }}</h1>
+
+    <p> {% if user.is_student %}
+            This is a Student
+        {% endif %}
+        {% if user.is_instructor %}
+            This is an Instructor
+        {% endif %} </p>
+    {% if user.is_student %}
+        <h3>Contact Information</h3>
+        <p><b>Email:</b> {{ user.email }}</p>
+        <p><b>Phone Number:</b> {{ user.phone_number }}</p>
+        <p><b>Date of Birth:</b> {{ user.birth_date }}</p>
+    {% endif %}
+{%  endblock content %}
