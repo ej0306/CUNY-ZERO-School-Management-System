@@ -1,0 +1,30 @@
+{% extends "general/base.html" %}
+{%  block content %}
+
+    <div class="content-section">
+        <h1>Courses</h1>
+        <p>The courses offered are listed below.</p>
+        <form  action = " { % url 'courses: class_search_results' % }" method ="get">
+            <input name="q" type="text" placeholder="Search Classes...">
+        </form>
+    </div>
+    <ul>
+        {% for course in courses %}
+        <li>
+        <p> <b> {{course.title}} </b> </p> 
+            <p>  {{course.description}}  </p>
+
+        <!-- <a href=" {% url 'general-home'%}"> {{course.title}} </a> -->
+        <!-- <a href=" { % url 'courses : course_description' % } "> {{course.title}} </a> -->
+
+        
+        </li>
+        {% endfor %}
+    </ul>
+
+{%  endblock content %}
+
+<!-- <form action="{% url 'search_results' %}" method="get">
+    <input name="q" type="text" placeholder="Search Classes...">
+  </form>
+   -->

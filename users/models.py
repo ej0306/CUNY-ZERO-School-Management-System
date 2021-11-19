@@ -31,11 +31,20 @@ class Student(models.Model):
     graduation_date = models.DateField(auto_now=False, auto_now_add=False, null=True)
     gpa = models.FloatField(null=True)
 
-
+    def __str__(self) -> str:
+        return self.user.last_name + ", " + self.user.first_name
+   
 class Instructor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     resume = models.FileField(null=True)
 
+    def __str__(self) -> str:
+        return self.user.last_name + ", " + self.user.first_name
+
+
 
 class Registrar(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+
+    def __str__(self) -> str:
+        return self.user.last_name + ", " + self.user.first_name

@@ -15,4 +15,10 @@
         <p><b>Phone Number:</b> {{ user.phone_number }}</p>
         <p><b>Date of Birth:</b> {{ user.birth_date }}</p>
     {% endif %}
+    {% if user.is_instructor %}
+        <h3>Contact Information</h3>
+        <p><b>Email:</b> {{ user.email }}</p>
+        <p><b>Phone Number:</b> {{ user.phone_number }}</p>
+        <p><b>Date of Birth:</b> {{ user.birth_date }}</p>
+    {% endif %}
 {%  endblock content %}

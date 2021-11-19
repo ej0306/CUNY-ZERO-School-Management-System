@@ -32,9 +32,12 @@ AUTH_USER_MODEL = 'users.User'
 # Application definition
 
 INSTALLED_APPS = [
+    # Our Apps
     'general.apps.GeneralConfig',
     'users.apps.UsersConfig',
+    'courses.apps.CoursesConfig', 
     'crispy_forms',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
