@@ -25,6 +25,8 @@ urlpatterns = [
     path('profile/', user_views.profile, name='profile'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+    path('student_list/', user_views.student_list, name='student_list'),
+    path('instructor_list/', user_views.instructor_list, name='instructor_list'),
     path('', include('general.urls')),
     path('courses/', include('courses.urls')),
 ]

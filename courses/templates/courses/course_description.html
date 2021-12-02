@@ -2,9 +2,41 @@
 {%  block content %}
 
 <h1>Courses Information</h1>
-    <p>The info of courses offered are listed below.</p>
-    <p>The info of courses offered are listed below.</p>
-    <p>The info of courses offered are listed below.</p>
-    <a href="{% url 'courses:courses_offered'%}">Courses</a>
+    
+<div class="container mt-4">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Course</th>
+          <th>ID</th>
+          <th>Section N*</th>
+          <th>Title</th>
+          <th>Year</th>
+          <th>Semester</th>
+          <th>Instructor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Doe</td>
+          <td>john@example.com</td>
+        </tr>
+        <tr>
+          <td>Mary</td>
+          <td>Moe</td>
+          <td>mary@example.com</td>
+        </tr>
+        <tr>
+          <td>July</td>
+          <td>Dooley</td>
+          <td>july@example.com</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  
 
 {%  endblock content %}
+

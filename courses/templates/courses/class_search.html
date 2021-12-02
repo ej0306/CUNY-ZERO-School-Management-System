@@ -1,0 +1,88 @@
+{% extends "general/profile_base.html" %}
+{%  block content %}
+
+
+<div class="container-fluid mt-5">
+
+    <!-- Heading -->
+    <div class="card mb-4 wow fadeIn">
+
+        <!--Card content-->
+        <div class="card-body d-sm-flex justify-content-between">
+
+            <h5 class="mb-2 mb-sm-0 pt-1">
+                <a href="/">Profile Page</a>
+                <span>/</span>
+                <span> Class Search
+                    <br><br>
+                    <form action="{% url 'courses:class_search' %}" method="GET" value="{{request.GET.q}}">
+                        <input type="text" name="q" value="{{request.GET.q}}" placeholder="Search Classes..."/>
+                        <input type="submit" name="submit" value="Search"/>
+                    </form>
+                </span>
+            </h5>
+        </div>
+
+    </div>
+
+<!-- <div class="content-section">
+    <h1>Search Classes</h1>
+    <form action="{% url 'courses:class_search' %}" method="GET" value="{{request.GET.q}}">
+        <input type="text" name="q" value="{{request.GET.q}}" placeholder="Search Classes..."/>
+        <input type="submit" name="submit" value="Search"/>
+    </form>
+</div> -->
+<br/>
+{% if submitbutton == 'Search' and request.GET.q != '' %}
+{% if results %}
+<h5 class=" text-center">Results for <i>{{ request.GET.q }}</i></h5>
+<br/><br/>
+
+    
+<div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Course</th>
+          <th>ID</th>
+          <!-- <th>Section</th> -->
+          <th>Title</th>
+          <th>Instructor</th>
+          <th>Days-Time</th>
+
+          <th>Information</th>
+          
+        </tr>
+      </thead>
+     
+     
+{% for result in results %}
+    <tbody>  
+        <td> {{result.course.course_name}} </td>
+        <td> {{result.class_id}}</td>
+        <!-- <td> {{result.section_num}}  </td> -->
+        <td> {{result.course.title}} </td>
+        <td> {{result.instructor}} </td>
+        <td> {{result.days_and_time}} </td>
+        
+
+        <td> {{result.year}} {{result.semester}} Term: 
+            {{result.start_date}} -  {{result.end_date}} <br>
+            Seats: {{result.current_capacity}}/{{result.full_capacity}} <br>
+            Credit: {{result.credit}}.0 
+
+        </td>
+      
+        
+    </tbody> 
+{% endfor %}
+</table>
+</div>
+        
+{% else %}
+    <p> No classes matches the query! </p>
+{% endif %}
+{% endif %}
+</div>
+
+{%  endblock content %}

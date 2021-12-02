@@ -1,0 +1,83 @@
+{% extends "general/profile_base.html" %}
+{%  block content %}
+
+    <style type="text/css">
+        .table-wrapper-scroll-y {
+    display: block;
+    max-height: 350px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+    </style>
+
+<div class="container-fluid mt-5">
+
+        <!-- Heading -->
+        <div class="card mb-4 wow fadeIn">
+
+            <!--Card content-->
+            <div class="card-body d-sm-flex justify-content-between">
+
+                <h6 class="mb-2 mb-sm-0 pt-1">
+                    <a href="/">Profile Page</a>
+                    <span>/</span>
+                    <span>Classes' List</span>
+                </h6>
+            </div>
+
+        </div>
+
+            <!--Card content-->
+    <div class="table-wrapper-scroll-y">
+
+    <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Course</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Instructor</th>
+                    <th scope="col">Days-Time</th>
+                    <th scope="col">Information</th>
+                    
+                    </tr>
+                </thead>
+            {% for class in classes %}
+                <tbody>
+                    <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ class.course.course_name }}</td>
+                    <td>{{ class.class_id }}</td>
+                    <td>{{ class.course.title }}</td>
+                    <td>{{ class.instructor }}</td>
+                    <td>{{ class.days_and_time }}</td>
+                    <td> {{class.year}} {{class.semester}} Term: 
+                        {{class.start_date}} -  {{class.end_date}} <br>
+                        Seats: {{class.current_capacity}}/{{class.full_capacity}} <br>
+                        Credit: {{class.credit}}.0 
+            
+                    </td>
+                   
+                    </tr>
+                    {% empty %}
+                    <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    </tr>
+                </tbody>
+            {% endfor %}
+            </table>
+        </div>
+    </div>
+    <br>
+
+
+
+{%  endblock content %}

@@ -1,0 +1,324 @@
+{% extends "general/profile_base.html" %}
+{% load static %}
+{% load mathfilters %}
+
+
+{% block title %} Course Registration | CUNY Zero {% endblock title%}
+{% load crispy_forms_tags %}
+
+{%  block content %}
+
+{% block js %}
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="{% static 'js/tbl_scroll.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/disable_checkbox.js' %}"></script>
+    {% endblock js %}
+
+<div class="container-fluid mt-5">
+
+        <!-- Table with panel -->
+    {% if not all_courses_are_registered %}
+        <form method="POST" action="{% url 'courses:course_registration' %}">{% csrf_token %}
+            {% for message in messages %}
+            <div style="background-color: rgb(161, 145, 221)" class="alert {{ message.tags }} alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                {{ message }}
+            </div>
+            {% endfor %}
+
+            <div class="card card-cascade narrower">
+
+                <!--Card image-->
+                <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+            
+                    <div>
+                        <button id="add_selected" type="submit" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                        <i class="fa fa-plus" aria-hidden="true"></i> Add Selected
+                        </button>
+                    </div>
+                
+                    <a href="" class="white-text mx-3">Course Registration</a>
+                    <span class="pull-right white-text">Level: {{ student.semester }}</span>
+                    
+                </div>
+        
+            </div>
+
+            <!--/Card image-->
+            <div class="px-4">
+
+                <div class="table-wrapper">
+                    <!--Table-->
+                        <table id="dtVerticalScrollExample" class="table table-hover mb-0">
+
+                            <!--Table head-->
+                            <thead>
+                                <tr>
+                                    <th>
+                                    
+                                    </th>
+                                    <th class="th-lg">
+                                    <a>Course
+                                    </a>
+                                    </th>
+                                    <th class="th-lg">
+                                        <a> ID
+                                        </a>
+                                    </th>
+                                    <th class="th-lg">
+                                    <a href="">Title
+                                    </a>
+                                    </th>
+                                    <th class="th-lg">
+                                    <a href="">Instructor
+                                    </a>
+                                    </th>
+                                    <th class="th-lg">
+                                    <a href="">Days-Time
+                                    </a>
+                                    </th>
+                                    <th class="th-lg">
+                                    <a href="">Information
+                                    </a>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <!--Table head-->
+
+                            {% if student.semester == "First"  %}
+                            <!--Table body-->
+                            <tbody>
+                                <small><u class="blue-text">FIRST SEMESTER</u></small>
+                                {% for class in classes %}
+                                {% if class.semester == "First" %}
+                                <tr>
+                                    <th scope="row">
+                                        <input name="{{ class.pk }}" value="{{ class.credit }}" class="form-check-input" type="checkbox" id="checkbox1">
+                                        <label class="form-check-label" for="checkbox1" class="label-table"></label>
+                                    </th>
+
+                                        <td> {{class.course.course_name}} </td>
+                                        <td> {{class.class_id}}</td>
+                                        <td> {{class.course.title}} </td>
+                                        <td> {{class.instructor}} </td>
+                                        <td> {{class.days_and_time}} </td>
+                                
+
+                                        <td> {{class.year}} {{class.semester}} Term: 
+                                            {{class.start_date}} -  {{class.end_date}} <br>
+                                            Seats: {{ class.current_capacity | addition:1 }}/{{class.full_capacity}} <br>
+                                            Credit: {{class.credit}}.0  
+
+                                        </td>
+                                        <td class="text-center">-</td>
+                                </tr>
+                                {% endif %}
+                                {% endfor %}
+                                <tr>
+                                    <th scope="row">
+                                    
+                                    </th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><b>Credit(s):</b>  {{ total_first_semester_unit }} </td>
+                                </tr>
+                            </tbody>
+                            {% endif%}
+                            <!--Table body-->
+
+
+                            {% if student.semester == "Second"  %}
+                                <!--Table body-->
+                                <tbody>
+                                <small><u class="blue-text">SECOND SEMESTER</u></small>
+                                    {% for class in classes %}
+                                {% if class.semester == "Second" %}
+                                <tr>
+                                    <th scope="row">
+                                    <input name="{{ class.pk }}" value="{{ class.credit }}" class="form-check-input" type="checkbox" id="checkbox1">
+                                    <label class="form-check-label" for="checkbox1" class="label-table"></label>
+                                    </th>
+
+                                    <td> {{class.course.course_name}} </td>
+                                    <td> {{class.class_id}}</td>
+                                    <td> {{class.course.title}} </td>
+                                    <td> {{class.instructor}} </td>
+                                    <td> {{class.days_and_time}} </td>
+                            
+
+                                    <td> {{class.year}} {{class.semester}} Term: 
+                                        {{class.start_date}} -  {{class.end_date}} <br>
+                                        Seats: {{class.current_capacity}}/{{class.full_capacity}} <br>
+                                        Credit: {{class.credit}}.0  {{ class.current_capacity | addition:1 }}
+                                    </td>
+                                    <td class="text-center">-</td>
+                                </tr>
+                                {% endif %}
+                                {% endfor %}
+                                <tr>
+                                    <th scope="row">
+                                    
+                                    </th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><b>Second semester unit(s):</b>  {{ total_second_semester_unit }} </td>
+                                </tr>
+                                </tbody>
+                            {% endif%}
+                            <!--Table body-->
+                        </table>
+                        <!--Table-->
+                </div>
+            </div>
+            
+        </form>
+
+
+    {% endif %}
+
+    <br>    
+    <br>
+
+<!-- </div> -->
+<br>
+<br>
+
+<!-- <div class="container-fluid mt-5"> -->
+
+    <!-- Table with panel -->
+    {% if not no_courses_are_registered %}
+    <form method="POST" action="{% url 'courses:course_drop' %}"> {% csrf_token %}
+       
+        <div class="card card-cascade narrower">
+
+            <!--Card image-->
+            <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+        
+                <div>
+                    <button id="add_selected" type="submit" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                    <i class="fa fa-plus" aria-hidden="true"></i> Drop Selected
+                    </button>
+                </div>
+            
+                <a href="" class="white-text mx-3">Registered Courses</a>
+                <span class="pull-right white-text">Level: {{ student.semester }}</span>
+                
+            </div>
+    
+        </div>
+
+        <!--/Card image-->
+        <div class="px-4">
+
+            <div class="table-wrapper">
+                <!--Table-->
+                    <table id="dtVerticalScrollExample" class="table table-hover mb-0">
+
+                        <!--Table head-->
+                        <thead>
+                            <tr>
+                                <th>
+                                
+                                </th>
+                                <th class="th-lg">
+                                <a>Course
+                                </a>
+                                </th>
+                                <th class="th-lg">
+                                    <a> ID
+                                    </a>
+                                </th>
+                                <th class="th-lg">
+                                <a href="">Title
+                                </a>
+                                </th>
+                                <th class="th-lg">
+                                <a href="">Instructor
+                                </a>
+                                </th>
+                                <th class="th-lg">
+                                <a href="">Days-Time
+                                </a>
+                                </th>
+                                <th class="th-lg">
+                                <a href="">Information
+                                </a>
+                                </th>
+                            </tr>
+                        </thead>
+                        <!--Table head-->
+
+                       
+                        <!--Table body-->
+                        <tbody>
+                           
+                            {% for class in registered_classes %}
+                           
+                            <tr>
+                                <th scope="row">
+                                    <input name="{{ class.pk }}" value="{{ class.credit }}" class="form-check-input" type="checkbox" id="checkbox1">
+                                    <label class="form-check-label" for="checkbox1" class="label-table"></label>
+                                </th>
+
+                                    <td> {{class.course.course_name}} </td>
+                                    <td> {{class.class_id}}</td>
+                                    <td> {{class.course.title}} </td>
+                                    <td> {{class.instructor}} </td>
+                                    <td> {{class.days_and_time}} </td>
+                            
+
+                                    <td> {{class.year}} {{class.semester}} Term: 
+                                        {{class.start_date}} -  {{class.end_date}} <br>
+                                        Seats: {{class.current_capacity}}/{{class.full_capacity}} <br>
+                                        Credit: {{class.credit}}.0 
+
+                                    </td>
+                                    <td class="text-center">-</td>
+                            </tr>
+                            
+                            {% endfor %}
+                            <tr>
+                                <th scope="row">
+                                
+                                </th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><b>Credit(s):</b>  {{ total_registered_unit }} </td>
+                            </tr>
+                        </tbody>
+                        
+                        <!--Table body-->
+
+                    </table>
+                    <!--Table-->
+            </div>
+        </div>
+        
+    </form>
+
+
+    {% endif %}
+
+    <br>    
+    <br>
+
+</div>
+<br>
+<br>
+
+
+
+
+{%  endblock content %}

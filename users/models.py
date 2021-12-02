@@ -4,7 +4,13 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
+FIRST = "First"
+SECOND = "Second"
 
+SEMESTER = (
+    (FIRST, "First"),
+    (SECOND, "Second"),
+)
 
 class User(AbstractUser):
     is_student = models.BooleanField(default=False)
@@ -25,21 +31,26 @@ class User(AbstractUser):
 
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    id_number = models.CharField(max_length= 20, unique = True, null= True)
     sc_name = models.CharField(max_length=50, null=True)
     sc_city = models.CharField(max_length=50, null=True)
     sc_state = models.CharField(max_length=2, null=True)
+    semester = models.CharField(choices= SEMESTER, max_length= 50, null=True)
     graduation_date = models.DateField(auto_now=False, auto_now_add=False, null=True)
     gpa = models.FloatField(null=True)
 
     def __str__(self) -> str:
         return self.user.last_name + ", " + self.user.first_name
-   
+
+
+    
+
 class Instructor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     resume = models.FileField(null=True)
 
     def __str__(self) -> str:
-        return self.user.last_name + ", " + self.user.first_name
+        return self.user.last_name + " " + self.user.first_name
 
 
 
