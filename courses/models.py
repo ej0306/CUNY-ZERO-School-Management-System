@@ -110,6 +110,10 @@ class TakenCourse(models.Model):
     # def get_absolute_url(self):
     #     return Reversible('update_score', kwargs={'pk': self.pk})
 
+    def get_student_count(self):
+        student_count = self.student.count()
+        return student_count
+
 
     def get_total(self, ca, exam):
         return int(ca) + int(exam)

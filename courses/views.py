@@ -305,6 +305,7 @@ def add_review(request, course_id):
         reviews.review = review
         reviews.date_added = datetime.datetime.now()
         reviews.save()
+        
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
