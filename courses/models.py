@@ -4,6 +4,7 @@ from typing import Reversible
 from django.db import models
 from django.db.models.deletion import CASCADE
 from django.db.models.fields import IntegerField
+import numpy as np
 
 from users.models import Instructor, Student
 
@@ -37,6 +38,13 @@ SEMESTER = (
     (SECOND, "Second"),
 
 )
+
+
+
+#-----------------------------------------------------------------------------------------#
+#                              Courses/Classes Related Models                             #
+#-----------------------------------------------------------------------------------------#
+
 # The courses models
 class Course(models.Model):
     course_name = models.CharField(max_length = 20, null = True) 
@@ -62,6 +70,10 @@ class Classes(models.Model):
     days_and_time = models.CharField(max_length= 200, null = True)
     instructor = models.ForeignKey(Instructor, on_delete= models.CASCADE, null= True)
 
+
+    def average_rating(self):
+        all_ratings = map(lambda x: x.rate, self.reviewclasses_set.all())
+        return np.mean(list(all_ratings)) # np -> numpy
 
     def __str__(self) -> str:
         return self.course.course_name + " -  " + self.class_id + " -  " + self.course.title + " -  " + self.section_num
@@ -237,3 +249,32 @@ class Result(models.Model):
 
     def __str__(self):
         return self.student.id_number
+
+
+
+
+
+#-----------------------------------------------------------------------------------------#
+#                                   Reviews Models                                        #
+#-----------------------------------------------------------------------------------------#
+
+class ReviewClasses(models.Model):
+
+    RATING_CHOICES = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+    )
+
+    course = models.ForeignKey(Classes, on_delete= models.CASCADE)
+    rate = models.IntegerField (choices = RATING_CHOICES, null=True)
+    review = models.TextField()
+    date_added = models.DateTimeField(auto_now_add= True)
+    owner = models.ForeignKey(Student, on_delete= models.CASCADE)
+
+
+
+    def __str__(self) :
+        return self.course + f"{ self.review[:50]}..."

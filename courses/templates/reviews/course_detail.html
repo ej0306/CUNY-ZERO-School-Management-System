@@ -1,0 +1,84 @@
+
+{% extends "general/profile_base.html" %}
+{% load bootstrap3 %}
+{% block content %}
+
+
+<div class="container-fluid mt-9">
+
+    <!-- Heading -->
+    <div class="card mb-4 wow fadeIn">
+
+        <!--Card content-->
+        <div class="card-body d-sm-flex justify-content-between">
+
+            <h4 class="mb-2 mb-sm-0 pt-1">
+                <a href="{% url 'courses:course_list'%}">Review Page</a>
+                <span>/</span>
+                <span>Add Your Review</span>
+            </h4>
+        </div>
+
+    </div>
+   
+    <div div class="container-fluid mt-8"> 
+        <h3>{{ course.course }} | Prof: {{course.instructor}} </h3>
+        <h5>{{ course.reviewclasses_set.count }} Reviews ({{ course.average_rating | floatformat }} Average Rating)</h5>
+    </div>          
+    <br>
+   
+
+    <div div class="container-fluid mt-5"> 
+        <center> <h3 >  Recent Reviews  </h3></center>
+        <br>
+        <br>
+
+        {% if course.reviewclasses_set.all %}
+
+        <div class="row">
+
+            {% for review in course.reviewclasses_set.all %}
+            <div class="col-xs-6 col-lg-4">
+
+                <em>{{ review.review }}</em>
+                <h6>Rated {{ review.rate }}/5 by Student</a></h6>
+                <h5><a href="{% url 'courses:review_detail' review.id %}">
+                Read more
+                </a></h5>
+
+            </div>
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+        <p>No reviews for this course yet</p>
+        {% endif %}
+
+        <br>
+        <br>
+        
+            <h3>Post A Review</h3>
+            <br>
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+            <form action="{% url 'courses:add_review' course.id %}" method="post" class="form">
+                {% csrf_token %}
+                {% bootstrap_form form layout='inline' %}
+                {% buttons %}
+
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-badge-ar"></i>
+                {% bootstrap_icon "star" %} Post
+                </button>
+
+                {% endbuttons %}
+            </form>
+    </div>
+
+
+</div>
+
+<br>
+<br>
+{% endblock %}

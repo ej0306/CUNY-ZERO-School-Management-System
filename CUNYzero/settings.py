@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'courses.apps.CoursesConfig', 
     'crispy_forms',
+    'bootstrap4',
+    'bootstrap3',
     'mathfilters',
+    'numpy',
+    
 
     'django.contrib.admin',
     'django.contrib.auth',

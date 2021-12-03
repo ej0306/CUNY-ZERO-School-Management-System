@@ -3,7 +3,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render, get_object_or_404
 from django.http import Http404, HttpResponseRedirect, HttpRequest, JsonResponse
-from courses.models import Course, Classes, Session, TakenCourse, Result
+from django.urls.base import reverse
+from courses.models import Course, Classes, RepeatingStudent, ReviewClasses, Session, TakenCourse, Result
 from users.models import Student
 from django.urls import reverse_lazy
 from django.db.models import Q
@@ -13,6 +14,10 @@ from django.contrib.auth.decorators import permission_required
 
 
 # Create your views here
+
+#-----------------------------------------------------------------------------------------#
+#                          Courses/Classes Related Views                                  #
+#-----------------------------------------------------------------------------------------#
 
 # View for the courses offered page
 @login_required
@@ -242,3 +247,74 @@ def view_result(request):
             }
 
     return render(request, 'courses/view_results.html', context)
+
+
+
+@login_required
+def repeat_list(request):
+    students = RepeatingStudent.objects.all()
+    return render(request, 'courses/repeaters.html', {"students": students})
+
+
+def first_class_list(request):
+    students = Result.objects.filter(cgpa__gte=3.5)
+    return render(request, 'courses/first_class_students.html', {"students": students})
+
+
+
+#-----------------------------------------------------------------------------------------#
+#                                   Reviews Classes Views                                 #
+#-----------------------------------------------------------------------------------------#
+@login_required
+def review_list(request):
+    latest_review_list = ReviewClasses.objects.order_by('-date_added')[:9]
+    context = {'latest_review_list':latest_review_list}
+    return render(request, 'reviews/review_list.html', context)
+
+@login_required
+def review_detail(request, review_id):
+    review = get_object_or_404(ReviewClasses, pk=review_id)
+    return render(request, 'reviews/review_detail.html', {'review': review})
+
+@login_required
+def course_list(request):
+    course_list = Classes.objects.all()
+    context = {'course_list':course_list}
+    return render(request, 'reviews/course_list.html', context)
+
+@login_required
+def course_detail(request, course_id):
+    course = get_object_or_404(Classes, pk=course_id)
+    form = ReviewForm()
+    return render(request, 'reviews/course_detail.html', {'course': course, 'form': form})
+
+
+@login_required
+def add_review(request, course_id):
+    course = get_object_or_404(Classes, pk=course_id)
+    form = ReviewForm(request.POST)
+    if form.is_valid():
+        rate = form.cleaned_data['rate']
+        review = form.cleaned_data['review']
+        owner = request.user.student
+
+        reviews = ReviewClasses()
+        reviews.course = course
+        reviews.rate = rate
+        reviews.owner = owner
+        reviews.review = review
+        reviews.date_added = datetime.datetime.now()
+        reviews.save()
+        # Always return an HttpResponseRedirect after successfully dealing
+        # with POST data. This prevents data from being posted twice if a
+        # user hits the Back button.
+        return HttpResponseRedirect(reverse('courses:course_detail', args=(course.id,)))
+
+    return render(request, 'reviews/review_detail.html', {'course': course, 'form': form})
+
+
+
+def best_rated_classes(request):
+    classes = ReviewClasses.objects.all()
+    return render(request, 'reviews/best_rated_classes.html', {'classes': classes})
+

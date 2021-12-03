@@ -15,6 +15,20 @@ urlpatterns = [
     path('add_score/', views.add_score, name='add_score'),
     path('add_score/<int:id>/', views.add_score_for, name='add_score_for'),
     path('view_result/', views.view_result, name='view_result'),
+    path('first_class_list/', views.first_class_list, name='first_class_list'),
+    path('repeating_list/', views.repeat_list, name='repeat_list'),
+#-----------------------------------------------------------------------------------------#
+#                            Reviews Classes URLs                                         #
+#-----------------------------------------------------------------------------------------#
+    path('course_list/', views.course_list, name='course_list'),
+    path('course_list/<int:course_id>/', views.course_detail, name='course_detail'),
+    path('course_list/<int:course_id>/add_review/', views.add_review, name='add_review'),
+    path('review_list/', views.review_list, name='review_list'),
+    path('review_list/<int:review_id>/', views.review_detail, name='review_detail'),
+    path('best_rated/', views.best_rated_classes, name='best_rated_classes'),
+
+
+
 
 
     path('description/', views.description, name='description'),
