@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1280, maximum-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
+    <meta name="og:type" content="website" />
+    <meta name="twitter:card" content="photo" />
+    <link rel="stylesheet" type="text/css" href="css/about.css" />
+    <script src="{% static 'js/about.js' %}"></script>
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="css/styleguide.css" />
+    <link rel="stylesheet" type="text/css" href="css/globals.css" />
+
+    <link rel="stylesheet" href="{% static 'about.css' %}">
+    <link rel="stylesheet" href="{% static 'styleguide.css' %}">
+    <link rel="stylesheet" href="{% static 'globals.css' %}">
+
+  </head>
+  <body style="margin: 0; background: #ffffff">
+    <input type="hidden" id="anPageName" name="page" value="about" />
+    <div class="container-center-horizontal">
+      <div class="about screen">
+        <div class="overlap-group2">
+          <div class="rectangle-1"></div>
+          <a href="{% url 'login' %}">
+            <div class="component-1-44 smart-layers-pointers">
+              <div class="log-in gillsans-regular-normal-baby-powder-15px">Log in</div>
+            </div></a
+          >
+          <div class="cuny-zero gillsans-regular-normal-baby-powder-27px">CUNY Zero</div>
+          <div class="text-field-fill-leading-custom">
+            <label class="mdc-text-field mdc-text-field--filled mdc-text-field--with-leading-icon">
+              <span class="mdc-text-field__ripple"></span>
+              <span class="mdc-floating-label" id="my-label-id">Search</span>
+              <i class="material-icons mdc-text-field__icon mdc-text-field__icon--leading" tabindex="0" role="button"
+                >search</i
+              >
+              <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id" />
+              <span class="mdc-line-ripple"></span>
+            </label>
+            <script>
+              new mdc.textField.MDCTextField(document.querySelector(".text-field-fill-leading-custom .mdc-text-field"));
+            </script>
+          </div>
+          <a href="{% url 'home' %}">
+            <div class="component-1-45 smart-layers-pointers">
+              <div class="place gillsans-regular-normal-baby-powder-18px">Home</div>
+            </div></a
+          ><a href="{% url 'about' %}">
+            <div class="component-1-46 smart-layers-pointers">
+              <div class="about-1 gillsans-regular-normal-baby-powder-15px">About</div>
+            </div></a
+          ><a href="{% url 'contact' %}">
+            <div class="component-1-47 smart-layers-pointers">
+              <div class="place-1 gillsans-regular-normal-baby-powder-15px">Contact</div>
+            </div></a
+          >
+          <div class="component-1-48 smart-layers-pointers">
+            <div class="place-2 gillsans-regular-normal-baby-powder-15px">Register</div>
+          </div>
+        </div>
+        <img class="line-1" src="{% static 'img/line-1-1@1x.png' %}" />
+        <div class="overlap-group6">
+          <div class="overlap-group4">
+            <img class="line-2" src="{% static 'img/line-2-1@1x.png' %}" />
+            <p class="address gillsans-regular-normal-black-15px">
+              The City College of New York <br />160 Convent Avenue New York, NY 10031<br />p: 212.650.7000
+            </p>
+          </div>
+          <div class="icon-awesome-container">
+            <a href="https://facebook.com"
+              ><img class="icon-awesome-facebook smart-layers-pointers" src="{% static 'img/icon-awesome-facebook-1@1x.png' %}" /> </a
+            ><a href="https://instagram.com"
+              ><img
+                class="icon-awesome-instagram smart-layers-pointers"
+                src="{% static 'img/icon-awesome-instagram-1@1x.png' %}"
+              /> </a
+            ><a href="https://linkedin.com"
+              ><img
+                class="icon-awesome-linkedin-in smart-layers-pointers"
+                src="{% static 'img/icon-awesome-linkedin-in-1@1x.png' %}"
+              /> </a
+            ><a href="https://twitter.com"
+              ><img class="icon-awesome-twitter smart-layers-pointers" src="{% static 'img/icon-awesome-twitter-1@1x.png' %}" />
+            </a>
+          </div>
+          <img class="ccnylogo" src="{% static 'img/ccnylogo-1@1x.png '%}" />
+        </div>
+        <p class="text-1 gillsans-regular-normal-midnight-moss-16px">
+          Copyright (c) 2021 | City University of New York
+        </p>
+        <div class="text-2 gillsans-regular-normal-black-36px">City University of New York<br />Graduate School</div>
+        <h1 class="text-3 gillsans-regular-normal-black-37px">The City College<br />of New York</h1>
+        <img class="city-college-np-ush-left-city1" src="{% static 'img/citycollegenp-flushleftcity-1-2@1x.png' %}" />
+        <div class="overlap-group3 border-1px-dove-gray">
+          <a href="https://#"><div class="enroll smart-layers-pointers albayan-bold-white-25px">Enroll</div> </a>
+          <div class="overlap-group5">
+            <a href="{% url 'searchclasses' %}"
+              ><div class="searchfor-classes smart-layers-pointers albayan-bold-white-25px">
+                Search<br />for Classes
+              </div> </a
+            ><a href="https://#"
+              ><div class="text-4 smart-layers-pointers albayan-bold-white-25px">Apply for<br />Graduation</div>
+            </a>
+          </div>
+          <a href="https://#"
+            ><div class="requesttranscript smart-layers-pointers albayan-bold-white-25px">Request<br />Transcript</div>
+          </a>
+        </div>
+        <div class="overlap-group1">
+          <div class="rectangle-58"></div>
+          <div class="rectangle-57 border-1px-dove-gray"></div>
+          <div class="the-city-college-mas">
+            The City College master’s, doctoral and advanced certificate programs are designed for the student seeking a
+            master’s degree, those preparing for admission into doctoral degree programs, career advancement and also
+            for personal enrichment. Our programs also lead to careers in the medical field, non-profit and government
+            agencies as well as careers throughout the arts.<br /><br />With hundreds of master’s degrees conferred each
+            year, City College with more than sixty different graduate level programs is a great choice for graduate
+            study. We offer a wide range of specialized learning opportunities, including 6 PhD programs and 10+
+            accelerated master’s degrees.
+          </div>
+          <a href="#" target="_blank"
+            ><div class="name smart-layers-pointers gillsans-regular-normal-black-20px">
+              Bernard and Anne Spitzer School of Architecture<br />
+            </div> </a
+          ><a href="#"
+            ><div class="name-1 smart-layers-pointers gillsans-regular-normal-black-20px">
+              Colin Powell School for Civic and Global Leadership
+            </div> </a
+          ><a href="#"
+            ><div class="text-5 smart-layers-pointers gillsans-regular-normal-black-20px">
+              CUNY School of Medicine
+            </div> </a
+          ><a href="#"
+            ><div class="text-6 smart-layers-pointers gillsans-regular-normal-black-20px">
+              Division of Humanities and the Arts
+            </div> </a
+          ><a href="#"
+            ><div class="text-7 smart-layers-pointers gillsans-regular-normal-black-20px">
+              Division of Interdisciplinary Studies at the Center for Worker Education (CWE)
+            </div> </a
+          ><a href="#"
+            ><div class="division-of-science smart-layers-pointers gillsans-regular-normal-black-20px">
+              Division of Science
+            </div> </a
+          ><a href="#"
+            ><div class="text-8 smart-layers-pointers gillsans-regular-normal-black-20px">
+              The Grove School of Engineering
+            </div> </a
+          ><a href="#"
+            ><div class="school-of-education smart-layers-pointers gillsans-regular-normal-black-20px">
+              School of Education
+            </div> </a
+          ><a href="#"
+            ><div class="text-9 smart-layers-pointers gillsans-regular-normal-black-20px">
+              Sustainability in the Urban Environment, (Interdisciplinary Studies)
+            </div>
+          </a>
+        </div>
+        <div class="graduate-overview">Graduate Overview</div>
+      </div>
+    </div>
+  </body>
+</html>
