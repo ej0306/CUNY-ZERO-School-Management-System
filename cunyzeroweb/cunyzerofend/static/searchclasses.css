@@ -1,0 +1,455 @@
+/* screen - searchclasses */
+
+.searchclasses {
+    background-color: var(--white);
+    height: 800px;
+    overflow: hidden;
+    overflow-x: hidden;
+    position: relative;
+    width: 1280px;
+  }
+  
+  .searchclasses .rectangle-1-2twl0o {
+    background-color: var(--indigo);
+    height: 57px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 1280px;
+  }
+  
+  .searchclasses .line-1-2twl0o {
+    background-color: transparent;
+    height: 3px;
+    left: 0px;
+    object-fit: cover;
+    position: absolute;
+    top: 183px;
+    width: 1280px;
+  }
+  
+  .searchclasses .line-2-2twl0o {
+    background-color: transparent;
+    height: 2px;
+    left: 0px;
+    object-fit: cover;
+    position: absolute;
+    top: 768px;
+    width: 1280px;
+  }
+  
+  .searchclasses .component-1-39-2twl0o {
+    background-color: transparent;
+    cursor: pointer;
+    height: 17px;
+    left: 1138px;
+    pointer-events: auto;
+    position: absolute;
+    top: 24px;
+    transition: all 0.2s ease;
+    width: 43px;
+  }
+  
+  .searchclasses .component-1-39-2twl0o:hover {
+    transform: scale(1.1);
+  }
+  
+  .searchclasses .log-in-4eXjht {
+    background-color: transparent;
+    height: calc(100.00% + 2px);
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: 15px;
+    position: absolute;
+    text-align: left;
+    top: 1px;
+    white-space: nowrap;
+    width: calc(100.00% + 2px);
+  }
+  
+  .searchclasses .cuny-zero-2twl0o {
+    background-color: transparent;
+    height: auto;
+    left: 24px;
+    letter-spacing: 0.00px;
+    line-height: 27px;
+    position: absolute;
+    text-align: left;
+    top: 16px;
+    white-space: nowrap;
+    width: auto;
+  }
+  
+  .searchclasses .copyright-c-202-ity-of-new-york-2twl0o {
+    background-color: transparent;
+    height: auto;
+    left: 8px;
+    letter-spacing: 0.00px;
+    line-height: 16px;
+    position: absolute;
+    text-align: left;
+    top: 776px;
+    white-space: nowrap;
+    width: auto;
+  }
+  
+  .searchclasses .text-field-fill-leading-custom-2twl0o {
+    background-color: transparent;
+    border-radius: 13px;
+    height: 59px;
+    left: 536px;
+    position: absolute;
+    top: 0px;
+    width: 207px;
+  }
+  
+  .searchclasses .component-1-40-2twl0o {
+    background-color: transparent;
+    cursor: pointer;
+    height: 21px;
+    left: 193px;
+    pointer-events: auto;
+    position: absolute;
+    top: 19px;
+    transition: all 0.2s ease;
+    width: 48px;
+  }
+  
+  .searchclasses .component-1-40-2twl0o:hover {
+    transform: scale(1.1);
+  }
+  
+  .searchclasses .home-spdanI {
+    background-color: transparent;
+    height: calc(100.00% + 2px);
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: 18px;
+    position: absolute;
+    text-align: left;
+    top: 2px;
+    white-space: nowrap;
+    width: calc(100.00% + 2px);
+  }
+  
+  .searchclasses .component-1-41-2twl0o {
+    background-color: transparent;
+    cursor: pointer;
+    height: 17px;
+    left: 259px;
+    pointer-events: auto;
+    position: absolute;
+    top: 22px;
+    transition: all 0.2s ease;
+    width: 40px;
+  }
+  
+  .searchclasses .component-1-41-2twl0o:hover {
+    transform: scale(1.1);
+  }
+  
+  .searchclasses .about-WS8d43 {
+    background-color: transparent;
+    height: calc(100.00% + 2px);
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: 15px;
+    position: absolute;
+    text-align: left;
+    top: 1px;
+    white-space: nowrap;
+    width: calc(100.00% + 2px);
+  }
+  
+  .searchclasses .component-1-42-2twl0o {
+    background-color: transparent;
+    cursor: pointer;
+    height: 17px;
+    left: 320px;
+    pointer-events: auto;
+    position: absolute;
+    top: 22px;
+    transition: all 0.2s ease;
+    width: 51px;
+  }
+  
+  .searchclasses .component-1-42-2twl0o:hover {
+    transform: scale(1.1);
+  }
+  
+  .searchclasses .contact-xsSlW0 {
+    background-color: transparent;
+    height: calc(100.00% + 2px);
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: 15px;
+    position: absolute;
+    text-align: left;
+    top: 1px;
+    white-space: nowrap;
+    width: calc(100.00% + 2px);
+  }
+  
+  .searchclasses .city-university-graduate-school-2twl0o {
+    background-color: transparent;
+    height: auto;
+    left: 24px;
+    letter-spacing: 0.00px;
+    line-height: 36px;
+    position: absolute;
+    text-align: left;
+    top: 83px;
+    white-space: nowrap;
+    width: auto;
+  }
+  
+  .searchclasses .rectangle-2-2twl0o {
+    background-color: var(--white);
+    height: 36px;
+    left: 1131px;
+    position: absolute;
+    top: 729px;
+    width: 149px;
+  }
+  
+  .searchclasses .icon-awesome-facebook-2twl0o {
+    background-color: transparent;
+    cursor: pointer;
+    height: 23px;
+    left: 1146px;
+    object-fit: cover;
+    pointer-events: auto;
+    position: absolute;
+    top: 738px;
+    transition: all 0.2s ease;
+    width: 25px;
+  }
+  
+  .searchclasses .icon-awesome-facebook-2twl0o:hover {
+    transform: scale(0.9); 
+  }
+  
+  .searchclasses .icon-awesome-instagram-2twl0o {
+    background-color: transparent;
+    cursor: pointer;
+    height: 26px;
+    left: 1176px;
+    object-fit: cover;
+    pointer-events: auto;
+    position: absolute;
+    top: 736px;
+    transition: all 0.2s ease;
+    width: 24px;
+  }
+  
+  .searchclasses .icon-awesome-instagram-2twl0o:hover {
+    transform: scale(0.9); 
+  }
+  
+  .searchclasses .icon-awesome-linkedin-in-2twl0o {
+    background-color: transparent;
+    cursor: pointer;
+    height: 22px;
+    left: 1205px;
+    object-fit: cover;
+    pointer-events: auto;
+    position: absolute;
+    top: 738px;
+    transition: all 0.2s ease;
+    width: 24px;
+  }
+  
+  .searchclasses .icon-awesome-linkedin-in-2twl0o:hover {
+    transform: scale(0.9); 
+  }
+  
+  .searchclasses .icon-awesome-twitter-2twl0o {
+    background-color: transparent;
+    cursor: pointer;
+    height: 19px;
+    left: 1235px;
+    object-fit: cover;
+    pointer-events: auto;
+    position: absolute;
+    top: 740px;
+    transition: all 0.2s ease;
+    width: 24px;
+  }
+  
+  .searchclasses .icon-awesome-twitter-2twl0o:hover {
+    transform: scale(0.9); 
+  }
+  
+  .searchclasses .component-1-43-2twl0o {
+    background-color: transparent;
+    cursor: pointer;
+    height: 17px;
+    left: 1200px;
+    pointer-events: auto;
+    position: absolute;
+    top: 24px;
+    transition: all 0.2s ease;
+    width: 52px;
+  }
+  
+  .searchclasses .component-1-43-2twl0o:hover {
+    transform: scale(1.1);
+  }
+  
+  .searchclasses .register-gt81x9 {
+    background-color: transparent;
+    height: calc(100.00% + 2px);
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: 15px;
+    position: absolute;
+    text-align: left;
+    top: 1px;
+    white-space: nowrap;
+    width: calc(100.00% + 2px);
+  }
+  
+  .searchclasses .the-city-colleg-031p-2126507000-2twl0o {
+    background-color: transparent;
+    height: auto;
+    left: 493px;
+    letter-spacing: 0.00px;
+    line-height: 15px;
+    position: absolute;
+    text-align: left;
+    top: 715px;
+    white-space: nowrap;
+    width: auto;
+  }
+  
+  .searchclasses .ccnylogo-2twl0o {
+    background-color: transparent;
+    height: 58px;
+    left: 430px;
+    object-fit: cover;
+    position: absolute;
+    top: 709px;
+    width: 58px;
+  }
+  
+  .searchclasses .the-city-collegeof-new-york-2twl0o {
+    background-color: transparent;
+    height: auto;
+    left: 903px;
+    letter-spacing: 0.00px;
+    line-height: 37px;
+    position: absolute;
+    text-align: center;
+    top: 82px;
+    white-space: nowrap;
+    width: auto;
+  }
+  
+  .searchclasses .city-college-np-ush-left-city1-2twl0o {
+    background-color: transparent;
+    height: 95px;
+    left: 795px;
+    object-fit: cover;
+    position: absolute;
+    top: 67px;
+    width: 95px;
+  }
+  
+  .searchclasses .rectangle-54-2twl0o {
+    background-color: var(--indigo);
+    border-radius: 13px;
+    height: 270px;
+    left: 1099px;
+    position: absolute;
+    top: 301px;
+    width: 161px;
+  }
+  
+  .searchclasses .enroll-2twl0o {
+    background-color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 1110px;
+    letter-spacing: 0.00px;
+    line-height: 30px;
+    pointer-events: auto;
+    position: absolute;
+    text-align: center;
+    top: 318px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    width: auto;
+  }
+  
+  .searchclasses .enroll-2twl0o:hover {
+    color: #F55353
+  }
+  
+  .searchclasses .searchfor-classes-2twl0o {
+    background-color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 1110px;
+    letter-spacing: 0.00px;
+    line-height: 30px;
+    pointer-events: auto;
+    position: absolute;
+    text-align: left;
+    top: 356px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    width: auto;
+  }
+  
+  .searchclasses .searchfor-classes-2twl0o:hover {
+    color: #F55353
+  }
+  
+  .searchclasses .apply-forgraduation-2twl0o {
+    background-color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 1110px;
+    letter-spacing: 0.00px;
+    line-height: 30px;
+    pointer-events: auto;
+    position: absolute;
+    text-align: left;
+    top: 426px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    width: auto;
+  }
+  
+  .searchclasses .apply-forgraduation-2twl0o:hover {
+    color: #F55353
+  }
+  
+  .searchclasses .requesttranscript-2twl0o {
+    background-color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 1110px;
+    letter-spacing: 0.00px;
+    line-height: 30px;
+    pointer-events: auto;
+    position: absolute;
+    text-align: left;
+    top: 492px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    width: auto;
+  }
+  
+  .searchclasses .requesttranscript-2twl0o:hover {
+    color: #F55353
+  }
+  
+  .text-field-fill-leading-custom-2twl0o .mdc-text-field {
+    --mdc-theme-primary: #FFFFFF;
+  }
+  
+  .text-field-fill-leading-custom-2twl0o .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+    color: #6200ee;
+  }
+  
