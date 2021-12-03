@@ -1,0 +1,17 @@
+{% extends "general/profile_base.html" %}
+{% load crispy_forms_tags %}
+{%  block content %}
+    <h2>Student Applications</h2>
+    {% for ap in applications %}
+        {% if ap.student_application %}
+            <p><a href="{{ ap.id }}">{{ ap.first_name }} {{ ap.last_name }}</a></p>
+        {% endif %}
+    {% endfor %}
+
+    <h2>Instructor Applications</h2>
+    {% for ap in applications %}
+        {% if ap.Instructor_application %}
+            <p><a href="{{ ap.id }}">{{ ap.first_name }} {{ ap.last_name }}</a></p>
+        {% endif %}
+    {% endfor %}
+{%  endblock content %}

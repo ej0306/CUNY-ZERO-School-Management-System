@@ -1,0 +1,41 @@
+{% extends "general/base.html" %}
+{% load crispy_forms_tags %}
+{%  block content %}
+    <h1>{% if application.student_application %}
+        Student Application
+    {% endif %}
+    {% if application.Instructor_application %}
+        Instructor Application
+    {% endif %}</h1>
+
+    <h3>Personal Information</h3>
+    <p><b>Name:</b> {{ application.first_name }} {{ application.m_initial }} {{ application.last_name }}</p>
+    <p><b>Email:</b> {{ application.email }}</p>
+    <p><b>Phone:</b> {{ application.phone_number }}</p>
+    <p><b>Date of Birth:</b> {{ application.birth_date }}</p>
+    <p><b>Address:</b> {{ application.street_address }}, {{ application.city }}, {{ application.state }} {{ application.zip_code }}</p>
+
+    {% if application.student_application %}
+        <h3>Academic Information</h3>
+        <p><b>Previous School:</b> {{ application.sc_name }}</p>
+        <p><b>Location:</b> {{ application.sc_city }}, {{ application.sc_state }}</p>
+        <p><b>Graduation Date:</b> {{ application.graduation_date }}</p>
+        <p><b>GPA:</b> {{ application.gpa }}</p>
+    {% endif %}
+
+    {% if application.Instructor_application %}
+        <p><b>Resume:</b> {{ application.resume }}</p>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+        <fieldset class="form-group">
+                {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button  class="btn btn-outline-info" type="submit">Submit</button>
+        </div>
+    </form>
+
+{%  endblock content %}

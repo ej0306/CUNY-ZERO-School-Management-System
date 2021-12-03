@@ -16,6 +16,7 @@
     {% else %}
         <title>CUNY Zero</title>
     {% endif %}
+
 </head>
 <body>
     <header class="site-header">
@@ -27,8 +28,11 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="{% url 'general-home' %}">Home</a>
-              <a class="nav-item nav-link" href="{% url 'general-about' %}">About</a>
+                <a class="nav-item nav-link" href="{% url 'general-home' %}">Home</a>
+                <a class="nav-item nav-link" href="{% url 'general-about' %}">About</a>
+                {% if user.is_authenticated and user.is_registrar %}
+                    <a class="nav-item nav-link" href="{% url 'enrollment_applications' %}">Applications</a>
+                {% endif %}
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
@@ -37,8 +41,15 @@
                     <a class="nav-item nav-link" href="{% url 'logout' %}">Log Out</a>
                 {% else %}
                     <a class="nav-item nav-link" href="{% url 'login' %}">Log In</a>
-                    <a class="nav-item nav-link" href="{% url 'register_student' %}">Register Student</a>
-                    <a class="nav-item nav-link" href="{% url 'register_instructor' %}">Register Instructor</a>
+                    <div class="dropdown">
+                      <button class="nav-item nav-link btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #5f788a">
+                        Enrollment
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{% url 'register_student' %}">Student Application</a>
+                        <a class="dropdown-item" href="{% url 'register_instructor' %}">Instructor Application</a>
+                      </div>
+                    </div>
                 {% endif %}
             </div>
           </div>

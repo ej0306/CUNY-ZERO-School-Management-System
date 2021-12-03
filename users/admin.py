@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.db import models
-from .models import User, Student, Instructor, Registrar
+from .models import User, Student, Instructor, Registrar, EnrollmentApplication
+
 
 # Register your models here.
 class UserAdmin(admin.ModelAdmin):
@@ -11,3 +12,4 @@ admin.site.register(User, UserAdmin)
 admin.site.register(Student)
 admin.site.register(Instructor)
 admin.site.register(Registrar)
+admin.site.register(EnrollmentApplication)
