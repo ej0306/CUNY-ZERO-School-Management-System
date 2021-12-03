@@ -1,0 +1,44 @@
+{% extends "general/profile_base.html" %}
+{%  block content %}
+
+<div class="container-fluid mt-9">
+
+    <!-- Heading -->
+    <div class="card mb-4 wow fadeIn">
+
+        <!--Card content-->
+        <div class="card-body d-sm-flex justify-content-between">
+
+            <h4 class="mb-2 mb-sm-0 pt-1">
+                <a href="/">Home Page</a>
+                <span>/</span>
+                <span>Review Class</span>
+            </h4>
+        </div>
+
+    </div>
+
+<br>
+<br>
+
+{% if course_list %}
+    <div class="row">
+        {% for course in course_list %}
+            <div class="col-xs-7 col-lg-4">
+                <h5><a href="{% url 'courses:course_detail' course.id %}">
+                {{ course.course }} | Prof: {{course.instructor}}
+                </a></h5>
+                <h6>{{ course.reviewclasses_set.count }} Reviews</h6>
+                <h6>{{ course.average_rating | floatformat }} Average Rating</h6>
+                <br>
+            </div>
+            
+        {% endfor %}
+    
+    </div>
+    {% else %}
+        <p>No course are available.</p>
+{% endif %}
+
+</div>
+{% endblock %}

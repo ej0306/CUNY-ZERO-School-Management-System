@@ -40,7 +40,7 @@ class Student(models.Model):
     gpa = models.FloatField(null=True)
 
     def __str__(self) -> str:
-        return self.user.last_name + ", " + self.user.first_name
+        return self.user.last_name + " " + self.user.first_name
 
 
     
