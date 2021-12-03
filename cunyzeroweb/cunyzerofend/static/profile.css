@@ -1,0 +1,481 @@
+/* screen - profile */
+
+.profile {
+    background-color: var(--white);
+    height: 800px;
+    overflow: hidden;
+    overflow-x: hidden;
+    position: relative;
+    width: 1280px;
+  }
+  
+  .profile .rectangle-1-tkVWbB {
+    background-color: var(--indigo);
+    height: 57px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 1280px;
+  }
+  
+  .profile .line-1-tkVWbB {
+    background-color: transparent;
+    height: 3px;
+    left: 0px;
+    object-fit: cover;
+    position: absolute;
+    top: 183px;
+    width: 1280px;
+  }
+  
+  .profile .line-2-tkVWbB {
+    background-color: transparent;
+    height: 2px;
+    left: 0px;
+    object-fit: cover;
+    position: absolute;
+    top: 768px;
+    width: 1280px;
+  }
+  
+  .profile .component-1-32-tkVWbB {
+    background-color: transparent;
+    cursor: pointer;
+    height: 17px;
+    left: 1138px;
+    pointer-events: auto;
+    position: absolute;
+    top: 24px;
+    transition: all 0.2s ease;
+    width: 43px;
+  }
+  
+  .profile .component-1-32-tkVWbB:hover {
+    transform: scale(1.1);
+  }
+  
+  .profile .log-in-VxZX8Q {
+    background-color: transparent;
+    height: calc(100.00% + 2px);
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: 15px;
+    position: absolute;
+    text-align: left;
+    top: 1px;
+    white-space: nowrap;
+    width: calc(100.00% + 2px);
+  }
+  
+  .profile .cuny-zero-tkVWbB {
+    background-color: transparent;
+    height: auto;
+    left: 24px;
+    letter-spacing: 0.00px;
+    line-height: 27px;
+    position: absolute;
+    text-align: left;
+    top: 16px;
+    white-space: nowrap;
+    width: auto;
+  }
+  
+  .profile .copyright-c-202-ity-of-new-york-tkVWbB {
+    background-color: transparent;
+    height: auto;
+    left: 8px;
+    letter-spacing: 0.00px;
+    line-height: 16px;
+    position: absolute;
+    text-align: left;
+    top: 776px;
+    white-space: nowrap;
+    width: auto;
+  }
+  
+  .profile .text-field-fill-leading-custom-tkVWbB {
+    background-color: transparent;
+    border-radius: 13px;
+    height: 59px;
+    left: 536px;
+    position: absolute;
+    top: 0px;
+    width: 207px;
+  }
+  
+  .profile .component-1-33-tkVWbB {
+    background-color: transparent;
+    cursor: pointer;
+    height: 21px;
+    left: 193px;
+    pointer-events: auto;
+    position: absolute;
+    top: 19px;
+    transition: all 0.2s ease;
+    width: 48px;
+  }
+  
+  .profile .component-1-33-tkVWbB:hover {
+    transform: scale(1.1);
+  }
+  
+  .profile .home-yLxSmr {
+    background-color: transparent;
+    height: calc(100.00% + 2px);
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: 18px;
+    position: absolute;
+    text-align: left;
+    top: 2px;
+    white-space: nowrap;
+    width: calc(100.00% + 2px);
+  }
+  
+  .profile .component-1-34-tkVWbB {
+    background-color: transparent;
+    cursor: pointer;
+    height: 17px;
+    left: 259px;
+    pointer-events: auto;
+    position: absolute;
+    top: 22px;
+    transition: all 0.2s ease;
+    width: 40px;
+  }
+  
+  .profile .component-1-34-tkVWbB:hover {
+    transform: scale(1.1);
+  }
+  
+  .profile .about-qNSEA6 {
+    background-color: transparent;
+    height: calc(100.00% + 2px);
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: 15px;
+    position: absolute;
+    text-align: left;
+    top: 1px;
+    white-space: nowrap;
+    width: calc(100.00% + 2px);
+  }
+  
+  .profile .component-1-35-tkVWbB {
+    background-color: transparent;
+    cursor: pointer;
+    height: 17px;
+    left: 320px;
+    pointer-events: auto;
+    position: absolute;
+    top: 22px;
+    transition: all 0.2s ease;
+    width: 51px;
+  }
+  
+  .profile .component-1-35-tkVWbB:hover {
+    transform: scale(1.1);
+  }
+  
+  .profile .contact-Te3riY {
+    background-color: transparent;
+    height: calc(100.00% + 2px);
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: 15px;
+    position: absolute;
+    text-align: left;
+    top: 1px;
+    white-space: nowrap;
+    width: calc(100.00% + 2px);
+  }
+  
+  .profile .city-university-graduate-school-tkVWbB {
+    background-color: transparent;
+    height: auto;
+    left: 24px;
+    letter-spacing: 0.00px;
+    line-height: 36px;
+    position: absolute;
+    text-align: left;
+    top: 83px;
+    white-space: nowrap;
+    width: auto;
+  }
+  
+  .profile .rectangle-2-tkVWbB {
+    background-color: var(--white);
+    height: 36px;
+    left: 1131px;
+    position: absolute;
+    top: 729px;
+    width: 149px;
+  }
+  
+  .profile .icon-awesome-facebook-tkVWbB {
+    background-color: transparent;
+    cursor: pointer;
+    height: 23px;
+    left: 1146px;
+    object-fit: cover;
+    pointer-events: auto;
+    position: absolute;
+    top: 738px;
+    transition: all 0.2s ease;
+    width: 25px;
+  }
+  
+  .profile .icon-awesome-facebook-tkVWbB:hover {
+    transform: scale(0.9); 
+  }
+  
+  .profile .icon-awesome-instagram-tkVWbB {
+    background-color: transparent;
+    cursor: pointer;
+    height: 26px;
+    left: 1176px;
+    object-fit: cover;
+    pointer-events: auto;
+    position: absolute;
+    top: 736px;
+    transition: all 0.2s ease;
+    width: 24px;
+  }
+  
+  .profile .icon-awesome-instagram-tkVWbB:hover {
+    transform: scale(0.9); 
+  }
+  
+  .profile .icon-awesome-linkedin-in-tkVWbB {
+    background-color: transparent;
+    cursor: pointer;
+    height: 22px;
+    left: 1205px;
+    object-fit: cover;
+    pointer-events: auto;
+    position: absolute;
+    top: 738px;
+    transition: all 0.2s ease;
+    width: 24px;
+  }
+  
+  .profile .icon-awesome-linkedin-in-tkVWbB:hover {
+    transform: scale(0.9); 
+  }
+  
+  .profile .icon-awesome-twitter-tkVWbB {
+    background-color: transparent;
+    cursor: pointer;
+    height: 19px;
+    left: 1235px;
+    object-fit: cover;
+    pointer-events: auto;
+    position: absolute;
+    top: 740px;
+    transition: all 0.2s ease;
+    width: 24px;
+  }
+  
+  .profile .icon-awesome-twitter-tkVWbB:hover {
+    transform: scale(0.9); 
+  }
+  
+  .profile .the-city-colleg-031p-2126507000-tkVWbB {
+    background-color: transparent;
+    height: auto;
+    left: 493px;
+    letter-spacing: 0.00px;
+    line-height: 15px;
+    position: absolute;
+    text-align: left;
+    top: 715px;
+    white-space: nowrap;
+    width: auto;
+  }
+  
+  .profile .ccnylogo-tkVWbB {
+    background-color: transparent;
+    height: 58px;
+    left: 430px;
+    object-fit: cover;
+    position: absolute;
+    top: 709px;
+    width: 58px;
+  }
+  
+  .profile .the-city-college-of-new-york-tkVWbB {
+    background-color: transparent;
+    height: auto;
+    left: 913px;
+    letter-spacing: 0.00px;
+    line-height: 37px;
+    position: absolute;
+    text-align: center;
+    top: 80px;
+    white-space: nowrap;
+    width: auto;
+  }
+  
+  .profile .city-college-np-ush-left-city1-tkVWbB {
+    background-color: transparent;
+    height: 95px;
+    left: 805px;
+    object-fit: cover;
+    position: absolute;
+    top: 65px;
+    width: 95px;
+  }
+  
+  .profile .rectangle-54-tkVWbB {
+    background-color: var(--indigo);
+    border-radius: 13px;
+    height: 270px;
+    left: 1094px;
+    position: absolute;
+    top: 301px;
+    width: 161px;
+  }
+  
+  .profile .enroll-tkVWbB {
+    background-color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 1105px;
+    letter-spacing: 0.00px;
+    line-height: 30px;
+    pointer-events: auto;
+    position: absolute;
+    text-align: center;
+    top: 318px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    width: auto;
+  }
+  
+  .profile .enroll-tkVWbB:hover {
+    color: #F55353
+  }
+  
+  .profile .searchfor-classes-tkVWbB {
+    background-color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 1105px;
+    letter-spacing: 0.00px;
+    line-height: 30px;
+    pointer-events: auto;
+    position: absolute;
+    text-align: left;
+    top: 356px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    width: auto;
+  }
+  
+  .profile .searchfor-classes-tkVWbB:hover {
+    color: #F55353
+  }
+  
+  .profile .apply-forgraduation-tkVWbB {
+    background-color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 1105px;
+    letter-spacing: 0.00px;
+    line-height: 30px;
+    pointer-events: auto;
+    position: absolute;
+    text-align: left;
+    top: 426px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    width: auto;
+  }
+  
+  .profile .apply-forgraduation-tkVWbB:hover {
+    color: #F55353
+  }
+  
+  .profile .requesttranscript-tkVWbB {
+    background-color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 1105px;
+    letter-spacing: 0.00px;
+    line-height: 30px;
+    pointer-events: auto;
+    position: absolute;
+    text-align: left;
+    top: 492px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    width: auto;
+  }
+  
+  .profile .requesttranscript-tkVWbB:hover {
+    color: #F55353
+  }
+  
+  .profile .rectangle-55-tkVWbB {
+    background-color: var(--gallery);
+    border-radius: 6px;
+    height: 492px;
+    left: 216px;
+    position: absolute;
+    top: 203px;
+    width: 867px;
+  }
+  
+  .profile .rectangle-56-tkVWbB {
+    background-color: var(--gallery);
+    height: 328px;
+    left: 24px;
+    position: absolute;
+    top: 367px;
+    width: 169px;
+  }
+  
+  .profile .ellipse-2-tkVWbB {
+    background-color: var(--gallery);
+    border-radius: 81.5px/78px;
+    height: 156px;
+    left: 24px;
+    position: absolute;
+    top: 195px;
+    width: 163px;
+  }
+  
+  .profile .component-1-38-tkVWbB {
+    background-color: transparent;
+    cursor: pointer;
+    height: 17px;
+    left: 1201px;
+    pointer-events: auto;
+    position: absolute;
+    top: 23px;
+    transition: all 0.2s ease;
+    width: 50px;
+  }
+  
+  .profile .component-1-38-tkVWbB:hover {
+    transform: scale(1.1);
+  }
+  
+  .profile .register-KOvS3e {
+    background-color: transparent;
+    height: calc(100.00% + 1px);
+    left: 0px;
+    object-fit: cover;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+  }
+  
+  .text-field-fill-leading-custom-tkVWbB .mdc-text-field {
+    --mdc-theme-primary: #FFFFFF;
+  }
+  
+  .text-field-fill-leading-custom-tkVWbB .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+    color: #6200ee;
+  }
+  
