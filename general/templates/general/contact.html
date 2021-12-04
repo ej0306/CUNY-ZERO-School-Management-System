@@ -1,283 +1,274 @@
 <!DOCTYPE html>
 <html>
   <head>
-    {% load static %}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1280, maximum-scale=1.0" />
     <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
     <meta name="og:type" content="website" />
     <meta name="twitter:card" content="photo" />
     <link rel="stylesheet" type="text/css" href="css/contact.css" />
-    <script src="{% static 'js/contact.js' %}"></script>
+    <script src="js/contact.js"></script>
     <link
       href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
       rel="stylesheet"
     />
-    <script src="{% static 'js/contact.js' %}"></script>
+    <script src="js/contact.js"></script>
     <link
       href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="css/styleguide.css" />
     <link rel="stylesheet" type="text/css" href="css/globals.css" />
-
-  
-    <link rel="stylesheet" href="{% static 'contact.css' %}">
-    <link rel="stylesheet" href="{% static 'styleguide.css' %}">
-    <link rel="stylesheet" href="{% static 'globals.css' %}">
   </head>
   <body style="margin: 0; background: #ffffff">
     <input type="hidden" id="anPageName" name="page" value="contact" />
     <div class="container-center-horizontal">
       <div class="contact screen">
-        <div class="rectangle-1-DhmS6L"></div>
-        <img class="line-1-DhmS6L" src="{% static 'img/line-1-1@1x.png' %}" />
-        <img class="line-2-DhmS6L" src="{% static 'img/line-2-1@1x.png' %}" />
-        <div class="cuny-zero-DhmS6L gillsans-regular-normal-baby-powder-27px">CUNY Zero</div>
-        <p class="copyright-c-202-ity-of-new-york-DhmS6L gillsans-regular-normal-midnight-moss-16px">
-          Copyright (c) 2021 | City University of New York
-        </p>
-        <div class="text-field-fill-leading-custom-DhmS6L">
-          <label class="mdc-text-field mdc-text-field--filled mdc-text-field--with-leading-icon">
-            <span class="mdc-text-field__ripple"></span> <span class="mdc-floating-label" id="my-label-id">Search</span>
-            <i class="material-icons mdc-text-field__icon mdc-text-field__icon--leading" tabindex="0" role="button"
-              >search</i
-            >
-            <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id" />
-            <span class="mdc-line-ripple"></span>
-          </label>
-          <script>
-            new mdc.textField.MDCTextField(document.querySelector(".text-field-fill-leading-custom-DhmS6L .mdc-text-field"));
-          </script>
-        </div>
-        <a href="{% url 'home'%}">
-          <div class="component-1-14-DhmS6L smart-layers-pointers">
-            <div class="home-xefHPZ gillsans-regular-normal-baby-powder-18px">Home</div>
-          </div></a
-        ><a href="about.html">
-          <div class="component-1-15-DhmS6L smart-layers-pointers">
-            <div class="about-x9n0du gillsans-regular-normal-baby-powder-15px">About</div>
-          </div></a
-        ><a href="{% url 'contact'%}">
-          <div class="component-1-16-DhmS6L smart-layers-pointers">
-            <div class="contact-hQ7fov gillsans-regular-normal-baby-powder-15px">Contact</div>
-          </div></a
-        >
-        <div class="city-university-graduate-school-DhmS6L gillsans-regular-normal-black-36px">
-          City University of New York<br />Graduate School
-        </div>
-        <img class="line-3-DhmS6L" src="{% static 'img/line-2-1@1x.png' %}" />
-        <div class="widget-wrapper-DhmS6L">
-          <img class="cuny-a49esQ" src="{% static 'img/cuny-1@1x.png' %}" />
-          <script>
-            window.addEventListener("load", function () {
-              var image = document.querySelectorAll(".cuny-a49esQ");
-              new simpleParallax(image, {
-                orientation: "left",
-                scale: 1.2,
-                overflow: false,
-                delay: 0.4,
-                transition: "none",
-              });
-            });
-          </script>
-        </div>
-        <a href="https://#">
-          <div class="group-10-DhmS6L smart-layers-pointers">
-            <a href="https://#" onclick="window.event.stopPropagation()">
-              <div class="rectangle-47-OYANfN smart-layers-pointers"></div
-            ></a>
-            <div class="component-1-17-OYANfN">
-              <div class="enroll-AOxihW gillsans-regular-normal-white-22px">Enroll</div>
+        <div class="group-container">
+          <div class="overlap-group8">
+            <div class="overlap-group3">
+              <div class="rectangle-1"></div>
+              <div class="cuny-zero gillsansmt-regular-normal-baby-powder-27px">CUNY Zero</div>
+              <div class="text-field-fill-leading-custom">
+                <label class="mdc-text-field mdc-text-field--filled mdc-text-field--with-leading-icon">
+                  <span class="mdc-text-field__ripple"></span>
+                  <span class="mdc-floating-label" id="my-label-id">Search</span>
+                  <i
+                    class="material-icons mdc-text-field__icon mdc-text-field__icon--leading"
+                    tabindex="0"
+                    role="button"
+                    >search</i
+                  >
+                  <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id" />
+                  <span class="mdc-line-ripple"></span>
+                </label>
+                <script>
+                  new mdc.textField.MDCTextField(document.querySelector(".text-field-fill-leading-custom .mdc-text-field"));
+                </script>
+              </div>
+              <a href="https://#">
+                <div class="component-1-14 smart-layers-pointers">
+                  <div class="place gillsansmt-regular-normal-baby-powder-18px">Home</div>
+                </div></a
+              ><a href="https://#">
+                <div class="component-1-15 smart-layers-pointers">
+                  <div class="about gillsansmt-regular-normal-baby-powder-15px">About</div>
+                </div></a
+              ><a href="https://#">
+                <div class="component-1-16 smart-layers-pointers">
+                  <div class="place-1 gillsansmt-regular-normal-baby-powder-15px">Contact</div>
+                </div></a
+              ><img class="city-college-np-ush-left-city1" src="img/citycollegenp-flushleftcity-1-2@1x.png" />
+              <a href="https://#">
+                <div class="component-1-22 smart-layers-pointers">
+                  <div class="log-in gillsansmt-regular-normal-baby-powder-15px">Log in</div>
+                </div></a
+              ><a href="https://#"> <div class="component-1-36 smart-layers-pointers"></div></a>
             </div>
-          </div></a
-        ><a href="https://#">
-          <div class="group-8-DhmS6L smart-layers-pointers">
-            <div class="rectangle-48-lU8hRu"></div>
-            <a href="https://" onclick="window.event.stopPropagation()">
-              <div class="component-1-18-lU8hRu">
-                <div class="apply-for-graduation-Q9SAwZ gillsans-regular-normal-white-22px">Apply for Graduation</div>
-              </div></a
-            >
-          </div></a
-        >
-        <div class="rectangle-2-DhmS6L"></div>
-        <a href="https://facebook.com"
-          ><img
-            class="icon-awesome-facebook-DhmS6L smart-layers-pointers"
-            src="{% static 'img/icon-awesome-facebook-1@1x.png' %}"
-          /> </a
-        ><a href="https://instagram.com"
-          ><img
-            class="icon-awesome-instagram-DhmS6L smart-layers-pointers"
-            src="{% static 'img/icon-awesome-instagram-1@1x.png' %}"
-          /> </a
-        ><a href="https://linkedin.com"
-          ><img
-            class="icon-awesome-linkedin-in-DhmS6L smart-layers-pointers"
-            src="{% static 'img/icon-awesome-linkedin-in-1@1x.png' %}"
-          /> </a
-        ><a href="https://twitter.com"
-          ><img class="icon-awesome-twitter-DhmS6L smart-layers-pointers" src="{% static 'img/icon-awesome-twitter-1@1x.png' %}" />
-        </a>
-        <div class="rectangle-3-DhmS6L"></div>
-        <div class="group-1-DhmS6L">
-          <div class="rectangle-4-ZOkL7e"></div>
-          <div class="november-2021-ZOkL7e">December 2021</div>
-          <img class="path-1-ZOkL7e" src="{% static 'img/path-1-1@1x.png' %}" />
-          <img class="path-2-ZOkL7e" src="{% static 'img/path-2-1@1x.png' %}" />
-          <div class="rectangle-5-ZOkL7e"></div>
-          <div class="m-ZOkL7e arial-regular-normal-black-9px">W</div>
-          <div class="rectangle-6-ZOkL7e"></div>
-          <div class="t-ZOkL7e arial-regular-normal-black-9px">T</div>
-          <div class="rectangle-7-ZOkL7e"></div>
-          <div class="w-ZOkL7e arial-regular-normal-black-9px">F</div>
-          <div class="rectangle-8-ZOkL7e"></div>
-          <div class="t-yekb8y arial-regular-normal-black-9px">S</div>
-          <div class="rectangle-9-ZOkL7e"></div>
-          <div class="f-ZOkL7e arial-regular-normal-black-9px">S</div>
-          <div class="rectangle-10-ZOkL7e"></div>
-          <div class="s-ZOkL7e arial-regular-normal-black-9px">M</div>
-          <div class="rectangle-11-ZOkL7e"></div>
-          <div class="s-yekb8y arial-regular-normal-black-9px">T</div>
-          <div class="rectangle-12-ZOkL7e"></div>
-          <div class="x1-ZOkL7e arial-regular-normal-black-10px">1</div>
-          <div class="rectangle-13-ZOkL7e"></div>
-          <div class="x2-ZOkL7e arial-regular-normal-black-10px">2</div>
-          <div class="rectangle-14-ZOkL7e"></div>
-          <div class="x3-ZOkL7e arial-regular-normal-black-10px">3</div>
-          <div class="rectangle-15-ZOkL7e"></div>
-          <div class="x4-ZOkL7e arial-regular-normal-black-10px">4</div>
-          <div class="rectangle-16-ZOkL7e"></div>
-          <div class="x5-ZOkL7e arial-regular-normal-black-10px">5</div>
-          <div class="rectangle-17-ZOkL7e"></div>
-          <div class="x6-ZOkL7e arial-regular-normal-black-10px">6</div>
-          <div class="rectangle-18-ZOkL7e"></div>
-          <div class="x7-ZOkL7e arial-regular-normal-black-10px">7</div>
-          <div class="rectangle-19-ZOkL7e"></div>
-          <div class="x8-ZOkL7e arial-regular-normal-black-10px">8</div>
-          <div class="rectangle-20-ZOkL7e"></div>
-          <div class="x9-ZOkL7e arial-regular-normal-black-10px">9</div>
-          <div class="rectangle-21-ZOkL7e"></div>
-          <div class="x10-ZOkL7e arial-regular-normal-black-10px">10</div>
-          <div class="rectangle-22-ZOkL7e"></div>
-          <div class="x11-ZOkL7e arial-regular-normal-black-10px">11</div>
-          <div class="rectangle-23-ZOkL7e"></div>
-          <div class="x12-ZOkL7e arial-regular-normal-black-10px">12</div>
-          <div class="rectangle-24-ZOkL7e"></div>
-          <div class="x13-ZOkL7e arial-regular-normal-black-10px">13</div>
-          <div class="rectangle-25-ZOkL7e"></div>
-          <div class="x14-ZOkL7e arial-regular-normal-black-10px">14</div>
-          <div class="rectangle-26-ZOkL7e"></div>
-          <div class="x15-ZOkL7e arial-regular-normal-black-10px">15</div>
-          <div class="rectangle-27-ZOkL7e"></div>
-          <div class="x16-ZOkL7e arial-regular-normal-black-10px">16</div>
-          <div class="rectangle-28-ZOkL7e"></div>
-          <div class="x17-ZOkL7e arial-regular-normal-black-10px">17</div>
-          <div class="rectangle-29-ZOkL7e"></div>
-          <div class="x18-ZOkL7e arial-regular-normal-black-10px">18</div>
-          <div class="rectangle-30-ZOkL7e"></div>
-          <div class="x19-ZOkL7e arial-regular-normal-black-10px">19</div>
-          <div class="rectangle-31-ZOkL7e"></div>
-          <div class="x20-ZOkL7e arial-regular-normal-black-10px">20</div>
-          <div class="rectangle-32-ZOkL7e"></div>
-          <div class="x21-ZOkL7e arial-regular-normal-black-10px">21</div>
-          <div class="rectangle-33-ZOkL7e"></div>
-          <div class="x22-ZOkL7e arial-regular-normal-black-10px">22</div>
-          <div class="rectangle-34-ZOkL7e"></div>
-          <div class="x23-ZOkL7e arial-regular-normal-black-10px">23</div>
-          <div class="rectangle-35-ZOkL7e"></div>
-          <div class="x24-ZOkL7e arial-regular-normal-black-10px">24</div>
-          <div class="rectangle-36-ZOkL7e"></div>
-          <div class="x25-ZOkL7e arial-regular-normal-black-10px">25</div>
-          <div class="rectangle-37-ZOkL7e"></div>
-          <div class="x26-ZOkL7e arial-regular-normal-black-10px">26</div>
-          <div class="rectangle-38-ZOkL7e"></div>
-          <div class="x27-ZOkL7e arial-regular-normal-black-10px">27</div>
-          <div class="rectangle-39-ZOkL7e"></div>
-          <div class="x28-ZOkL7e arial-regular-normal-black-10px">28</div>
-          <div class="rectangle-40-ZOkL7e"></div>
-          <div class="x29-ZOkL7e arial-regular-normal-black-10px">29</div>
-          <div class="rectangle-41-ZOkL7e"></div>
-          <div class="x30-ZOkL7e arial-regular-normal-black-10px">30</div>
-          <div class="rectangle-42-ZOkL7e"></div>
-          <div class="x1-yekb8y arial-regular-normal-shady-lady-10px">1</div>
-          <div class="rectangle-43-ZOkL7e"></div>
-          <div class="x2-yekb8y arial-regular-normal-shady-lady-10px">2</div>
-          <div class="rectangle-44-ZOkL7e"></div>
-          <div class="x3-yekb8y arial-regular-normal-shady-lady-10px">3</div>
-          <div class="rectangle-45-ZOkL7e"></div>
-          <div class="x4-yekb8y arial-regular-normal-shady-lady-10px">4</div>
-          <div class="rectangle-46-ZOkL7e"></div>
-          <div class="x5-yekb8y arial-regular-normal-shady-lady-10px">5</div>
-        </div>
-        <a href="https://#">
-          <div class="group-5-DhmS6L smart-layers-pointers">
-            <div class="rectangle-50-HEa3Ua"></div>
-            <a href="https://" onclick="window.event.stopPropagation()"
-              ><div class="honors-HEa3Ua gillsans-regular-normal-black-15px">Honors</div>
-            </a>
-          </div></a
-        ><a href="https://#">
-          <div class="group-7-DhmS6L smart-layers-pointers">
-            <div class="group-4-LT8xmI">
-              <div class="rectangle-52-6Tyxo1"></div>
+            <div class="text-11 gillsansmt-regular-normal-black-36px">
+              City University of New York<br />Graduate School
             </div>
-            <a href="https://" onclick="window.event.stopPropagation()"
-              ><div class="report-LT8xmI gillsans-regular-normal-black-15px">Report</div>
-            </a>
-          </div></a
-        >
-        <div class="group-6-DhmS6L">
+            <div class="text-13 gillsansmt-regular-normal-black-37px">The City College of New York</div>
+          </div>
           <a href="https://#">
-            <div class="group-11-t6cEJY smart-layers-pointers">
-              <a href="https://#" onclick="window.event.stopPropagation()">
-                <div class="rectangle-51-53ZEHj smart-layers-pointers"></div
-              ></a>
-              <div class="reviews-53ZEHj gillsans-regular-normal-black-15px">Reviews</div>
+            <div class="group-10 smart-layers-pointers">
+              <div class="overlap-group">
+                <a href="https://#" onclick="window.event.stopPropagation()">
+                  <div class="rectangle-47 smart-layers-pointers"></div
+                ></a>
+                <div class="component-1-17"><div class="enroll gillsansmt-regular-normal-white-22px">Enroll</div></div>
+              </div>
+            </div></a
+          ><a href="https://#">
+            <div class="group-8 smart-layers-pointers">
+              <a href="https://" onclick="window.event.stopPropagation()">
+                <div class="component-1-18">
+                  <div class="text-12 gillsansmt-regular-normal-white-22px">Apply for Graduation</div>
+                </div></a
+              >
+            </div></a
+          ><a href="https://#">
+            <div class="group-9 smart-layers-pointers">
+              <a href="https://" onclick="window.event.stopPropagation()">
+                <div class="component-1-20">
+                  <div class="search-for-classes gillsansmt-regular-normal-white-21px">Search for Classes</div>
+                </div></a
+              >
+            </div></a
+          ><a href="https://#">
+            <div class="group-12 smart-layers-pointers">
+              <a href="https://" onclick="window.event.stopPropagation()">
+                <div class="component-1-21">
+                  <div class="request-transcript gillsansmt-regular-normal-white-22px">Request Transcript</div>
+                </div></a
+              >
             </div></a
           >
         </div>
-        <a href="https://#">
-          <div class="group-9-DhmS6L smart-layers-pointers">
-            <div class="rectangle-48-AAE750"></div>
-            <a href="{% url 'searchclasses'%}" onclick="window.event.stopPropagation()">
-              <div class="component-1-20-AAE750">
-                <div class="search-for-classes-3Z2hPs gillsans-regular-normal-white-21px">Search for Classes</div>
-              </div></a
-            >
-          </div></a
-        >
-        <p class="the-city-colleg-031p-2126507000-DhmS6L gillsans-regular-normal-black-15px-2">
-          The City College of New York <br />160 Convent Avenue New York, NY 10031<br />p: 212.650.7000
+        <div class="overlap-group6">
+          <img class="line-1" src="img/line-1-1@1x.png" />
+          <img class="line-3" src="img/line-2-1@1x.png" />
+          <div class="widget-wrapper">
+            <img class="cuny" src="img/cuny-1@1x.png" />
+            <script>
+              window.addEventListener("load", function () {
+                var image = document.querySelectorAll(".cuny");
+                new simpleParallax(image, {
+                  orientation: "left",
+                  scale: 1.2,
+                  overflow: false,
+                  delay: 0.4,
+                  transition: "none",
+                });
+              });
+            </script>
+          </div>
+        </div>
+        <div class="overlap-group7">
+          <div class="overlap-group5">
+            <img class="line-2" src="img/line-2-1@1x.png" />
+            <p class="address gillsansmt-regular-normal-black-15px">
+              The City College of New York <br />160 Convent Avenue New York, NY 10031<br />p: 212.650.7000
+            </p>
+          </div>
+          <div class="icon-awesome-container">
+            <a href="https://facebook.com"
+              ><img class="icon-awesome-facebook smart-layers-pointers" src="img/icon-awesome-facebook-1@1x.png" /> </a
+            ><a href="https://instagram.com"
+              ><img
+                class="icon-awesome-instagram smart-layers-pointers"
+                src="img/icon-awesome-instagram-1@1x.png"
+              /> </a
+            ><a href="https://linkedin.com"
+              ><img
+                class="icon-awesome-linkedin-in smart-layers-pointers"
+                src="img/icon-awesome-linkedin-in-1@1x.png"
+              /> </a
+            ><a href="https://twitter.com"
+              ><img class="icon-awesome-twitter smart-layers-pointers" src="img/icon-awesome-twitter-1@1x.png" />
+            </a>
+          </div>
+          <img class="ccnylogo" src="img/ccnylogo-1@1x.png" />
+        </div>
+        <p class="text-10 gillsansmt-regular-normal-midnight-moss-16px">
+          Copyright (c) 2021 | City University of New York
         </p>
-        <img class="ccnylogo-DhmS6L" src="{% static 'img/ccnylogo-1@1x.png' %}" />
-        <div class="the-city-college-of-new-york-DhmS6L gillsans-regular-normal-black-37px">
-          The City College of New York
+        <div class="group-container-1">
+          <div class="overlap-group1">
+            <div class="rectangle-4"></div>
+            <div class="november-2021">November 2021</div>
+            <img class="path-1" src="img/path-1-1@1x.png" />
+            <img class="path-2" src="img/path-2-1@1x.png" />
+            <div class="rectangle-5"></div>
+            <div class="m arial-regular-normal-black-9px">M</div>
+            <div class="rectangle-6"></div>
+            <div class="t arial-regular-normal-black-9px">T</div>
+            <div class="rectangle-7"></div>
+            <div class="w arial-regular-normal-black-9px">W</div>
+            <div class="rectangle-8"></div>
+            <div class="t-1 arial-regular-normal-black-9px">T</div>
+            <div class="rectangle-9"></div>
+            <div class="f arial-regular-normal-black-9px">F</div>
+            <div class="rectangle-10"></div>
+            <div class="price arial-regular-normal-black-9px">S</div>
+            <div class="rectangle-11"></div>
+            <div class="price-1 arial-regular-normal-black-9px">S</div>
+            <div class="rectangle-12"></div>
+            <div class="number arial-regular-normal-black-10px">1</div>
+            <div class="rectangle-13"></div>
+            <div class="number-1 arial-regular-normal-black-10px">2</div>
+            <div class="rectangle-14"></div>
+            <div class="number-2 arial-regular-normal-black-10px">3</div>
+            <div class="rectangle-15"></div>
+            <div class="number-3 arial-regular-normal-black-10px">4</div>
+            <div class="rectangle-16"></div>
+            <div class="number-4 arial-regular-normal-black-10px">5</div>
+            <div class="rectangle-17"></div>
+            <div class="number-5 arial-regular-normal-black-10px">6</div>
+            <div class="rectangle-18"></div>
+            <div class="number-6 arial-regular-normal-black-10px">7</div>
+            <div class="rectangle-19"></div>
+            <div class="number-7 arial-regular-normal-black-10px">8</div>
+            <div class="rectangle-20"></div>
+            <div class="number-8 arial-regular-normal-black-10px">9</div>
+            <div class="rectangle-21"></div>
+            <div class="number-9 arial-regular-normal-black-10px">10</div>
+            <div class="rectangle-22"></div>
+            <div class="number-10 arial-regular-normal-black-10px">11</div>
+            <div class="rectangle-23"></div>
+            <div class="number-11 arial-regular-normal-black-10px">12</div>
+            <div class="rectangle-24"></div>
+            <div class="number-12 arial-regular-normal-black-10px">13</div>
+            <div class="rectangle-25"></div>
+            <div class="number-13 arial-regular-normal-black-10px">14</div>
+            <div class="rectangle-26"></div>
+            <div class="number-14 arial-regular-normal-black-10px">15</div>
+            <div class="rectangle-27"></div>
+            <div class="number-15 arial-regular-normal-black-10px">16</div>
+            <div class="rectangle-28"></div>
+            <div class="number-16 arial-regular-normal-black-10px">17</div>
+            <div class="rectangle-29"></div>
+            <div class="number-17 arial-regular-normal-black-10px">18</div>
+            <div class="rectangle-30"></div>
+            <div class="number-18 arial-regular-normal-black-10px">19</div>
+            <div class="rectangle-31"></div>
+            <div class="number-19 arial-regular-normal-black-10px">20</div>
+            <div class="rectangle-32"></div>
+            <div class="number-20 arial-regular-normal-black-10px">21</div>
+            <div class="rectangle-33"></div>
+            <div class="number-21 arial-regular-normal-black-10px">22</div>
+            <div class="rectangle-34"></div>
+            <div class="number-22 arial-regular-normal-black-10px">23</div>
+            <div class="rectangle-35"></div>
+            <div class="number-23 arial-regular-normal-black-10px">24</div>
+            <div class="rectangle-36"></div>
+            <div class="number-24 arial-regular-normal-black-10px">25</div>
+            <div class="rectangle-37"></div>
+            <div class="number-25 arial-regular-normal-black-10px">26</div>
+            <div class="rectangle-38"></div>
+            <div class="number-26 arial-regular-normal-black-10px">27</div>
+            <div class="rectangle-39"></div>
+            <div class="number-27 arial-regular-normal-black-10px">28</div>
+            <div class="rectangle-40"></div>
+            <div class="number-28 arial-regular-normal-black-10px">29</div>
+            <div class="rectangle-41"></div>
+            <div class="number-29 arial-regular-normal-black-10px">30</div>
+            <div class="rectangle-42"></div>
+            <div class="number-30 arial-regular-normal-shady-lady-10px">1</div>
+            <div class="rectangle-43"></div>
+            <div class="number-31 arial-regular-normal-shady-lady-10px">2</div>
+            <div class="rectangle-44"></div>
+            <div class="number-32 arial-regular-normal-shady-lady-10px">3</div>
+            <div class="rectangle-45"></div>
+            <div class="number-33 arial-regular-normal-shady-lady-10px">4</div>
+            <div class="rectangle-46"></div>
+            <div class="number-34 arial-regular-normal-shady-lady-10px">5</div>
+          </div>
+          <a href="https://#">
+            <div class="group-5 smart-layers-pointers">
+              <a href="https://" onclick="window.event.stopPropagation()"
+                ><div class="honors gillsansmt-regular-normal-black-15px-2">Honors</div>
+              </a>
+            </div></a
+          ><a href="https://#">
+            <div class="group-7 smart-layers-pointers">
+              <a href="https://" onclick="window.event.stopPropagation()"
+                ><div class="report gillsansmt-regular-normal-black-15px-2">Report</div>
+              </a>
+            </div></a
+          ><a href="https://#">
+            <div class="group-11 smart-layers-pointers">
+              <div class="overlap-group-1">
+                <a href="https://#" onclick="window.event.stopPropagation()">
+                  <div class="rectangle-51 smart-layers-pointers"></div
+                ></a>
+                <div class="reviews gillsansmt-regular-normal-black-15px-2">Reviews</div>
+              </div>
+            </div></a
+          >
         </div>
-        <img class="city-college-np-ush-left-city1-DhmS6L" src="{% static 'img/citycollegenp-flushleftcity-1-2@1x.png' %}" />
-        <a href="https://#">
-          <div class="group-12-DhmS6L smart-layers-pointers">
-            <div class="rectangle-48-8rjr5U"></div>
-            <a href="https://" onclick="window.event.stopPropagation()">
-              <div class="component-1-21-8rjr5U">
-                <div class="request-transcript-aoxEw7 gillsans-regular-normal-white-22px">Request Transcript</div>
-              </div></a
-            >
-          </div></a
-        ><a href="{% url 'login'%}">
-          <div class="component-1-22-DhmS6L smart-layers-pointers">
-            <div class="log-in-WpQw3s gillsans-regular-normal-baby-powder-15px">Log in</div>
-          </div></a
-        >
-        <div class="contact-usfor-m-lp-ask-anything-DhmS6L">
-          Contact Us.<br />For more information.<br />Need help? Ask anything.
-        </div>
-        <div class="rectangle-53-DhmS6L"></div>
-        <a href="{% url 'register'%}">
-          <div class="component-1-36-DhmS6L smart-layers-pointers">
-            <img class="register-Alzx3H" src="{% static 'img/register-1@1x.png' %}" /></div
-        ></a>
+        <div class="text-14">Contact Us.<br />For more information.<br />Need help? Ask anything.</div>
+        <div class="rectangle-53"></div>
       </div>
     </div>
   </body>

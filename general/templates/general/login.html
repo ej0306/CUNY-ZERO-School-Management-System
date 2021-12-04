@@ -1,161 +1,160 @@
 <!DOCTYPE html>
 <html>
   <head>
-
-    {% load static %}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1280, maximum-scale=1.0" />
     <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
     <meta name="og:type" content="website" />
     <meta name="twitter:card" content="photo" />
     <link rel="stylesheet" type="text/css" href="css/login.css" />
-    <script src="{% static 'js/login.js' %}"></script>
+    <script src="js/login.js"></script>
     <link
       href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
       rel="stylesheet"
     />
-    <script src="{% static 'js/login.js' %}"></script>
+    <script src="js/login.js"></script>
     <link
       href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="css/styleguide.css" />
     <link rel="stylesheet" type="text/css" href="css/globals.css" />
-
-    <link rel="stylesheet" href="{% static 'login.css' %}">
-    <link rel="stylesheet" href="{% static 'styleguide.css' %}">
-    <link rel="stylesheet" href="{% static 'globals.css' %}">
   </head>
   <body style="margin: 0; background: #ffffff">
     <input type="hidden" id="anPageName" name="page" value="login" />
     <div class="container-center-horizontal">
       <div class="login screen">
-        <div class="rectangle-1-b8DrbD"></div>
-        <img class="line-1-b8DrbD" src="{% static 'img/line-1-1@1x.png' %}" />
-        <img class="line-2-b8DrbD" src="{% static 'img/line-2-1@1x.png' %}" />
-        <div class="cuny-zero-b8DrbD gillsans-regular-normal-baby-powder-27px">CUNY Zero</div>
-        <p class="copyright-c-202-ity-of-new-york-b8DrbD gillsans-regular-normal-midnight-moss-16px">
+        <div class="group-container">
+          <div class="overlap-group6">
+            <div class="overlap-group4">
+              <div class="rectangle-1"></div>
+              <div class="cuny-zero gillsansmt-regular-normal-baby-powder-27px">CUNY Zero</div>
+              <div class="text-field-fill-leading-custom">
+                <label class="mdc-text-field mdc-text-field--filled mdc-text-field--with-leading-icon">
+                  <span class="mdc-text-field__ripple"></span>
+                  <span class="mdc-floating-label" id="my-label-id">Search</span>
+                  <i
+                    class="material-icons mdc-text-field__icon mdc-text-field__icon--leading"
+                    tabindex="0"
+                    role="button"
+                    >search</i
+                  >
+                  <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id" />
+                  <span class="mdc-line-ripple"></span>
+                </label>
+                <script>
+                  new mdc.textField.MDCTextField(document.querySelector(".text-field-fill-leading-custom .mdc-text-field"));
+                </script>
+              </div>
+              <a href="https://#">
+                <div class="component-1-23 smart-layers-pointers">
+                  <div class="place gillsansmt-regular-normal-baby-powder-18px">Home</div>
+                </div></a
+              ><a href="https://#">
+                <div class="component-1-24 smart-layers-pointers">
+                  <div class="about gillsansmt-regular-normal-baby-powder-15px">About</div>
+                </div></a
+              ><a href="contact.html">
+                <div class="component-1-25 smart-layers-pointers">
+                  <div class="place-1 gillsansmt-regular-normal-baby-powder-15px">Contact</div>
+                </div></a
+              >
+              <div class="component-1-28 smart-layers-pointers"></div>
+              <img class="city-college-np-ush-left-city1" src="img/citycollegenp-flushleftcity-1-2@1x.png" />
+              <a href="https://#">
+                <div class="component-1-31 smart-layers-pointers">
+                  <div class="log-in gillsansmt-regular-normal-baby-powder-15px">Log in</div>
+                </div></a
+              ><a href="https://#"> <div class="component-1-37 smart-layers-pointers"></div></a>
+            </div>
+            <div class="text-16 gillsansmt-regular-normal-black-36px">
+              City University of New York<br />Graduate School
+            </div>
+            <div class="text-18 gillsansmt-regular-normal-black-37px">The City College of New York</div>
+          </div>
+          <a href="https://#">
+            <div class="group-10 smart-layers-pointers">
+              <div class="overlap-group">
+                <a href="https://#" onclick="window.event.stopPropagation()">
+                  <div class="rectangle-47 smart-layers-pointers"></div
+                ></a>
+                <div class="component-1-26"><div class="enroll gillsansmt-regular-normal-white-22px">Enroll</div></div>
+              </div>
+            </div></a
+          ><a href="https://#">
+            <div class="group-8 smart-layers-pointers">
+              <a href="https://" onclick="window.event.stopPropagation()">
+                <div class="component-1-27">
+                  <div class="text-17 gillsansmt-regular-normal-white-22px">Apply for Graduation</div>
+                </div></a
+              >
+            </div></a
+          ><a href="https://#">
+            <div class="group-9 smart-layers-pointers">
+              <a href="https://" onclick="window.event.stopPropagation()">
+                <div class="component-1-29">
+                  <div class="search-for-classes gillsansmt-regular-normal-white-21px">Search for Classes</div>
+                </div></a
+              >
+            </div></a
+          ><a href="https://#">
+            <div class="group-12 smart-layers-pointers">
+              <a href="https://" onclick="window.event.stopPropagation()">
+                <div class="component-1-30">
+                  <div class="request-transcript gillsansmt-regular-normal-white-22px">Request Transcript</div>
+                </div></a
+              >
+            </div></a
+          >
+        </div>
+        <div class="overlap-group1">
+          <img class="line-1" src="img/line-1-1@1x.png" />
+          <img class="line-3" src="img/line-2-1@1x.png" />
+          <div class="widget-wrapper">
+            <img class="cuny" src="img/cuny-1@1x.png" />
+            <script>
+              window.addEventListener("load", function () {
+                var image = document.querySelectorAll(".cuny");
+                new simpleParallax(image, {
+                  orientation: "left",
+                  scale: 1.2,
+                  overflow: false,
+                  delay: 0.4,
+                  transition: "none",
+                });
+              });
+            </script>
+          </div>
+        </div>
+        <div class="overlap-group5">
+          <div class="overlap-group3">
+            <img class="line-2" src="img/line-2-1@1x.png" />
+            <p class="address gillsansmt-regular-normal-black-15px">
+              The City College of New York <br />160 Convent Avenue New York, NY 10031<br />p: 212.650.7000
+            </p>
+          </div>
+          <div class="icon-awesome-container">
+            <a href="https://facebook.com"
+              ><img class="icon-awesome-facebook smart-layers-pointers" src="img/icon-awesome-facebook-1@1x.png" /> </a
+            ><a href="https://instagram.com"
+              ><img
+                class="icon-awesome-instagram smart-layers-pointers"
+                src="img/icon-awesome-instagram-1@1x.png"
+              /> </a
+            ><a href="https://linkedin.com"
+              ><img
+                class="icon-awesome-linkedin-in smart-layers-pointers"
+                src="img/icon-awesome-linkedin-in-1@1x.png"
+              /> </a
+            ><a href="https://twitter.com"
+              ><img class="icon-awesome-twitter smart-layers-pointers" src="img/icon-awesome-twitter-1@1x.png" />
+            </a>
+          </div>
+          <img class="ccnylogo" src="img/ccnylogo-1@1x.png" />
+        </div>
+        <p class="text-15 gillsansmt-regular-normal-midnight-moss-16px">
           Copyright (c) 2021 | City University of New York
         </p>
-        <div class="text-field-fill-leading-custom-b8DrbD">
-          <label class="mdc-text-field mdc-text-field--filled mdc-text-field--with-leading-icon">
-            <span class="mdc-text-field__ripple"></span> <span class="mdc-floating-label" id="my-label-id">Search</span>
-            <i class="material-icons mdc-text-field__icon mdc-text-field__icon--leading" tabindex="0" role="button"
-              >search</i
-            >
-            <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id" />
-            <span class="mdc-line-ripple"></span>
-          </label>
-          <script>
-            new mdc.textField.MDCTextField(document.querySelector(".text-field-fill-leading-custom-b8DrbD .mdc-text-field"));
-          </script>
-        </div>
-        <a href="{% url 'home'%}">
-          <div class="component-1-23-b8DrbD smart-layers-pointers">
-            <div class="home-hEA7Lx gillsans-regular-normal-baby-powder-18px">Home</div>
-          </div></a
-        ><a href="about.html">
-          <div class="component-1-24-b8DrbD smart-layers-pointers">
-            <div class="about-emu41z gillsans-regular-normal-baby-powder-15px">About</div>
-          </div></a
-        ><a href="{% url 'contact'%}">
-          <div class="component-1-25-b8DrbD smart-layers-pointers">
-            <div class="contact-GXmMeT gillsans-regular-normal-baby-powder-15px">Contact</div>
-          </div></a
-        >
-        <div class="city-university-graduate-school-b8DrbD gillsans-regular-normal-black-36px">
-          City University of New York<br />Graduate School
-        </div>
-        <img class="line-3-b8DrbD" src="{% static 'img/line-2-1@1x.png' %}" />
-        <div class="widget-wrapper-b8DrbD">
-          <img class="cuny-TQOkgU" src="{% static 'img/cuny-1@1x.png' %}" />
-          <script>
-            window.addEventListener("load", function () {
-              var image = document.querySelectorAll(".cuny-TQOkgU");
-              new simpleParallax(image, {
-                orientation: "left",
-                scale: 1.2,
-                overflow: false,
-                delay: 0.4,
-                transition: "none",
-              });
-            });
-          </script>
-        </div>
-        <a href="https://#">
-          <div class="group-10-b8DrbD smart-layers-pointers">
-            <a href="https://#" onclick="window.event.stopPropagation()">
-              <div class="rectangle-47-AnuSU4 smart-layers-pointers"></div
-            ></a>
-            <div class="component-1-26-AnuSU4">
-              <div class="enroll-CiJQYf gillsans-regular-normal-white-22px">Enroll</div>
-            </div>
-          </div></a
-        ><a href="https://#">
-          <div class="group-8-b8DrbD smart-layers-pointers">
-            <div class="rectangle-48-fvlry8"></div>
-            <a href="https://#" onclick="window.event.stopPropagation()">
-              <div class="component-1-27-fvlry8">
-                <div class="apply-for-graduation-KZx8gV gillsans-regular-normal-white-22px">Apply for Graduation</div>
-              </div></a
-            >
-          </div></a
-        >
-        <div class="rectangle-2-b8DrbD"></div>
-        <a href="https://facebook.com"
-          ><img
-            class="icon-awesome-facebook-b8DrbD smart-layers-pointers"
-            src="{% static 'img/icon-awesome-facebook-1@1x.png'%}"
-          /> </a
-        ><a href="https://instagram.com"
-          ><img
-            class="icon-awesome-instagram-b8DrbD smart-layers-pointers"
-            src="{% static 'img/icon-awesome-instagram-1@1x.png'%}"
-          /> </a
-        ><a href="https://linkedin.com"
-          ><img
-            class="icon-awesome-linkedin-in-b8DrbD smart-layers-pointers"
-            src="{% static 'img/icon-awesome-linkedin-in-1@1x.png'%}"
-          /> </a
-        ><a href="https://twitter.com"
-          ><img class="icon-awesome-twitter-b8DrbD smart-layers-pointers" src="{% static 'img/icon-awesome-twitter-1@1x.png'%}" />
-        </a>
-        <div class="component-1-28-b8DrbD smart-layers-pointers"></div>
-        <a href="https://#">
-          <div class="group-9-b8DrbD smart-layers-pointers">
-            <div class="rectangle-48-pYJsnH"></div>
-            <a href="{% url 'searchclasses'%}" onclick="window.event.stopPropagation()">
-              <div class="component-1-29-pYJsnH">
-                <div class="search-for-classes-PAIU6d gillsans-regular-normal-white-21px">Search for Classes</div>
-              </div></a
-            >
-          </div></a
-        >
-        <p class="the-city-colleg-031p-2126507000-b8DrbD gillsans-regular-normal-black-15px-2">
-          The City College of New York <br />160 Convent Avenue New York, NY 10031<br />p: 212.650.7000
-        </p>
-        <img class="ccnylogo-b8DrbD" src="{% static 'img/ccnylogo-1@1x.png' %}" />
-        <div class="the-city-college-of-new-york-b8DrbD gillsans-regular-normal-black-37px">
-          The City College of New York
-        </div>
-        <img class="city-college-np-ush-left-city1-b8DrbD" src="{% static 'img/citycollegenp-flushleftcity-1-2@1x.png' %}" />
-        <a href="https://#">
-          <div class="group-12-b8DrbD smart-layers-pointers">
-            <div class="rectangle-48-rPKOnP"></div>
-            <a href="https://#" onclick="window.event.stopPropagation()">
-              <div class="component-1-30-rPKOnP">
-                <div class="request-transcript-RbQQgW gillsans-regular-normal-white-22px">Request Transcript</div>
-              </div></a
-            >
-          </div></a
-        ><a href="{% url 'login'%}">
-          <div class="component-1-31-b8DrbD smart-layers-pointers">
-            <div class="log-in-6Y06AL gillsans-regular-normal-baby-powder-15px">Log in</div>
-          </div></a
-        ><a href="{% url 'register'%}">
-          <div class="component-1-37-b8DrbD smart-layers-pointers">
-            <img class="register-KJxxHA" src="{% static 'img/register-1@1x.png' %}" /></div
-        ></a>
       </div>
     </div>
   </body>

@@ -1,1755 +1,1497 @@
 /* screen - contact */
 
 .contact {
-    background-color: var(--white);
-    height: 800px;
-    overflow: hidden;
-    overflow-x: hidden;
-    position: relative;
-    width: 1280px;
-  }
-  
-  .contact .rectangle-1-DhmS6L {
-    background-color: var(--indigo);
-    height: 57px;
-    left: 0px;
-    position: absolute;
-    top: 0px;
-    width: 1280px;
-  }
-  
-  .contact .line-1-DhmS6L {
-    background-color: transparent;
-    height: 3px;
-    left: 0px;
-    object-fit: cover;
-    position: absolute;
-    top: 183px;
-    width: 1280px;
-  }
-  
-  .contact .line-2-DhmS6L {
-    background-color: transparent;
-    height: 2px;
-    left: 0px;
-    object-fit: cover;
-    position: absolute;
-    top: 768px;
-    width: 1280px;
-  }
-  
-  .contact .cuny-zero-DhmS6L {
-    background-color: transparent;
-    height: auto;
-    left: 24px;
-    letter-spacing: 0.00px;
-    line-height: 27px;
-    position: absolute;
-    text-align: left;
-    top: 16px;
-    white-space: nowrap;
-    width: auto;
-  }
-  
-  .contact .copyright-c-202-ity-of-new-york-DhmS6L {
-    background-color: transparent;
-    height: auto;
-    left: 8px;
-    letter-spacing: 0.00px;
-    line-height: 16px;
-    position: absolute;
-    text-align: left;
-    top: 776px;
-    white-space: nowrap;
-    width: auto;
-  }
-  
-  .contact .text-field-fill-leading-custom-DhmS6L {
-    background-color: transparent;
-    border-radius: 13px;
-    height: 59px;
-    left: 536px;
-    position: absolute;
-    top: 0px;
-    width: 207px;
-  }
-  
-  .contact .component-1-14-DhmS6L {
-    background-color: transparent;
-    cursor: pointer;
-    height: 21px;
-    left: 193px;
-    pointer-events: auto;
-    position: absolute;
-    top: 19px;
-    transition: all 0.2s ease;
-    width: 48px;
-  }
-  
-  .contact .component-1-14-DhmS6L:hover {
-    transform: scale(1.1);
-  }
-  
-  .contact .home-xefHPZ {
-    background-color: transparent;
-    height: calc(100.00% + 2px);
-    left: 0px;
-    letter-spacing: 0.00px;
-    line-height: 18px;
-    position: absolute;
-    text-align: left;
-    top: 2px;
-    white-space: nowrap;
-    width: calc(100.00% + 2px);
-  }
-  
-  .contact .component-1-15-DhmS6L {
-    background-color: transparent;
-    cursor: pointer;
-    height: 17px;
-    left: 259px;
-    pointer-events: auto;
-    position: absolute;
-    top: 22px;
-    transition: all 0.2s ease;
-    width: 40px;
-  }
-  
-  .contact .component-1-15-DhmS6L:hover {
-    transform: scale(1.1);
-  }
-  
-  .contact .about-x9n0du {
-    background-color: transparent;
-    height: calc(100.00% + 2px);
-    left: 0px;
-    letter-spacing: 0.00px;
-    line-height: 15px;
-    position: absolute;
-    text-align: left;
-    top: 1px;
-    white-space: nowrap;
-    width: calc(100.00% + 2px);
-  }
-  
-  .contact .component-1-16-DhmS6L {
-    background-color: transparent;
-    cursor: pointer;
-    height: 17px;
-    left: 320px;
-    pointer-events: auto;
-    position: absolute;
-    top: 22px;
-    transition: all 0.2s ease;
-    width: 51px;
-  }
-  
-  .contact .component-1-16-DhmS6L:hover {
-    transform: scale(1.1);
-  }
-  
-  .contact .contact-hQ7fov {
-    background-color: transparent;
-    height: calc(100.00% + 2px);
-    left: 0px;
-    letter-spacing: 0.00px;
-    line-height: 15px;
-    position: absolute;
-    text-align: left;
-    top: 1px;
-    white-space: nowrap;
-    width: calc(100.00% + 2px);
-  }
-  
-  .contact .city-university-graduate-school-DhmS6L {
-    background-color: transparent;
-    height: auto;
-    left: 24px;
-    letter-spacing: 0.00px;
-    line-height: 36px;
-    position: absolute;
-    text-align: left;
-    top: 83px;
-    white-space: nowrap;
-    width: auto;
-  }
-  
-  .contact .line-3-DhmS6L {
-    background-color: transparent;
-    height: 2px;
-    left: 0px;
-    object-fit: cover;
-    position: absolute;
-    top: 326px;
-    width: 1280px;
-  }
-  
-  .contact .widget-wrapper-DhmS6L {
-    background-color: transparent;
-    height: 189px;
-    left: 0px;
-    overflow: hidden;
-    position: absolute;
-    top: 185px;
-    width: 1280px;
-  }
-  
-  .contact .cuny-a49esQ {
-    background-color: transparent;
-    object-fit: cover;
-    width: 100%;
-  }
-  
-  .contact .group-10-DhmS6L {
-    background-color: transparent;
-    cursor: pointer;
-    height: 28px;
-    left: 530px;
-    pointer-events: auto;
-    position: absolute;
-    top: 149px;
-    transition: all 0.2s ease;
-    width: 69px;
-  }
-  
-  .contact .group-10-DhmS6L:hover {
-    transform: translate(0, -5px);
-  }
-  
-  .contact .rectangle-47-OYANfN {
-    background-color: var(--indigo);
-    border-radius: 100px;
-    cursor: pointer;
-    height: 100%;
-    left: 0px;
-    pointer-events: auto;
-    position: absolute;
-    top: 0px;
-    transition: all 0.2s ease;
-    width: 100%;
-  }
-  
-  .contact .rectangle-47-OYANfN:hover {
-    transform: translate(0, -5px);
-  box-shadow: 0px 12px 5px -8px rgba(0,0,0,0.2);
-  }
-  
-  .contact .component-1-17-OYANfN {
-    background-color: transparent;
-    height: calc(100.00% - 3px);
-    left: 8px;
-    position: absolute;
-    top: 1px;
-    width: calc(100.00% - 17px);
-  }
-  
-  .contact .enroll-AOxihW {
-    background-color: transparent;
-    height: calc(100.00% + 2px);
-    left: 0px;
-    letter-spacing: 0.00px;
-    line-height: 22px;
-    position: absolute;
-    text-align: left;
-    top: 2px;
-    white-space: nowrap;
-    width: calc(100.00% + 2px);
-  }
-  
-  .contact .group-8-DhmS6L {
-    background-color: transparent;
-    cursor: pointer;
-    height: 27px;
-    left: 619px;
-    pointer-events: auto;
-    position: absolute;
-    top: 149px;
-    transition: all 0.2s ease;
-    width: 212px;
-  }
-  
-  .contact .group-8-DhmS6L:hover {
-    transform: translate(0, -5px);
-  }
-  
-  .contact .rectangle-48-lU8hRu {
-    background-color: var(--indigo);
-    border-radius: 100px;
-    height: 100%;
-    left: 0px;
-    position: absolute;
-    top: 0px;
-    width: 100%;
-  }
-  
-  .contact .component-1-18-lU8hRu {
-    background-color: transparent;
-    cursor: pointer;
-    height: calc(100.00% - 2px);
-    left: 9px;
-    position: absolute;
-    top: 0px;
-    width: calc(100.00% - 21px);
-  }
-  
-  .contact .apply-for-graduation-Q9SAwZ {
-    background-color: transparent;
-    height: calc(100.00% + 2px);
-    left: 0px;
-    letter-spacing: 0.00px;
-    line-height: 22px;
-    position: absolute;
-    text-align: left;
-    top: 2px;
-    white-space: nowrap;
-    width: calc(100.00% + 2px);
-  }
-  
-  .contact .rectangle-2-DhmS6L {
-    background-color: var(--white);
-    height: 36px;
-    left: 1131px;
-    position: absolute;
-    top: 729px;
-    width: 149px;
-  }
-  
-  .contact .icon-awesome-facebook-DhmS6L {
-    background-color: transparent;
-    cursor: pointer;
-    height: 23px;
-    left: 1146px;
-    object-fit: cover;
-    pointer-events: auto;
-    position: absolute;
-    top: 738px;
-    transition: all 0.2s ease;
-    width: 25px;
-  }
-  
-  .contact .icon-awesome-facebook-DhmS6L:hover {
-    transform: scale(0.9); 
-  }
-  
-  .contact .icon-awesome-instagram-DhmS6L {
-    background-color: transparent;
-    cursor: pointer;
-    height: 26px;
-    left: 1176px;
-    object-fit: cover;
-    pointer-events: auto;
-    position: absolute;
-    top: 736px;
-    transition: all 0.2s ease;
-    width: 24px;
-  }
-  
-  .contact .icon-awesome-instagram-DhmS6L:hover {
-    transform: scale(0.9); 
-  }
-  
-  .contact .icon-awesome-linkedin-in-DhmS6L {
-    background-color: transparent;
-    cursor: pointer;
-    height: 22px;
-    left: 1205px;
-    object-fit: cover;
-    pointer-events: auto;
-    position: absolute;
-    top: 738px;
-    transition: all 0.2s ease;
-    width: 24px;
-  }
-  
-  .contact .icon-awesome-linkedin-in-DhmS6L:hover {
-    transform: scale(0.9); 
-  }
-  
-  .contact .icon-awesome-twitter-DhmS6L {
-    background-color: transparent;
-    cursor: pointer;
-    height: 19px;
-    left: 1235px;
-    object-fit: cover;
-    pointer-events: auto;
-    position: absolute;
-    top: 740px;
-    transition: all 0.2s ease;
-    width: 24px;
-  }
-  
-  .contact .icon-awesome-twitter-DhmS6L:hover {
-    transform: scale(0.9); 
-  }
-  
-  .contact .rectangle-3-DhmS6L {
-    background-color: var(--indigo);
-    border: 1px solid var(--black-3);
-    border-radius: 12px;
-    height: 281px;
-    left: 1063px;
-    position: absolute;
-    top: 400px;
-    width: 184px;
-  }
-  
-  .contact .group-1-DhmS6L {
-    background-color: transparent;
-    height: 148px;
-    left: 1068px;
-    position: absolute;
-    top: 406px;
-    width: 175px;
-  }
-  
-  .contact .rectangle-4-ZOkL7e {
-    background-color: var(--mercury);
-    height: 25px;
-    left: 0px;
-    position: absolute;
-    top: 0px;
-    width: 100%;
-  }
-  
-  .contact .november-2021-ZOkL7e {
-    background-color: transparent;
-    color: var(--black);
-    font-family: var(--font-family-arial-regular);
-    font-size: 11px;
-    font-style: normal;
-    font-weight: 400;
-    height: 14px;
-    letter-spacing: 0.00px;
-    line-height: 11px;
-    position: absolute;
-    right: calc(48.95% - 39px);
-    text-align: center;
-    top: 8px;
-    white-space: nowrap;
-    width: 80px;
-  }
-  
-  .contact .path-1-ZOkL7e {
-    background-color: transparent;
-    height: 9px;
-    left: 10px;
-    object-fit: cover;
-    position: absolute;
-    top: 8px;
-    width: 5px;
-  }
-  
-  .contact .path-2-ZOkL7e {
-    background-color: transparent;
-    height: 9px;
-    object-fit: cover;
-    position: absolute;
-    right: 10px;
-    top: 8px;
-    width: 5px;
-  }
-  
-  .contact .rectangle-5-ZOkL7e {
-    background-color: var(--cararra);
-    height: 25px;
-    left: 0px;
-    position: absolute;
-    top: calc(20.10% - 5px);
-    width: 25px;
-  }
-  
-  .contact .m-ZOkL7e {
-    background-color: transparent;
-    height: 12px;
-    left: 8px;
-    letter-spacing: 0.00px;
-    line-height: 9px;
-    position: absolute;
-    text-align: center;
-    top: calc(20.66% - 2px);
-    white-space: nowrap;
-    width: 10px;
-  }
-  
-  .contact .rectangle-6-ZOkL7e {
-    background-color: var(--cararra);
-    height: 25px;
-    left: 25px;
-    position: absolute;
-    top: calc(20.10% - 5px);
-    width: 25px;
-  }
-  
-  .contact .t-ZOkL7e {
-    background-color: transparent;
-    height: 12px;
-    left: calc(20.66% - 2px);
-    letter-spacing: 0.00px;
-    line-height: 9px;
-    position: absolute;
-    text-align: center;
-    top: calc(20.66% - 2px);
-    white-space: nowrap;
-    width: 8px;
-  }
-  
-  .contact .rectangle-7-ZOkL7e {
-    background-color: var(--cararra);
-    height: 25px;
-    left: calc(33.33% - 8px);
-    position: absolute;
-    top: calc(20.10% - 5px);
-    width: 25px;
-  }
-  
-  .contact .w-ZOkL7e {
-    background-color: transparent;
-    height: 12px;
-    left: calc(35.45% - 4px);
-    letter-spacing: 0.00px;
-    line-height: 9px;
-    position: absolute;
-    text-align: center;
-    top: calc(20.66% - 2px);
-    white-space: nowrap;
-    width: 10px;
-  }
-  
-  .contact .rectangle-8-ZOkL7e {
-    background-color: var(--cararra);
-    height: 25px;
-    left: calc(50.00% - 12px);
-    position: absolute;
-    top: calc(20.10% - 5px);
-    width: 25px;
-  }
-  
-  .contact .t-yekb8y {
-    background-color: transparent;
-    height: 12px;
-    letter-spacing: 0.00px;
-    line-height: 9px;
-    position: absolute;
-    right: calc(49.40% - 4px);
-    text-align: center;
-    top: calc(20.66% - 2px);
-    white-space: nowrap;
-    width: 8px;
-  }
-  
-  .contact .rectangle-9-ZOkL7e {
-    background-color: var(--cararra);
-    height: 25px;
-    position: absolute;
-    right: calc(33.33% - 8px);
-    top: calc(20.10% - 5px);
-    width: 25px;
-  }
-  
-  .contact .f-ZOkL7e {
-    background-color: transparent;
-    height: 12px;
-    letter-spacing: 0.00px;
-    line-height: 9px;
-    position: absolute;
-    right: calc(34.43% - 3px);
-    text-align: center;
-    top: calc(20.66% - 2px);
-    white-space: nowrap;
-    width: 8px;
-  }
-  
-  .contact .rectangle-10-ZOkL7e {
-    background-color: var(--cararra);
-    height: 25px;
-    position: absolute;
-    right: 25px;
-    top: calc(20.10% - 5px);
-    width: 25px;
-  }
-  
-  .contact .s-ZOkL7e {
-    background-color: transparent;
-    height: 12px;
-    letter-spacing: 0.00px;
-    line-height: 9px;
-    position: absolute;
-    right: calc(19.46% - 2px);
-    text-align: center;
-    top: calc(20.66% - 2px);
-    white-space: nowrap;
-    width: 8px;
-  }
-  
-  .contact .rectangle-11-ZOkL7e {
-    background-color: var(--cararra);
-    height: 25px;
-    position: absolute;
-    right: 0px;
-    top: calc(20.10% - 5px);
-    width: 25px;
-  }
-  
-  .contact .s-yekb8y {
-    background-color: transparent;
-    height: 12px;
-    letter-spacing: 0.00px;
-    line-height: 9px;
-    position: absolute;
-    right: 8px;
-    text-align: center;
-    top: calc(20.66% - 2px);
-    white-space: nowrap;
-    width: 8px;
-  }
-  
-  .contact .rectangle-12-ZOkL7e {
-    background-color: var(--concrete);
-    height: 25px;
-    left: 0px;
-    position: absolute;
-    top: calc(33.33% - 8px);
-    width: 25px;
-  }
-  
-  .contact .x1-ZOkL7e {
-    background-color: transparent;
-    height: 13px;
-    left: 10px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    text-align: center;
-    top: calc(35.64% - 5px);
-    white-space: nowrap;
-    width: 8px;
-  }
-  
-  .contact .rectangle-13-ZOkL7e {
-    background-color: var(--concrete);
-    height: 25px;
-    left: 25px;
-    position: absolute;
-    top: calc(33.33% - 8px);
-    width: 25px;
-  }
-  
-  .contact .x2-ZOkL7e {
-    background-color: transparent;
-    height: 13px;
-    left: calc(20.66% - 2px);
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    text-align: center;
-    top: calc(35.64% - 5px);
-    white-space: nowrap;
-    width: 8px;
-  }
-  
-  .contact .rectangle-14-ZOkL7e {
-    background-color: var(--concrete);
-    height: 25px;
-    left: calc(33.33% - 8px);
-    position: absolute;
-    top: calc(33.33% - 8px);
-    width: 25px;
-  }
-  
-  .contact .x3-ZOkL7e {
-    background-color: transparent;
-    height: 13px;
-    left: calc(35.63% - 3px);
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    text-align: center;
-    top: calc(35.64% - 5px);
-    white-space: nowrap;
-    width: 8px;
-  }
-  
-  .contact .rectangle-15-ZOkL7e {
-    background-color: var(--concrete);
-    height: 25px;
-    left: calc(50.00% - 12px);
-    position: absolute;
-    top: calc(33.33% - 8px);
-    width: 25px;
-  }
-  
-  .contact .x4-ZOkL7e {
-    background-color: transparent;
-    height: 13px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    right: calc(49.40% - 4px);
-    text-align: center;
-    top: calc(35.64% - 5px);
-    white-space: nowrap;
-    width: 8px;
-  }
-  
-  .contact .rectangle-16-ZOkL7e {
-    background-color: var(--concrete);
-    height: 25px;
-    position: absolute;
-    right: calc(33.33% - 8px);
-    top: calc(33.33% - 8px);
-    width: 25px;
-  }
-  
-  .contact .x5-ZOkL7e {
-    background-color: transparent;
-    height: 13px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    right: calc(34.43% - 3px);
-    text-align: center;
-    top: calc(35.64% - 5px);
-    white-space: nowrap;
-    width: 8px;
-  }
-  
-  .contact .rectangle-17-ZOkL7e {
-    background-color: var(--concrete);
-    height: 25px;
-    position: absolute;
-    right: 25px;
-    top: calc(33.33% - 8px);
-    width: 25px;
-  }
-  
-  .contact .x6-ZOkL7e {
-    background-color: transparent;
-    height: 13px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    right: calc(19.46% - 2px);
-    text-align: center;
-    top: calc(35.64% - 5px);
-    white-space: nowrap;
-    width: 8px;
-  }
-  
-  .contact .rectangle-18-ZOkL7e {
-    background-color: var(--concrete);
-    height: 25px;
-    position: absolute;
-    right: 0px;
-    top: calc(33.33% - 8px);
-    width: 25px;
-  }
-  
-  .contact .x7-ZOkL7e {
-    background-color: transparent;
-    height: 13px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    right: 8px;
-    text-align: center;
-    top: calc(35.64% - 5px);
-    white-space: nowrap;
-    width: 8px;
-  }
-  
-  .contact .rectangle-19-ZOkL7e {
-    background-color: var(--concrete);
-    height: 25px;
-    left: 0px;
-    position: absolute;
-    top: calc(50.00% - 12px);
-    width: 25px;
-  }
-  
-  .contact .x8-ZOkL7e {
-    background-color: transparent;
-    bottom: calc(48.88% - 6px);
-    height: 13px;
-    left: 10px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    text-align: center;
-    white-space: nowrap;
-    width: 8px;
-  }
-  
-  .contact .rectangle-20-ZOkL7e {
-    background-color: var(--concrete);
-    height: 25px;
-    left: 25px;
-    position: absolute;
-    top: calc(50.00% - 12px);
-    width: 25px;
-  }
-  
-  .contact .x9-ZOkL7e {
-    background-color: transparent;
-    bottom: calc(48.88% - 6px);
-    height: 13px;
-    left: calc(20.66% - 2px);
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    text-align: center;
-    white-space: nowrap;
-    width: 8px;
-  }
-  
-  .contact .rectangle-21-ZOkL7e {
-    background-color: var(--concrete);
-    height: 25px;
-    left: calc(33.33% - 8px);
-    position: absolute;
-    top: calc(50.00% - 12px);
-    width: 25px;
-  }
-  
-  .contact .x10-ZOkL7e {
-    background-color: transparent;
-    bottom: calc(48.88% - 6px);
-    height: 13px;
-    left: calc(35.09% - 5px);
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    text-align: center;
-    white-space: nowrap;
-    width: 14px;
-  }
-  
-  .contact .rectangle-22-ZOkL7e {
-    background-color: var(--concrete);
-    height: 25px;
-    left: calc(50.00% - 12px);
-    position: absolute;
-    top: calc(50.00% - 12px);
-    width: 25px;
-  }
-  
-  .contact .x11-ZOkL7e {
-    background-color: transparent;
-    bottom: calc(48.88% - 6px);
-    height: 13px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    right: calc(49.39% - 6px);
-    text-align: center;
-    white-space: nowrap;
-    width: 12px;
-  }
-  
-  .contact .rectangle-23-ZOkL7e {
-    background-color: var(--concrete);
-    height: 25px;
-    position: absolute;
-    right: calc(33.33% - 8px);
-    top: calc(50.00% - 12px);
-    width: 25px;
-  }
-  
-  .contact .x12-ZOkL7e {
-    background-color: transparent;
-    bottom: calc(48.88% - 6px);
-    height: 13px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    right: calc(33.85% - 5px);
-    text-align: center;
-    white-space: nowrap;
-    width: 14px;
-  }
-  
-  .contact .rectangle-24-ZOkL7e {
-    background-color: var(--concrete);
-    height: 25px;
-    position: absolute;
-    right: 25px;
-    top: calc(50.00% - 12px);
-    width: 25px;
-  }
-  
-  .contact .x13-ZOkL7e {
-    background-color: transparent;
-    bottom: calc(48.88% - 6px);
-    height: 13px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    right: calc(18.32% - 3px);
-    text-align: center;
-    white-space: nowrap;
-    width: 14px;
-  }
-  
-  .contact .rectangle-25-ZOkL7e {
-    background-color: var(--concrete);
-    height: 25px;
-    position: absolute;
-    right: 0px;
-    top: calc(50.00% - 12px);
-    width: 25px;
-  }
-  
-  .contact .x14-ZOkL7e {
-    background-color: transparent;
-    bottom: calc(48.88% - 6px);
-    height: 13px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    right: 4px;
-    text-align: center;
-    white-space: nowrap;
-    width: 14px;
-  }
-  
-  .contact .rectangle-26-ZOkL7e {
-    background-color: var(--concrete);
-    bottom: calc(33.33% - 8px);
-    height: 25px;
-    left: 0px;
-    position: absolute;
-    width: 25px;
-  }
-  
-  .contact .x15-ZOkL7e {
-    background-color: transparent;
-    bottom: calc(33.41% - 4px);
-    height: 13px;
-    left: 6px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    text-align: center;
-    white-space: nowrap;
-    width: 14px;
-  }
-  
-  .contact .rectangle-27-ZOkL7e {
-    background-color: var(--concrete);
-    bottom: calc(33.33% - 8px);
-    height: 25px;
-    left: 25px;
-    position: absolute;
-    width: 25px;
-  }
-  
-  .contact .x16-ZOkL7e {
-    background-color: transparent;
-    bottom: calc(33.41% - 4px);
-    height: 13px;
-    left: calc(19.57% - 3px);
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    text-align: center;
-    white-space: nowrap;
-    width: 14px;
-  }
-  
-  .contact .rectangle-28-ZOkL7e {
-    background-color: var(--concrete);
-    bottom: calc(33.33% - 8px);
-    height: 25px;
-    left: calc(33.33% - 8px);
-    position: absolute;
-    width: 25px;
-  }
-  
-  .contact .x17-ZOkL7e {
-    background-color: transparent;
-    bottom: calc(33.41% - 4px);
-    height: 13px;
-    left: calc(35.09% - 5px);
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    text-align: center;
-    white-space: nowrap;
-    width: 14px;
-  }
-  
-  .contact .rectangle-29-ZOkL7e {
-    background-color: var(--concrete);
-    bottom: calc(33.33% - 8px);
-    height: 25px;
-    left: calc(50.00% - 12px);
-    position: absolute;
-    width: 25px;
-  }
-  
-  .contact .x18-ZOkL7e {
-    background-color: transparent;
-    bottom: calc(33.41% - 4px);
-    height: 13px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    right: calc(49.38% - 7px);
-    text-align: center;
-    white-space: nowrap;
-    width: 14px;
-  }
-  
-  .contact .rectangle-30-ZOkL7e {
-    background-color: var(--concrete);
-    bottom: calc(33.33% - 8px);
-    height: 25px;
-    position: absolute;
-    right: calc(33.33% - 8px);
-    width: 25px;
-  }
-  
-  .contact .x19-ZOkL7e {
-    background-color: transparent;
-    bottom: calc(33.41% - 4px);
-    height: 13px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    right: calc(33.85% - 5px);
-    text-align: center;
-    white-space: nowrap;
-    width: 14px;
-  }
-  
-  .contact .rectangle-31-ZOkL7e {
-    background-color: var(--concrete);
-    bottom: calc(33.33% - 8px);
-    height: 25px;
-    position: absolute;
-    right: 25px;
-    width: 25px;
-  }
-  
-  .contact .x20-ZOkL7e {
-    background-color: transparent;
-    bottom: calc(33.41% - 4px);
-    height: 13px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    right: calc(18.32% - 3px);
-    text-align: center;
-    white-space: nowrap;
-    width: 14px;
-  }
-  
-  .contact .rectangle-32-ZOkL7e {
-    background-color: var(--concrete);
-    bottom: calc(33.33% - 8px);
-    height: 25px;
-    position: absolute;
-    right: 0px;
-    width: 25px;
-  }
-  
-  .contact .x21-ZOkL7e {
-    background-color: transparent;
-    bottom: calc(33.41% - 4px);
-    height: 13px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    right: 4px;
-    text-align: center;
-    white-space: nowrap;
-    width: 14px;
-  }
-  
-  .contact .rectangle-33-ZOkL7e {
-    background-color: var(--concrete);
-    bottom: calc(20.10% - 5px);
-    height: 25px;
-    left: 0px;
-    position: absolute;
-    width: 25px;
-  }
-  
-  .contact .x22-ZOkL7e {
-    background-color: transparent;
-    bottom: calc(17.94% - 2px);
-    height: 13px;
-    left: 6px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    text-align: center;
-    white-space: nowrap;
-    width: 14px;
-  }
-  
-  .contact .rectangle-34-ZOkL7e {
-    background-color: var(--concrete);
-    bottom: calc(20.10% - 5px);
-    height: 25px;
-    left: 25px;
-    position: absolute;
-    width: 25px;
-  }
-  
-  .contact .x23-ZOkL7e {
-    background-color: transparent;
-    bottom: calc(17.94% - 2px);
-    height: 13px;
-    left: calc(19.57% - 3px);
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    text-align: center;
-    white-space: nowrap;
-    width: 14px;
-  }
-  
-  .contact .rectangle-35-ZOkL7e {
-    background-color: var(--concrete);
-    bottom: calc(20.10% - 5px);
-    height: 25px;
-    left: calc(33.33% - 8px);
-    position: absolute;
-    width: 25px;
-  }
-  
-  .contact .x24-ZOkL7e {
-    background-color: transparent;
-    bottom: calc(17.94% - 2px);
-    height: 13px;
-    left: calc(35.09% - 5px);
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    text-align: center;
-    white-space: nowrap;
-    width: 14px;
-  }
-  
-  .contact .rectangle-36-ZOkL7e {
-    background-color: var(--concrete);
-    bottom: calc(20.10% - 5px);
-    height: 25px;
-    left: calc(50.00% - 12px);
-    position: absolute;
-    width: 25px;
-  }
-  
-  .contact .x25-ZOkL7e {
-    background-color: transparent;
-    bottom: calc(17.94% - 2px);
-    height: 13px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    right: calc(49.38% - 7px);
-    text-align: center;
-    white-space: nowrap;
-    width: 14px;
-  }
-  
-  .contact .rectangle-37-ZOkL7e {
-    background-color: var(--concrete);
-    bottom: calc(20.10% - 5px);
-    height: 25px;
-    position: absolute;
-    right: calc(33.33% - 8px);
-    width: 25px;
-  }
-  
-  .contact .x26-ZOkL7e {
-    background-color: transparent;
-    bottom: calc(17.94% - 2px);
-    height: 13px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    right: calc(33.85% - 5px);
-    text-align: center;
-    white-space: nowrap;
-    width: 14px;
-  }
-  
-  .contact .rectangle-38-ZOkL7e {
-    background-color: var(--concrete);
-    bottom: calc(20.10% - 5px);
-    height: 25px;
-    position: absolute;
-    right: 25px;
-    width: 25px;
-  }
-  
-  .contact .x27-ZOkL7e {
-    background-color: transparent;
-    bottom: calc(17.94% - 2px);
-    height: 13px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    right: calc(18.32% - 3px);
-    text-align: center;
-    white-space: nowrap;
-    width: 14px;
-  }
-  
-  .contact .rectangle-39-ZOkL7e {
-    background-color: var(--concrete);
-    bottom: calc(20.10% - 5px);
-    height: 25px;
-    position: absolute;
-    right: 0px;
-    width: 25px;
-  }
-  
-  .contact .x28-ZOkL7e {
-    background-color: transparent;
-    bottom: calc(17.94% - 2px);
-    height: 13px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    right: 4px;
-    text-align: center;
-    white-space: nowrap;
-    width: 14px;
-  }
-  
-  .contact .rectangle-40-ZOkL7e {
-    background-color: var(--concrete);
-    bottom: 0px;
-    height: 25px;
-    left: 0px;
-    position: absolute;
-    width: 25px;
-  }
-  
-  .contact .x29-ZOkL7e {
-    background-color: transparent;
-    bottom: 4px;
-    height: 13px;
-    left: 6px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    text-align: center;
-    white-space: nowrap;
-    width: 14px;
-  }
-  
-  .contact .rectangle-41-ZOkL7e {
-    background-color: var(--concrete);
-    bottom: 0px;
-    height: 25px;
-    left: 25px;
-    position: absolute;
-    width: 25px;
-  }
-  
-  .contact .x30-ZOkL7e {
-    background-color: transparent;
-    bottom: 4px;
-    height: 13px;
-    left: calc(19.57% - 3px);
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    text-align: center;
-    white-space: nowrap;
-    width: 14px;
-  }
-  
-  .contact .rectangle-42-ZOkL7e {
-    background-color: var(--concrete);
-    bottom: 0px;
-    height: 25px;
-    left: calc(33.33% - 8px);
-    position: absolute;
-    width: 25px;
-  }
-  
-  .contact .x1-yekb8y {
-    background-color: transparent;
-    bottom: 4px;
-    height: 13px;
-    left: calc(35.63% - 3px);
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    text-align: center;
-    white-space: nowrap;
-    width: 8px;
-  }
-  
-  .contact .rectangle-43-ZOkL7e {
-    background-color: var(--concrete);
-    bottom: 0px;
-    height: 25px;
-    left: calc(50.00% - 12px);
-    position: absolute;
-    width: 25px;
-  }
-  
-  .contact .x2-yekb8y {
-    background-color: transparent;
-    bottom: 4px;
-    height: 13px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    right: calc(49.40% - 4px);
-    text-align: center;
-    white-space: nowrap;
-    width: 8px;
-  }
-  
-  .contact .rectangle-44-ZOkL7e {
-    background-color: var(--concrete);
-    bottom: 0px;
-    height: 25px;
-    position: absolute;
-    right: calc(33.33% - 8px);
-    width: 25px;
-  }
-  
-  .contact .x3-yekb8y {
-    background-color: transparent;
-    bottom: 4px;
-    height: 13px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    right: calc(34.43% - 3px);
-    text-align: center;
-    white-space: nowrap;
-    width: 8px;
-  }
-  
-  .contact .rectangle-45-ZOkL7e {
-    background-color: var(--concrete);
-    bottom: 0px;
-    height: 25px;
-    position: absolute;
-    right: 25px;
-    width: 25px;
-  }
-  
-  .contact .x4-yekb8y {
-    background-color: transparent;
-    bottom: 4px;
-    height: 13px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    right: calc(19.46% - 2px);
-    text-align: center;
-    white-space: nowrap;
-    width: 8px;
-  }
-  
-  .contact .rectangle-46-ZOkL7e {
-    background-color: var(--concrete);
-    bottom: 0px;
-    height: 25px;
-    position: absolute;
-    right: 0px;
-    width: 25px;
-  }
-  
-  .contact .x5-yekb8y {
-    background-color: transparent;
-    bottom: 4px;
-    height: 13px;
-    letter-spacing: 0.00px;
-    line-height: 10px;
-    position: absolute;
-    right: 8px;
-    text-align: center;
-    white-space: nowrap;
-    width: 8px;
-  }
-  
-  .contact .group-5-DhmS6L {
-    background-color: transparent;
-    cursor: pointer;
-    height: 22px;
-    left: 1116px;
-    pointer-events: auto;
-    position: absolute;
-    top: 566px;
-    transition: all 0.2s ease;
-    width: 70px;
-  }
-  
-  .contact .group-5-DhmS6L:hover {
-    transform: translate(0, -5px);
-  }
-  
-  .contact .rectangle-50-HEa3Ua {
-    background-color: var(--white);
-    border-radius: 100px;
-    height: 100%;
-    left: 0px;
-    position: absolute;
-    top: 0px;
-    width: 100%;
-  }
-  
-  .contact .honors-HEa3Ua {
-    background-color: transparent;
-    cursor: pointer;
-    height: calc(100.00% - 3px);
-    left: 10px;
-    letter-spacing: 0.00px;
-    line-height: 15px;
-    position: absolute;
-    text-align: left;
-    top: 4px;
-    white-space: nowrap;
-    width: 49px;
-  }
-  
-  .contact .group-7-DhmS6L {
-    background-color: transparent;
-    cursor: pointer;
-    height: 22px;
-    left: 1116px;
-    pointer-events: auto;
-    position: absolute;
-    top: 644px;
-    transition: all 0.2s ease;
-    width: 70px;
-  }
-  
-  .contact .group-7-DhmS6L:hover {
-    transform: translate(0, -5px);
-  }
-  
-  .contact .group-4-LT8xmI {
-    background-color: transparent;
-    height: 100%;
-    left: 0px;
-    position: absolute;
-    top: 0px;
-    width: 100%;
-  }
-  
-  .contact .rectangle-52-6Tyxo1 {
-    background-color: var(--white);
-    border-radius: 100px;
-    height: 100%;
-    left: 0px;
-    position: relative;
-    top: 0px;
-    width: 100%;
-  }
-  
-  .contact .report-LT8xmI {
-    background-color: transparent;
-    cursor: pointer;
-    height: 19px;
-    left: calc(44.00% - 20px);
-    letter-spacing: 0.00px;
-    line-height: 15px;
-    position: absolute;
-    text-align: left;
-    top: 2px;
-    white-space: nowrap;
-    width: 45px;
-  }
-  
-  .contact .group-6-DhmS6L {
-    background-color: transparent;
-    height: 22px;
-    left: 1116px;
-    position: absolute;
-    top: 605px;
-    width: 72px;
-  }
-  
-  .contact .group-11-t6cEJY {
-    background-color: transparent;
-    cursor: pointer;
-    height: 100%;
-    left: 0px;
-    pointer-events: auto;
-    position: relative;
-    top: 0px;
-    transition: all 0.2s ease;
-    width: 100%;
-  }
-  
-  .contact .group-11-t6cEJY:hover {
-    transform: translate(0, -5px);
-  }
-  
-  .contact .rectangle-51-53ZEHj {
-    background-color: var(--white);
-    border-radius: 100px;
-    cursor: pointer;
-    height: 100%;
-    left: 0px;
-    pointer-events: auto;
-    position: absolute;
-    top: 0px;
-    transition: all 0.2s ease;
-    width: 100%;
-  }
-  
-  .contact .rectangle-51-53ZEHj:hover {
-    transform: translate(0, -5px);
-  }
-  
-  .contact .reviews-53ZEHj {
-    background-color: transparent;
-    height: 19px;
-    letter-spacing: 0.00px;
-    line-height: 15px;
-    position: absolute;
-    right: calc(47.62% - 24px);
-    text-align: left;
-    top: 2px;
-    white-space: nowrap;
-    width: 51px;
-  }
-  
-  .contact .group-9-DhmS6L {
-    background-color: transparent;
-    cursor: pointer;
-    height: 27px;
-    left: 1068px;
-    pointer-events: auto;
-    position: absolute;
-    top: 149px;
-    transition: all 0.2s ease;
-    width: 196px;
-  }
-  
-  .contact .group-9-DhmS6L:hover {
-    transform: translate(0, -5px);
-  }
-  
-  .contact .rectangle-48-AAE750 {
-    background-color: var(--indigo);
-    border-radius: 100px;
-    height: 100%;
-    left: 0px;
-    position: absolute;
-    top: 0px;
-    width: 100%;
-  }
-  
-  .contact .component-1-20-AAE750 {
-    background-color: transparent;
-    cursor: pointer;
-    height: calc(100.00% - 3px);
-    left: 10px;
-    position: absolute;
-    top: 0px;
-    width: 155px;
-  }
-  
-  .contact .search-for-classes-3Z2hPs {
-    background-color: transparent;
-    height: calc(100.00% + 2px);
-    left: 0px;
-    letter-spacing: 0.00px;
-    line-height: 21px;
-    position: absolute;
-    text-align: left;
-    top: 2px;
-    white-space: nowrap;
-    width: calc(100.00% + 2px);
-  }
-  
-  .contact .the-city-colleg-031p-2126507000-DhmS6L {
-    background-color: transparent;
-    height: auto;
-    left: 493px;
-    letter-spacing: 0.00px;
-    line-height: 15px;
-    position: absolute;
-    text-align: left;
-    top: 715px;
-    white-space: nowrap;
-    width: auto;
-  }
-  
-  .contact .ccnylogo-DhmS6L {
-    background-color: transparent;
-    height: 58px;
-    left: 430px;
-    object-fit: cover;
-    position: absolute;
-    top: 709px;
-    width: 58px;
-  }
-  
-  .contact .the-city-college-of-new-york-DhmS6L {
-    background-color: transparent;
-    height: auto;
-    left: 801px;
-    letter-spacing: 0.00px;
-    line-height: 37px;
-    position: absolute;
-    text-align: left;
-    top: 81px;
-    white-space: nowrap;
-    width: auto;
-  }
-  
-  .contact .city-college-np-ush-left-city1-DhmS6L {
-    background-color: transparent;
-    height: 80px;
-    left: 716px;
-    object-fit: cover;
-    position: absolute;
-    top: 57px;
-    width: 80px;
-  }
-  
-  .contact .group-12-DhmS6L {
-    background-color: transparent;
-    cursor: pointer;
-    height: 27px;
-    left: 846px;
-    pointer-events: auto;
-    position: absolute;
-    top: 149px;
-    transition: all 0.2s ease;
-    width: 207px;
-  }
-  
-  .contact .group-12-DhmS6L:hover {
-    transform: translate(0, -5px);
-  }
-  
-  .contact .rectangle-48-8rjr5U {
-    background-color: var(--indigo);
-    border-radius: 100px;
-    height: 100%;
-    left: 0px;
-    position: absolute;
-    top: 0px;
-    width: 100%;
-  }
-  
-  .contact .component-1-21-8rjr5U {
-    background-color: transparent;
-    cursor: pointer;
-    height: calc(100.00% - 2px);
-    left: 16px;
-    position: absolute;
-    top: 0px;
-    width: calc(100.00% - 42px);
-  }
-  
-  .contact .request-transcript-aoxEw7 {
-    background-color: transparent;
-    height: calc(100.00% + 2px);
-    left: 0px;
-    letter-spacing: 0.00px;
-    line-height: 22px;
-    position: absolute;
-    text-align: left;
-    top: 2px;
-    white-space: nowrap;
-    width: calc(100.00% + 2px);
-  }
-  
-  .contact .component-1-22-DhmS6L {
-    background-color: transparent;
-    cursor: pointer;
-    height: 17px;
-    left: 1139px;
-    pointer-events: auto;
-    position: absolute;
-    top: 24px;
-    transition: all 0.2s ease;
-    width: 43px;
-  }
-  
-  .contact .component-1-22-DhmS6L:hover {
-    transform: scale(1.1);
-  }
-  
-  .contact .log-in-WpQw3s {
-    background-color: transparent;
-    height: calc(100.00% + 2px);
-    left: 0px;
-    letter-spacing: 0.00px;
-    line-height: 15px;
-    position: absolute;
-    text-align: left;
-    top: 1px;
-    white-space: nowrap;
-    width: calc(100.00% + 2px);
-  }
-  
-  .contact .contact-usfor-m-lp-ask-anything-DhmS6L {
-    background-color: transparent;
-    color: var(--black);
-    font-family: var(--font-family-albayan-bold);
-    font-size: var(--font-size-l);
-    font-style: normal;
-    font-weight: 700;
-    height: auto;
-    left: 80px;
-    letter-spacing: 0.00px;
-    line-height: 30px;
-    position: absolute;
-    text-align: center;
-    top: 500px;
-    white-space: nowrap;
-    width: auto;
-  }
-  
-  .contact .rectangle-53-DhmS6L {
-    background-color: var(--mercury);
-    border-radius: 15px;
-    height: 289px;
-    left: 412px;
-    opacity: 0.63;
-    position: absolute;
-    top: 400px;
-    width: 605px;
-  }
-  
-  .contact .component-1-36-DhmS6L {
-    background-color: transparent;
-    cursor: pointer;
-    height: 17px;
-    left: 1201px;
-    pointer-events: auto;
-    position: absolute;
-    top: 23px;
-    transition: all 0.2s ease;
-    width: 50px;
-  }
-  
-  .contact .component-1-36-DhmS6L:hover {
-    transform: scale(1.1);
-  }
-  
-  .contact .register-Alzx3H {
-    background-color: transparent;
-    height: calc(100.00% + 1px);
-    left: 0px;
-    object-fit: cover;
-    position: absolute;
-    top: 0px;
-    width: 100%;
-  }
-  
-  .text-field-fill-leading-custom-DhmS6L .mdc-text-field {
-    --mdc-theme-primary: #FFFFFF;
-  }
-  
-  .text-field-fill-leading-custom-DhmS6L .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
-    color: #6200ee;
-  }
-  
+  background-color: var(--white);
+  height: 800px;
+  overflow: hidden;
+  position: relative;
+  width: 1280px;
+}
+
+.contact .group-container {
+  height: 177px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1280px;
+}
+
+.contact .overlap-group8 {
+  height: 167px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1280px;
+}
+
+.contact .overlap-group3 {
+  height: 137px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1280px;
+}
+
+.contact .rectangle-1 {
+  background-color: var(--indigo);
+  height: 57px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1280px;
+}
+
+.contact .cuny-zero {
+  left: 24px;
+  letter-spacing: 0;
+  line-height: 27px;
+  position: absolute;
+  top: 16px;
+  white-space: nowrap;
+}
+
+.contact .text-field-fill-leading-custom {
+  border-radius: 13px;
+  height: 59px;
+  left: 536px;
+  position: absolute;
+  top: 0;
+  width: 207px;
+}
+
+.contact .component-1-14 {
+  cursor: pointer;
+  height: 21px;
+  left: 193px;
+  position: absolute;
+  top: 19px;
+  transition: all 0.2s ease;
+  width: 48px;
+}
+
+.contact .component-1-14:hover {
+  transform: scale(1.1);
+}
+
+.contact .place {
+  left: 0;
+  letter-spacing: 0;
+  line-height: 18px;
+  position: absolute;
+  top: 2px;
+  white-space: nowrap;
+}
+
+.contact .component-1-15 {
+  cursor: pointer;
+  height: 17px;
+  left: 259px;
+  position: absolute;
+  top: 22px;
+  transition: all 0.2s ease;
+  width: 40px;
+}
+
+.contact .component-1-15:hover {
+  transform: scale(1.1);
+}
+
+.contact .about {
+  left: 0;
+  letter-spacing: 0;
+  line-height: 15px;
+  position: absolute;
+  top: 1px;
+  white-space: nowrap;
+}
+
+.contact .component-1-16 {
+  cursor: pointer;
+  height: 17px;
+  left: 320px;
+  position: absolute;
+  top: 22px;
+  transition: all 0.2s ease;
+  width: 51px;
+}
+
+.contact .component-1-16:hover {
+  transform: scale(1.1);
+}
+
+.contact .place-1 {
+  left: 0;
+  letter-spacing: 0;
+  line-height: 15px;
+  position: absolute;
+  top: 1px;
+  white-space: nowrap;
+}
+
+.contact .city-college-np-ush-left-city1 {
+  height: 80px;
+  left: 716px;
+  object-fit: cover;
+  position: absolute;
+  top: 57px;
+  width: 80px;
+}
+
+.contact .component-1-22 {
+  cursor: pointer;
+  height: 17px;
+  left: 1139px;
+  position: absolute;
+  top: 24px;
+  transition: all 0.2s ease;
+  width: 43px;
+}
+
+.contact .component-1-22:hover {
+  transform: scale(1.1);
+}
+
+.contact .log-in {
+  left: 0;
+  letter-spacing: 0;
+  line-height: 15px;
+  position: absolute;
+  top: 1px;
+  white-space: nowrap;
+}
+
+.contact .component-1-36 {
+  background-image: url(../img/register-1@1x.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  cursor: pointer;
+  height: 17px;
+  left: 1201px;
+  position: absolute;
+  top: 23px;
+  transition: all 0.2s ease;
+  width: 50px;
+}
+
+.contact .component-1-36:hover {
+  transform: scale(1.1);
+}
+
+.contact .text-11 {
+  left: 24px;
+  letter-spacing: 0;
+  line-height: 36px;
+  position: absolute;
+  top: 83px;
+  white-space: nowrap;
+}
+
+.contact .text-13 {
+  left: 801px;
+  letter-spacing: 0;
+  line-height: 37px;
+  position: absolute;
+  top: 81px;
+  white-space: nowrap;
+}
+
+.contact .group-10 {
+  cursor: pointer;
+  height: 28px;
+  left: 530px;
+  position: absolute;
+  top: 149px;
+  transition: all 0.2s ease;
+  width: 69px;
+}
+
+.contact .group-10:hover {
+  transform: translate(0, -5px);
+}
+
+.contact .overlap-group {
+  border-radius: 100px;
+  height: 28px;
+  position: relative;
+}
+
+.contact .rectangle-47 {
+  background-color: var(--indigo);
+  border-radius: 100px;
+  cursor: pointer;
+  height: 28px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: all 0.2s ease;
+  width: 69px;
+}
+
+.contact .rectangle-47:hover {
+  transform: translate(0, -5px);
+box-shadow: 0px 12px 5px -8px rgba(0,0,0,0.2);
+}
+
+.contact .component-1-17 {
+  height: 25px;
+  left: 8px;
+  position: absolute;
+  top: 1px;
+  width: 54px;
+}
+
+.contact .enroll {
+  left: 0;
+  letter-spacing: 0;
+  line-height: 22px;
+  position: absolute;
+  top: 2px;
+  white-space: nowrap;
+}
+
+.contact .group-8 {
+  background-color: var(--indigo);
+  border-radius: 100px;
+  cursor: pointer;
+  height: 27px;
+  left: 619px;
+  position: absolute;
+  top: 149px;
+  transition: all 0.2s ease;
+  width: 212px;
+}
+
+.contact .group-8:hover {
+  transform: translate(0, -5px);
+}
+
+.contact .component-1-18 {
+  cursor: pointer;
+  height: 25px;
+  left: 9px;
+  position: relative;
+  width: 193px;
+}
+
+.contact .text-12 {
+  left: 0;
+  letter-spacing: 0;
+  line-height: 22px;
+  position: absolute;
+  top: 2px;
+  white-space: nowrap;
+}
+
+.contact .group-9 {
+  background-color: var(--indigo);
+  border-radius: 100px;
+  cursor: pointer;
+  height: 27px;
+  left: 1068px;
+  position: absolute;
+  top: 149px;
+  transition: all 0.2s ease;
+  width: 196px;
+}
+
+.contact .group-9:hover {
+  transform: translate(0, -5px);
+}
+
+.contact .component-1-20 {
+  cursor: pointer;
+  height: 24px;
+  left: 10px;
+  position: relative;
+  width: 158px;
+}
+
+.contact .search-for-classes {
+  left: 0;
+  letter-spacing: 0;
+  line-height: 21px;
+  position: absolute;
+  top: 1px;
+  white-space: nowrap;
+}
+
+.contact .group-12 {
+  background-color: var(--indigo);
+  border-radius: 100px;
+  cursor: pointer;
+  height: 27px;
+  left: 846px;
+  position: absolute;
+  top: 149px;
+  transition: all 0.2s ease;
+  width: 207px;
+}
+
+.contact .group-12:hover {
+  transform: translate(0, -5px);
+}
+
+.contact .component-1-21 {
+  cursor: pointer;
+  height: 25px;
+  left: 16px;
+  position: relative;
+  width: 173px;
+}
+
+.contact .request-transcript {
+  left: 0;
+  letter-spacing: 0;
+  line-height: 22px;
+  position: absolute;
+  top: 2px;
+  white-space: nowrap;
+}
+
+.contact .overlap-group6 {
+  height: 191px;
+  left: 0;
+  position: absolute;
+  top: 183px;
+  width: 1280px;
+}
+
+.contact .line-1 {
+  height: 3px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 1280px;
+}
+
+.contact .line-3 {
+  height: 2px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 144px;
+  width: 1280px;
+}
+
+.contact .widget-wrapper {
+  height: 189px;
+  left: 0;
+  position: absolute;
+  top: 2px;
+  width: 1280px;
+}
+
+.contact .cuny {
+  object-fit: cover;
+  width: 100%;
+}
+
+.contact .overlap-group7 {
+  height: 60px;
+  left: 0;
+  position: absolute;
+  top: 709px;
+  width: 1280px;
+}
+
+.contact .overlap-group5 {
+  height: 54px;
+  left: 0;
+  position: absolute;
+  top: 6px;
+  width: 1280px;
+}
+
+.contact .line-2 {
+  height: 2px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 52px;
+  width: 1280px;
+}
+
+.contact .address {
+  left: 492px;
+  letter-spacing: 0;
+  line-height: 15px;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+
+.contact .icon-awesome-container {
+  background-color: var(--white);
+  height: 36px;
+  left: 1130px;
+  position: absolute;
+  top: 20px;
+  width: 149px;
+}
+
+.contact .icon-awesome-facebook {
+  cursor: pointer;
+  height: 23px;
+  left: 15px;
+  object-fit: cover;
+  position: absolute;
+  top: 9px;
+  transition: all 0.2s ease;
+  width: 25px;
+}
+
+.contact .icon-awesome-facebook:hover {
+  transform: scale(0.9); 
+}
+
+.contact .icon-awesome-instagram {
+  cursor: pointer;
+  height: 26px;
+  left: 45px;
+  object-fit: cover;
+  position: absolute;
+  top: 7px;
+  transition: all 0.2s ease;
+  width: 24px;
+}
+
+.contact .icon-awesome-instagram:hover {
+  transform: scale(0.9); 
+}
+
+.contact .icon-awesome-linkedin-in {
+  cursor: pointer;
+  height: 22px;
+  left: 74px;
+  object-fit: cover;
+  position: absolute;
+  top: 9px;
+  transition: all 0.2s ease;
+  width: 24px;
+}
+
+.contact .icon-awesome-linkedin-in:hover {
+  transform: scale(0.9); 
+}
+
+.contact .icon-awesome-twitter {
+  cursor: pointer;
+  height: 19px;
+  left: 104px;
+  object-fit: cover;
+  position: absolute;
+  top: 11px;
+  transition: all 0.2s ease;
+  width: 24px;
+}
+
+.contact .icon-awesome-twitter:hover {
+  transform: scale(0.9); 
+}
+
+.contact .ccnylogo {
+  height: 58px;
+  left: 430px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 58px;
+}
+
+.contact .text-10 {
+  left: 8px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 776px;
+  white-space: nowrap;
+}
+
+.contact .group-container-1 {
+  background-color: var(--indigo);
+  border: 1px solid var(--black-3);
+  border-radius: 12px;
+  height: 281px;
+  left: 1063px;
+  position: absolute;
+  top: 400px;
+  width: 184px;
+}
+
+.contact .overlap-group1 {
+  height: 148px;
+  left: 5px;
+  position: absolute;
+  top: 6px;
+  width: 175px;
+}
+
+.contact .rectangle-4 {
+  background-color: var(--mercury);
+  height: 25px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 175px;
+}
+
+.contact .november-2021 {
+  color: var(--black);
+  font-family: var(--font-family-arial-regular);
+  font-size: 11px;
+  font-weight: 400;
+  left: 48px;
+  letter-spacing: 0;
+  line-height: 11px;
+  position: absolute;
+  text-align: center;
+  top: 8px;
+  white-space: nowrap;
+}
+
+.contact .path-1 {
+  height: 9px;
+  left: 10px;
+  object-fit: cover;
+  position: absolute;
+  top: 8px;
+  width: 5px;
+}
+
+.contact .path-2 {
+  height: 9px;
+  left: 160px;
+  object-fit: cover;
+  position: absolute;
+  top: 8px;
+  width: 5px;
+}
+
+.contact .rectangle-5 {
+  background-color: var(--cararra);
+  height: 25px;
+  left: 0;
+  position: absolute;
+  top: 25px;
+  width: 25px;
+}
+
+.contact .m {
+  left: 8px;
+  letter-spacing: 0;
+  line-height: 9px;
+  position: absolute;
+  text-align: center;
+  top: 28px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-6 {
+  background-color: var(--cararra);
+  height: 25px;
+  left: 25px;
+  position: absolute;
+  top: 25px;
+  width: 25px;
+}
+
+.contact .t {
+  left: 34px;
+  letter-spacing: 0;
+  line-height: 9px;
+  position: absolute;
+  text-align: center;
+  top: 28px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-7 {
+  background-color: var(--cararra);
+  height: 25px;
+  left: 50px;
+  position: absolute;
+  top: 25px;
+  width: 25px;
+}
+
+.contact .w {
+  left: 58px;
+  letter-spacing: 0;
+  line-height: 9px;
+  position: absolute;
+  text-align: center;
+  top: 28px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-8 {
+  background-color: var(--cararra);
+  height: 25px;
+  left: 75px;
+  position: absolute;
+  top: 25px;
+  width: 25px;
+}
+
+.contact .t-1 {
+  left: 84px;
+  letter-spacing: 0;
+  line-height: 9px;
+  position: absolute;
+  text-align: center;
+  top: 28px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-9 {
+  background-color: var(--cararra);
+  height: 25px;
+  left: 100px;
+  position: absolute;
+  top: 25px;
+  width: 25px;
+}
+
+.contact .f {
+  left: 110px;
+  letter-spacing: 0;
+  line-height: 9px;
+  position: absolute;
+  text-align: center;
+  top: 28px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-10 {
+  background-color: var(--cararra);
+  height: 25px;
+  left: 125px;
+  position: absolute;
+  top: 25px;
+  width: 25px;
+}
+
+.contact .price {
+  left: 134px;
+  letter-spacing: 0;
+  line-height: 9px;
+  position: absolute;
+  text-align: center;
+  top: 28px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-11 {
+  background-color: var(--cararra);
+  height: 25px;
+  left: 150px;
+  position: absolute;
+  top: 25px;
+  width: 25px;
+}
+
+.contact .price-1 {
+  left: 160px;
+  letter-spacing: 0;
+  line-height: 9px;
+  position: absolute;
+  text-align: center;
+  top: 28px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-12 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 0;
+  position: absolute;
+  top: 41px;
+  width: 25px;
+}
+
+.contact .number {
+  left: 10px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 48px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-13 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 25px;
+  position: absolute;
+  top: 41px;
+  width: 25px;
+}
+
+.contact .number-1 {
+  left: 34px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 48px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-14 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 50px;
+  position: absolute;
+  top: 41px;
+  width: 25px;
+}
+
+.contact .number-2 {
+  left: 60px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 48px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-15 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 75px;
+  position: absolute;
+  top: 41px;
+  width: 25px;
+}
+
+.contact .number-3 {
+  left: 84px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 48px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-16 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 100px;
+  position: absolute;
+  top: 41px;
+  width: 25px;
+}
+
+.contact .number-4 {
+  left: 110px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 48px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-17 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 125px;
+  position: absolute;
+  top: 41px;
+  width: 25px;
+}
+
+.contact .number-5 {
+  left: 134px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 48px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-18 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 150px;
+  position: absolute;
+  top: 41px;
+  width: 25px;
+}
+
+.contact .number-6 {
+  left: 160px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 48px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-19 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 0;
+  position: absolute;
+  top: 61px;
+  width: 25px;
+}
+
+.contact .number-7 {
+  left: 10px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 69px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-20 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 25px;
+  position: absolute;
+  top: 61px;
+  width: 25px;
+}
+
+.contact .number-8 {
+  left: 34px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 69px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-21 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 50px;
+  position: absolute;
+  top: 61px;
+  width: 25px;
+}
+
+.contact .number-9 {
+  left: 56px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 69px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-22 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 75px;
+  position: absolute;
+  top: 61px;
+  width: 25px;
+}
+
+.contact .number-10 {
+  left: 82px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 69px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-23 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 100px;
+  position: absolute;
+  top: 61px;
+  width: 25px;
+}
+
+.contact .number-11 {
+  left: 106px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 69px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-24 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 125px;
+  position: absolute;
+  top: 61px;
+  width: 25px;
+}
+
+.contact .number-12 {
+  left: 132px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 69px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-25 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 150px;
+  position: absolute;
+  top: 61px;
+  width: 25px;
+}
+
+.contact .number-13 {
+  left: 156px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 69px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-26 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 0;
+  position: absolute;
+  top: 82px;
+  width: 25px;
+}
+
+.contact .number-14 {
+  left: 6px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 90px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-27 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 25px;
+  position: absolute;
+  top: 82px;
+  width: 25px;
+}
+
+.contact .number-15 {
+  left: 32px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 90px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-28 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 50px;
+  position: absolute;
+  top: 82px;
+  width: 25px;
+}
+
+.contact .number-16 {
+  left: 56px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 90px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-29 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 75px;
+  position: absolute;
+  top: 82px;
+  width: 25px;
+}
+
+.contact .number-17 {
+  left: 82px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 90px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-30 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 100px;
+  position: absolute;
+  top: 82px;
+  width: 25px;
+}
+
+.contact .number-18 {
+  left: 106px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 90px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-31 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 125px;
+  position: absolute;
+  top: 82px;
+  width: 25px;
+}
+
+.contact .number-19 {
+  left: 132px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 90px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-32 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 150px;
+  position: absolute;
+  top: 82px;
+  width: 25px;
+}
+
+.contact .number-20 {
+  left: 156px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 90px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-33 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 0;
+  position: absolute;
+  top: 98px;
+  width: 25px;
+}
+
+.contact .number-21 {
+  left: 6px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 110px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-34 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 25px;
+  position: absolute;
+  top: 98px;
+  width: 25px;
+}
+
+.contact .number-22 {
+  left: 32px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 110px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-35 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 50px;
+  position: absolute;
+  top: 98px;
+  width: 25px;
+}
+
+.contact .number-23 {
+  left: 56px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 110px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-36 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 75px;
+  position: absolute;
+  top: 98px;
+  width: 25px;
+}
+
+.contact .number-24 {
+  left: 82px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 110px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-37 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 100px;
+  position: absolute;
+  top: 98px;
+  width: 25px;
+}
+
+.contact .number-25 {
+  left: 106px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 110px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-38 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 125px;
+  position: absolute;
+  top: 98px;
+  width: 25px;
+}
+
+.contact .number-26 {
+  left: 132px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 110px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-39 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 150px;
+  position: absolute;
+  top: 98px;
+  width: 25px;
+}
+
+.contact .number-27 {
+  left: 156px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 110px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-40 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 0;
+  position: absolute;
+  top: 123px;
+  width: 25px;
+}
+
+.contact .number-28 {
+  left: 6px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 130px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-41 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 25px;
+  position: absolute;
+  top: 123px;
+  width: 25px;
+}
+
+.contact .number-29 {
+  left: 32px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 130px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-42 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 50px;
+  position: absolute;
+  top: 123px;
+  width: 25px;
+}
+
+.contact .number-30 {
+  left: 60px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 130px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-43 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 75px;
+  position: absolute;
+  top: 123px;
+  width: 25px;
+}
+
+.contact .number-31 {
+  left: 84px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 130px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-44 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 100px;
+  position: absolute;
+  top: 123px;
+  width: 25px;
+}
+
+.contact .number-32 {
+  left: 110px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 130px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-45 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 125px;
+  position: absolute;
+  top: 123px;
+  width: 25px;
+}
+
+.contact .number-33 {
+  left: 134px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 130px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-46 {
+  background-color: var(--concrete);
+  height: 25px;
+  left: 150px;
+  position: absolute;
+  top: 123px;
+  width: 25px;
+}
+
+.contact .number-34 {
+  left: 160px;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  text-align: center;
+  top: 130px;
+  white-space: nowrap;
+}
+
+.contact .group-5 {
+  background-color: var(--white);
+  border-radius: 100px;
+  cursor: pointer;
+  height: 22px;
+  left: 52px;
+  position: absolute;
+  top: 165px;
+  transition: all 0.2s ease;
+  width: 70px;
+}
+
+.contact .group-5:hover {
+  transform: translate(0, -5px);
+}
+
+.contact .honors {
+  cursor: pointer;
+  left: 10px;
+  letter-spacing: 0;
+  line-height: 15px;
+  position: absolute;
+  top: 4px;
+  white-space: nowrap;
+}
+
+.contact .group-7 {
+  background-color: var(--white);
+  border-radius: 100px;
+  cursor: pointer;
+  height: 22px;
+  left: 52px;
+  position: absolute;
+  top: 243px;
+  transition: all 0.2s ease;
+  width: 70px;
+}
+
+.contact .group-7:hover {
+  transform: translate(0, -5px);
+}
+
+.contact .report {
+  cursor: pointer;
+  left: 11px;
+  letter-spacing: 0;
+  line-height: 15px;
+  position: absolute;
+  top: 2px;
+  white-space: nowrap;
+}
+
+.contact .group-11 {
+  cursor: pointer;
+  height: 22px;
+  left: 53px;
+  position: absolute;
+  top: 205px;
+  transition: all 0.2s ease;
+  width: 72px;
+}
+
+.contact .group-11:hover {
+  transform: translate(0, -5px);
+}
+
+.contact .overlap-group-1 {
+  border-radius: 100px;
+  height: 22px;
+  position: relative;
+}
+
+.contact .rectangle-51 {
+  background-color: var(--white);
+  border-radius: 100px;
+  cursor: pointer;
+  height: 22px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: all 0.2s ease;
+  width: 72px;
+}
+
+.contact .rectangle-51:hover {
+  transform: translate(0, -5px);
+}
+
+.contact .reviews {
+  left: 11px;
+  letter-spacing: 0;
+  line-height: 15px;
+  position: absolute;
+  top: 2px;
+  white-space: nowrap;
+}
+
+.contact .text-14 {
+  color: var(--black);
+  font-family: var(--font-family-bellmt-bold);
+  font-size: 25px;
+  font-weight: 700;
+  left: 90px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  text-align: center;
+  top: 498px;
+  white-space: nowrap;
+}
+
+.contact .rectangle-53 {
+  background-color: var(--mercury);
+  border-radius: 15px;
+  height: 289px;
+  left: 412px;
+  opacity: 0.63;
+  position: absolute;
+  top: 400px;
+  width: 605px;
+}
+
+.text-field-fill-leading-custom .mdc-text-field {
+  --mdc-theme-primary: #FFFFFF;
+}
+
+.text-field-fill-leading-custom .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: #6200ee;
+}

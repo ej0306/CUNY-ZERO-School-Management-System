@@ -1,6 +1,6 @@
-/* screen - about */
+/* screen - base-page */
 
-.about {
+.base-page {
   background-color: var(--white);
   height: 800px;
   overflow: hidden;
@@ -8,7 +8,7 @@
   width: 1280px;
 }
 
-.about .overlap-group2 {
+.base-page .overlap-group {
   height: 59px;
   left: 0;
   position: absolute;
@@ -16,7 +16,7 @@
   width: 1280px;
 }
 
-.about .rectangle-1 {
+.base-page .rectangle-1 {
   background-color: var(--indigo);
   height: 57px;
   left: 0;
@@ -25,7 +25,7 @@
   width: 1280px;
 }
 
-.about .component-1-44 {
+.base-page .component-1-1 {
   cursor: pointer;
   height: 17px;
   left: 1138px;
@@ -35,11 +35,11 @@
   width: 43px;
 }
 
-.about .component-1-44:hover {
+.base-page .component-1-1:hover {
   transform: scale(1.1);
 }
 
-.about .log-in {
+.base-page .log-in {
   left: 0;
   letter-spacing: 0;
   line-height: 15px;
@@ -48,7 +48,7 @@
   white-space: nowrap;
 }
 
-.about .cuny-zero {
+.base-page .cuny-zero {
   left: 24px;
   letter-spacing: 0;
   line-height: 27px;
@@ -57,7 +57,7 @@
   white-space: nowrap;
 }
 
-.about .text-field-fill-leading-custom {
+.base-page .text-field-fill-leading-custom {
   border-radius: 13px;
   height: 59px;
   left: 536px;
@@ -66,7 +66,7 @@
   width: 207px;
 }
 
-.about .component-1-45 {
+.base-page .component-1-3 {
   cursor: pointer;
   height: 21px;
   left: 193px;
@@ -76,11 +76,11 @@
   width: 48px;
 }
 
-.about .component-1-45:hover {
+.base-page .component-1-3:hover {
   transform: scale(1.1);
 }
 
-.about .place {
+.base-page .place {
   left: 0;
   letter-spacing: 0;
   line-height: 18px;
@@ -89,7 +89,7 @@
   white-space: nowrap;
 }
 
-.about .component-1-46 {
+.base-page .component-1-4 {
   cursor: pointer;
   height: 17px;
   left: 259px;
@@ -99,11 +99,11 @@
   width: 40px;
 }
 
-.about .component-1-46:hover {
+.base-page .component-1-4:hover {
   transform: scale(1.1);
 }
 
-.about .about-1 {
+.base-page .about {
   left: 0;
   letter-spacing: 0;
   line-height: 15px;
@@ -112,7 +112,7 @@
   white-space: nowrap;
 }
 
-.about .component-1-47 {
+.base-page .component-1-5 {
   cursor: pointer;
   height: 17px;
   left: 320px;
@@ -122,11 +122,11 @@
   width: 51px;
 }
 
-.about .component-1-47:hover {
+.base-page .component-1-5:hover {
   transform: scale(1.1);
 }
 
-.about .place-1 {
+.base-page .place-1 {
   left: 0;
   letter-spacing: 0;
   line-height: 15px;
@@ -135,7 +135,7 @@
   white-space: nowrap;
 }
 
-.about .component-1-48 {
+.base-page .component-1-10 {
   cursor: pointer;
   height: 17px;
   left: 1200px;
@@ -145,11 +145,11 @@
   width: 52px;
 }
 
-.about .component-1-48:hover {
+.base-page .component-1-10:hover {
   transform: scale(1.1);
 }
 
-.about .place-2 {
+.base-page .place-2 {
   left: 0;
   letter-spacing: 0;
   line-height: 15px;
@@ -158,7 +158,7 @@
   white-space: nowrap;
 }
 
-.about .line-1 {
+.base-page .line-1 {
   height: 3px;
   left: 0;
   object-fit: cover;
@@ -167,7 +167,7 @@
   width: 1280px;
 }
 
-.about .overlap-group5 {
+.base-page .overlap-group4 {
   height: 60px;
   left: 0;
   position: absolute;
@@ -175,7 +175,7 @@
   width: 1280px;
 }
 
-.about .overlap-group4 {
+.base-page .overlap-group3 {
   height: 54px;
   left: 0;
   position: absolute;
@@ -183,7 +183,7 @@
   width: 1280px;
 }
 
-.about .line-2 {
+.base-page .line-2 {
   height: 2px;
   left: 0;
   object-fit: cover;
@@ -192,7 +192,7 @@
   width: 1280px;
 }
 
-.about .address {
+.base-page .address {
   left: 492px;
   letter-spacing: 0;
   line-height: 15px;
@@ -201,7 +201,7 @@
   white-space: nowrap;
 }
 
-.about .icon-awesome-container {
+.base-page .icon-awesome-container {
   background-color: var(--white);
   height: 36px;
   left: 1130px;
@@ -210,7 +210,7 @@
   width: 149px;
 }
 
-.about .icon-awesome-facebook {
+.base-page .icon-awesome-facebook {
   cursor: pointer;
   height: 23px;
   left: 15px;
@@ -221,11 +221,11 @@
   width: 25px;
 }
 
-.about .icon-awesome-facebook:hover {
+.base-page .icon-awesome-facebook:hover {
   transform: scale(0.9); 
 }
 
-.about .icon-awesome-instagram {
+.base-page .icon-awesome-instagram {
   cursor: pointer;
   height: 26px;
   left: 45px;
@@ -236,11 +236,11 @@
   width: 24px;
 }
 
-.about .icon-awesome-instagram:hover {
+.base-page .icon-awesome-instagram:hover {
   transform: scale(0.9); 
 }
 
-.about .icon-awesome-linkedin-in {
+.base-page .icon-awesome-linkedin-in {
   cursor: pointer;
   height: 22px;
   left: 74px;
@@ -251,11 +251,11 @@
   width: 24px;
 }
 
-.about .icon-awesome-linkedin-in:hover {
+.base-page .icon-awesome-linkedin-in:hover {
   transform: scale(0.9); 
 }
 
-.about .icon-awesome-twitter {
+.base-page .icon-awesome-twitter {
   cursor: pointer;
   height: 19px;
   left: 104px;
@@ -266,11 +266,11 @@
   width: 24px;
 }
 
-.about .icon-awesome-twitter:hover {
+.base-page .icon-awesome-twitter:hover {
   transform: scale(0.9); 
 }
 
-.about .ccnylogo {
+.base-page .ccnylogo {
   height: 58px;
   left: 430px;
   object-fit: cover;
@@ -279,7 +279,7 @@
   width: 58px;
 }
 
-.about .text-26 {
+.base-page .text-6 {
   left: 8px;
   letter-spacing: 0;
   line-height: 16px;
@@ -288,7 +288,7 @@
   white-space: nowrap;
 }
 
-.about .text-27 {
+.base-page .text-7 {
   left: 24px;
   letter-spacing: 0;
   line-height: 36px;
@@ -297,7 +297,7 @@
   white-space: nowrap;
 }
 
-.about .text-28 {
+.base-page .text-8 {
   left: 903px;
   letter-spacing: 0;
   line-height: 37px;
@@ -307,7 +307,7 @@
   white-space: nowrap;
 }
 
-.about .city-college-np-ush-left-city1 {
+.base-page .city-college-np-ush-left-city1 {
   height: 95px;
   left: 795px;
   object-fit: cover;
@@ -316,7 +316,7 @@
   width: 95px;
 }
 
-.about .overlap-group3 {
+.base-page .overlap-group1 {
   background-color: var(--indigo);
   border-radius: 13px;
   height: 270px;
@@ -326,7 +326,7 @@
   width: 161px;
 }
 
-.about .enroll {
+.base-page .enroll {
   cursor: pointer;
   left: 11px;
   letter-spacing: 0;
@@ -338,11 +338,11 @@
   white-space: nowrap;
 }
 
-.about .enroll:hover {
+.base-page .enroll:hover {
   color: #F55353
 }
 
-.about .searchfor-classes {
+.base-page .searchfor-classes {
   cursor: pointer;
   left: 10px;
   letter-spacing: 0;
@@ -353,11 +353,11 @@
   white-space: nowrap;
 }
 
-.about .searchfor-classes:hover {
+.base-page .searchfor-classes:hover {
   color: #F55353
 }
 
-.about .text-29 {
+.base-page .text-9 {
   cursor: pointer;
   left: 10px;
   letter-spacing: 0;
@@ -368,11 +368,11 @@
   white-space: nowrap;
 }
 
-.about .text-29:hover {
+.base-page .text-9:hover {
   color: #F55353
 }
 
-.about .requesttranscript {
+.base-page .requesttranscript {
   cursor: pointer;
   left: 10px;
   letter-spacing: 0;
@@ -383,209 +383,8 @@
   white-space: nowrap;
 }
 
-.about .requesttranscript:hover {
+.base-page .requesttranscript:hover {
   color: #F55353
-}
-
-.about .overlap-group1 {
-  height: 492px;
-  left: -30px;
-  position: absolute;
-  top: 196px;
-  width: 1109px;
-}
-
-.about .rectangle-58 {
-  background-color: var(--white);
-  height: 233px;
-  left: 204px;
-  position: absolute;
-  top: 259px;
-  width: 766px;
-}
-
-.about .rectangle-57 {
-  background-color: #dedede;
-  border-radius: 10px;
-  height: 218px;
-  left: 41px;
-  position: absolute;
-  top: 41px;
-  width: 1068px;
-}
-
-.about .the-city-college-mas {
-  color: var(--black-2);
-  font-family: var(--font-family-gillsans_mt-regular);
-  font-size: var(--font-size-xxl);
-  font-weight: 400;
-  height: 220px;
-  left: 55px;
-  letter-spacing: 0;
-  line-height: 21px;
-  position: absolute;
-  text-align: center;
-  top: 52px;
-  width: 1045px;
-}
-
-.about .name {
-  cursor: pointer;
-  height: 32px;
-  left: 188px;
-  letter-spacing: 0;
-  line-height: 20px;
-  position: absolute;
-  text-align: center;
-  top: 270px;
-  transition: all 0.2s ease;
-  width: 759px;
-}
-
-.about .name:hover {
-  color: #0C51F9
-}
-
-.about .name-1 {
-  cursor: pointer;
-  left: 121px;
-  letter-spacing: 0;
-  line-height: 20px;
-  position: absolute;
-  text-align: center;
-  top: 295px;
-  transition: all 0.2s ease;
-  width: 894px;
-}
-
-.about .name-1:hover {
-  color: #0C51F9
-}
-
-.about .text-30 {
-  cursor: pointer;
-  left: 121px;
-  letter-spacing: 0;
-  line-height: 20px;
-  position: absolute;
-  text-align: center;
-  top: 318px;
-  transition: all 0.2s ease;
-  width: 894px;
-}
-
-.about .text-30:hover {
-  color: #0C51F9
-}
-
-.about .text-31 {
-  cursor: pointer;
-  left: 121px;
-  letter-spacing: 0;
-  line-height: 20px;
-  position: absolute;
-  text-align: center;
-  top: 343px;
-  transition: all 0.2s ease;
-  width: 894px;
-}
-
-.about .text-31:hover {
-  color: #0C51F9
-}
-
-.about .text-32 {
-  cursor: pointer;
-  left: 121px;
-  letter-spacing: 0;
-  line-height: 20px;
-  position: absolute;
-  text-align: center;
-  top: 366px;
-  transition: all 0.2s ease;
-  width: 894px;
-}
-
-.about .text-32:hover {
-  color: #0C51F9
-}
-
-.about .division-of-science {
-  cursor: pointer;
-  left: 121px;
-  letter-spacing: 0;
-  line-height: 20px;
-  position: absolute;
-  text-align: center;
-  top: 391px;
-  transition: all 0.2s ease;
-  width: 894px;
-}
-
-.about .division-of-science:hover {
-  color: #0C51F9
-}
-
-.about .text-33 {
-  cursor: pointer;
-  left: 121px;
-  letter-spacing: 0;
-  line-height: 20px;
-  position: absolute;
-  text-align: center;
-  top: 414px;
-  transition: all 0.2s ease;
-  width: 894px;
-}
-
-.about .text-33:hover {
-  color: #0C51F9
-}
-
-.about .school-of-education {
-  cursor: pointer;
-  left: 121px;
-  letter-spacing: 0;
-  line-height: 20px;
-  position: absolute;
-  text-align: center;
-  top: 439px;
-  transition: all 0.2s ease;
-  width: 894px;
-}
-
-.about .school-of-education:hover {
-  color: #0C51F9
-}
-
-.about .text-34 {
-  cursor: pointer;
-  left: 121px;
-  letter-spacing: 0;
-  line-height: 20px;
-  position: absolute;
-  text-align: center;
-  top: 462px;
-  transition: all 0.2s ease;
-  width: 894px;
-}
-
-.about .text-34:hover {
-  color: #0C51F9
-}
-
-.about .graduate-overview {
-  color: var(--black-2);
-  font-family: var(--font-family-gillsans_mt-regular);
-  font-size: 34px;
-  font-weight: 400;
-  left: 0;
-  letter-spacing: 0;
-  line-height: 34px;
-  position: absolute;
-  text-align: center;
-  top: 0;
-  width: 359px;
 }
 
 .text-field-fill-leading-custom .mdc-text-field {
