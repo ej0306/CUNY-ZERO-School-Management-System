@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    {% load static %}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1280, maximum-scale=1.0" />
     <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
@@ -19,6 +20,10 @@
     />
     <link rel="stylesheet" type="text/css" href="css/styleguide.css" />
     <link rel="stylesheet" type="text/css" href="css/globals.css" />
+
+    <link rel="stylesheet" href="{% static 'general/home.css' %}"/>
+    <link rel="stylesheet" href="{% static 'general/styleguide.css' %}"/>
+    <link rel="stylesheet" href="{% static 'general/globals.css' %}"/>
   </head>
   <body style="margin: 0; background: #ffffff">
     <input type="hidden" id="anPageName" name="page" value="home" />
@@ -58,8 +63,10 @@
                 <div class="component-1-5 smart-layers-pointers">
                   <div class="place-1 gillsansmt-regular-normal-baby-powder-15px">Contact</div>
                 </div></a
-              ><a href="https://#"> <div class="component-1-10 smart-layers-pointers"></div></a
-              ><img class="city-college-np-ush-left-city1" src="img/citycollegenp-flushleftcity-1-2@1x.png" />
+              ><a href="https://#"> <div class="component-1-10 smart-layers-pointers">
+                <div class="register gillsansmt-regular-normal-baby-powder-15px">Register</div>
+              </div></a
+              ><img class="city-college-np-ush-left-city1" src="{% static 'general/img/citycollegenp-flushleftcity-1-2@1x.png' %}" />
               <a href="https://#">
                 <div class="component-1-1 smart-layers-pointers">
                   <div class="log-in gillsansmt-regular-normal-baby-powder-15px">Log in</div>
@@ -107,10 +114,10 @@
           >
         </div>
         <div class="overlap-group5">
-          <img class="line-1" src="img/line-1-1@1x.png" />
-          <img class="line-3" src="img/line-2-1@1x.png" />
+          <img class="line-1" src="{% static 'general/img/line-1-1@1x.png' %}" />
+          <img class="line-3" src="{% static 'general/img/line-2-1@1x.png' %}" />
           <div class="widget-wrapper">
-            <img class="cuny" src="img/cuny-1@1x.png" />
+            <img class="cuny" src="{% static 'general/img/cuny-1@1x.png' %}" />
             <script>
               window.addEventListener("load", function () {
                 var image = document.querySelectorAll(".cuny");
@@ -127,29 +134,29 @@
         </div>
         <div class="overlap-group7">
           <div class="overlap-group4">
-            <img class="line-2" src="img/line-2-1@1x.png" />
+            <img class="line-2" src="{% static 'general/img/line-2-1@1x.png' %}" />
             <p class="address gillsansmt-regular-normal-black-15px">
               The City College of New York <br />160 Convent Avenue New York, NY 10031<br />p: 212.650.7000
             </p>
           </div>
           <div class="icon-awesome-container">
             <a href="https://facebook.com"
-              ><img class="icon-awesome-facebook smart-layers-pointers" src="img/icon-awesome-facebook-1@1x.png" /> </a
+              ><img class="icon-awesome-facebook smart-layers-pointers" src="{% static 'general/img/icon-awesome-facebook-1@1x.png' %}" /> </a
             ><a href="https://instagram.com"
               ><img
                 class="icon-awesome-instagram smart-layers-pointers"
-                src="img/icon-awesome-instagram-1@1x.png"
+                src="{% static 'general/img/icon-awesome-instagram-1@1x.png' %}"
               /> </a
             ><a href="https://linkedin.com"
               ><img
                 class="icon-awesome-linkedin-in smart-layers-pointers"
-                src="img/icon-awesome-linkedin-in-1@1x.png"
+                src="{% static 'general/img/icon-awesome-linkedin-in-1@1x.png' %}"
               /> </a
             ><a href="https://twitter.com"
-              ><img class="icon-awesome-twitter smart-layers-pointers" src="img/icon-awesome-twitter-1@1x.png" />
+              ><img class="icon-awesome-twitter smart-layers-pointers" src="{% static 'general/img/icon-awesome-twitter-1@1x.png' %}" />
             </a>
           </div>
-          <img class="ccnylogo" src="img/ccnylogo-1@1x.png" />
+          <img class="ccnylogo" src="{% static 'general/img/ccnylogo-1@1x.png' %}" />
         </div>
         <p class="text-1 gillsansmt-regular-normal-midnight-moss-16px">
           Copyright (c) 2021 | City University of New York
@@ -169,8 +176,8 @@
           <div class="overlap-group1">
             <div class="rectangle-4"></div>
             <div class="november-2021">November 2021</div>
-            <img class="path-1" src="img/path-1-1@1x.png" />
-            <img class="path-2" src="img/path-2-1@1x.png" />
+            <img class="path-1" src="{% static 'generalimg/path-1-1@1x.png' %}" />
+            <img class="path-2" src="{% static 'generalimg/path-2-1@1x.png' %}" />
             <div class="rectangle-5"></div>
             <div class="m arial-regular-normal-black-9px">M</div>
             <div class="rectangle-6"></div>
