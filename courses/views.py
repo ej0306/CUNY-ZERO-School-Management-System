@@ -120,7 +120,11 @@ def class_search(request):
         submitbutton = request.GET.get('submit')
 
         if query:
-            lookups = Q(semester__icontains= query) | Q(class_id__icontains= query) |  Q(year__icontains= query)
+            lookups =  ( 
+                Q(semester__icontains= query) | Q(class_id__icontains= query) | 
+                Q(year__icontains= query) |  Q(days_and_time__icontains= query) | 
+                Q(course__course_name__icontains= query) | Q(course__title__icontains= query)
+              )
                     
             # lookups2= Q(course_name__icontains= query)| Q(title__icontains= query)
             results = Classes.objects.filter(lookups).distinct()

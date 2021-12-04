@@ -12,6 +12,7 @@ from users.models import Instructor, Student, User
 from django.core.mail import send_mail
 from django.conf import settings
 
+from courses.models import Classes, TakenCourse 
 
 # Create your views here.
 def register_student(request):
@@ -50,7 +51,15 @@ def register_instructor(request):
 
 @login_required
 def profile(request):
-    return render(request, 'users/profile.html')
+    courses = Classes.objects.filter(allocated_course__instructor__pk = request.user.id)
+    taken_course = TakenCourse.objects.filter(student__user__pk = request.user.id)
+
+
+    context = {
+        "courses": courses,
+        "taken_course": taken_course,
+    }
+    return render(request, 'users/profile.html', context)
 
 
 @login_required

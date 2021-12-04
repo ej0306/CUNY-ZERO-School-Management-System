@@ -58,7 +58,7 @@ class Course(models.Model):
 
 class Classes(models.Model):
     course = models.ForeignKey(Course, on_delete= models.CASCADE)
-    class_id = models.CharField( max_length= 10, null= True)
+    class_id = models.CharField( max_length= 10, null= True, unique=True)
     section_num = models.CharField(max_length= 20, null= True)
     credit = models.IntegerField(null = True)
     year = models.IntegerField( null= True)

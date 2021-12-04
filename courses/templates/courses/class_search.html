@@ -2,7 +2,7 @@
 {%  block content %}
 
 
-<div class="container-fluid mt-5">
+<div class="container-fluid mt-9">
 
     <!-- Heading -->
     <div class="card mb-4 wow fadeIn">
@@ -10,17 +10,19 @@
         <!--Card content-->
         <div class="card-body d-sm-flex justify-content-between">
 
-            <h5 class="mb-2 mb-sm-0 pt-1">
-                <a href="/">Profile Page</a>
+            <h3 class="mb-2 mb-sm-0 pt-1">
+                <a href="{% url 'profile' %}">Profile Page</a>
                 <span>/</span>
-                <span> Class Search
+                <span>Class Search</span>
+            </h3>
+                <span>
                     <br><br>
                     <form action="{% url 'courses:class_search' %}" method="GET" value="{{request.GET.q}}">
                         <input type="text" name="q" value="{{request.GET.q}}" placeholder="Search Classes..."/>
                         <input type="submit" name="submit" value="Search"/>
                     </form>
                 </span>
-            </h5>
+           
         </div>
 
     </div>
