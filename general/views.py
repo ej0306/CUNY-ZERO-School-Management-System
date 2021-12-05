@@ -17,8 +17,8 @@ def contact(request):
 def searchclasses(request):
     return render(request,'general/base-page.html',{'title': 'SearchClasses'})
 
-def login(request):
-    return render(request,'login.html',{'title': 'LogIn'})
+def loginbase(request):
+    return render(request,'general/loginbase.html',{'title': 'LogIn'})
 
 def register(request):
     return render(request,'general/base-page.html',{'title': 'Register'})
@@ -28,3 +28,6 @@ def base_profile(request):
 
 def about(request):
     return render(request, 'general/about.html',{'title': 'About'})
+
+def login(request):
+    return render(request,'login.html')

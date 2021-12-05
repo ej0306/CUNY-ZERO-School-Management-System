@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    {% load static %}
 
+    {% load static %}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1280, maximum-scale=1.0" />
     <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
     <meta name="og:type" content="website" />
     <meta name="twitter:card" content="photo" />
     <link rel="stylesheet" type="text/css" href="css/base-profile.css" />
-    <script src="js/base-profile.js"></script>
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 
     {% if title %}
         <title>CUNY Zero - {{ title }}</title>
@@ -28,9 +28,9 @@
     <link rel="stylesheet" type="text/css" href="css/styleguide.css" />
     <link rel="stylesheet" type="text/css" href="css/globals.css" />
 
-    <link rel="stylesheet" href="{% static 'general/base-profile.css' %}"/>
+    <link rel="stylesheet" href="{% static 'general/profile.css' %}"/>
     <link rel="stylesheet" href="{% static 'general/styleguide.css' %}"/>
-    <link rel="stylesheet" href="{% static 'general/globals.css' %}"/>
+    <link rel="stylesheet" href="{% static 'general/globals.css' %}"/> 
   </head>
   <body style="margin: 0; background: #ffffff">
     <input type="hidden" id="anPageName" name="page" value="base-profile" />
@@ -38,7 +38,7 @@
       <div class="base-profile screen">
         <div class="overlap-group">
           <div class="rectangle-1"></div>
-          <a href="https://#">
+          <a href="{% url 'login' %}">
             <div class="component-1-32 smart-layers-pointers">
               <div class="log-in gillsansmt-regular-normal-baby-powder-15px">Log in</div>
             </div></a
@@ -58,7 +58,7 @@
               new mdc.textField.MDCTextField(document.querySelector(".text-field-fill-leading-custom .mdc-text-field"));
             </script>
           </div>
-          <a href="{% url 'general-home' %}">
+          <a href="{% url 'homepage' %}">
             <div class="component-1-33 smart-layers-pointers">
               <div class="place gillsansmt-regular-normal-baby-powder-18px">Home</div>
             </div></a
@@ -70,12 +70,12 @@
             <div class="component-1-35 smart-layers-pointers">
               <div class="place-1 gillsansmt-regular-normal-baby-powder-15px">Contact</div>
             </div></a
-          ><a href="{% url 'register' %}"> <div class="component-1-38 smart-layers-pointers">
-            <div class="register gillsansmt-regular-normal-baby-powder-15px">Register</div>
-          </div></a>
+          ><a href="#">
+            <div class="component-1-38 smart-layers-pointers"><img class="register" src="{% static 'general/img/register-1@1x.png' %}" /></div
+          ></a>
         </div>
         <img class="line-1" src="{% static 'general/img/line-1-1@1x.png' %}" />
-        <div class="overlap-group3">
+        <div class="overlap-group4">
           <div class="overlap-group1">
             <img class="line-2" src="{% static 'general/img/line-2-1@1x.png' %}" />
             <p class="address gillsansmt-regular-normal-black-15px">
@@ -101,14 +101,26 @@
           </div>
           <img class="ccnylogo" src="{% static 'general/img/ccnylogo-1@1x.png' %}" />
         </div>
-        <p class="text-19 gillsansmt-regular-normal-midnight-moss-16px">
+        <p class="text-1 gillsansmt-regular-normal-midnight-moss-16px">
           Copyright (c) 2021 | City University of New York
         </p>
-        <div class="text-20 gillsansmt-regular-normal-black-36px">City University of New York<br />Graduate School</div>
-        <div class="text-21 gillsansmt-regular-normal-black-37px">The City College <br />of New York</div>
-        <img class="city-college-np-ush-left-city1" src="{% static 'general/img/citycollegenp-flushleftcity-1-1@1x.png' %}" />
+        <div class="text-2 gillsansmt-regular-normal-black-36px">City University of New York<br />Graduate School</div>
+        <h1 class="text-3 gillsansmt-regular-normal-black-37px">The City College <br />of New York</h1>
+        <img class="city-college-np-ush-left-city1" src="{% static 'general/img/citycollegenp-flushleftcity-1-2@1x.png' %}" />
         <div class="rectangle-56"></div>
         <div class="ellipse-2"></div>
+        <div class="overlap-group3">
+          <a href="#"><div class="enroll smart-layers-pointers bellmt-bold-white-25px">Enroll</div> </a
+          ><a href="#"
+            ><div class="searchfor-classes smart-layers-pointers bellmt-bold-white-25px">
+              Search<br />for Classes
+            </div> </a
+          ><a href="#"
+            ><div class="text-4 smart-layers-pointers bellmt-bold-white-25px">Apply for<br />Graduation</div> </a
+          ><a href="#"
+            ><div class="requesttranscript smart-layers-pointers bellmt-bold-white-25px">Request<br />Transcript</div>
+          </a>
+        </div>
       </div>
     </div>
   </body>

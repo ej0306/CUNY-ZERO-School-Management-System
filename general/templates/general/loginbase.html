@@ -1,7 +1,8 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
-    {% load static %}
+    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1280, maximum-scale=1.0" />
     <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
@@ -74,7 +75,7 @@
               >
               <div class="component-1-28 smart-layers-pointers"></div>
               <img class="city-college-np-ush-left-city1" src="{% static 'general/img/citycollegenp-flushleftcity-1-2@1x.png' %}" />
-              <a href="{% url 'login' %}">
+              <a href="{% url 'loginbase' %}">
                 <div class="component-1-31 smart-layers-pointers">
                   <div class="log-in gillsansmt-regular-normal-baby-powder-15px">Log in</div>
                 </div></a
@@ -87,6 +88,7 @@
             </div>
             <div class="text-18 gillsansmt-regular-normal-black-37px">The City College of New York</div>
           </div>
+
           <a href="#">
             <div class="group-10 smart-layers-pointers">
               <div class="overlap-group">
@@ -106,7 +108,7 @@
             </div></a
           ><a href="{% url 'searchclasses' %}">
             <div class="group-9 smart-layers-pointers">
-              <a href="https://" onclick="window.event.stopPropagation()">
+              <a href="{% url 'searchclasses' %}" onclick="window.event.stopPropagation()">
                 <div class="component-1-29">
                   <div class="search-for-classes gillsansmt-regular-normal-white-21px">Search for Classes</div>
                 </div></a
@@ -119,8 +121,7 @@
                   <div class="request-transcript gillsansmt-regular-normal-white-22px">Request Transcript</div>
                 </div></a
               >
-            </div></a
-          >
+            </div></a>
         </div>
         <div class="overlap-group1">
           <img class="line-1" src="{% static 'general/img/line-1-1@1x.png' %}" />
@@ -141,6 +142,13 @@
             </script>
           </div>
         </div>
+
+        {% block content %}
+
+        {% endblock %} 
+
+
+
         <div class="overlap-group5">
           <div class="overlap-group3">
             <img class="line-2" src="{% static 'general/img/line-2-1@1x.png' %}" />
