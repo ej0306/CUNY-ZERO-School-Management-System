@@ -53,7 +53,7 @@
                 <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
             
                     <div>
-                        <button id="add_selected" type="submit" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                        <button type="submit" class="btn btn-primary">
                         <i class="fa fa-plus" aria-hidden="true"></i> Add Selected
                         </button>
                     </div>
@@ -110,7 +110,8 @@
                             <!--Table body-->
                             <tbody>
                                 <small><u class="blue-text">FIRST SEMESTER</u></small>
-                                {% for class in classes %}
+                                
+                                {% for x, class in class_dict.items %}
                                 {% if class.semester == "First" %}
                                 <tr>
                                     <th scope="row">
@@ -127,7 +128,7 @@
 
                                         <td> {{class.year}} {{class.semester}} Term: 
                                             {{class.start_date}} -  {{class.end_date}} <br>
-                                            Seats: {{ class.current_capacity | addition:1 }}/{{class.full_capacity}} <br>
+                                            Seats: {{x}}/{{class.full_capacity}} <br>
                                             Credit: {{class.credit}}.0  
 
                                         </td>
@@ -154,7 +155,7 @@
                                 <!--Table body-->
                                 <tbody>
                                 <small><u class="blue-text">SECOND SEMESTER</u></small>
-                                    {% for class in classes %}
+                                {% for x, class in class_dict.items %}
                                 {% if class.semester == "Second" %}
                                 <tr>
                                     <th scope="row">
@@ -171,7 +172,7 @@
 
                                     <td> {{class.year}} {{class.semester}} Term: 
                                         {{class.start_date}} -  {{class.end_date}} <br>
-                                        Seats: {{class.current_capacity}}/{{class.full_capacity}} <br>
+                                        Seats: {{x}}/{{class.full_capacity}} <br>
                                         Credit: {{class.credit}}.0  {{ class.current_capacity | addition:1 }}
                                     </td>
                                     <td class="text-center">-</td>
@@ -220,7 +221,7 @@
             <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
         
                 <div>
-                    <button id="add_selected" type="submit" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                    <button type="submit" class="btn btn-primary">
                     <i class="fa fa-plus" aria-hidden="true"></i> Drop Selected
                     </button>
                 </div>
@@ -277,7 +278,7 @@
                         <!--Table body-->
                         <tbody>
                            
-                            {% for class in registered_classes %}
+                            {% for x, class in taken_class_dict.items %}
                            
                             <tr>
                                 <th scope="row">
@@ -294,7 +295,7 @@
 
                                     <td> {{class.year}} {{class.semester}} Term: 
                                         {{class.start_date}} -  {{class.end_date}} <br>
-                                        Seats: {{class.current_capacity}}/{{class.full_capacity}} <br>
+                                        Seats: {{x}}/{{class.full_capacity}} <br>
                                         Credit: {{class.credit}}.0 
 
                                     </td>

@@ -64,11 +64,15 @@ class Classes(models.Model):
     year = models.IntegerField( null= True)
     semester = models.CharField(choices= SEMESTER, max_length= 50, null=True)
     full_capacity = models.IntegerField(null= True)
-    current_capacity = models.IntegerField(null= True)
     start_date = models.DateField(auto_now=False, null = True, auto_now_add=False, default= datetime.date(1, 1, 1))
     end_date = models.DateField(auto_now=False, null = True, auto_now_add=False, default= datetime.date(1, 1, 1))
     days_and_time = models.CharField(max_length= 200, null = True)
     instructor = models.ForeignKey(Instructor, on_delete= models.CASCADE, null= True)
+
+
+    def get_cur_capacity(self):
+        cur_capacity = TakenCourse.objects.filter(classes__class_id= self.class_id)
+        return cur_capacity.count()
 
 
     def average_rating(self):
@@ -274,7 +278,7 @@ class ReviewClasses(models.Model):
 
     course = models.ForeignKey(Classes, on_delete= models.CASCADE)
     rate = models.IntegerField (choices = RATING_CHOICES, null=True)
-    review = models.TextField()
+    review = models.TextField(null=True)
     date_added = models.DateTimeField(auto_now_add= True)
     owner = models.ForeignKey(Student, on_delete= models.CASCADE)
 

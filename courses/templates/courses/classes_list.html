@@ -43,7 +43,8 @@
                     
                     </tr>
                 </thead>
-            {% for class in classes %}
+                
+            {% for x, class in class_dict.items %}
                 <tbody>
                     <tr>
                     <th scope="row">{{ forloop.counter }}</th>
@@ -54,7 +55,7 @@
                     <td>{{ class.days_and_time }}</td>
                     <td> {{class.year}} {{class.semester}} Term: 
                         {{class.start_date}} -  {{class.end_date}} <br>
-                        Seats: {{class.current_capacity}}/{{class.full_capacity}} <br>
+                        Seats: {{x}}/{{class.full_capacity}} <br>
                         Credit: {{class.credit}}.0 
             
                     </td>

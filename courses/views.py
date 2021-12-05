@@ -33,7 +33,12 @@ def courses_offered(request):
 def list_classes(request):
     #Show all Classses
     classes = Classes.objects.all()
-    context = {'classes' : classes}
+
+    class_dict = {}
+    for i in classes:
+        class_dict.update({i.get_cur_capacity(): i})
+
+    context = {'classes' : classes, "class_dict": class_dict,}
     return render(request, 'courses/classes_list.html', context)
 
 
@@ -167,8 +172,10 @@ def course_registration(request):
         student = Student.objects.get(user__pk= request.user.id)
         taken_courses = TakenCourse.objects.filter(student__user__id= request.user.id)
         t = ()
+        
         for i in taken_courses:
             t+= (i.classes.pk,)
+            
         classes = Classes.objects.filter(semester = student.semester).exclude(id__in= t)
         all_classes = Classes.objects.filter(semester = student.semester)
 
@@ -186,17 +193,28 @@ def course_registration(request):
         total_first_semester_unit = 0
         total_second_semester_unit = 0
         total_registered_unit = 0
-
+        
+       
+        
+        # a dictionaty that have the current capacity as key and the class object as value
+        class_dict = {}
         for i in classes:
             if i.semester =="First":
                 total_first_semester_unit+= int(i.credit)
             if i.semester == "Second":
                 total_second_semester_unit+=int(i.credit)
+            
+            class_dict.update({i.get_cur_capacity(): i})
+         
+       
            
 
+        taken_class_dict = {}
         for i in registered_classes:
             total_registered_unit += int(i.credit)
+            taken_class_dict.update({i.get_cur_capacity(): i})
 
+            
         context = {
             
             "no_course_is_registered" : no_course_is_registered,
@@ -207,6 +225,9 @@ def course_registration(request):
             "total_first_semester_unit": total_first_semester_unit,
             "total_second_semester_unit": total_second_semester_unit,
             "total_registered_unit": total_registered_unit,
+            "class_dict": class_dict,
+            "taken_class_dict": taken_class_dict,
+            
             
             }
         return render(request, 'courses/course_registration.html', context)
