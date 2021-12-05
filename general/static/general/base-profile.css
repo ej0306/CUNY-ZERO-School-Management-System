@@ -136,16 +136,21 @@
 }
 
 .base-profile .component-1-38 {
-  background-image: url(../img/register-1@1x.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  cursor: pointer;
   height: 17px;
-  left: 1201px;
+  left: 1200px;
   position: absolute;
-  top: 23px;
+  top: 24px;
   transition: all 0.2s ease;
-  width: 50px;
+  width: 52px;
+}
+
+.base-page .register{
+  left: 0;
+  letter-spacing: 0;
+  line-height: 15px;
+  position: absolute;
+  top: 1px;
+  white-space: nowrap;
 }
 
 .base-profile .component-1-38:hover {

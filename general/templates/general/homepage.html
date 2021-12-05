@@ -4,7 +4,6 @@
     {% load static %}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1280, maximum-scale=1.0" />
-    <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
     <meta name="og:type" content="website" />
     <meta name="twitter:card" content="photo" />
     <link rel="stylesheet" type="text/css" href="css/home.css" />
@@ -13,6 +12,12 @@
       href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
       rel="stylesheet"
     />
+
+     {% if title %}
+        <title>CUNY Zero - {{ title }}</title>
+     {% else %}
+        <title>CUNY Zero</title>
+     {% endif %}
     <script src="js/home.js"></script>
     <link
       href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
@@ -51,23 +56,23 @@
                   new mdc.textField.MDCTextField(document.querySelector(".text-field-fill-leading-custom .mdc-text-field"));
                 </script>
               </div>
-              <a href="https://#">
+              <a href="{% url 'general-home' %}#">
                 <div class="component-1-3 smart-layers-pointers">
                   <div class="place gillsansmt-regular-normal-baby-powder-18px">Home</div>
                 </div></a
-              ><a href="https://#">
+              ><a href="{% url 'about' %}">
                 <div class="component-1-4 smart-layers-pointers">
                   <div class="about gillsansmt-regular-normal-baby-powder-15px">About</div>
                 </div></a
-              ><a href="https://#">
+              ><a href="{% url 'contact' %}">
                 <div class="component-1-5 smart-layers-pointers">
                   <div class="place-1 gillsansmt-regular-normal-baby-powder-15px">Contact</div>
                 </div></a
-              ><a href="https://#"> <div class="component-1-10 smart-layers-pointers">
+              ><a href="{% url 'register' %}"> <div class="component-1-10 smart-layers-pointers">
                 <div class="register gillsansmt-regular-normal-baby-powder-15px">Register</div>
               </div></a
               ><img class="city-college-np-ush-left-city1" src="{% static 'general/img/citycollegenp-flushleftcity-1-2@1x.png' %}" />
-              <a href="https://#">
+              <a href="{% url 'login' %}">
                 <div class="component-1-1 smart-layers-pointers">
                   <div class="log-in gillsansmt-regular-normal-baby-powder-15px">Log in</div>
                 </div></a
@@ -78,34 +83,34 @@
             </div>
             <h1 class="text-5 gillsansmt-regular-normal-black-37px">The City College of New York</h1>
           </div>
-          <a href="https://#">
+          <a href="#">
             <div class="group-10 smart-layers-pointers">
               <div class="overlap-group">
-                <a href="https://#" onclick="window.event.stopPropagation()">
+                <a href="#" onclick="window.event.stopPropagation()">
                   <div class="rectangle-47 smart-layers-pointers"></div
                 ></a>
                 <div class="component-1-6"><div class="enroll gillsansmt-regular-normal-white-22px">Enroll</div></div>
               </div>
             </div></a
-          ><a href="https://#">
+          ><a href="#">
             <div class="group-8 smart-layers-pointers">
-              <a href="https://" onclick="window.event.stopPropagation()">
+              <a href="#" onclick="window.event.stopPropagation()">
                 <div class="component-1-7">
                   <div class="text-3 gillsansmt-regular-normal-white-22px">Apply for Graduation</div>
                 </div></a
               >
             </div></a
-          ><a href="https://#">
+          ><a href="{% url 'searchclasses' %}">
             <div class="group-9 smart-layers-pointers">
-              <a href="https://" onclick="window.event.stopPropagation()">
+              <a href="{% url 'searchclasses' %}" onclick="window.event.stopPropagation()">
                 <div class="component-1-11">
                   <div class="search-for-classes gillsansmt-regular-normal-white-21px">Search for Classes</div>
                 </div></a
               >
             </div></a
-          ><a href="https://#">
+          ><a href="#">
             <div class="group-12 smart-layers-pointers">
-              <a href="https://" onclick="window.event.stopPropagation()">
+              <a href="#" onclick="window.event.stopPropagation()">
                 <div class="component-1-12">
                   <div class="request-transcript gillsansmt-regular-normal-white-22px">Request Transcript</div>
                 </div></a
@@ -263,22 +268,22 @@
             <div class="rectangle-46"></div>
             <div class="number-34 arial-regular-normal-shady-lady-10px">5</div>
           </div>
-          <a href="https://#">
+          <a href="#">
             <div class="group-5 smart-layers-pointers">
               <a href="https://" onclick="window.event.stopPropagation()"
                 ><div class="honors gillsansmt-regular-normal-black-15px-2">Honors</div>
               </a>
             </div></a
-          ><a href="https://#">
+          ><a href="#">
             <div class="group-7 smart-layers-pointers">
               <a href="https://" onclick="window.event.stopPropagation()"
                 ><div class="report gillsansmt-regular-normal-black-15px-2">Report</div>
               </a>
             </div></a
-          ><a href="https://#">
+          ><a href="#">
             <div class="group-11 smart-layers-pointers">
               <div class="overlap-group-1">
-                <a href="https://#" onclick="window.event.stopPropagation()">
+                <a href="#" onclick="window.event.stopPropagation()">
                   <div class="rectangle-51 smart-layers-pointers"></div
                 ></a>
                 <div class="reviews gillsansmt-regular-normal-black-15px-2">Reviews</div>
