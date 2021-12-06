@@ -23,7 +23,7 @@ class StudentApplicationForm(ModelForm):
     sc_state = forms.CharField(label='Previous School State', min_length=2, max_length=2, required=True)
     graduation_date = forms.DateField(label='Graduation Date', widget=forms.SelectDateWidget(years=range(1980, 2030)), required=True)
     gpa = forms.FloatField(label='GPA', min_value=0.0, max_value=4.0, required=True)
-    transcript = forms.FileField(label='transcript', required=True, help_text='Upload a copy of your transcript as a .pdf file.')
+    transcript = forms.FileField(label='Transcript', required=True, help_text='Upload a copy of your transcript as a .pdf file.')
 
     class Meta(UserCreationForm.Meta):
         model = EnrollmentApplication

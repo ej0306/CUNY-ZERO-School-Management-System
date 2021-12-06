@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'mathfilters',
     'numpy',
+    "django_apscheduler",
     
 
     'django.contrib.admin',
@@ -117,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'EST'
 
 USE_I18N = True
 

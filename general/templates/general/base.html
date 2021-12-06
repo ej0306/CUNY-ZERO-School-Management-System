@@ -35,6 +35,7 @@
                     {% if user.is_registrar or user.is_superuser %}
                         <!-- Tabs that REGISTRARS can see -->
                         <a class="nav-item nav-link" href="{% url 'enrollment_applications' %}">Applications</a>
+                        <a class="nav-item nav-link" href="{% url 'courses:set_up_session' %}">Sessions</a>
                     {% endif %}
                     {% if user.is_superuser %}
                         <!-- Tabs that ADMINS can see -->

@@ -22,7 +22,7 @@ def register_student(request):
         return redirect(profile)
 
     if request.method == 'POST':
-        form = StudentApplicationForm(request.POST)
+        form = StudentApplicationForm(request.POST, request.FILES)
 
         # do something if form is completed successfully
         if form.is_valid():

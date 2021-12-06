@@ -1,0 +1,14 @@
+from datetime import datetime
+from apscheduler.schedulers.background import BackgroundScheduler
+from .jobs import scheduled_job_test
+from courses.models import Session
+import pytz
+from multiprocessing import current_process
+
+
+def start():
+    scheduler = BackgroundScheduler()
+    scheduler.add_job(scheduled_job_test, 'date', run_date=datetime(2021, 12, 6, 3, 9, 40))
+    scheduler.start()
+
+# Session.objects.get(session='Spring 2022').class_set_up_period_start.replace(tzinfo=pytz.UTC)

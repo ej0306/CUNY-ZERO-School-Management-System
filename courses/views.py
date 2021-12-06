@@ -297,9 +297,26 @@ def add_course(request):
     return render(request, 'courses/add_course.html', {'form': form, 'title': 'Create Course'})
 
 
-#-----------------------------------------------------------------------------------------#
+@login_required()
+def set_up_session(request):
+    if not (request.user.is_registrar or request.user.is_superuser):
+        return redirect('courses:course_list')
+
+    if request.method == 'POST':
+        form = SetUpSession(request.POST)
+        if form.is_valid():
+            new_session = form.save()
+            new_session.save()
+            return redirect('courses:course_list')
+    else:
+        form = SetUpSession()
+
+    return render(request, 'courses/set_up_session.html', {'form': form, 'title': 'Set Up Academic Session'})
+
+
+# -----------------------------------------------------------------------------------------#
 #                                   Reviews Classes Views                                 #
-#-----------------------------------------------------------------------------------------#
+# -----------------------------------------------------------------------------------------#
 @login_required
 def review_list(request):
     latest_review_list = ReviewClasses.objects.order_by('-date_added')[:9]

@@ -1,9 +1,8 @@
 import datetime
 from django import forms
 from django.db import transaction
-from django.forms.widgets import Textarea, SelectDateWidget, TimeInput
-
-from courses.models import ReviewClasses, TakenCourse, Course, Classes
+from django.forms.widgets import Textarea, SelectDateWidget, DateTimeInput, DateInput
+from courses.models import ReviewClasses, TakenCourse, Course, Classes, Session
 
 
 
@@ -46,3 +45,37 @@ class CreateCourse(forms.ModelForm):
         widgets = {
             'description': Textarea()
         }
+
+
+class SetUpSession(forms.ModelForm):
+    class Meta:
+        model = Session
+        fields = ['session', 'class_set_up_period_start', 'class_set_up_period_end',
+                  'course_registration_period_start', 'course_registration_period_end',
+                  'class_running_period_start', 'class_running_period_end',
+                  'grading_period_start', 'grading_period_end',
+                  'next_session_begins']
+        widgets = {
+            'class_set_up_period_start': DateTimeInput(),
+            'class_set_up_period_end': DateTimeInput(),
+            'course_registration_period_start': DateTimeInput(),
+            'course_registration_period_end': DateTimeInput(),
+            'class_running_period_start': DateTimeInput(),
+            'class_running_period_end': DateTimeInput(),
+            'grading_period_start': DateTimeInput(),
+            'grading_period_end': DateTimeInput(),
+            'next_session_begins': DateInput()
+        }
+        help_texts = {
+            'session': "e.g., Fall 2021",
+            'class_set_up_period_start': "YYYY-MM-DD HH:MM:SS",
+            'class_set_up_period_end': "YYYY-MM-DD HH:MM:SS",
+            'course_registration_period_start': "YYYY-MM-DD HH:MM:SS",
+            'course_registration_period_end': "YYYY-MM-DD HH:MM:SS",
+            'class_running_period_start': "YYYY-MM-DD HH:MM:SS",
+            'class_running_period_end': "YYYY-MM-DD HH:MM:SS",
+            'grading_period_start': "YYYY-MM-DD HH:MM:SS",
+            'grading_period_end': "YYYY-MM-DD HH:MM:SS",
+            'next_session_begins': "YYYY-MM-DD",
+        }
+

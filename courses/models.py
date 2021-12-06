@@ -4,8 +4,10 @@ from typing import Reversible
 from django.db import models
 from django.db.models.deletion import CASCADE
 from django.db.models.fields import IntegerField
+from django.utils import timezone
 import numpy as np
-
+import datetime
+import pytz
 from users.models import Instructor, Student
 
 # Create your models here.
@@ -86,10 +88,40 @@ class Session(models.Model):
     is_current_session = models.BooleanField(default=False, blank=True, null=True)
     next_session_begins = models.DateField(blank=True, null=True)
 
-    class_set_up_period = models.DateTimeField()
+    class_set_up_period_start = models.DateTimeField(default=datetime.datetime(datetime.date.today().year, 1, 1))
+    class_set_up_period_end = models.DateTimeField(default=datetime.datetime(datetime.date.today().year, 1, 1, 23, 59, 59))
+
+    course_registration_period_start = models.DateTimeField(default=datetime.datetime(datetime.date.today().year, 1, 1))
+    course_registration_period_end = models.DateTimeField(default=datetime.datetime(datetime.date.today().year, 1, 1, 23, 59, 59))
+
+    class_running_period_start = models.DateTimeField(default=datetime.datetime(datetime.date.today().year, 1, 1))
+    class_running_period_end = models.DateTimeField(default=datetime.datetime(datetime.date.today().year, 1, 1, 23, 59, 59))
+
+    grading_period_start = models.DateTimeField(default=datetime.datetime(datetime.date.today().year, 1, 1))
+    grading_period_end = models.DateTimeField(default=datetime.datetime(datetime.date.today().year, 1, 1, 23, 59, 59))
 
     def __str__(self):
         return self.session
+
+    def is_class_set_up_period(self):
+        start = self.class_set_up_period_start.replace(tzinfo=pytz.UTC)
+        end = self.class_set_up_period_end.replace(tzinfo=pytz.UTC)
+        return start <= timezone.now() <= end
+
+    def is_course_registration_period(self):
+        start = self.course_registration_period_start.replace(tzinfo=pytz.UTC)
+        end = self.course_registration_period_end.replace(tzinfo=pytz.UTC)
+        return start <= timezone.now() <= end
+
+    def is_class_running_period(self):
+        start = self.class_running_period_start.replace(tzinfo=pytz.UTC)
+        end = self.class_running_period_end.replace(tzinfo=pytz.UTC)
+        return start <= timezone.now() <= end
+
+    def is_grading_period(self):
+        start = self.grading_period_start.replace(tzinfo=pytz.UTC)
+        end = self.grading_period_end.replace(tzinfo=pytz.UTC)
+        return start <= timezone.now() <= end
 
 
 class CourseAllocation(models.Model):
