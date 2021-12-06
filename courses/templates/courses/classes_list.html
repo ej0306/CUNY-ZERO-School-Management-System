@@ -4,7 +4,7 @@
     <style type="text/css">
         .table-wrapper-scroll-y {
     display: block;
-    max-height: 350px;
+    max-height: 750px;
     overflow-y: auto;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     }
@@ -23,6 +23,11 @@
                     <span>/</span>
                     <span>Classes' List</span>
                 </h6>
+                {% if user.is_registrar or user.is_superuser %}
+                <form action={% url 'courses:add_class' %}>
+                    <input type="submit" value="Add Class" />
+                </form>
+                {% endif %}
             </div>
 
         </div>

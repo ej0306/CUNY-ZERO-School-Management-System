@@ -261,6 +261,41 @@ def first_class_list(request):
     return render(request, 'courses/first_class_students.html', {"students": students})
 
 
+@login_required
+def add_class(request):
+    if not (request.user.is_registrar or request.user.is_superuser):
+        return redirect('courses:list_classes')
+
+    if request.method == 'POST':
+        form = ClassSetUp(request.POST)
+        if form.is_valid():
+            new_class = form.save()
+            new_class.current_capacity = 0
+            new_class.class_id = new_class.id
+            new_class.save()
+            return redirect('courses:list_classes')
+    else:
+        form = ClassSetUp()
+
+    return render(request, 'courses/add_class.html', {'form': form, 'title': 'Add Class'})
+
+
+@login_required
+def add_course(request):
+    if not (request.user.is_registrar or request.user.is_superuser):
+        return redirect('courses:list_classes')
+
+    if request.method == 'POST':
+        form = CreateCourse(request.POST)
+        if form.is_valid():
+            new_course = form.save()
+            new_course.save()
+            return redirect('courses:course_list')
+    else:
+        form = CreateCourse()
+
+    return render(request, 'courses/add_course.html', {'form': form, 'title': 'Create Course'})
+
 
 #-----------------------------------------------------------------------------------------#
 #                                   Reviews Classes Views                                 #

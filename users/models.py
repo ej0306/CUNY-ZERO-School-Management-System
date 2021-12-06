@@ -41,6 +41,7 @@ class Student(models.Model):
     semester = models.CharField(choices=SEMESTER, max_length=50, null=True)
     graduation_date = models.DateField(auto_now=False, auto_now_add=False, null=True)
     gpa = models.FloatField(null=True)
+    transcript = models.FileField(null=True, blank=True)
 
     def __str__(self) -> str:
         return self.user.last_name + " " + self.user.first_name
@@ -84,6 +85,7 @@ class EnrollmentApplication(models.Model):
     sc_state = models.CharField(max_length=2, null=True)
     graduation_date = models.DateField(auto_now=False, auto_now_add=False, null=True)
     gpa = models.FloatField(null=True)
+    transcript = models.FileField(null=True, blank=True)
 
     # professional info - for instructors
     resume = models.FileField(null=True, blank=True)

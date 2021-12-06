@@ -28,10 +28,24 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
+                <!-- Tabs that ANYONE can see -->
                 <a class="nav-item nav-link" href="{% url 'general-home' %}">Home</a>
                 <a class="nav-item nav-link" href="{% url 'general-about' %}">About</a>
-                {% if user.is_authenticated and user.is_registrar %}
-                    <a class="nav-item nav-link" href="{% url 'enrollment_applications' %}">Applications</a>
+                {% if user.is_authenticated %}
+                    {% if user.is_registrar or user.is_superuser %}
+                        <!-- Tabs that REGISTRARS can see -->
+                        <a class="nav-item nav-link" href="{% url 'enrollment_applications' %}">Applications</a>
+                    {% endif %}
+                    {% if user.is_superuser %}
+                        <!-- Tabs that ADMINS can see -->
+                        <a class="nav-item nav-link" href="{% url 'create_user' %}">Create User</a>
+                    {% endif %}
+                    {% if user.is_student %}
+                        <!-- Tabs that STUDENTS can see -->
+                    {% endif %}
+                    {% if user.is_instructor %}
+                        <!-- Tabs that INSTRUCTORS can see -->
+                    {% endif %}
                 {% endif %}
             </div>
             <!-- Navbar Right Side -->

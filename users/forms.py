@@ -23,12 +23,13 @@ class StudentApplicationForm(ModelForm):
     sc_state = forms.CharField(label='Previous School State', min_length=2, max_length=2, required=True)
     graduation_date = forms.DateField(label='Graduation Date', widget=forms.SelectDateWidget(years=range(1980, 2030)), required=True)
     gpa = forms.FloatField(label='GPA', min_value=0.0, max_value=4.0, required=True)
+    transcript = forms.FileField(label='transcript', required=True, help_text='Upload a copy of your transcript as a .pdf file.')
 
     class Meta(UserCreationForm.Meta):
         model = EnrollmentApplication
         fields = ['first_name', 'm_initial', 'last_name', 'email',
                   'birth_date', 'phone_number', 'street_address', 'city', 'state', 'zip_code', 'sc_name',
-                  'sc_city', 'sc_state', 'graduation_date', 'gpa']
+                  'sc_city', 'sc_state', 'graduation_date', 'gpa', 'transcript']
 
     def clean_phone_number(self):
         data = self.cleaned_data.get('phone_number')
@@ -54,6 +55,22 @@ class StudentApplicationForm(ModelForm):
 
         return data
 
+    def clean_email(self):
+        data = self.cleaned_data.get('email')
+
+        if User.objects.filter(email=data).exists():
+            raise forms.ValidationError('User with given email already exists.')
+
+        return data
+
+    def clean_transcript(self):
+        data = self.cleaned_data.get('transcript')
+
+        if not data.name.endswith('.pdf'):
+            raise forms.ValidationError('Incorrect file format. Please upload a .pdf file.')
+
+        return data
+
     @transaction.atomic
     def save(self):
         student_application = EnrollmentApplication.objects.create()
@@ -74,6 +91,8 @@ class StudentApplicationForm(ModelForm):
         student_application.sc_state = self.cleaned_data.get('sc_state')
         student_application.graduation_date = self.cleaned_data.get('graduation_date')
         student_application.gpa = self.cleaned_data.get('gpa')
+        student_application.transcript = self.cleaned_data.get('transcript')
+
         student_application.save()
 
         return student_application
@@ -165,3 +184,10 @@ class LoginForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('username', 'password')
+
+
+# User creation form for admin
+class UserCreation(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ('username', 'password1', 'password2', 'email', 'first_name', 'last_name')

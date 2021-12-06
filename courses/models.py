@@ -39,11 +39,10 @@ SEMESTER = (
 
 )
 
-
-
-#-----------------------------------------------------------------------------------------#
+# -----------------------------------------------------------------------------------------#
 #                              Courses/Classes Related Models                             #
-#-----------------------------------------------------------------------------------------#
+# -----------------------------------------------------------------------------------------#
+
 
 # The courses models
 class Course(models.Model):
@@ -55,6 +54,7 @@ class Course(models.Model):
 
     def __str__(self) -> str:
         return self.course_name + " -  " + self.title + " -  " + self.department
+
 
 class Classes(models.Model):
     course = models.ForeignKey(Course, on_delete= models.CASCADE)
@@ -70,7 +70,6 @@ class Classes(models.Model):
     days_and_time = models.CharField(max_length= 200, null = True)
     instructor = models.ForeignKey(Instructor, on_delete= models.CASCADE, null= True)
 
-
     def average_rating(self):
         all_ratings = map(lambda x: x.rate, self.reviewclasses_set.all())
         return np.mean(list(all_ratings)) # np -> numpy
@@ -79,7 +78,7 @@ class Classes(models.Model):
         return self.course.course_name + " -  " + self.class_id + " -  " + self.course.title + " -  " + self.section_num
 
     class Meta:
-	    verbose_name_plural = 'classes'
+        verbose_name_plural = 'classes'
 
 
 class Session(models.Model):
@@ -87,8 +86,11 @@ class Session(models.Model):
     is_current_session = models.BooleanField(default=False, blank=True, null=True)
     next_session_begins = models.DateField(blank=True, null=True)
 
+    class_set_up_period = models.DateTimeField()
+
     def __str__(self):
         return self.session
+
 
 class CourseAllocation(models.Model):
     instructor = models.ForeignKey(Instructor, on_delete=models.CASCADE)
@@ -97,6 +99,7 @@ class CourseAllocation(models.Model):
 
     def __str__(self):
         return self.instructor.user.last_name
+
 
 class TakenCourse(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
