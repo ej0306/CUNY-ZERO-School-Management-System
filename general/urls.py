@@ -11,7 +11,13 @@ from django.conf.urls import url
 urlpatterns = [
     path('', views.home, name='general-home'),
     path('login/', views.login, name='login'),
+    path('logout/', views.logout, name='logout'),
     path('registerInstructor/', views.registerinstructor, name='registerInstructor'),
     path('registerStudent/', views.registerStudent, name='registerStudent'),
+    path('enrollment_applications/',views.enrollment_applications,name='enrollmentapplications'),
+    path('profilebase/', views.profilebase, name='profilebase'),
+    path('instructorlist/', views.instructor_list, name='instructorlist'),
+    path('change_password/', views.change_password, name='instructorlist'),
+    path('homelogin/', views.homelogin, name='homelogin'),
 ]
 

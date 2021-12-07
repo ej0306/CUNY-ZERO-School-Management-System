@@ -19,30 +19,17 @@
 <body>
     <header style="background: var(--bs-blue);">
         <nav class="navbar navbar-light navbar-expand-lg navigation-clean-search" style="background: var(--bs-primary);border: 2px solid var(--bs-gray-900) ;border-right-style: solid;border-right-color: var(--bs-gray-900);">
-            <div class="container"><a class="navbar-brand" href="#" style="color: var(--bs-white);margin-right: 35px;margin-left: -45px;">CUNY Zero</a>
-                <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
-                    <span class="visually-hidden">Toggle navigation</span>
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <a class="text-nowrap text-uppercase" href="{% url 'general-home'%}" style="margin-right: 22px;color: var(--bs-white);border-right-color: transparent;text-decoration: none;">Home</a>
+            <div class="container"><a class="navbar-brand" href="#" style="color: var(--bs-white);margin-right: 35px;margin-left: -56px;">CUNY Zero</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button><a class="text-nowrap text-uppercase" href="{% url 'homelogin' %}" style="margin-right: 22px;color: var(--bs-white);border-right-color: transparent;text-decoration: none;">Home</a>
                 <div class="collapse navbar-collapse" id="navcol-1"><a class="text-nowrap text-uppercase link-primary" href="#" style="margin-right: 23px;color: var(--bs-white);text-decoration: none;">About</a>
                     <ul class="navbar-nav">
                         <li class="nav-item"></li>
                     </ul>
                     <form class="me-auto search-form" target="_self">
-                        <div class="d-flex align-items-center" style="margin-left: 195px;">
-                            <label class="form-label d-flex mb-0" for="search-field" style="margin-left: 43px;">
-                                <i class="fa fa-search"></i>
-                            </label>
-                            <input class="form-control search-field" type="search" id="search-field" name="search" style="border-style: solid;border-color: var(--bs-white);border-top-color: transparent;border-right-color: transparent;border-bottom-width: 2px;border-bottom-color: var(--bs-white);border-left-color: transparent;">
-                        </div>
-                    </form>
-                    <a class="text-uppercase" href="{% url 'login' %}" style="margin-right: 32px;color: var(--bs-white);text-decoration: none;">Login</a>
+                        <div class="d-flex align-items-center" style="margin-left: 195px;"><label class="form-label d-flex mb-0" for="search-field" style="margin-left: 43px;"><i class="fa fa-search"></i></label><input class="form-control search-field" type="search" id="search-field" name="search" style="border-style: solid;border-color: var(--bs-white);border-top-color: transparent;border-right-color: transparent;border-bottom-width: 2px;border-bottom-color: var(--bs-white);border-left-color: transparent;"></div>
+                    </form><a class="text-uppercase" href="{% url 'profile' %}" style="margin-right: 32px;color: var(--bs-white);text-decoration: none;">Profile</a>
                 </div>
-                <div class="dropdown"><a class="dropdown-toggle text-uppercase" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="color: var(--bs-white);margin-right: -17px;text-decoration: none;">Register&nbsp;</a>
-                    <div class="dropdown-menu" style="padding-right: 0px;margin-right: 0px;margin-left: -78px;margin-top: 6px;padding-left: 0px;width: 60px;">
-                        <a class="dropdown-item" href="{% url 'register_instructor' %}">Instructor</a>
-                        <a class="dropdown-item" href="{% url 'register_student' %}">Student</a></div>
+                <div class="dropdown"><a class="dropdown-toggle text-uppercase" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="color: var(--bs-white);margin-right: -17px;text-decoration: none;">ACCOUNT&nbsp;</a>
+                    <div class="dropdown-menu" style="padding-right: 0px;margin-right: 0px;margin-left: -78px;margin-top: 6px;padding-left: 0px;width: 60px;"><a class="dropdown-item" href="{% url 'logout' %}">LOGOUT</a><a class="dropdown-item" href="{% url 'change_password' %}">CHANGE PW</a></div>
                 </div>
             </div>
         </nav>
@@ -50,10 +37,10 @@
     <main>
         <h1 class="text-nowrap" style="margin-bottom: 4px;margin-right: 739px;margin-top: 32px;padding-right: 0px;padding-left: 15px;">City University of New York</h1>
         <h1 class="text-nowrap" style="margin-right: 884px;margin-top: 7px;padding-left: 15px;">Graduate School</h1><img class="img-fluid visible" src="{% static 'general/assets/img/cuny.jpeg' %}" style="margin: 0px;margin-top: -152px;height: 353px;width: 1466.7px;padding-top: 140px;margin-bottom: 0px;border-style: solid;border-right-color: transparent;border-left-color: transparent;padding-right: 0px;padding-left: 0px;">
-        <ul class="nav nav-tabs" style="margin-top: -252px;margin-right: 0px;margin-left: 259px;transform: translate(416px) rotateX(0deg) rotateY(0deg) scale(1.26);padding-top: 0px;padding-bottom: 0px;height: 42px;margin-bottom: 0px;width: 444px;">
-            <li class="nav-item" style="margin-right: 0px;"><a class="nav-link" href="{% url 'login' %}">Enroll</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Search for Classes</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Apply for Graduation</a></li>
+        <ul class="nav nav-tabs" style="margin-top: -252px;margin-right: 0px;margin-left: 275px;transform: translate(416px) rotateX(0deg) rotateY(0deg) scale(1.26);padding-top: 0px;padding-bottom: 0px;height: 42px;margin-bottom: 0px;width: 429px;">
+            <li class="nav-item" style="margin-right: 0px;"><a class="nav-link" href="#">Enroll</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Search for Classes</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Apply for Graduation</a></li>
         </ul>
     </main>
     <h1 style="margin-top: 223px;margin-left: 30px;">Graduate School Program&nbsp;</h1>

@@ -1,9 +1,11 @@
 {% extends "general/base.html" %}
 {%  block content %}
+    <div style="width: 450px; margin-left: 350px; margin-top: -150px;">
     <h2>You have been logged out</h2>
     <div class="border-top pt-3">
         <small class="text-muted">
             <a href="{% url 'login' %}">Log in again</a>
         </small>
+    </div>
     </div>
 {%  endblock content %}

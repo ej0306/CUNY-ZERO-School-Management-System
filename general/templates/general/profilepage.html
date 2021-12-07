@@ -19,39 +19,34 @@
 <body style="border-width: 0px;border-color: var(--bs-white);">
     <header style="background: var(--bs-blue);">
         <nav class="navbar navbar-light navbar-expand-lg navigation-clean-search" style="background: var(--bs-primary);border-width: 2px;border-style: solid;">
-            <div class="container"><a class="navbar-brand" href="#" style="color: var(--bs-white);margin-right: 35px;margin-left: -45px;">CUNY Zero</a>
-                <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
-                    <span class="visually-hidden">Toggle navigation</span>
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <a class="text-uppercase" data-bss-hover-animate="pulse" href="{% url 'general-home' %}" style="margin-right: 22px;color: var(--bs-white); text-decoration: none;">Home</a>
-                <div class="collapse navbar-collapse" id="navcol-1">
-                    <a class="text-uppercase" data-bss-hover-animate="pulse" href="#" style="margin-right: 23px;color: var(--bs-white); text-decoration: none;">About</a>
+            <div class="container"><a class="navbar-brand" href="#" style="color: var(--bs-white);margin-right: 35px;margin-left: -56px;">CUNY Zero</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button><a class="text-uppercase" data-bss-hover-animate="pulse" href="{% url 'homelogin' %}" style="margin-right: 22px;color: var(--bs-white); text-decoration: none;">Home</a>
+                <div class="collapse navbar-collapse" id="navcol-1"><a class="text-uppercase" data-bss-hover-animate="pulse" href="#" style="margin-right: 23px;color: var(--bs-white); text-decoration: none;">About</a>
                     <ul class="navbar-nav">
                         <li class="nav-item"></li>
                     </ul>
                     <form class="me-auto search-form" target="_self">
                         <div class="d-flex align-items-center" style="margin-left: 195px;"><label class="form-label d-flex mb-0" for="search-field"><i class="fa fa-search"></i></label><input class="form-control search-field" type="search" id="search-field" name="search" style="border-width: 2px;border-color: var(--bs-gray-100);"></div>
-                    </form><a class="text-uppercase" data-bss-hover-animate="pulse" href="{% url 'login' %}" style="margin-right: 25px;color: var(--bs-white); text-decoration: none;">Login</a>
+                    </form>
                 </div>
-                <div class="dropdown"><a class="dropdown-toggle text-uppercase" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="color: var(--bs-white);margin-right: -51px; text-decoration: none;">Register&nbsp;</a>
-                    <div class="dropdown-menu" style="padding-right: 0px;margin-right: 0px;margin-left: -78px;margin-top: 6px;padding-left: 0px;width: 60px;border: 2px solid var(--bs-gray-900);background: var(--bs-gray-100);border-radius: 9px;"><a class="dropdown-item" href="{% url 'register_instructor' %}">Instructor</a><a class="dropdown-item" href="{% url 'register_student' %}">Student</a></div>
+                <div class="dropdown"><a class="dropdown-toggle text-uppercase" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="color: var(--bs-white);margin-right: -51px; text-decoration: none;">ACCOUNT&nbsp;</a>
+                    <div class="dropdown-menu" style="padding-right: 0px;margin-right: 0px;margin-left: -78px;margin-top: 6px;padding-left: 0px;width: 60px;border: 2px solid var(--bs-gray-900);background: var(--bs-gray-100);border-radius: 9px;"><a class="dropdown-item" href="{% url 'logout' %}">LOGOUT</a><a class="dropdown-item" href="{% url 'change_password' %}">CHANGE PW</a></div>
                 </div>
             </div>
         </nav>
     </header>
     <aside style="margin-top: 100px;margin-right: 0%;margin-left: 85%;transform: scale(1.53);background: var(--bs-blue);border-radius: 11px;height: 215px;width: 127.2px;padding-left: 14px;padding-top: 18px;border-style: solid;border-color: var(--bs-gray-900);">
         <ul class="list-unstyled" style="margin-bottom: 14px;padding-top: 10px;margin-top: -21px;margin-right: 2px;">
-            <li style="color: var(--bs-white);margin-bottom: 4px;"><a href="{% url 'login' %}" style="color: var(--bs-gray-100); text-decoration: none;">Enroll</a></li>
-            <li style="color: var(--bs-white);margin-bottom: 4px;"><a href="{% url 'login' %}" style="color: var(--bs-gray-100);text-decoration: none;">Search for Classes</a></li>
-            <li style="color: var(--bs-white);margin-bottom: 4px;"><a href="{% url 'login' %}" style="color: var(--bs-gray-100);text-decoration: none;">Apply for Graduation</a></li>
+            <li style="color: var(--bs-white);margin-bottom: 4px;"><a href="#" style="color: var(--bs-gray-100); text-decoration: none;">Enroll</a></li>
+            <li style="color: var(--bs-white);margin-bottom: 4px;"><a href="#" style="color: var(--bs-gray-100);text-decoration: none;">Search for Classes</a></li>
+            <li style="color: var(--bs-white);margin-bottom: 4px;"><a href="#" style="color: var(--bs-gray-100);text-decoration: none;">Apply for Graduation</a></li>
             <li style="color: var(--bs-white);margin-bottom: 4px;margin-right: 39px;"><a href="#" style="color: var(--bs-gray-100);text-decoration: none;">Honors</a></li>
-            <li style="color: var(--bs-white);margin-bottom: 4px;"><a href="{% url 'login' %}" style="color: var(--bs-gray-100);text-decoration: none;">Reviews</a></li>
+            <li style="color: var(--bs-white);margin-bottom: 4px;"><a href="#" style="color: var(--bs-gray-100);text-decoration: none;">Reviews</a></li>
         </ul>
     </aside>
+    
+        {% block content %} {% endblock %}
 
-    {% block content %} {% endblock %}
-    <footer style="margin-top: 100px;">
+    <footer style="margin-top: 553px;">
         <footer class="footer-basic">
             <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
             <ul class="list-inline">

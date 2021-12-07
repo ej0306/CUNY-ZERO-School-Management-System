@@ -15,4 +15,22 @@ def registerStudent(request):
     return render(request, 'registerStudent.html',{'title': 'registerStudent'})
 
 def login(request):
-    return render(request, 'login.html',{'title': 'login2'})
+    return render(request, 'login.html',{'title': 'login'})
+
+def logout(request):
+    return render(request, 'logout.html',{'title': 'logout'})
+
+def enrollment_applications(request):
+    return render(request, 'enrollment_applications.html',{'title': 'enrollment_applications'})
+
+def profilebase(request):
+    return render(request, 'general/profilepage.html',{'title': 'profilepage'})
+
+def instructor_list(request):
+    return render(request, 'instructor_list.html',{'title': 'instructorlist'})
+
+def change_password(request):
+    return render(request, 'change_password.html',{'title': 'changepassword'})
+
+def homelogin(request):
+    return render(request, 'general/homelogin.html',{'title': 'homelogin'})
