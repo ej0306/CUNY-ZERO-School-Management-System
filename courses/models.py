@@ -1,6 +1,6 @@
 from datetime import MINYEAR
 import datetime
-from typing import Reversible
+from typing import Optional, Reversible
 from django.db import models
 from django.db.models.deletion import CASCADE
 from django.db.models.fields import IntegerField
@@ -66,7 +66,9 @@ class Classes(models.Model):
     full_capacity = models.IntegerField(null= True)
     start_date = models.DateField(auto_now=False, null = True, auto_now_add=False, default= datetime.date(1, 1, 1))
     end_date = models.DateField(auto_now=False, null = True, auto_now_add=False, default= datetime.date(1, 1, 1))
-    days_and_time = models.CharField(max_length= 200, null = True)
+    days = models.CharField(max_length= 10, null = True)
+    start_time = models.TimeField(auto_now=False, auto_now_add=False, null= True)
+    end_time = models.TimeField(auto_now=False, auto_now_add=False, null= True)
     instructor = models.ForeignKey(Instructor, on_delete= models.CASCADE, null= True)
 
 
@@ -79,7 +81,7 @@ class Classes(models.Model):
         all_ratings = map(lambda x: x.rate, self.reviewclasses_set.all())
         return np.mean(list(all_ratings)) # np -> numpy
 
-    def __str__(self) -> str:
+    def __str__(self):
         return self.course.course_name + " -  " + self.class_id + " -  " + self.course.title + " -  " + self.section_num
 
     class Meta:
@@ -101,6 +103,15 @@ class CourseAllocation(models.Model):
 
     def __str__(self):
         return self.instructor.user.last_name
+
+
+class WaitList(models.Model):
+    student = models.ForeignKey(Student, on_delete= models.CASCADE)
+    course = models.ForeignKey(Classes, on_delete= models.CASCADE)
+
+    def __str__(self):
+        return self.student.user.last_name +  " - " + self.course.class_id
+
 
 class TakenCourse(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
@@ -260,8 +271,6 @@ class Result(models.Model):
 
 
 
-
-
 #-----------------------------------------------------------------------------------------#
 #                                   Reviews Models                                        #
 #-----------------------------------------------------------------------------------------#
@@ -284,5 +293,10 @@ class ReviewClasses(models.Model):
 
 
 
-    def __str__(self) :
-        return self.course + f"{ self.review[:50]}..."
+    # def __str__(self) :
+    #     return self.course.course.course_name + f"{ self.review[:50]}..."
+
+
+class WarningCount(models.Model):
+    student = models.ForeignKey(Student, on_delete= models.CASCADE)
+    count = models.CharField(max_length=1,  null= True)

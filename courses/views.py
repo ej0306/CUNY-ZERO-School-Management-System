@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render, get_object_or_404
 from django.http import Http404, HttpResponseRedirect, HttpRequest, JsonResponse
 from django.urls.base import reverse
-from courses.models import Course, Classes, RepeatingStudent, ReviewClasses, Session, TakenCourse, Result
+from courses.models import Course, Classes, RepeatingStudent, ReviewClasses, Session, TakenCourse, Result, WaitList, WarningCount
 from users.models import Student
 from django.urls import reverse_lazy
 from django.db.models import Q
@@ -153,19 +153,83 @@ def description(request):
 @login_required
 #@permission_required('is_student')
 def course_registration(request):
+   
     if request.method == 'POST':
         ids = ()
         data = request.POST.copy()
         data.pop('csrfmiddlewaretoken', None) # remove csrf_token
+
+
+        
+        is_full = False
+        time_conflict = False
+
         for key in data.keys():
             ids= ids + (str(key),)
+
+        time_dict = {}
+        classes = Classes.objects.all()
+        taken_courses = TakenCourse.objects.filter(student__user__id= request.user.id)
         for s in range (0, len(ids)):
             student = Student.objects.get(user__pk = request.user.id)
-            classes = Classes.objects.get(pk = ids[s])
+            course = Classes.objects.get(pk = ids[s])
+           
 
-            obj = TakenCourse.objects.create(student = student, classes = classes)
-            obj.save()
-            messages.success(request, 'Courses Registered Successfully!')
+            #Check if the class reached full capacity yet. 
+            course_cur_cap = course.get_cur_capacity()
+
+            check_waitList = WaitList.objects.filter(student = student, course = course)
+
+           
+           
+            # Put the start and end time of the student current class in a dictionary. 
+            for i in taken_courses:
+                time_dict.update({i.classes.start_time : i.classes.end_time})
+            # for i in classes:
+            #     time_dict.update({i.start_time : i.end_time})
+
+
+           
+           
+
+
+            if course_cur_cap == course.full_capacity:
+                messages.warning(request, "Sorry you can't register for this class! Its full!" )
+                #Check if the student is already in the wait list for the class. 
+
+                if  check_waitList:
+                    messages.warning(request, "You are already in the wait list for this class!")
+                    messages.warning(request, "We ask of you to be patient!")
+                else:
+                    # Put the student in a wait list
+                    obj = WaitList.objects.create(student = student, course = course)
+                    obj.save()
+                    messages.warning(request, "You will be placed on a wait list!")
+
+            else: 
+                for i in classes:
+                    # if i.classes.days == course.days and i.classes.class_id != course.class_id:
+                    if i.days == course.days and i.class_id != course.class_id:
+
+                        for x, y in time_dict.items():
+                            if x <= course.start_time <= y:
+                                time_conflict = True
+                                messages.warning(request, "Sorry! There is a time conflict with one of your classes!")
+                                break
+                            elif x <= course.end_time <= y:
+                                time_conflict = True
+                                messages.warning(request, "Sorry! There is a time conflict with one of your classes!")
+                                break
+                            else: 
+                                time_conflict = False
+                                
+                # Update time_dict with times of the newly added classes
+                time_dict.update({course.start_time : course.end_time})
+                if time_conflict is False:
+                    obj = TakenCourse.objects.create(student = student, classes = course)
+                    obj.save()
+                    messages.success(request, 'Courses Registered Successfully!')
+
         return redirect('courses:course_registration')
     
     else:
@@ -318,19 +382,93 @@ def course_detail(request, course_id):
 def add_review(request, course_id):
     course = get_object_or_404(Classes, pk=course_id)
     form = ReviewForm(request.POST)
+
+    has_bad_word = False
+
+    bad_words = [
+        "fuck" , "fucking", "sucks", "asshole",
+        "dick", "motherfucker", "ass", "pussy",
+        "faggot", "bitch", "cunt", "whore",
+        "suck", "sucks!", 
+
+    ]
+
+    bad_words_dict = {}
+    for i in  range ( 0 , len(bad_words)):
+        temp = []
+        for j in range ( 0, len(bad_words[i])):
+            temp.append("*")
+        str_temp = ' '.join(temp)
+        bad_words_dict.update({bad_words[i]: str_temp})
+
+
+
+
     if form.is_valid():
         rate = form.cleaned_data['rate']
         review = form.cleaned_data['review']
         owner = request.user.student
 
-        reviews = ReviewClasses()
-        reviews.course = course
-        reviews.rate = rate
-        reviews.owner = owner
-        reviews.review = review
-        reviews.date_added = datetime.datetime.now()
-        reviews.save()
+        list_review = review.split()
         
+        taboo_word_ct = 0
+        for i in range(0, len(list_review)):
+            word = list_review[i]
+            for x, y in bad_words_dict.items():
+                if word == x:
+                    taboo_word_ct += 1
+                    list_review[i]= y
+
+        censored_review = "  ".join(list_review)
+
+        check_warning = WarningCount.objects.all()
+
+        if 1 <= taboo_word_ct <= 2:
+            reviews = ReviewClasses()
+            reviews.course = course
+            reviews.rate = rate
+            reviews.owner = owner
+            reviews.review = censored_review
+            reviews.date_added = datetime.datetime.now()
+            reviews.save()
+            messages.warning(request, "Taboo words detected (1 warning). Please remain respectfull!")
+
+            if check_warning is None:
+                obj = WarningCount()
+                obj.student= request.user.student
+                obj.count = "1"
+                obj.save()
+            else:
+
+                for i in check_warning:
+                    if i.student == request.user.student:
+                        count = int(i.count) + 1
+                        obj = WarningCount.objects.filter(student = request.user.student).update(count = str(count))
+                        # obj.save()
+
+           
+        elif taboo_word_ct >= 2: 
+            messages.warning(request, "Too many taboo words. This count as 2 warning!")
+            if check_warning is None:
+                obj = WarningCount.objects.create(student = request.user.student, count = "2")
+                obj.save()
+            else:
+                for i in check_warning:
+                    if i.student == request.user.student:
+                        count = int(i.count) + 2
+                        obj = WarningCount.objects.filter(student = request.user.student).update(count = str(count))
+                        # obj.save()
+
+        else: 
+            reviews = ReviewClasses()
+            reviews.course = course
+            reviews.rate = rate
+            reviews.owner = owner
+            reviews.review = censored_review
+            reviews.date_added = datetime.datetime.now()
+            reviews.save()
+
+
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.

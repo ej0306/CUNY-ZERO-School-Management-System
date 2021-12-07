@@ -1,20 +1,41 @@
 {% extends "general/base.html" %}
 {%  block content %}
+   
+<div class="container-fluid mt-9">
+    <h1 class="display-2">Home Page</h1>
 
-    <div class="container-fluid mt-9">
-        <h1 class="display-2">Home Page</h1>
+   
+
+        <br>
+        <br>
         <br>
         <br>
         
-        <div>
+        <div class="display-5">
+            <h4>
+        
+            Graduate school is a postgraduate program of study that focuses on a certain academic area or professional
+            field of interest. Although traditionally “academic” in nature (focused on the generation of original research
+            in a specific topic), graduate school may also be “professional” in nature (oriented on the development of
+            skills and knowledge for a certain vocation), or a combination of the two.<br /><br />While the majority of
+            undergraduate degrees allow students to study modules and classes of personal interest, a graduate degree
+            allows for a considerably greater degree of flexibility. Attending extracurricular events and meetings, as
+            well as hearing from guest speakers and lecturers as well as full-time faculty members who interest you,
+            contributes to the diversity and multidisciplinarity of graduate school. 
+        
+            </h4>
 
         </div>
         
         <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <!-- Heading -->
 
         <div class="col-mt-9">
-            <center> <h3 class="display-4">Courses Offered</h3> </center>
+            <center> <h4 class="display-4">Courses Offered</h4> </center>
             <br>
             <ul class="list-group">
                 {% for course in courses %}
@@ -25,10 +46,13 @@
                {% endfor %}
             </ul>
         </div>
+
+        <br>
+        <br>
         <br>
         <br>
         <div class="col-mt-9">
-            <center> <h3 class="display-4">Best Rated Classes</h3> </center>
+            <center> <h4 class="display-4">Best Rated Classes</h4> </center>
             <br>
             <div class="table-wrapper-scroll-y">
 
@@ -79,9 +103,11 @@
 
         <br>
         <br>
+        <br>
+        <br>
         <div class="col-mt-9">
             
-            <center> <h3 class="display-4">Honor Roll Students</h3> </center>
+            <center> <h4 class="display-4">Honor Roll Students</h4> </center>
             <br>
             <div class="table-wrapper-scroll-y">
 
@@ -118,6 +144,8 @@
         </div>
     </div>
 
+    <br>
+    <br>
     <br>
     <br>
     <br>
