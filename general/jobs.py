@@ -1,5 +1,6 @@
-from datetime import datetime
+# functions to be scheduled using APScheduler
 
+from datetime import datetime
 from django.conf import settings
 import json
 import random
