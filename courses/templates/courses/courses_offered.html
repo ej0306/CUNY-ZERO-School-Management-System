@@ -2,7 +2,7 @@
 {%  block content %}
 
 
-<div class="container-fluid mt-5">
+<div class="container-fluid mt-9">
 
     <!-- Heading -->
     <div class="card mb-4 wow fadeIn">
@@ -10,24 +10,24 @@
         <!--Card content-->
         <div class="card-body d-sm-flex justify-content-between">
 
-            <h5 class="mb-2 mb-sm-0 pt-1">
-                <a href="/">Profile Page</a>
+            <h3 class="mb-2 mb-sm-0 pt-1">
+                <a href="{% url 'profile' %}">Profile Page</a>
                 <span>/</span>
                 <span>Courses Offered</span>
+{#<<<<<<< HEAD#}
             </h5>
             {% if user.is_registrart or user.is_superuser %}
             <form action={% url 'courses:add_course' %}>
                 <input type="submit" value="Add Course" />
             </form>
             {% endif %}
+{#=======#}
+            </h3>
+{#>>>>>>> origin/Last_Saves#}
         </div>
 
     </div>
-    <!-- <div class="content-section">
-        <h1>Courses</h1>
-        <p>The courses offered are listed below with their corresponding description.</p> 
-        <a class="text-right" href="{% url 'courses:class_search'%}">Search for classes</a>
-    </div> -->
+   
    
 
     <ul>

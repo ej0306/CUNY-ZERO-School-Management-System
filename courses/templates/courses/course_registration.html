@@ -18,19 +18,28 @@
 <script type="text/javascript" src="{% static 'js/disable_checkbox.js' %}"></script>
     {% endblock js %}
 
-<div class="container-fluid mt-5">
+<div class="container-fluid mt-9">
+
+     <!-- Heading -->
+     <div class="card mb-4 wow fadeIn">
+
+        <!--Card content-->
+        <div class="card-body d-sm-flex justify-content-between">
+
+            <h3 class="mb-2 mb-sm-0 pt-1">
+                <a href="{% url 'profile' %}">Profile Page</a>
+                <span>/</span>
+                <span>Class Registration</span>
+            </h3>
+        </div>
+
+    </div>
 
         <!-- Table with panel -->
     {% if not all_courses_are_registered %}
         <form method="POST" action="{% url 'courses:course_registration' %}">{% csrf_token %}
-            {% for message in messages %}
-            <div style="background-color: rgb(161, 145, 221)" class="alert {{ message.tags }} alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-                {{ message }}
-            </div>
-            {% endfor %}
+           
+            
 
             <div class="card card-cascade narrower">
 
@@ -38,7 +47,7 @@
                 <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
             
                     <div>
-                        <button id="add_selected" type="submit" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                        <button type="submit" class="btn btn-primary">
                         <i class="fa fa-plus" aria-hidden="true"></i> Add Selected
                         </button>
                     </div>
@@ -95,7 +104,8 @@
                             <!--Table body-->
                             <tbody>
                                 <small><u class="blue-text">FIRST SEMESTER</u></small>
-                                {% for class in classes %}
+                                
+                                {% for x, class in class_dict.items %}
                                 {% if class.semester == "First" %}
                                 <tr>
                                     <th scope="row">
@@ -107,12 +117,12 @@
                                         <td> {{class.class_id}}</td>
                                         <td> {{class.course.title}} </td>
                                         <td> {{class.instructor}} </td>
-                                        <td> {{class.days_and_time}} </td>
+                                        <td> {{class.days}} : {{class.start_time}} - {{class.end_time}} </td>
                                 
 
                                         <td> {{class.year}} {{class.semester}} Term: 
                                             {{class.start_date}} -  {{class.end_date}} <br>
-                                            Seats: {{ class.current_capacity | addition:1 }}/{{class.full_capacity}} <br>
+                                            Seats: {{x}}/{{class.full_capacity}} <br>
                                             Credit: {{class.credit}}.0  
 
                                         </td>
@@ -139,7 +149,7 @@
                                 <!--Table body-->
                                 <tbody>
                                 <small><u class="blue-text">SECOND SEMESTER</u></small>
-                                    {% for class in classes %}
+                                {% for x, class in class_dict.items %}
                                 {% if class.semester == "Second" %}
                                 <tr>
                                     <th scope="row">
@@ -151,13 +161,13 @@
                                     <td> {{class.class_id}}</td>
                                     <td> {{class.course.title}} </td>
                                     <td> {{class.instructor}} </td>
-                                    <td> {{class.days_and_time}} </td>
+                                    <td> {{class.days}} : {{class.start_time}} - {{class.end_time}} </td>
                             
 
                                     <td> {{class.year}} {{class.semester}} Term: 
                                         {{class.start_date}} -  {{class.end_date}} <br>
-                                        Seats: {{class.current_capacity}}/{{class.full_capacity}} <br>
-                                        Credit: {{class.credit}}.0  {{ class.current_capacity | addition:1 }}
+                                        Seats: {{x}}/{{class.full_capacity}} <br>
+                                        Credit: {{class.credit}}.0 
                                     </td>
                                     <td class="text-center">-</td>
                                 </tr>
@@ -205,7 +215,7 @@
             <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
         
                 <div>
-                    <button id="add_selected" type="submit" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                    <button type="submit" class="btn btn-primary">
                     <i class="fa fa-plus" aria-hidden="true"></i> Drop Selected
                     </button>
                 </div>
@@ -262,7 +272,7 @@
                         <!--Table body-->
                         <tbody>
                            
-                            {% for class in registered_classes %}
+                            {% for x, class in taken_class_dict.items %}
                            
                             <tr>
                                 <th scope="row">
@@ -274,12 +284,12 @@
                                     <td> {{class.class_id}}</td>
                                     <td> {{class.course.title}} </td>
                                     <td> {{class.instructor}} </td>
-                                    <td> {{class.days_and_time}} </td>
+                                    <td> {{class.days}} : {{class.start_time}} - {{class.end_time}} </td>
                             
 
                                     <td> {{class.year}} {{class.semester}} Term: 
                                         {{class.start_date}} -  {{class.end_date}} <br>
-                                        Seats: {{class.current_capacity}}/{{class.full_capacity}} <br>
+                                        Seats: {{x}}/{{class.full_capacity}} <br>
                                         Credit: {{class.credit}}.0 
 
                                     </td>

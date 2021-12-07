@@ -1,7 +1,10 @@
 import datetime
+from enum import auto
 
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.db.models.base import Model
+from django.db.models.fields import DateTimeField
 
 
 # Create your models here.
@@ -101,3 +104,17 @@ class EnrollmentApplication(models.Model):
 
     def __str__(self) -> str:
         return self.last_name + ", " + self.first_name
+
+
+class Reports(models.Model):
+
+    subject = models.CharField(max_length= 100, null=True)
+    description = models.TextField(null=True)
+    date_added = models.DateTimeField(auto_now_add = True)
+    owner = models.ForeignKey(User, on_delete= models.CASCADE)
+
+    def __str__(self) -> str:
+        return self.subject + f"{ self.description[:50]}..."
+
+    class Meta:
+	    verbose_name_plural = 'Reports'

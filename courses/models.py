@@ -1,6 +1,6 @@
 from datetime import MINYEAR
 import datetime
-from typing import Reversible
+from typing import Optional, Reversible
 from django.db import models
 from django.db.models.deletion import CASCADE
 from django.db.models.fields import IntegerField
@@ -60,23 +60,33 @@ class Course(models.Model):
 
 class Classes(models.Model):
     course = models.ForeignKey(Course, on_delete= models.CASCADE)
-    class_id = models.CharField( max_length= 10, null= True)
+    class_id = models.CharField( max_length= 10, null= True, unique=True)
     section_num = models.CharField(max_length= 20, null= True)
     credit = models.IntegerField(null = True)
     year = models.IntegerField( null= True)
     semester = models.CharField(choices= SEMESTER, max_length= 50, null=True)
     full_capacity = models.IntegerField(null= True)
-    current_capacity = models.IntegerField(null= True)
     start_date = models.DateField(auto_now=False, null = True, auto_now_add=False, default= datetime.date(1, 1, 1))
     end_date = models.DateField(auto_now=False, null = True, auto_now_add=False, default= datetime.date(1, 1, 1))
-    days_and_time = models.CharField(max_length= 200, null = True)
+    days = models.CharField(max_length= 10, null = True)
+    start_time = models.TimeField(auto_now=False, auto_now_add=False, null= True)
+    end_time = models.TimeField(auto_now=False, auto_now_add=False, null= True)
     instructor = models.ForeignKey(Instructor, on_delete= models.CASCADE, null= True)
 
+# <<<<<<< HEAD
+# =======
+
+    def get_cur_capacity(self):
+        cur_capacity = TakenCourse.objects.filter(classes__class_id= self.class_id)
+        return cur_capacity.count()
+
+#
+# >>>>>>> origin/Last_Saves
     def average_rating(self):
         all_ratings = map(lambda x: x.rate, self.reviewclasses_set.all())
         return np.mean(list(all_ratings)) # np -> numpy
 
-    def __str__(self) -> str:
+    def __str__(self):
         return self.course.course_name + " -  " + self.class_id + " -  " + self.course.title + " -  " + self.section_num
 
     class Meta:
@@ -133,6 +143,17 @@ class CourseAllocation(models.Model):
         return self.instructor.user.last_name
 
 
+# <<<<<<< HEAD
+# =======
+class WaitList(models.Model):
+    student = models.ForeignKey(Student, on_delete= models.CASCADE)
+    course = models.ForeignKey(Classes, on_delete= models.CASCADE)
+
+    def __str__(self):
+        return self.student.user.last_name +  " - " + self.course.class_id
+
+#
+# >>>>>>> origin/Last_Saves
 class TakenCourse(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     classes = models.ForeignKey(Classes, on_delete=models.CASCADE, related_name='taken_courses')
@@ -291,8 +312,6 @@ class Result(models.Model):
 
 
 
-
-
 #-----------------------------------------------------------------------------------------#
 #                                   Reviews Models                                        #
 #-----------------------------------------------------------------------------------------#
@@ -309,11 +328,16 @@ class ReviewClasses(models.Model):
 
     course = models.ForeignKey(Classes, on_delete= models.CASCADE)
     rate = models.IntegerField (choices = RATING_CHOICES, null=True)
-    review = models.TextField()
+    review = models.TextField(null=True)
     date_added = models.DateTimeField(auto_now_add= True)
     owner = models.ForeignKey(Student, on_delete= models.CASCADE)
 
 
 
-    def __str__(self) :
-        return self.course + f"{ self.review[:50]}..."
+    # def __str__(self) :
+    #     return self.course.course.course_name + f"{ self.review[:50]}..."
+
+
+class WarningCount(models.Model):
+    student = models.ForeignKey(Student, on_delete= models.CASCADE)
+    count = models.CharField(max_length=1,  null= True)

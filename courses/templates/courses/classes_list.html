@@ -10,7 +10,7 @@
     }
     </style>
 
-<div class="container-fluid mt-5">
+<div class="container-fluid mt-9">
 
         <!-- Heading -->
         <div class="card mb-4 wow fadeIn">
@@ -18,16 +18,20 @@
             <!--Card content-->
             <div class="card-body d-sm-flex justify-content-between">
 
-                <h6 class="mb-2 mb-sm-0 pt-1">
-                    <a href="/">Profile Page</a>
+                <h3 class="mb-2 mb-sm-0 pt-1">
+                    <a href="{% url 'profile' %}">Profile Page</a>
                     <span>/</span>
                     <span>Classes' List</span>
+{#<<<<<<< HEAD#}
                 </h6>
                 {% if user.is_registrar or user.is_superuser %}
                 <form action={% url 'courses:add_class' %}>
                     <input type="submit" value="Add Class" />
                 </form>
                 {% endif %}
+{#=======#}
+                </h3>
+{#>>>>>>> origin/Last_Saves#}
             </div>
 
         </div>
@@ -48,7 +52,8 @@
                     
                     </tr>
                 </thead>
-            {% for class in classes %}
+                
+            {% for x, class in class_dict.items %}
                 <tbody>
                     <tr>
                     <th scope="row">{{ forloop.counter }}</th>
@@ -56,10 +61,10 @@
                     <td>{{ class.class_id }}</td>
                     <td>{{ class.course.title }}</td>
                     <td>{{ class.instructor }}</td>
-                    <td>{{ class.days_and_time }}</td>
+                    <td>{{class.days}} : {{class.start_time}} - {{class.end_time}} </td>
                     <td> {{class.year}} {{class.semester}} Term: 
                         {{class.start_date}} -  {{class.end_date}} <br>
-                        Seats: {{class.current_capacity}}/{{class.full_capacity}} <br>
+                        Seats: {{x}}/{{class.full_capacity}} <br>
                         Credit: {{class.credit}}.0 
             
                     </td>

@@ -9,7 +9,7 @@ overflow-y: auto;
 -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 </style>
-	<div class="container-fluid mt-5">
+	<div class="container-fluid mt-9">
 
             <!-- Heading -->
             <div class="card mb-4 wow fadeIn">
@@ -17,23 +17,15 @@ overflow-y: auto;
                 <!--Card content-->
                 <div class="card-body d-sm-flex justify-content-between">
 
-                    <h6 class="mb-2 mb-sm-0 pt-1">
+                    <h3 class="mb-2 mb-sm-0 pt-1">
                         <a href="/">Home Page</a>
                         <span>/</span>
-                        <span>1st Class Students</span>
-                    </h6>
+                        <span>Honor Roll Students</span>
+                    </h3>
                 </div>
 
             </div>
-            {% if request.user.is_superuser %}
-            <!-- Heading -->
-            <h6 class="mb-2 mb-sm-0 pt-1">
-            <a class="pull-right btn btn-default btn-rounded mb-3" href="" class="btn btn-default btn-rounded mb-4">
-               <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Print
-            </a>
-            </h6>
-            {% endif %}
-
+           
                 <!--Card content-->
   <div class="table-wrapper-scroll-y">
 
@@ -43,9 +35,7 @@ overflow-y: auto;
                           <th scope="col">#</th>
                           <th scope="col">Name</th>
                           <th scope="col">Level</th>
-                          {% if request.user.is_superuser %}
-                          <th scope="col">Action</th>
-                          {% endif %}
+                         
                         </tr>
                     </thead>
                 {% for student in students %}
@@ -54,13 +44,7 @@ overflow-y: auto;
                           <th scope="row">{{ forloop.counter }}</th>
                           <td>{{ student.student }}</td>
                           <td>{{ student.level}}</td>
-                          {% if request.user.is_superuser %}
-                          <!-- <td>
-                            <a data-toggle="tooltip" title="View" class="blue-text"><i class="fa fa-user"></i></a>
-                            <a data-toggle="tooltip" title="Edit" href="{% url 'edit_student' pk=student.student.pk %}" title="edit" class="teal-text"><i class="fa fa-pencil"></i></a>
-                            <a data-toggle="tooltip" title="Delete" href="{% url 'delete_student' pk=student.student.pk %}" class="red-text"><i class="fa fa-times"></i></a>
-                          </td> -->
-                          {% endif %}
+                        
                         </tr>
                         {% empty %}
                         <tr>
