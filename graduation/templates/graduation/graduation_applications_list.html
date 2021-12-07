@@ -1,0 +1,56 @@
+{% extends "general/profile_base.html" %}
+{% load crispy_forms_tags %}
+{%  block content %}
+    <style type="text/css">
+        .table-wrapper-scroll-y {
+    display: block;
+    max-height:  750px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+    </style>
+
+<div class="container-fluid mt-5">
+    <h3>Graduation Applications</h3>
+            <!--Card content-->
+    <div class="table-wrapper-scroll-y">
+
+    <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">ID#</th>
+                    <th scope="col">Student Name</th>
+                    <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ap in applications %}
+                        {% if ap.pending %}
+                            <tr>
+                            <th scope="row">{{ ap.id }}</th>
+                                <td><a href="{{ ap.id }}">{{ ap.student.user.first_name }} {{ ap.student.user.last_name }}</a></td>
+                                <td><div style="color: darkgoldenrod"><b>Pending</b></div></td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    {% for ap in applications %}
+                        {% if not ap.pending %}
+                        <tr>
+                        <th scope="row">{{ ap.id }}</th>
+                            <td><a href="{{ ap.id }}">{{ ap.student.user.first_name }} {{ ap.student.user.last_name }}</a></td>
+                            <td>
+                                {% if ap.approved %}
+                                    <div style="color: limegreen"><b>Approved</b></div>
+                                {% elif ap.rejected %}
+                                    <div style="color: red"><b>Rejected</b></div>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+{%  endblock content %}

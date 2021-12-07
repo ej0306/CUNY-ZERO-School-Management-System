@@ -1,24 +1,24 @@
 {% extends "general/profile_base.html" %}
 {% load crispy_forms_tags %}
 {%  block content %}
-    <h1>{{ user.first_name }} {{ user.m_initial }} {{ user.last_name }}</h1>
+    <div class="content-section">
+        <h1>{{ user.first_name }} {{ user.m_initial }} {{ user.last_name }}</h1>
 
-    <p> {% if user.is_student %}
-            This is a Student
-        {% endif %}
-        {% if user.is_instructor %}
-            This is an Instructor
-        {% endif %} </p>
-    {% if user.is_student %}
+        <p> {% if user.is_student %}
+                This is a Student
+            {% endif %}
+            {% if user.is_instructor %}
+                This is an Instructor
+            {% endif %}
+            {% if user.is_registrar %}
+                This is a Registrar
+            {% endif %}
+        </p>
+
         <h3>Contact Information</h3>
         <p><b>Email:</b> {{ user.email }}</p>
         <p><b>Phone Number:</b> {{ user.phone_number }}</p>
         <p><b>Date of Birth:</b> {{ user.birth_date }}</p>
-    {% endif %}
-    {% if user.is_instructor %}
-        <h3>Contact Information</h3>
-        <p><b>Email:</b> {{ user.email }}</p>
-        <p><b>Phone Number:</b> {{ user.phone_number }}</p>
-        <p><b>Date of Birth:</b> {{ user.birth_date }}</p>
-    {% endif %}
+
+    </div>
 {%  endblock content %}

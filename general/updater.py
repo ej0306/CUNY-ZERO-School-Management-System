@@ -8,7 +8,7 @@ from multiprocessing import current_process
 
 def start():
     scheduler = BackgroundScheduler()
-    scheduler.add_job(scheduled_job_test, 'date', run_date=datetime(2021, 12, 6, 3, 9, 40))
+    scheduler.add_job(scheduled_job_test, 'date', run_date=datetime(2021, 12, 6, 22, 44, 59))
     scheduler.start()
 
 # replace run_date with this to schedule the task to be ran at the date stored in Session model:

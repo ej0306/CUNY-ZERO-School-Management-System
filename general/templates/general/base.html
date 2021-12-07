@@ -19,6 +19,7 @@
 
 </head>
 <body>
+{#    -------------------------------------------- TOP MAVIGATION BAR start --------------------------------------------#}
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
@@ -43,6 +44,7 @@
                     {% endif %}
                     {% if user.is_student %}
                         <!-- Tabs that STUDENTS can see -->
+                        <a class="nav-item nav-link" href="{% url 'graduation-apply' %}">Apply for Graduation</a>
                     {% endif %}
                     {% if user.is_instructor %}
                         <!-- Tabs that INSTRUCTORS can see -->
@@ -71,6 +73,7 @@
         </div>
       </nav>
     </header>
+{#    -------------------------------------------- TOP MAVIGATION BAR END --------------------------------------------#}
     <main role="main" class="container">
       <div class="row">
         <div class="col-md-8">
@@ -83,6 +86,7 @@
             {% endif %}
             {% block content %}{% endblock %}
         </div>
+        {# ----------------------------- SIDE BAR START ----------------------------- #}
         <div class="col-md-4">
           <div class="content-section">
             <h3>Our Sidebar</h3>
@@ -96,6 +100,7 @@
             </p>
           </div>
         </div>
+      {# ------------------------------ SIDE BAR END ------------------------------ #}
       </div>
     </main>
 

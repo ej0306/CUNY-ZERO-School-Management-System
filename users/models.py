@@ -3,6 +3,7 @@ import datetime
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+
 # Create your models here.
 FIRST = "First"
 SECOND = "Second"
@@ -18,6 +19,7 @@ class User(AbstractUser):
     is_instructor = models.BooleanField(default=False)
     is_registrar = models.BooleanField(default=False)
 
+    is_suspended = models.BooleanField(default=False)
     new_user = models.BooleanField(default=False)
 
     first_name = models.CharField(max_length=50, default='', blank=True)
@@ -42,6 +44,8 @@ class Student(models.Model):
     graduation_date = models.DateField(auto_now=False, auto_now_add=False, null=True)
     gpa = models.FloatField(null=True)
     transcript = models.FileField(null=True, blank=True)
+
+    graduation_class = models.ForeignKey("graduation.GraduatingClass", related_name='students', blank=True, null=True, on_delete=models.DO_NOTHING)
 
     def __str__(self) -> str:
         return self.user.last_name + " " + self.user.first_name

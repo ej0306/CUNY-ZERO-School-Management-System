@@ -35,7 +35,8 @@ INSTALLED_APPS = [
     # Our Apps
     'general.apps.GeneralConfig',
     'users.apps.UsersConfig',
-    'courses.apps.CoursesConfig', 
+    'courses.apps.CoursesConfig',
+    'graduation.apps.GraduationConfig',
     'crispy_forms',
     'bootstrap4',
     'bootstrap3',
