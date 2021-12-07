@@ -1,41 +1,117 @@
 {% extends "general/base.html" %}
 {% load crispy_forms_tags %}
 {%  block content %}
-    <h1>{% if application.student_application %}
-        Student Application
-    {% endif %}
-    {% if application.Instructor_application %}
-        Instructor Application
-    {% endif %}</h1>
+    <div class="content-section">
+        <h4>{% if application.student_application %}
+            Student Application
+        {% endif %}
+        {% if application.Instructor_application %}
+            Instructor Application
+        {% endif %}</h4>
 
-    <h3>Personal Information</h3>
-    <p><b>Name:</b> {{ application.first_name }} {{ application.m_initial }} {{ application.last_name }}</p>
-    <p><b>Email:</b> {{ application.email }}</p>
-    <p><b>Phone:</b> {{ application.phone_number }}</p>
-    <p><b>Date of Birth:</b> {{ application.birth_date }}</p>
-    <p><b>Address:</b> {{ application.street_address }}, {{ application.city }}, {{ application.state }} {{ application.zip_code }}</p>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <th>Personal Information</th>
+            </thead>
+            <tr>
+                <th>Name:</th>
+                <td>{{ application.first_name }} {{ application.m_initial }} {{ application.last_name }}</td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <th>Email:</th>
+                <td>{{ application.email }}</td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <th>Phone:</th>
+                <td>{{ application.phone_number }}</td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <th>Date of Birth:</th>
+                <td>{{ application.birth_date }}</td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <th>Address:</th>
+                <td>{{ application.street_address }}, {{ application.city }}, {{ application.state }} {{ application.zip_code }}</td>
+            </tr>
+        </table>
 
-    {% if application.student_application %}
-        <h3>Academic Information</h3>
-        <p><b>Previous School:</b> {{ application.sc_name }}</p>
-        <p><b>Location:</b> {{ application.sc_city }}, {{ application.sc_state }}</p>
-        <p><b>Graduation Date:</b> {{ application.graduation_date }}</p>
-        <p><b>GPA:</b> {{ application.gpa }}</p>
-    {% endif %}
 
-    {% if application.Instructor_application %}
-        <p><b>Resume:</b> {{ application.resume }}</p>
-    {% endif %}
+        <table class="table table-bordered table-striped">
+        {% if application.student_application %}
+            <thead>
+                <th>Academic Information</th>
+            </thead>
+            <tr>
+                <th>Previous School:</th>
+                <td>{{ application.sc_name }}</td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <th>Location:</th>
+                <td>{{ application.sc_city }}, {{ application.sc_state }}</td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <th>Graduation Date:</th>
+                <td>{{ application.graduation_date }}</td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <th>GPA:</th>
+                <td> {{ application.gpa }}</td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <th>Address:</th>
+                <td>{{ application.street_address }}, {{ application.city }}, {{ application.state }} {{ application.zip_code }}</td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <th>Transcript:</th>
+                <td><a href="{{ application.transcript.name }}" target="_blank">{{ application.transcript }}</a></td>
+            </tr>
+        {% elif application.Instructor_application %}
+            <thead>
+                <th>Professional Information</th>
+            </thead>
+            <tr>
+                <th>Resume:</th>
+                <td><a href="{{ application.resume.name }}" target="_blank">{{ application.resume }}</a></td>
+            </tr>
+        {% endif %}
+        </table>
+        <p>
+            <b>
+                Application Status:
+                {% if application.status_approved %}
+                    <span style="color: limegreen">APPROVED</span>
+                {% elif application.status_rejected %}
+                    <span style="color: red">REJECTED</span>
+                {% elif application.status_pending %}
+                    <span style="color: goldenrod">PENDING</span>
+                {% endif %}
+            </b>
+        </p>
+    </div>
 
-    <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
+    {% if application.status_pending %}
+        <div class="content-section">
+            <h5>Process Application:</h5>
+            <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
 
-        <fieldset class="form-group">
-                {{ form|crispy }}
-        </fieldset>
-        <div class="form-group">
-            <button  class="btn btn-outline-info" type="submit">Submit</button>
+                <fieldset class="form-group">
+                        {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button  class="btn btn-outline-info" type="submit">Submit</button>
+                </div>
+            </form>
         </div>
-    </form>
+    {% endif %}
 
 {%  endblock content %}

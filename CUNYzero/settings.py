@@ -35,12 +35,14 @@ INSTALLED_APPS = [
     # Our Apps
     'general.apps.GeneralConfig',
     'users.apps.UsersConfig',
-    'courses.apps.CoursesConfig', 
+    'courses.apps.CoursesConfig',
+    'graduation.apps.GraduationConfig',
     'crispy_forms',
     'bootstrap4',
     'bootstrap3',
     'mathfilters',
     'numpy',
+    "django_apscheduler",
     
 
     'django.contrib.admin',
@@ -117,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'EST'
 
 USE_I18N = True
 

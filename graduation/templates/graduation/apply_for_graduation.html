@@ -1,0 +1,22 @@
+{% extends "general/base.html" %}
+{% load crispy_forms_tags %}
+{%  block content %}
+    <div class="content-section">
+        <form method="post">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Apply for Graduation</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button  class="btn btn-outline-info" type="submit">Log In</button>
+            </div>
+        </form>
+        <p>
+            <b>WARNING:</b> Before applying for graduation, you must fulfill the requirements for graduation. If you have not
+            taken a total of <strong><u>8 classes</u></strong> including the classes you are currently taking, you will receive a warning for
+            reckless graduation application. After submitting, a registrar will review your academic record and notify
+            you of their decision regarding your graduation.
+        </p>
+    </div>
+{%  endblock content %}

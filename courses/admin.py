@@ -1,5 +1,6 @@
 from django.contrib import admin
-from courses.models import CarryOverStudent, Course, Classes, RepeatingStudent, Result, ReviewClasses, Session, TakenCourse, CourseAllocation
+from django.db import models
+from courses.models import CarryOverStudent, Course, Classes, RepeatingStudent, Result, ReviewClasses, Session, TakenCourse, CourseAllocation, WaitList, WarningCount
 
 # Register your models here.
 #class CityAdmin(admin.ModelAdmin):
@@ -15,7 +16,7 @@ class ScoreAdmin(admin.ModelAdmin):
 	list_display = ['student', 'classes', 'ca', 'exam', 'total', 'grade', 'comment']
 
 class ClassesAdmin(admin.ModelAdmin):
-	list_display = ['course', 'semester', 'start_date', 'end_date', 'instructor', 'days_and_time',]
+	list_display = ['course', 'semester', 'start_date', 'end_date', 'instructor', 'days','start_time', 'end_time']
 
 
 class ReviewAdmin(admin.ModelAdmin):
@@ -24,7 +25,9 @@ class ReviewAdmin(admin.ModelAdmin):
     list_filter = ['date_added', 'owner']
     search_fields = ['review']
 
-
+class WarningAdmin(admin.ModelAdmin):
+    models = WarningCount
+    list_display = ('student', 'count')
 
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Classes, ClassesAdmin)
@@ -34,6 +37,8 @@ admin.site.register(Session)
 admin.site.register(Result)
 admin.site.register(CarryOverStudent)
 admin.site.register(RepeatingStudent)
+admin.site.register(WaitList)
 
 
+admin.site.register(WarningCount, WarningAdmin)
 admin.site.register(ReviewClasses, ReviewAdmin)

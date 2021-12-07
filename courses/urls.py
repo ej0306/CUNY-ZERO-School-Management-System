@@ -17,6 +17,9 @@ urlpatterns = [
     path('view_result/', views.view_result, name='view_result'),
     path('first_class_list/', views.first_class_list, name='first_class_list'),
     path('repeating_list/', views.repeat_list, name='repeat_list'),
+    path('add_class/', views.add_class, name='add_class'),
+    path('add_course/', views.add_course, name='add_course'),
+    path('set_up_session/', views.set_up_session, name='set_up_session'),
 #-----------------------------------------------------------------------------------------#
 #                            Reviews Classes URLs                                         #
 #-----------------------------------------------------------------------------------------#

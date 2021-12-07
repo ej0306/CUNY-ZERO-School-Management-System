@@ -1,7 +1,11 @@
 import datetime
+from enum import auto
 
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.db.models.base import Model
+from django.db.models.fields import DateTimeField
+
 
 # Create your models here.
 FIRST = "First"
@@ -18,6 +22,7 @@ class User(AbstractUser):
     is_instructor = models.BooleanField(default=False)
     is_registrar = models.BooleanField(default=False)
 
+    is_suspended = models.BooleanField(default=False)
     new_user = models.BooleanField(default=False)
 
     first_name = models.CharField(max_length=50, default='', blank=True)
@@ -41,6 +46,9 @@ class Student(models.Model):
     semester = models.CharField(choices=SEMESTER, max_length=50, null=True)
     graduation_date = models.DateField(auto_now=False, auto_now_add=False, null=True)
     gpa = models.FloatField(null=True)
+    transcript = models.FileField(null=True, blank=True)
+
+    graduation_class = models.ForeignKey("graduation.GraduatingClass", related_name='students', blank=True, null=True, on_delete=models.DO_NOTHING)
 
     def __str__(self) -> str:
         return self.user.last_name + " " + self.user.first_name
@@ -84,6 +92,7 @@ class EnrollmentApplication(models.Model):
     sc_state = models.CharField(max_length=2, null=True)
     graduation_date = models.DateField(auto_now=False, auto_now_add=False, null=True)
     gpa = models.FloatField(null=True)
+    transcript = models.FileField(null=True, blank=True)
 
     # professional info - for instructors
     resume = models.FileField(null=True, blank=True)
@@ -95,3 +104,17 @@ class EnrollmentApplication(models.Model):
 
     def __str__(self) -> str:
         return self.last_name + ", " + self.first_name
+
+
+class Reports(models.Model):
+
+    subject = models.CharField(max_length= 100, null=True)
+    description = models.TextField(null=True)
+    date_added = models.DateTimeField(auto_now_add = True)
+    owner = models.ForeignKey(User, on_delete= models.CASCADE)
+
+    def __str__(self) -> str:
+        return self.subject + f"{ self.description[:50]}..."
+
+    class Meta:
+	    verbose_name_plural = 'Reports'

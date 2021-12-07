@@ -24,6 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('enrollment_applications/', user_views.enrollment_applications, name='enrollment_applications'),
     path('enrollment_applications/<int:pk>/', user_views.enrollment_application_details, name='application_details'),
+    path('enrollment_applications/<int:pk>/<str:file_name>/', user_views.show_application_file, name='show_application_file'),
+    path('media/<str:file_name>/', user_views.show_pdf, name='show_pdf_file'),
     path('register_student/', user_views.register_student, name='register_student'),
     path('register_instructor/', user_views.register_instructor, name='register_instructor'),
     path('profile/', user_views.profile, name='profile'),
@@ -33,7 +35,9 @@ urlpatterns = [
     path('student_list/', user_views.student_list, name='student_list'),
     path('instructor_list/', user_views.instructor_list, name='instructor_list'),
     path('', include('general.urls')),
+    path('graduation/', include('graduation.urls')),
     path('courses/', include('courses.urls')),
+    path('createuser/', user_views.create_user, name='create_user'),
 ]
 
 

@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.urls import reverse
 
-from .forms import StudentApplicationForm, InstructorApplicationForm, AcceptApplication, EnrollmentApplication, LoginForm
+from .forms import StudentApplicationForm, InstructorApplicationForm, AcceptApplication, EnrollmentApplication, LoginForm, UserCreation
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
@@ -11,6 +11,9 @@ from django.core.exceptions import PermissionDenied
 from users.models import Instructor, Student, User
 from django.core.mail import send_mail
 from django.conf import settings
+from django.http import Http404, FileResponse
+from CUNYzero import settings
+import os
 
 from courses.models import Classes, TakenCourse 
 
@@ -20,7 +23,7 @@ def register_student(request):
         return redirect(profile)
 
     if request.method == 'POST':
-        form = StudentApplicationForm(request.POST)
+        form = StudentApplicationForm(request.POST, request.FILES)
 
         # do something if form is completed successfully
         if form.is_valid():
@@ -76,6 +79,9 @@ def enrollment_applications(request):
 
 @login_required
 def enrollment_application_details(request, pk):
+    if not request.user.is_registrar:
+        raise PermissionDenied()
+
     application = EnrollmentApplication.objects.filter(id=pk).first()
     context = {}
 
@@ -83,6 +89,11 @@ def enrollment_application_details(request, pk):
         form = AcceptApplication(request.POST)
 
         if form.data.get('decision') == 'Y':
+
+            if form.data.get('reason') == '' and application.gpa <= 3.0 and application.student_application:
+                messages.error(request, 'Please provide a justification for this decision.')
+                return render(request, 'users/enrollmentapplication_detail.html', {'form': form, 'application': application})
+
             application.status_approved = True
             application.status_pending = False
 
@@ -117,7 +128,9 @@ def enrollment_application_details(request, pk):
                 student.sc_city = application.sc_city
                 student.sc_state = application.sc_state
                 student.graduation_date = application.graduation_date
-                student.gpa = application.gpa
+                student.gpa = 0.0
+                student.semester = "First"
+                student.transcript = application.transcript
                 student.save()
             elif application.Instructor_application:
                 instructor = Instructor.objects.create(user=new_user)
@@ -129,6 +142,10 @@ def enrollment_application_details(request, pk):
 
             return redirect('enrollment_applications')
         else:
+            if form.data.get('reason') == '' and application.gpa > 3.0 and application.student_application:
+                messages.error(request, 'Please provide a justification for this decision.')
+                return render(request, 'users/enrollmentapplication_detail.html', {'form': form, 'application': application})
+
             application.status_rejected = True
             application.status_pending = False
             application.save()
@@ -136,7 +153,6 @@ def enrollment_application_details(request, pk):
             application_type = ''
             if application.student_application:
                 application_type = 'student'
-                # TO DO - make sure reason is given if decision is made against rule
             elif application.Instructor_application:
                 application_type = 'instructor'
 
@@ -154,11 +170,12 @@ def enrollment_application_details(request, pk):
 
     context.update({
         'application': application,
-        'form': form,
     })
 
-    if not request.user.is_registrar:
-        raise PermissionDenied()
+    if application.status_pending:
+        context.update({
+            'form': form,
+        })
 
     return render(request, 'users/enrollmentapplication_detail.html', context)
 
@@ -253,3 +270,31 @@ def change_password(request):
     else:
         form = PasswordChangeForm(request.user)
     return render(request, 'users/change_password.html', {'form': form})
+
+
+@login_required()
+def create_user(request):
+    if not request.user.is_superuser:
+        return redirect('general-home')
+
+    form = UserCreation()
+
+    if request.method == 'POST':
+        form = UserCreation(request.POST)
+        if form.is_valid():
+            user = form.save()
+            user.save()
+            return redirect('general-home')
+
+    return render(request, 'users/user_creation.html', {'form': form})
+
+
+# open pdf file from admin site
+def show_pdf(request, file_name):
+    filepath = os.path.join(settings.MEDIA_ROOT, file_name)
+    return FileResponse(open(filepath, 'rb'), content_type='application/pdf')
+
+
+def show_application_file(request, pk, file_name):
+    filepath = os.path.join(settings.MEDIA_ROOT, file_name)
+    return FileResponse(open(filepath, 'rb'), content_type='application/pdf')

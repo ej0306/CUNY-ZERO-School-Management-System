@@ -1,11 +1,13 @@
 from datetime import MINYEAR
 import datetime
-from typing import Reversible
+from typing import Optional, Reversible
 from django.db import models
 from django.db.models.deletion import CASCADE
 from django.db.models.fields import IntegerField
+from django.utils import timezone
 import numpy as np
-
+import datetime
+import pytz
 from users.models import Instructor, Student
 
 # Create your models here.
@@ -39,11 +41,10 @@ SEMESTER = (
 
 )
 
-
-
-#-----------------------------------------------------------------------------------------#
+# -----------------------------------------------------------------------------------------#
 #                              Courses/Classes Related Models                             #
-#-----------------------------------------------------------------------------------------#
+# -----------------------------------------------------------------------------------------#
+
 
 # The courses models
 class Course(models.Model):
@@ -56,6 +57,7 @@ class Course(models.Model):
     def __str__(self) -> str:
         return self.course_name + " -  " + self.title + " -  " + self.department
 
+
 class Classes(models.Model):
     course = models.ForeignKey(Course, on_delete= models.CASCADE)
     class_id = models.CharField( max_length= 10, null= True, unique=True)
@@ -64,22 +66,31 @@ class Classes(models.Model):
     year = models.IntegerField( null= True)
     semester = models.CharField(choices= SEMESTER, max_length= 50, null=True)
     full_capacity = models.IntegerField(null= True)
-    current_capacity = models.IntegerField(null= True)
     start_date = models.DateField(auto_now=False, null = True, auto_now_add=False, default= datetime.date(1, 1, 1))
     end_date = models.DateField(auto_now=False, null = True, auto_now_add=False, default= datetime.date(1, 1, 1))
-    days_and_time = models.CharField(max_length= 200, null = True)
+    days = models.CharField(max_length= 10, null = True)
+    start_time = models.TimeField(auto_now=False, auto_now_add=False, null= True)
+    end_time = models.TimeField(auto_now=False, auto_now_add=False, null= True)
     instructor = models.ForeignKey(Instructor, on_delete= models.CASCADE, null= True)
 
+# <<<<<<< HEAD
+# =======
 
+    def get_cur_capacity(self):
+        cur_capacity = TakenCourse.objects.filter(classes__class_id= self.class_id)
+        return cur_capacity.count()
+
+#
+# >>>>>>> origin/Last_Saves
     def average_rating(self):
         all_ratings = map(lambda x: x.rate, self.reviewclasses_set.all())
         return np.mean(list(all_ratings)) # np -> numpy
 
-    def __str__(self) -> str:
+    def __str__(self):
         return self.course.course_name + " -  " + self.class_id + " -  " + self.course.title + " -  " + self.section_num
 
     class Meta:
-	    verbose_name_plural = 'classes'
+        verbose_name_plural = 'classes'
 
 
 class Session(models.Model):
@@ -87,8 +98,41 @@ class Session(models.Model):
     is_current_session = models.BooleanField(default=False, blank=True, null=True)
     next_session_begins = models.DateField(blank=True, null=True)
 
+    class_set_up_period_start = models.DateTimeField(default=datetime.datetime(datetime.date.today().year, 1, 1))
+    class_set_up_period_end = models.DateTimeField(default=datetime.datetime(datetime.date.today().year, 1, 1, 23, 59, 59))
+
+    course_registration_period_start = models.DateTimeField(default=datetime.datetime(datetime.date.today().year, 1, 1))
+    course_registration_period_end = models.DateTimeField(default=datetime.datetime(datetime.date.today().year, 1, 1, 23, 59, 59))
+
+    class_running_period_start = models.DateTimeField(default=datetime.datetime(datetime.date.today().year, 1, 1))
+    class_running_period_end = models.DateTimeField(default=datetime.datetime(datetime.date.today().year, 1, 1, 23, 59, 59))
+
+    grading_period_start = models.DateTimeField(default=datetime.datetime(datetime.date.today().year, 1, 1))
+    grading_period_end = models.DateTimeField(default=datetime.datetime(datetime.date.today().year, 1, 1, 23, 59, 59))
+
     def __str__(self):
         return self.session
+
+    def is_class_set_up_period(self):
+        start = self.class_set_up_period_start.replace(tzinfo=pytz.UTC)
+        end = self.class_set_up_period_end.replace(tzinfo=pytz.UTC)
+        return start <= timezone.now() <= end
+
+    def is_course_registration_period(self):
+        start = self.course_registration_period_start.replace(tzinfo=pytz.UTC)
+        end = self.course_registration_period_end.replace(tzinfo=pytz.UTC)
+        return start <= timezone.now() <= end
+
+    def is_class_running_period(self):
+        start = self.class_running_period_start.replace(tzinfo=pytz.UTC)
+        end = self.class_running_period_end.replace(tzinfo=pytz.UTC)
+        return start <= timezone.now() <= end
+
+    def is_grading_period(self):
+        start = self.grading_period_start.replace(tzinfo=pytz.UTC)
+        end = self.grading_period_end.replace(tzinfo=pytz.UTC)
+        return start <= timezone.now() <= end
+
 
 class CourseAllocation(models.Model):
     instructor = models.ForeignKey(Instructor, on_delete=models.CASCADE)
@@ -98,6 +142,18 @@ class CourseAllocation(models.Model):
     def __str__(self):
         return self.instructor.user.last_name
 
+
+# <<<<<<< HEAD
+# =======
+class WaitList(models.Model):
+    student = models.ForeignKey(Student, on_delete= models.CASCADE)
+    course = models.ForeignKey(Classes, on_delete= models.CASCADE)
+
+    def __str__(self):
+        return self.student.user.last_name +  " - " + self.course.class_id
+
+#
+# >>>>>>> origin/Last_Saves
 class TakenCourse(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     classes = models.ForeignKey(Classes, on_delete=models.CASCADE, related_name='taken_courses')
@@ -256,8 +312,6 @@ class Result(models.Model):
 
 
 
-
-
 #-----------------------------------------------------------------------------------------#
 #                                   Reviews Models                                        #
 #-----------------------------------------------------------------------------------------#
@@ -274,11 +328,16 @@ class ReviewClasses(models.Model):
 
     course = models.ForeignKey(Classes, on_delete= models.CASCADE)
     rate = models.IntegerField (choices = RATING_CHOICES, null=True)
-    review = models.TextField()
+    review = models.TextField(null=True)
     date_added = models.DateTimeField(auto_now_add= True)
     owner = models.ForeignKey(Student, on_delete= models.CASCADE)
 
 
 
-    def __str__(self) :
-        return self.course + f"{ self.review[:50]}..."
+    # def __str__(self) :
+    #     return self.course.course.course_name + f"{ self.review[:50]}..."
+
+
+class WarningCount(models.Model):
+    student = models.ForeignKey(Student, on_delete= models.CASCADE)
+    count = models.CharField(max_length=1,  null= True)

@@ -4,7 +4,7 @@
     <style type="text/css">
         .table-wrapper-scroll-y {
     display: block;
-    max-height: 350px;
+    max-height: 750px;
     overflow-y: auto;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     }
@@ -22,7 +22,16 @@
                     <a href="{% url 'profile' %}">Profile Page</a>
                     <span>/</span>
                     <span>Classes' List</span>
+{#<<<<<<< HEAD#}
+                </h6>
+                {% if user.is_registrar or user.is_superuser %}
+                <form action={% url 'courses:add_class' %}>
+                    <input type="submit" value="Add Class" />
+                </form>
+                {% endif %}
+{#=======#}
                 </h3>
+{#>>>>>>> origin/Last_Saves#}
             </div>
 
         </div>
@@ -43,7 +52,8 @@
                     
                     </tr>
                 </thead>
-            {% for class in classes %}
+                
+            {% for x, class in class_dict.items %}
                 <tbody>
                     <tr>
                     <th scope="row">{{ forloop.counter }}</th>
@@ -51,10 +61,10 @@
                     <td>{{ class.class_id }}</td>
                     <td>{{ class.course.title }}</td>
                     <td>{{ class.instructor }}</td>
-                    <td>{{ class.days_and_time }}</td>
+                    <td>{{class.days}} : {{class.start_time}} - {{class.end_time}} </td>
                     <td> {{class.year}} {{class.semester}} Term: 
                         {{class.start_date}} -  {{class.end_date}} <br>
-                        Seats: {{class.current_capacity}}/{{class.full_capacity}} <br>
+                        Seats: {{x}}/{{class.full_capacity}} <br>
                         Credit: {{class.credit}}.0 
             
                     </td>
