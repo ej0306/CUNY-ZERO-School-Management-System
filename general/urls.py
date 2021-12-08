@@ -20,5 +20,6 @@ urlpatterns = [
     path('change_password/', views.change_password, name='instructorlist'),
     path('homelogin/', views.homelogin, name='homelogin'),
     path('instructorpage/', views.instructorpage, name='instructorpage'),
+    path('studentpage/', views.studentpage, name='studentpage'),
 ]
 

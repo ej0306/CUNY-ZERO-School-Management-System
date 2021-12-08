@@ -50,3 +50,6 @@ def homepage(request):
         "courses": courses,
     }
     return render(request, 'general/homepage.html',context)
+
+def studentpage(request):
+    return render (request,'general/studentpage.html',{'title': 'studentpage'})
