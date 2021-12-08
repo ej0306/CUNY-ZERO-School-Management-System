@@ -1,41 +1,20 @@
-{% extends "general/profile_base.html" %}
+{% extends "general/profilepage.html" %}
 {% load crispy_forms_tags %}
 
 
 {%  block content %}
-{#<<<<<<< HEAD#}
-    <div class="content-section">
-        <h1>{{ user.first_name }} {{ user.m_initial }} {{ user.last_name }}</h1>
-
-        <p> {% if user.is_student %}
-                This is a Student
-            {% endif %}
-            {% if user.is_instructor %}
-                This is an Instructor
-            {% endif %}
-            {% if user.is_registrar %}
-                This is a Registrar
-            {% endif %}
-        </p>
-
-        <h3>Contact Information</h3>
-        <p><b>Email:</b> {{ user.email }}</p>
-        <p><b>Phone Number:</b> {{ user.phone_number }}</p>
-        <p><b>Date of Birth:</b> {{ user.birth_date }}</p>
-
-    </div>
-{#=======#}
-    <div class="container-fluid mt-9">
-        <div class="card mb-4 wow fadeIn">
+<div style="width: 550px; margin-left: 25px; margin-top: -350px;">
+    <div class="container-fluid mt-9" style="width: 350px; margin-top: -275px; margin-right: 215px;">
+        <div class="card mb-4 wow fadeIn" style="margin-left: -10px;">
 
             <!--Card content-->
             <div class="card-body d-sm-flex justify-content-between">
-
                 <h3 class="mb-2 mb-sm-0 pt-1">
                     <a href="/">Home Page</a>
                     <span>/</span>
                     <span> Profile Page</span>
                 </h3>
+            </div>
             </div>
 
         </div>
@@ -148,6 +127,5 @@
 
         </div>
     </div>
-
-{#>>>>>>> origin/Last_Saves#}
+</div>
 {%  endblock content %}
