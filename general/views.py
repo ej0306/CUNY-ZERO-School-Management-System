@@ -32,11 +32,6 @@ def instructor_list(request):
 def change_password(request):
     return render(request, 'change_password.html',{'title': 'changepassword'})
 
-def homelogin(request):
-    return render(request, 'general/homelogin.html',{'title': 'homelogin'})
-
-def instructorpage(request):
-    return render (request,'general/instructorpage.html',{'title': 'instructorpage'})
 
 def homepage(request):
     courses = Course.objects.all()
