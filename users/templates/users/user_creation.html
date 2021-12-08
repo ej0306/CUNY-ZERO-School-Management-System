@@ -1,6 +1,7 @@
-{% extends "general/profile_base.html" %}
+{% extends "general/base.html" %}
 {% load crispy_forms_tags %}
 {%  block content %}
+<div style="width: 500px; margin-top: -300px; margin-left: 50px;">
     <h2>Create a User</h2>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
@@ -11,4 +12,5 @@
             <button  class="btn btn-outline-info" type="submit">Submit</button>
         </div>
     </form>
+</div>
 {%  endblock content %}
