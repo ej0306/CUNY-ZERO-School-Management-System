@@ -31,7 +31,11 @@ class ClassSetUp(forms.ModelForm):
     class Meta:
         model = Classes
         fields = ['course', 'section_num', 'credit', 'year', 'semester', 'full_capacity', 'start_date', 'end_date',
+# <<<<<<< HEAD
                   'days', 'start_time', 'end_time', 'instructor']
+# =======
+#                   'days','start_time', 'end_time', 'instructor']
+# >>>>>>> merge-dec-7
         widgets = {
             'start_date': SelectDateWidget(),
             'end_date': SelectDateWidget()

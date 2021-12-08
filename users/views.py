@@ -55,7 +55,7 @@ def register_instructor(request):
 # personal profile page
 @login_required
 def profile(request):
-    courses = Classes.objects.filter(allocated_course__instructor__pk = request.user.id)
+    courses = Classes.objects.filter(instructor__pk = request.user.id)
     taken_course = TakenCourse.objects.filter(student__user__pk = request.user.id)
 
 

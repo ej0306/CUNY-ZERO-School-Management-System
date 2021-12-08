@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from . import views
-from courses.models import Course, Result, ReviewClasses
+from courses.models import Classes, Course, Result, ReviewClasses
 
 
 # Create your views here.
@@ -36,7 +36,7 @@ def change_password(request):
 def homepage(request):
     courses = Course.objects.all()
     students = Result.objects.filter(cgpa__gte=3.5)
-    classes = ReviewClasses.objects.all()
+    classes = Classes.objects.all()
 
     context = {
         'title': 'Home',

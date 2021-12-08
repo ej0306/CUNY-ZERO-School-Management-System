@@ -324,11 +324,64 @@
     <br>    
     <br>
 
+        <div class="card card-cascade narrower">
+
+            <!--Card image-->
+            <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+        
+                <a href="" class="white-text mx-3">Wait List Course(s)</a>
+                <span class="pull-right white-text">Level: {{ student.semester }}</span>
+                
+            </div>
+
+        </div>
+        <!--/Card image-->
+        <div class="px-4">
+
+            <div class="table-wrapper">
+                    <!--Table-->
+                    <table id="dtVerticalScrollExample" class="table table-hover mb-0">
+
+                        <!--Table head-->
+                        <thead>
+                            <tr>
+                                <th class="th-lg">
+                                <a>Course
+                                </a>
+                                </th>
+                                
+                                <th class="th-lg">
+                                <a href="">Days-Time
+                                </a>
+                                </th>
+                                
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for obj in wait_list %}
+                            <tr>
+                                <td> {{obj.course}} </td>
+                                <td> {{obj.course.days}} : {{obj.course.start_time}} - 
+                                    {{obj.course.end_time}}
+
+                                </td>
+
+                            </tr>
+                            {% endfor %}
+
+
+
+
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+
+  
+
 </div>
 <br>
 <br>
-
-
-
 
 {%  endblock content %}

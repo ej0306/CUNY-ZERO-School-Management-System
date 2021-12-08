@@ -40,6 +40,18 @@ SEMESTER = (
     (SECOND, "Second"),
 
 )
+M = "Mon"; T = "Tue"; W = "Wed"; Th = "Thu" ; Fr = "Fri" ; S = "Sat"; Su = "Sun"
+MW = "Mon, Wed"; TT = "Tue, Thu"; MWT = "Mon, Wed, Thu"; TTF = "Tue, Thu, Fri" 
+WF = "Wed, Fri"; SS = "Sat, Sun"
+
+DAYS = (
+    (M, "Mon"), (T, "Tue"), (W, "Wed"),(Th, "Thu"),
+    (Fr, "Fri"), (S, "Sat"), (Su, "Sun"),
+    (MW, "Mon, Wed"), (TT, "Tue, Thu"), (MWT, "Mon, Wed, Thu"),
+    (TTF, "Tue, Thu, Fri"), (WF, "Wed, Fri"), (SS, "Sat, Sun")
+
+)
+
 
 # -----------------------------------------------------------------------------------------#
 #                              Courses/Classes Related Models                             #
@@ -68,20 +80,17 @@ class Classes(models.Model):
     full_capacity = models.IntegerField(null= True)
     start_date = models.DateField(auto_now=False, null = True, auto_now_add=False, default= datetime.date(1, 1, 1))
     end_date = models.DateField(auto_now=False, null = True, auto_now_add=False, default= datetime.date(1, 1, 1))
-    days = models.CharField(max_length= 10, null = True)
+    days = models.CharField(choices=DAYS, max_length= 50, null = True)
     start_time = models.TimeField(auto_now=False, auto_now_add=False, null= True)
     end_time = models.TimeField(auto_now=False, auto_now_add=False, null= True)
     instructor = models.ForeignKey(Instructor, on_delete= models.CASCADE, null= True)
 
-# <<<<<<< HEAD
-# =======
 
     def get_cur_capacity(self):
         cur_capacity = TakenCourse.objects.filter(classes__class_id= self.class_id)
         return cur_capacity.count()
 
-#
-# >>>>>>> origin/Last_Saves
+
     def average_rating(self):
         all_ratings = map(lambda x: x.rate, self.reviewclasses_set.all())
         return np.mean(list(all_ratings)) # np -> numpy
@@ -148,9 +157,10 @@ class CourseAllocation(models.Model):
 class WaitList(models.Model):
     student = models.ForeignKey(Student, on_delete= models.CASCADE)
     course = models.ForeignKey(Classes, on_delete= models.CASCADE)
+    instructor = models.ForeignKey(Instructor, null=True, blank= True, on_delete= models.CASCADE)
 
-    def __str__(self):
-        return self.student.user.last_name +  " - " + self.course.class_id
+    # def __str__(self):
+    #     return self.student.user.last_name +  " - " + self.course.class_id + " - " + self.instructor.user.last_name
 
 #
 # >>>>>>> origin/Last_Saves
