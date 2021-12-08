@@ -34,3 +34,19 @@ def change_password(request):
 
 def homelogin(request):
     return render(request, 'general/homelogin.html',{'title': 'homelogin'})
+
+def instructorpage(request):
+    return render (request,'general/instructorpage.html',{'title': 'instructorpage'})
+
+def homepage(request):
+    courses = Course.objects.all()
+    students = Result.objects.filter(cgpa__gte=3.5)
+    classes = ReviewClasses.objects.all()
+
+    context = {
+        'title': 'Home',
+        "students": students,
+        "classes": classes,
+        "courses": courses,
+    }
+    return render(request, 'general/homepage.html',context)
