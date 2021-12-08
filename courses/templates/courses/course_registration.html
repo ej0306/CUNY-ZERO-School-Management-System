@@ -60,6 +60,8 @@
             </div>
 
             <!--/Card image-->
+            <div class="table-wrapper-scroll-y">
+
             <div class="px-4">
 
                 <div class="table-wrapper">
@@ -126,7 +128,7 @@
                                             Credit: {{class.credit}}.0  
 
                                         </td>
-                                        <td class="text-center">-</td>
+                                        
                                 </tr>
                                 {% endif %}
                                 {% endfor %}
@@ -169,7 +171,7 @@
                                         Seats: {{x}}/{{class.full_capacity}} <br>
                                         Credit: {{class.credit}}.0 
                                     </td>
-                                    <td class="text-center">-</td>
+                                    
                                 </tr>
                                 {% endif %}
                                 {% endfor %}
@@ -190,6 +192,7 @@
                         <!--Table-->
                 </div>
             </div>
+        </div>
             
         </form>
 
@@ -209,6 +212,8 @@
     {% if not no_courses_are_registered %}
     <form method="POST" action="{% url 'courses:course_drop' %}"> {% csrf_token %}
        
+        <div class="table-wrapper-scroll-y">
+
         <div class="card card-cascade narrower">
 
             <!--Card image-->
@@ -232,7 +237,7 @@
 
             <div class="table-wrapper">
                 <!--Table-->
-                    <table id="dtVerticalScrollExample" class="table table-hover mb-0">
+                    <table id="dtVerticalScrollExample" class="table table-bordered table-striped">
 
                         <!--Table head-->
                         <thead>
@@ -274,6 +279,7 @@
                            
                             {% for x, class in taken_class_dict.items %}
                            
+                           
                             <tr>
                                 <th scope="row">
                                     <input name="{{ class.pk }}" value="{{ class.credit }}" class="form-check-input" type="checkbox" id="checkbox1">
@@ -293,7 +299,7 @@
                                         Credit: {{class.credit}}.0 
 
                                     </td>
-                                    <td class="text-center">-</td>
+                                   
                             </tr>
                             
                             {% endfor %}
@@ -314,6 +320,7 @@
                     </table>
                     <!--Table-->
             </div>
+        </div>
         </div>
         
     </form>
