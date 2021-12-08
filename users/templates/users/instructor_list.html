@@ -30,45 +30,45 @@
             <!--Card content-->
     <div class="table-wrapper-scroll-y">
 
-    <table class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">ID Number</th>
-                    <th scope="col">Firstname</th>
-                    <th scope="col">Lastname</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Telephone</th>
+        <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">ID Number</th>
+                        <th scope="col">Firstname</th>
+                        <th scope="col">Lastname</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Telephone</th>
+                        
+                        </tr>
+                    </thead>
+                {% for instructor in instructors %}
+                    <tbody>
+                        <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{ instructor.username }}</td>
+                        <td>{{ instructor.user.first_name }}</td>
+                        <td>{{ instructor.user.last_name }}</td>
+                        <td>{{ instructor.user.email }}</td>
+                        <td>{{ instructor.user.phone_number }}</td>
                     
-                    </tr>
-                </thead>
-            {% for instructor in instructors %}
-                <tbody>
-                    <tr>
-                    <th scope="row">{{ forloop.counter }}</th>
-                    <td>{{ instructor.username }}</td>
-                    <td>{{ instructor.user.first_name }}</td>
-                    <td>{{ instructor.user.last_name }}</td>
-                    <td>{{ instructor.user.email }}</td>
-                    <td>{{ instructor.user.phone_number }}</td>
-                   
-                    </tr>
-                    {% empty %}
-                    <tr>
-                    <td></td>
-                    <td></td>
-                    <td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                        <td></td>
+                        <td></td>
+                        <td>
 
-                    </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    </tr>
-                </tbody>
-            {% endfor %}
-            </table>
-        </div>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        </tr>
+                    </tbody>
+                {% endfor %}
+        </table>
     </div>
+</div>
     <br>
 
 

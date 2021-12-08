@@ -212,7 +212,7 @@ def description(request):
 @login_required
 #@permission_required('is_student')
 def course_registration(request):
-   
+    time_dict = {}
     if request.method == 'POST':
         ids = ()
         data = request.POST.copy()
@@ -222,11 +222,12 @@ def course_registration(request):
         
         is_full = False
         time_conflict = False
+        another_section = False
 
         for key in data.keys():
             ids= ids + (str(key),)
 
-        time_dict = {}
+        
         classes = Classes.objects.all()
         taken_courses = TakenCourse.objects.filter(student__user__id= request.user.id)
         for s in range (0, len(ids)):
@@ -261,24 +262,34 @@ def course_registration(request):
 
             else: 
                 for i in classes:
-                    # if i.classes.days == course.days and i.classes.class_id != course.class_id:
+                    #Check if the classes have the same days. 
                     if i.days == course.days and i.class_id != course.class_id:
 
+                        #Check for time conflict
                         for x, y in time_dict.items():
                             if x <= course.start_time <= y:
                                 time_conflict = True
                                 messages.warning(request, "Sorry! There is a time conflict with one of your classes!")
                                 break
+                            
                             elif x <= course.end_time <= y:
                                 time_conflict = True
                                 messages.warning(request, "Sorry! There is a time conflict with one of your classes!")
                                 break
                             else: 
                                 time_conflict = False
-                                
+                    
+                for i in taken_courses:
+                    if i.classes.course.course_name == course.course.course_name:
+                        messages.warning(request, "Sorry! are already enrolled in a section of this class!")
+                        another_section = True
+                       
+
+                    
                 # Update time_dict with times of the newly added classes
-                time_dict.update({course.start_time : course.end_time})
-                if time_conflict is False:
+               
+                if time_conflict is False and another_section is False:
+                    time_dict.update({course.start_time : course.end_time})
                     obj = TakenCourse.objects.create(student = student, classes = course)
                     obj.save()
                     messages.success(request, 'Courses Registered Successfully!')
@@ -289,6 +300,7 @@ def course_registration(request):
         student = Student.objects.get(user__pk= request.user.id)
         taken_courses = TakenCourse.objects.filter(student__user__id= request.user.id)
         wait_list = WaitList.objects.filter(student__pk = request.user.id)
+       
         t = ()
         
         for i in taken_courses:
@@ -301,6 +313,7 @@ def course_registration(request):
         all_courses_are_registered = False
 
         registered_classes = Classes.objects.filter(semester = student.semester).filter(id__in=t)
+        # registered_classes = TakenCourse.objects.filter(student__pk = request.user.id)
         if registered_classes.count() ==0:
             no_course_is_registered = True
         
@@ -500,7 +513,7 @@ def add_review(request, course_id):
     has_bad_word = False
 
     bad_words = [
-        "fuck" , "fucking", "sucks", "asshole",
+        "fuck" , "fuck!" , "fucking", "sucks", "asshole",
         "dick", "motherfucker", "ass", "pussy",
         "faggot", "bitch", "cunt", "whore",
         "suck", "sucks!", 
