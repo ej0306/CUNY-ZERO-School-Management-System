@@ -35,12 +35,12 @@
 		    	<button id="submit" data-toggle="tooltip" title="Save Score" type="submit" class="btn btn-primary w-25 p-3 float-left">Save</button>
 		    	
 		    </div>
-		    <div class="col-md-3"><small>{{ course.course }}</small></div>
+		    <div class="col-md-3"> {{ course.course.course_name }} </div>
 		    <div class="col-md-4">
 		    	<div class="dropdown">
 	    			<button class="btn btn-info dropdown-toggle float-right" type="button" id="dropdownMenu3" data-toggle="dropdown"
 		    			aria-haspopup="true" aria-expanded="false">
-		    			{{ course.class_id }}
+		    			{{ course.course.course_name }}
 		    		</button>
 
 					<div class="dropdown-menu" aria-labelledby="dropdownMenu3">
@@ -74,7 +74,7 @@
 	        {% for student in students %}
 	        <tr>
 	          <td class="pt-3-half" name="{{ student.id }}" contenteditable="false">
-	          		{{ student.student.id_number }}
+				{{ student.student.user.last_name }} - {{ student.student.id_number }}
 	          </td>
 	          <td class="pt-3-half" contenteditable="false">
 	          	<input id="ca" class="score" type="number" name="{{ student.id }}" value="{{ student.ca }}">

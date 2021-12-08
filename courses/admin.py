@@ -29,6 +29,11 @@ class WarningAdmin(admin.ModelAdmin):
     models = WarningCount
     list_display = ('student', 'count')
 
+
+class WaitListAdm(admin.ModelAdmin):
+    models = WaitList
+    list_display = ('student', 'course', 'instructor')
+
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Classes, ClassesAdmin)
 admin.site.register(TakenCourse, ScoreAdmin)
@@ -37,7 +42,7 @@ admin.site.register(Session)
 admin.site.register(Result)
 admin.site.register(CarryOverStudent)
 admin.site.register(RepeatingStudent)
-admin.site.register(WaitList)
+admin.site.register(WaitList, WaitListAdm)
 
 
 admin.site.register(WarningCount, WarningAdmin)

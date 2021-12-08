@@ -35,7 +35,7 @@
 					<div class="dropdown-menu" aria-labelledby="dropdownMenu3">
 	    				<h6 class="dropdown-header">Select Class</h6>
 	    				{% for class in classes %}
-	    				<a data-toggle="tooltip" title="{{ class.course.course_name }}" class="dropdown-item" href="{% url 'courses:add_score_for' class.id %}">{{ class.class_id }}</a>
+	    				<a data-toggle="tooltip" title="{{ class.course.course_name }}" class="dropdown-item" href="{% url 'courses:add_score_for' class.id %}">{{ class.course.course_name }}</a>
 	    				{% empty %}
 		    				<h6 data-toggle="tooltip" class="text-center" title="maybe you have'nt been allocated any course yet">
 			    					No class

@@ -57,49 +57,106 @@
             <div class="table-wrapper-scroll-y">
 
                 <table class="table table-bordered table-striped">
-                                   <thead>
-                                      <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Course</th>
-                                        <th scope="col">Instructor</th>
-                                        <th scope="col">Average Rating</th>
-                                        {% if request.user.is_superuser %}
-                                        <th scope="col">Action</th>
-                                        {% endif %}
-                                      </tr>
-                                  </thead>
-                              {% for class in classes %}
-                                  {% if class.course.average_rating > 3.5 %}
-                                  <tbody>
-                                      
-                                      <tr>
-                                        <th scope="row">{{ if.counter }}</th>
-                                        <td>{{ class.course }}</td>
-                                        <td>{{ class.course.instructor}}</td>
-                                        <td>{{ class.course.average_rating}}</td>
-                                       
-                                      </tr>
-                                      {% endif %}
-                                      {% empty %}
-                                     
-                                      <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                        <span>No class available</span>
-                                      </td>
-                                      <td></td>
-                                      <td></td>
-                                      <td></td>
-                                      </tr>
-                                  </tbody>
-              
-                                  
-                              {% endfor %}
-                               
-                               </table>
-                          </div>
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Course</th>
+                        <th scope="col">Instructor</th>
+                        <th scope="col">Average Rating</th>
+                        {% if request.user.is_superuser %}
+                        <th scope="col">Action</th>
+                        {% endif %}
+                        </tr>
+                    </thead>
+                {% for class in classes %}
+                    {% if class.average_rating > 3.3 %}
+                    <tbody>
+                        
+                        <tr>
+                        <th scope="row">{{ if.counter }}</th>
+                        <td>{{ class.course }}</td>
+                        <td>{{ class.instructor}}</td>
+                        <td>{{ class.average_rating}}</td>
+                        
+                        </tr>
+                        {% endif %}
+                        {% empty %}
+                        
+                        <tr>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        <span>No class available</span>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        </tr>
+                    </tbody>
+
+                    
+                {% endfor %}
+                
+                </table>
+            </div>
         </div>
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="col-mt-9">
+            <center> <h4 class="display-4">Worst Rated Classes</h4> </center>
+            <br>
+            <div class="table-wrapper-scroll-y">
+
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Course</th>
+                        <th scope="col">Instructor</th>
+                        <th scope="col">Average Rating</th>
+                        {% if request.user.is_superuser %}
+                        <th scope="col">Action</th>
+                        {% endif %}
+                        </tr>
+                    </thead>
+                              
+                    <tbody>
+                    {% for class in classes %}
+                    {% if class.average_rating < 2.2 %}
+                        
+                        <tr>
+                        <th scope="row">{{ if.counter }}</th>
+                        <td>{{ class.course }}</td>
+                        <td>{{ class.instructor}}</td>
+                        <td>{{ class.average_rating}}</td>
+                        
+                        </tr>
+                        {% endif %}
+                        {% empty %}
+                        
+                        <tr>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        <span>No class available</span>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        </tr>
+                    </tbody>
+
+                                  
+                    {% endfor %}
+                               
+                </table>
+            </div>
+        </div>
+
 
         <br>
         <br>

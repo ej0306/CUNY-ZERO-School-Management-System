@@ -38,7 +38,7 @@ def list_classes(request):
     for i in classes:
         class_dict.update({i.get_cur_capacity(): i})
 
-    context = {'classes' : classes, "class_dict": class_dict,}
+    context = {"classes" : classes, "class_dict": class_dict,}
     return render(request, 'courses/classes_list.html', context)
 
 
@@ -53,7 +53,7 @@ def course_allocation_view(request):
 def add_score(request):
     """ Show the first page where the instructor have to select one of its course."""
     current_session = Session.objects.get(is_current_session=True)
-    classes = Classes.objects.filter(allocated_course__instructor__pk = request.user.id) #Check 
+    classes = Classes.objects.filter(instructor__pk = request.user.id) #Check 
     context= { 
         "classes" : classes ,
         "current_session": current_session,
@@ -66,11 +66,12 @@ def add_score(request):
 def add_score_for(request, id):
     """ Show the page where an instructor will grade students enrolled in a 
         specific class """
+    course = Classes.objects.get(course__pk = id)
     current_session = Session.objects.get(is_current_session=True)
     if request.method  == 'GET':
-        courses = Classes.objects.filter(allocated_course__instructor__pk = request.user.id) #Check
-        course = Classes.objects.get(pk=id)
-        students = TakenCourse.objects.filter(classes__allocated_course__instructor__pk = request.user.id).filter(classes__id = id) #Check
+        courses = Classes.objects.filter(instructor__pk = request.user.id) #Check
+       
+        students = TakenCourse.objects.filter(classes__instructor__pk = request.user.id).filter(classes__id = id) #Check
         context = {
             "courses": courses,
             "course ": course,
@@ -114,6 +115,57 @@ def add_score_for(request, id):
     return HttpResponseRedirect(reverse_lazy('courses:add_score_for', kwargs = {'id': id }))
 
 
+@login_required
+def wait_list_view(request):
+    #  wait_list = WaitList.objects.filter(student__pk = request.user.id)
+    #         context = {"wait_list": wait_list}
+    if request.method == 'POST':
+        ids = ()
+        data = request.POST.copy()
+        data.pop('csrfmiddlewaretoken', None) # remove csrf_token
+       
+        for key in data.keys():
+            ids = ids + (str(key),)
+
+        wait_list = WaitList.objects.filter(instructor__pk = request.user.id)
+        
+        wait_list_dict = {}
+        for i in wait_list:
+            wait_list_dict.update({i.student.user.id : i.course})
+
+        for s in range (0, len(ids)):
+            student_id = 0
+            course = Classes.objects.get(pk = ids[s])
+
+            for x, y in wait_list_dict.items():
+               if y == course:
+                   student_id = x
+
+            
+            student = Student.objects.get(user__pk = student_id)
+            # student =None
+            
+            obj = TakenCourse.objects.create(student = student, classes = course)
+            obj.save()
+            
+
+            d_obj = WaitList.objects.get(student = student, course = course)
+            d_obj.delete()
+            messages.success(request, 'Student Added To Wait List Succesffully!')
+           
+        return redirect('courses:wait_list_view')
+
+    else: 
+        wait_list = WaitList.objects.filter(instructor__pk = request.user.id)
+        context = {"wait_list": wait_list}
+
+        return render(request, "courses/wait_list.html", context)
+
+
+
+
+
+
        
 
 # Handles the class search results
@@ -127,7 +179,7 @@ def class_search(request):
         if query:
             lookups =  ( 
                 Q(semester__icontains= query) | Q(class_id__icontains= query) | 
-                Q(year__icontains= query) |  Q(days_and_time__icontains= query) | 
+                Q(year__icontains= query) |   Q(days__icontains= query) |  Q(instructor__user__last_name__icontains= query) |  
                 Q(course__course_name__icontains= query) | Q(course__title__icontains= query)
               )
                     
@@ -181,17 +233,11 @@ def course_registration(request):
             check_waitList = WaitList.objects.filter(student = student, course = course)
 
            
-           
             # Put the start and end time of the student current class in a dictionary. 
             for i in taken_courses:
                 time_dict.update({i.classes.start_time : i.classes.end_time})
             # for i in classes:
             #     time_dict.update({i.start_time : i.end_time})
-
-
-           
-           
-
 
             if course_cur_cap == course.full_capacity:
                 messages.warning(request, "Sorry you can't register for this class! Its full!" )
@@ -235,6 +281,7 @@ def course_registration(request):
     else:
         student = Student.objects.get(user__pk= request.user.id)
         taken_courses = TakenCourse.objects.filter(student__user__id= request.user.id)
+        wait_list = WaitList.objects.filter(student__pk = request.user.id)
         t = ()
         
         for i in taken_courses:
@@ -291,6 +338,7 @@ def course_registration(request):
             "total_registered_unit": total_registered_unit,
             "class_dict": class_dict,
             "taken_class_dict": taken_class_dict,
+            "wait_list": wait_list,
             
             
             }
@@ -319,23 +367,28 @@ def course_drop(request):
 @login_required
 def view_result(request):
     student = Student.objects.get(user__pk=request.user.id)
-    current_session = Session.objects.get(is_current_session=True)
+    # current_session = Session.objects.get(is_current_session=True)
+    current_session = Session.objects.all()
     courses = TakenCourse.objects.filter(student__user__pk=request.user.id)
     result = Result.objects.filter(student__user__pk=request.user.id)
     current_semester_grades = {}
 
     previousCGPA = 0
-  
+    
+    if current_session:
+        current_session = Session.objects.get(is_current_session=True)
+        context = {
+                "courses": courses, 
+                "result":result, 
+                "student": student, 
+                "previousCGPA": previousCGPA,
+                "current_session": current_session,
+                }
+        return render(request, 'courses/view_results.html', context)
+    else: 
+        messages.warning(request, "There is no active session right now!")
 
-    context = {
-            "courses": courses, 
-            "result":result, 
-            "student": student, 
-            "previousCGPA": previousCGPA,
-            "current_session": current_session,
-            }
-
-    return render(request, 'courses/view_results.html', context)
+    return render(request, 'courses/view_results.html')
 
 
 
@@ -406,6 +459,8 @@ def set_up_session(request):
 # -----------------------------------------------------------------------------------------#
 #                                   Reviews Classes Views                                 #
 # -----------------------------------------------------------------------------------------#
+
+
 @login_required
 def review_list(request):
     latest_review_list = ReviewClasses.objects.order_by('-date_added')[:9]
@@ -467,7 +522,7 @@ def add_review(request, course_id):
         for i in range(0, len(list_review)):
             word = list_review[i]
             for x, y in bad_words_dict.items():
-                if word == x:
+                if word.lower() == x:
                     taboo_word_ct += 1
                     list_review[i]= y
 

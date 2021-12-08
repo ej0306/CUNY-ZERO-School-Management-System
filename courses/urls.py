@@ -19,6 +19,7 @@ urlpatterns = [
     path('repeating_list/', views.repeat_list, name='repeat_list'),
     path('add_class/', views.add_class, name='add_class'),
     path('add_course/', views.add_course, name='add_course'),
+     path('wait_list/', views.wait_list_view, name='wait_list_view'),
     path('set_up_session/', views.set_up_session, name='set_up_session'),
 #-----------------------------------------------------------------------------------------#
 #                            Reviews Classes URLs                                         #

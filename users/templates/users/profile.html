@@ -94,12 +94,12 @@
                             <tr>
                                 <th scope="row">{{ forloop.counter }}</th>
                                 <td>{{ course.course }}</td>
-                                <td>{{ course.days_and_time }}</td>
+                                <td>{{ course.days }}: {{ course.start_time }} - {{ course.end_time }}</td>
                                 <td>{{course.start_date}} -  {{course.end_date}}</td>
                             </tr>
                         </tbody>
                         {% empty %}
-                        <p>No classes have assigned to you yet!</p>
+                        <p>No classes have been assigned to you yet!</p>
 
                         {% endfor %}
                         
