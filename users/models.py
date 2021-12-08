@@ -36,6 +36,9 @@ class User(AbstractUser):
     state = models.CharField(max_length=2, default='', blank=True)
     zip_code = models.IntegerField(default=0, blank=True)
 
+    def __str__(self) -> str:
+        return self.last_name + ", " + self.first_name
+
 
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
@@ -51,7 +54,7 @@ class Student(models.Model):
     graduation_class = models.ForeignKey("graduation.GraduatingClass", related_name='students', blank=True, null=True, on_delete=models.DO_NOTHING)
 
     def __str__(self) -> str:
-        return self.user.last_name + " " + self.user.first_name
+        return self.user.last_name + ", " + self.user.first_name
 
 
 class Instructor(models.Model):
@@ -59,7 +62,7 @@ class Instructor(models.Model):
     resume = models.FileField(null=True, blank=True)
 
     def __str__(self) -> str:
-        return self.user.last_name + " " + self.user.first_name
+        return self.user.last_name + ", " + self.user.first_name
 
 
 class Registrar(models.Model):

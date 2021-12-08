@@ -28,14 +28,17 @@ urlpatterns = [
     path('register_student/', user_views.register_student, name='register_student'),
     path('register_instructor/', user_views.register_instructor, name='register_instructor'),
     path('profile/', user_views.profile, name='profile'),
+    path('user_profile/<int:pk>/', user_views.user_profile, name='user_profile'),
     path('login/', user_views.LoginUser.as_view(template_name='users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     url(r'^password/$', user_views.change_password, name='change_password'),
     path('student_list/', user_views.student_list, name='student_list'),
+    path('student_list/<int:pk>/', user_views.user_profile, name='student_list_user_profile'),
     path('instructor_list/', user_views.instructor_list, name='instructor_list'),
     path('', include('general.urls')),
     path('graduation/', include('graduation.urls')),
     path('courses/', include('courses.urls')),
+    path('user_warnings/', include('warningsystem.urls')),
     path('createuser/', user_views.create_user, name='create_user'),
 ]
 

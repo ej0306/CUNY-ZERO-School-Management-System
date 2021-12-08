@@ -52,6 +52,7 @@ def register_instructor(request):
     return render(request, 'users/registerInstructor.html', {'form': form})
 
 
+# personal profile page
 @login_required
 def profile(request):
     courses = Classes.objects.filter(allocated_course__instructor__pk = request.user.id)
@@ -63,6 +64,21 @@ def profile(request):
         "taken_course": taken_course,
     }
     return render(request, 'users/profile.html', context)
+
+
+# other user's profile
+def user_profile(request, pk):
+    u = User.objects.filter(id=pk)
+
+    if not u.exists():
+        raise Http404
+    else:
+        u = u.first()
+
+    context = {
+        'u': u
+    }
+    return render(request, 'users/user_profile.html', context)
 
 
 @login_required
@@ -90,9 +106,10 @@ def enrollment_application_details(request, pk):
 
         if form.data.get('decision') == 'Y':
 
-            if form.data.get('reason') == '' and application.gpa <= 3.0 and application.student_application:
-                messages.error(request, 'Please provide a justification for this decision.')
-                return render(request, 'users/enrollmentapplication_detail.html', {'form': form, 'application': application})
+            if application.student_application:
+                if form.data.get('reason') == '' and application.gpa <= 3.0:
+                    messages.error(request, 'Please provide a justification for this decision.')
+                    return render(request, 'users/enrollmentapplication_detail.html', {'form': form, 'application': application})
 
             application.status_approved = True
             application.status_pending = False
@@ -142,9 +159,10 @@ def enrollment_application_details(request, pk):
 
             return redirect('enrollment_applications')
         else:
-            if form.data.get('reason') == '' and application.gpa > 3.0 and application.student_application:
-                messages.error(request, 'Please provide a justification for this decision.')
-                return render(request, 'users/enrollmentapplication_detail.html', {'form': form, 'application': application})
+            if application.student_application:
+                if form.data.get('reason') == '' and application.gpa > 3.0:
+                    messages.error(request, 'Please provide a justification for this decision.')
+                    return render(request, 'users/enrollmentapplication_detail.html', {'form': form, 'application': application})
 
             application.status_rejected = True
             application.status_pending = False

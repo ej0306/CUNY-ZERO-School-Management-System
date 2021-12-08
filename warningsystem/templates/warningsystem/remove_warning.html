@@ -1,0 +1,12 @@
+{% extends 'general/profile_base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <form class="" action="{{ warning.get_delete_url }}" method="post">
+            {% csrf_token %}
+            <h3>Are you sure you want to remove warning #{{ warning.id }} - {{ warning.description }} - {{ warning.user.first_name }} {{ warning.user.last_name }}?</h3>
+            <a href="{{ warning.get_absolute_url }}" class="btn btn-link">Cancel</a>
+            <button type="submit" name="button" class="btn btn-danger">Remove</button>
+        </form>
+    </div>
+{% endblock %}

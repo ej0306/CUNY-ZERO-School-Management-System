@@ -1,0 +1,78 @@
+{% extends "general/base.html" %}
+{% load crispy_forms_tags %}
+
+
+{%  block content %}
+{#<<<<<<< HEAD#}
+    <div class="content-section">
+        <div class="d-sm-flex justify-content-between">
+            <h2>
+                {{ u.first_name }} {{ u.m_initial }} {{ u.last_name }}
+                {% if u.is_suspended %}
+                    <span style="color: red">(SUSPENDED)</span>
+                {% endif %}
+            </h2>
+                {% if user.is_registrar or user.is_superuser %}
+                    {% if not u.is_suspended %}
+                        <form action='#'>
+                            <input type="submit" value="Suspend" />
+                        </form>
+                    {% else %}
+                        <form action='#'>
+                            <input type="submit" value="Lift Suspension" />
+                        </form>
+                    {% endif %}
+                {% endif %}
+        </div>
+        <div class="d-sm-flex justify-content-between">
+            {% if u.is_student %}
+                Student
+            {% endif %}
+            {% if u.is_instructor %}
+                Instructor
+            {% endif %}
+            {% if u.is_registrar %}
+                Registrar
+            {% endif %}
+        </div>
+
+    </div>
+    <div class="content-section">
+        <h3>Contact Information</h3>
+        <p><b>Email:</b> {{ u.email }}</p>
+        <p><b>Phone Number:</b> {{ u.phone_number }}</p>
+        <p><b>Date of Birth:</b> {{ u.birth_date }}</p>
+    </div>
+{#=======#}
+    <div class="container-fluid mt-9">
+        <div>
+           <br>
+            <div class="col-mt-9">
+                <center> <h3>Contact Information</h3> </center>
+                <br>
+                <ul class="list-group">
+
+                    <li class="list-group-item list-group-item-light">
+                        <h5> <b> Email : </b>  {{ u.email }}  </h5>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                        <h5> <b> Phone Number : </b>  {{ u.phone_number }}  </h5>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                        <h5> <b> DOB : </b>  {{ u.birth_date }}  </h5>
+                    </li>
+
+                </ul>
+                <br>
+                <br>
+
+
+
+                    </table>
+            </div>
+
+        </div>
+    </div>
+
+{#>>>>>>> origin/Last_Saves#}
+{%  endblock content %}

@@ -46,7 +46,7 @@
                 <tbody>
                     <tr>
                     <th scope="row">{{ forloop.counter }}</th>
-                    <td>{{ student.id_number }}</td>
+                    <td><a href="{{ student.user.id }}">{{ student.user.id }}</a></td>
                     <td>{{ student.user.first_name }}</td>
                     <td>{{ student.user.last_name }}</td>
                     <td>{{ student.user.email }}</td>

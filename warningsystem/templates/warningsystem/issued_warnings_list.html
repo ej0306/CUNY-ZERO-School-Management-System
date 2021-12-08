@@ -1,0 +1,43 @@
+{% extends "general/profile_base.html" %}
+{% load crispy_forms_tags %}
+{%  block content %}
+    <style type="text/css">
+        .table-wrapper-scroll-y {
+    display: block;
+    max-height:  750px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+    </style>
+
+<div class="container-fluid mt-5">
+    <h3>Issued Warnings</h3>
+            <!--Card content-->
+    <div class="table-wrapper-scroll-y">
+
+    <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID#</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Recipient</th>
+                        <th scope="col">Date Issued</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for w in warnings %}
+                        <tr>
+                            <th scope="row">{{ w.id }}</th>
+                            <td><a href="{{ w.id }}">{{ w.description }}</a></td>
+                            <td>{{ w.user.first_name }} {{ w.user.last_name }}</td>
+                            <td>{{ w.issue_date }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>No warnings have been issued</tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+{%  endblock content %}

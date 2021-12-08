@@ -1,0 +1,47 @@
+{% extends "general/base.html" %}
+{% load crispy_forms_tags %}
+{%  block content %}
+    <style type="text/css">
+        .table-wrapper-scroll-y {
+        display: block;
+        overflow-y: auto;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        }
+    </style>
+
+    <div class="content-section">
+        <h4>Issued Warning #{{ warning.id }}</h4>
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>Recipient:</th>
+                <td><a href="{% url 'user_profile' pk=warning.user.id %}">{{ warning.user.first_name }} {{ warning.user.m_initial }} {{ warning.user.last_name }}</a></td>
+            </tr>
+            <tr>
+                <th>User ID:</th>
+                <td>{{ warning.user.id }}</td>
+            </tr>
+            <tr>
+                <th>User type:</th>
+                <td>
+                    {% if warning.user.is_student %}
+                        Student
+                    {% elif warning.user.is_instructor %}
+                        Instructor
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Description:</th>
+                <td>{{ warning.description }}</td>
+            </tr>
+            <tr>
+                <th>Details:</th>
+                <td>{{ warning.details }}</td>
+            </tr>
+            <tr>
+                <th>Issued by:</th>
+                <td>{{ warning.registrar.user.first_name }} {{ warning.registrar.user.m_initial }} {{ warning.registrar.user.last_name }}</td>
+            </tr>
+        </table>
+    </div>
+{%  endblock content %}
