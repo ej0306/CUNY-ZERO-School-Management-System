@@ -20,7 +20,7 @@
 <body>
     <header style="background: var(--bs-blue);">
         <nav class="navbar navbar-light navbar-expand-lg navigation-clean-search" style="background: var(--bs-primary);border: 2px solid var(--bs-gray-900) ;border-right-style: solid;border-right-color: var(--bs-gray-900);">
-            <div class="container"><a class="navbar-brand" href="#" style="color: var(--bs-white);margin-right: 35px;margin-left: 0px;">CUNY Zero</a>
+            <div class="container"><a class="navbar-brand"  style="color: var(--bs-white);margin-right: 35px;margin-left: 20px;">CUNY Zero</a>
                 <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
                     <span class="visually-hidden">Toggle navigation</span>
                     <span class="navbar-toggler-icon"></span>
@@ -29,6 +29,7 @@
                     <!-- Tabs that ANYONE can see -->
                     <a class="nav-item nav-link" st href="{% url 'general-home' %}" style="color: white;">Home</a>
                     <a class="nav-item nav-link" href="#"style="color: white;">About</a>
+                    <a class="nav-item nav-link" href="{% url 'courses:review_list' %}"style="color: white;">Reviews</a>
                     {% if user.is_authenticated %}
                         {% if user.is_registrar or user.is_superuser %}
                             <!-- Tabs that REGISTRARS can see -->
@@ -41,7 +42,7 @@
                         {% endif %}
                         {% if user.is_student %}
                             <!-- Tabs that STUDENTS can see -->
-                            <a class="nav-item nav-link" href="{% url 'graduation-apply' %}">Apply for Graduation</a>
+                            <a class="nav-item nav-link" href="{% url 'graduation-apply' %}"style="color: white;">Apply for Graduation</a>
                         {% endif %}
                         {% if user.is_instructor %}
                             <!-- Tabs that INSTRUCTORS can see -->
@@ -103,17 +104,17 @@
                       <a href="{% url 'courses:courses_offered'%}">Courses Offered</a>
                   </li>
                   <li class="list-group-item list-group-item-light">
-                      <a class="text-right" href="{% url 'courses:class_search'%}">Search Classes</a>
+                      <a class="text-right" href="{% url 'courses:class_search' %}">Search Classes</a>
                   </li>
                   <li class="list-group-item list-group-item-light">
-                      <a class="text-right" href="{% url 'courses:course_registration'%}">Course Registration</a>
+                      <a class="text-right" href="{% url 'courses:course_registration' %}">Course Registration</a>
                      
                   </li>
                   <li class="list-group-item list-group-item-light">
-                    <a class="text-right" href="{% url 'courses:view_result'%}">View Grades</a>
+                    <a class="text-right" href="{% url 'courses:view_result' %}">View Grades</a>
                   </li>
                   <li class="list-group-item list-group-item-light">
-                    <a class="text-right" href="{% url 'courses:course_list'%}">Review Classes</a>
+                    <a class="text-right" href="{% url 'courses:course_list' %}">Review Classes</a>
                   </li>
               {% else %}
                   <li class="list-group-item list-group-item-light">
@@ -144,9 +145,22 @@
     </div>
     <footer style="margin-top: 553px;">
         <footer class="footer-basic">
-            <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+            <div class="social">
+                <a href="https://instagram.com">
+                    <i class="icon ion-social-instagram"></i>
+                </a>
+                <a href="https://snapchat.com">
+                    <i class="icon ion-social-snapchat"></i>
+                </a>
+                <a href="https://twitter.com">
+                    <i class="icon ion-social-twitter"></i>
+                </a>
+                <a href="https://faccebook.com">
+                    <i class="icon ion-social-facebook"></i>
+                </a>
+            </div>
             <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Home</a></li>
+                <li class="list-inline-item"><a href="{% url 'general-home' %}">Home</a></li>
                 <li class="list-inline-item"><a href="#">Services</a></li>
                 <li class="list-inline-item"><a href="#">About</a></li>
                 <li class="list-inline-item"><a href="#">Terms</a></li>

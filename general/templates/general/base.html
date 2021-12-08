@@ -29,6 +29,7 @@
                         <!-- Tabs that ANYONE can see -->
                         <a class="nav-item nav-link" st href="{% url 'general-home' %}" style="color: white;">Home</a>
                         <a class="nav-item nav-link" href="#"style="color: white;">About</a>
+                        <a class="nav-item nav-link" href="{% url 'courses:review_list' %}"style="color: white;">Reviews</a>
                         {% if user.is_authenticated %}
                             {% if user.is_registrar or user.is_superuser %}
                                 <!-- Tabs that REGISTRARS can see -->
@@ -41,7 +42,7 @@
                             {% endif %}
                             {% if user.is_student %}
                                 <!-- Tabs that STUDENTS can see -->
-                                <a class="nav-item nav-link text-nowrap" href="{% url 'graduation-apply' %}">Apply for Graduation</a>
+                                <a class="nav-item nav-link text-nowrap" href="{% url 'graduation-apply' %}" style="color: white;">Apply for Graduation</a>
                             {% endif %}
                             {% if user.is_instructor %}
                                 <!-- Tabs that INSTRUCTORS can see -->
@@ -84,7 +85,18 @@
     {% block content %} {% endblock %}
     <footer style="margin-top: 100px;">
         <footer class="footer-basic">
-            <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+            <div class="social"><a href="#">
+                <i class="icon ion-social-instagram"></i>
+            </a>
+            <a href="#"><i class="icon ion-social-snapchat"></i>
+            </a>
+            <a href="#">
+                <i class="icon ion-social-twitter"></i>
+            </a>
+            <a href="#">
+                <i class="icon ion-social-facebook"></i>
+            </a>
+        </div>
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="#">Home</a></li>
                 <li class="list-inline-item"><a href="#">Services</a></li>
@@ -92,7 +104,7 @@
                 <li class="list-inline-item"><a href="#">Terms</a></li>
                 <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
             </ul>
-            <p class="copyright">Company Name © 2021</p>
+            <p class="copyright">CUNY Zero © 2021 | City College of New York</p>
         </footer>
     </footer>
     <script src="{% static 'general/assets/bootstrap/js/bootstrap.min.js' %}"></script>

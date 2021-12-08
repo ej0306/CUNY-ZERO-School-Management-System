@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
+    
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -20,7 +20,7 @@
 <body>
     <header style="background: var(--bs-blue);">
         <nav class="navbar navbar-light navbar-expand-lg navigation-clean-search" style="background: var(--bs-primary);border: 2px solid var(--bs-gray-900) ;border-right-style: solid;border-right-color: var(--bs-gray-900);">
-            <div class="container"><a class="navbar-brand" href="#" style="color: var(--bs-white);margin-right: 35px;margin-left: 0px;">CUNY Zero</a>
+            <div class="container"><a class="navbar-brand" style="color: var(--bs-white);margin-right: 35px;margin-left: 20px;">CUNY Zero</a>
                 <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
                     <span class="visually-hidden">Toggle navigation</span>
                     <span class="navbar-toggler-icon"></span>
@@ -29,6 +29,7 @@
                     <!-- Tabs that ANYONE can see -->
                     <a class="nav-item nav-link" st href="{% url 'general-home' %}" style="color: white;">Home</a>
                     <a class="nav-item nav-link" href="#"style="color: white;">About</a>
+                    <a class="nav-item nav-link" href="{% url 'courses:review_list' %}"style="color: white;">Reviews</a>
                     {% if user.is_authenticated %}
                         {% if user.is_registrar or user.is_superuser %}
                             <!-- Tabs that REGISTRARS can see -->
@@ -41,7 +42,7 @@
                         {% endif %}
                         {% if user.is_student %}
                             <!-- Tabs that STUDENTS can see -->
-                            <a class="nav-item nav-link" href="{% url 'graduation-apply' %}">Apply for Graduation</a>
+                            <a class="nav-item nav-link" href="{% url 'graduation-apply' %}" style="color: white;">Apply for Graduation</a>
                         {% endif %}
                         {% if user.is_instructor %}
                             <!-- Tabs that INSTRUCTORS can see -->
@@ -83,10 +84,10 @@
     <main>
         <h1 class="text-nowrap" style="margin-bottom: 4px;margin-right: 739px;margin-top: 32px;padding-right: 0px;padding-left: 15px;">City University of New York</h1>
         <h1 class="text-nowrap" style="margin-right: 884px;margin-top: 7px;padding-left: 15px;">Graduate School</h1><img class="img-fluid visible" src="{% static 'general/assets/img/cuny.jpeg' %}" style="margin: 0px;margin-top: -152px;height: 353px;width: 1466.7px;padding-top: 140px;margin-bottom: 0px;border-style: solid;border-right-color: transparent;border-left-color: transparent;padding-right: 0px;padding-left: 0px;">
-        <ul class="nav nav-tabs" style="margin-top: -252px;margin-right: 0px;margin-left: 275px;transform: translate(416px) rotateX(0deg) rotateY(0deg) scale(1.26);padding-top: 0px;padding-bottom: 0px;height: 42px;margin-bottom: 0px;width: 429px;">
-            <li class="nav-item" style="margin-right: 0px;"><a class="nav-link" href="#">Enroll</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Search for Classes</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Apply for Graduation</a></li>
+        <ul class="nav nav-tabs" style="margin-top: -252px;margin-right: 0px;margin-left: 275px;transform: translate(416px) rotateX(0deg) rotateY(0deg) scale(1.26);padding-top: 0px;padding-bottom: 0px;height: 42px;margin-bottom: 0px;width: 450px;">
+            <li class="nav-item" style="margin-right: 0px;"><a class="nav-link" href="{% url 'courses:first_class_list' %}">Honors</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'courses:class_search' %}">Search for Classes</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'graduation-apply' %}">Apply for Graduation</a></li>
         </ul>
     </main>
     <h1 style="margin-top: 223px;margin-left: 30px;">Graduate School Program&nbsp;</h1>
@@ -107,9 +108,22 @@
            </div>
     <footer style="margin-top: 33px;width: 1106px;">
         <footer class="footer-basic">
-            <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+            <div class="social">
+                <a href="https://instagram.com">
+                    <i class="icon ion-social-instagram"></i>
+                </a>
+                <a href="https://snapchat.com">
+                    <i class="icon ion-social-snapchat"></i>
+                </a>
+                <a href="https://twitter.com">
+                    <i class="icon ion-social-twitter"></i>
+                </a>
+                <a href="https://facebook.com">
+                    <i class="icon ion-social-facebook"></i>
+                </a>
+            </div>
             <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Home</a></li>
+                <li class="list-inline-item"><a href="{% url 'general-home'%}">Home</a></li>
                 <li class="list-inline-item"><a href="#">Services</a></li>
                 <li class="list-inline-item"><a href="#">About</a></li>
                 <li class="list-inline-item"><a href="#">Terms</a></li>

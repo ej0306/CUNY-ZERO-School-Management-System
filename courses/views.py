@@ -127,7 +127,7 @@ def class_search(request):
         if query:
             lookups =  ( 
                 Q(semester__icontains= query) | Q(class_id__icontains= query) | 
-                Q(year__icontains= query) |  Q(days_and_time__icontains= query) | 
+                Q(year__icontains= query) |   Q(days__icontains= query) |  Q(instructor__user__last_name__icontains= query) |  
                 Q(course__course_name__icontains= query) | Q(course__title__icontains= query)
               )
                     
