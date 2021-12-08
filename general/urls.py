@@ -18,8 +18,6 @@ urlpatterns = [
     path('profilebase/', views.profilebase, name='profilebase'),
     path('instructorlist/', views.instructor_list, name='instructorlist'),
     path('change_password/', views.change_password, name='instructorlist'),
-    path('homelogin/', views.homelogin, name='homelogin'),
-    path('instructorpage/', views.instructorpage, name='instructorpage'),
     path('studentpage/', views.studentpage, name='studentpage'),
 ]
 
