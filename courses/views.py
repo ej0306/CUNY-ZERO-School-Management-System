@@ -193,17 +193,9 @@ def class_search(request):
                 Q(year__icontains=query) | Q(days__icontains=query) | Q(start_time__icontains=query) |
                 Q(end_time__icontains=query) | Q(instructor__user__last_name__icontains=query) |
                 Q(course__course_name__icontains=query) | Q(course__title__icontains=query))
-# =======
-#             lookups =  (
-#                 Q(semester__icontains= query) | Q(class_id__icontains= query) |
-#                 Q(year__icontains= query) |   Q(days__icontains= query) |  Q(instructor__user__last_name__icontains= query) |
-#                 Q(course__course_name__icontains= query) | Q(course__title__icontains= query)
-# >>>>>>> merge-dec-7
-#               )
-                    
-            # lookups2= Q(course_name__icontains= query)| Q(title__icontains= query)
+
             results = Classes.objects.filter(lookups).distinct()
-            # results2 = Course.objects.filter(lookups2).distinct()
+           
 
             context = {'results': results,  'submitbutton': submitbutton}
 
@@ -296,7 +288,7 @@ def course_registration(request):
                         
                     for i in taken_courses:
                         if i.classes.course.course_name == course.course.course_name:
-                            messages.warning(request, "Sorry! are already enrolled in a section of this class!")
+                            messages.warning(request, "Sorry! You are already enrolled in a section of this class!")
                             another_section = True
                         
 

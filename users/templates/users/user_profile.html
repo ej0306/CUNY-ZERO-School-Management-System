@@ -5,8 +5,18 @@
 {%  block content %}
 
 
+{% if user.is_registrart or user.is_superuser %}
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -550px;">
+{% endif %}
 
-<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -350px;">
+{% if user.is_student  %}
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -400px;">
+{% endif %}
+
+
+{% if user.is_instructor  %}
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -450px;">
+{% endif %}
 
     <!-- Heading -->
     <div class="card mb-4 wow fadeIn">
