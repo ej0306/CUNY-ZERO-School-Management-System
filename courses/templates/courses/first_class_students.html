@@ -10,7 +10,16 @@ overflow-y: auto;
 
 }
 </style>
-	<div class="container-fluid mt-9" style="margin-top: -350px;  margin-left: 0px; width: 1050px;">
+    {% if request.user.is_student %}
+        <div class="container-fluid mt-9" style="margin-top: -380px;  margin-left: 0px; width: 1050px;">
+    {% elif request.user.is_instructor %}
+        <div class="container-fluid mt-9" style="width: 1050px; margin-left: -20px; margin-top: -430px;">
+    {% elif request.user.is_registrar %}
+        <div class="container-fluid mt-9" style="width: 1050px; margin-left: -20px; margin-top: -550px;">
+    {% else %}
+        <div class="container-fluid mt-9" style="width: 1050px; margin-left: -20px; margin-top: -300px;">
+    {% endif %}
+
 
             <!-- Heading -->
             <div class="card mb-4 wow fadeIn">

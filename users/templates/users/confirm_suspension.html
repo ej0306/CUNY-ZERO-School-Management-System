@@ -1,7 +1,7 @@
 {% extends 'general/profilepage.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="content-section">
+    <div class="container-fluid mt-9" style="width: 1050px; margin-left: -20px; margin-top: -550px;">
         <form class="" action="{{ u.get_suspend_url }}" method="post">
             {% csrf_token %}
             <h3>Are you sure you want to suspend
