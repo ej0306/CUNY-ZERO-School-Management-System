@@ -2,7 +2,7 @@
 {%  block content %}
 
 
-<div class="container-fluid mt-9" style="width: 950px; margin-right: 400px; margin-top: -350px;">
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -350px;">
 
     <!-- Heading -->
     <div class="card mb-4 wow fadeIn">
@@ -14,21 +14,21 @@
                 <a href="{% url 'profile' %}">Profile Page</a>
                 <span>/</span>
                 <span>Courses Offered</span>
-{#<<<<<<< HEAD#}
+
             </h5>
             {% if user.is_registrart or user.is_superuser %}
             <form action={% url 'courses:add_course' %}>
                 <input type="submit" value="Add Course" class="btn btn-primary" />
             </form>
             {% endif %}
-{#=======#}
-            </h3>
-{#>>>>>>> origin/Last_Saves#}
-        </div>
 
+            </h3>
+
+        </div>
+<br>
     </div>
    
-   
+   <br>
 
     <ul>
         {% for course in courses %}

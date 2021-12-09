@@ -10,65 +10,66 @@
     }
     </style>
 
-<div class="container-fluid mt-9" style="width: 850px; margin-right: 400px; margin-top: -300px;">
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -350px;">
+    <!-- Heading -->
+    <div class="card mb-4 wow fadeIn">
 
-        <!-- Heading -->
-        <div class="card mb-4 wow fadeIn">
+        <!--Card content-->
+        <div class="card-body d-sm-flex justify-content-between">
 
-            <!--Card content-->
-            <div class="card-body d-sm-flex justify-content-between">
-
-                <h3 class="mb-2 mb-sm-0 pt-1">
-                    <a href="{% url 'profile' %}">Profile Page</a>
-                    <span>/</span>
-                    <span>{{ user_type }}s</span>
-                </h3>
-            </div>
-
+            <h3 class="mb-2 mb-sm-0 pt-1">
+                <a href="/">Profile Page</a>
+                <span>/</span>
+                <span>{{ user_type }}s</span>
+            </h3>
+            <br>
         </div>
+        <br>
+    </div>
+    <br>
 
             <!--Card content-->
     <div class="table-wrapper-scroll-y">
 
-    <table class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">ID Number</th>
-                    <th scope="col">Firstname</th>
-                    <th scope="col">Lastname</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Telephone</th>
+        <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">ID Number</th>
+                        <th scope="col">Firstname</th>
+                        <th scope="col">Lastname</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Telephone</th>
+                        
+                        </tr>
+                    </thead>
+                {% for instructor in instructors %}
+                    <tbody>
+                        <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{ instructor.username }}</td>
+                        <td>{{ instructor.user.first_name }}</td>
+                        <td>{{ instructor.user.last_name }}</td>
+                        <td>{{ instructor.user.email }}</td>
+                        <td>{{ instructor.user.phone_number }}</td>
                     
-                    </tr>
-                </thead>
-            {% for instructor in instructors %}
-                <tbody>
-                    <tr>
-                    <th scope="row">{{ forloop.counter }}</th>
-                    <td>{{ instructor.username }}</td>
-                    <td>{{ instructor.user.first_name }}</td>
-                    <td>{{ instructor.user.last_name }}</td>
-                    <td>{{ instructor.user.email }}</td>
-                    <td>{{ instructor.user.phone_number }}</td>
-                   
-                    </tr>
-                    {% empty %}
-                    <tr>
-                    <td></td>
-                    <td></td>
-                    <td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                        <td></td>
+                        <td></td>
+                        <td>
 
-                    </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    </tr>
-                </tbody>
-            {% endfor %}
-            </table>
-        </div>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        </tr>
+                    </tbody>
+                {% endfor %}
+        </table>
     </div>
+</div>
     <br>
 
 

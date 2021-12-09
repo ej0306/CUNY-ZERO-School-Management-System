@@ -79,186 +79,12 @@
                         </div>
                     {% endif %}
                 </div>
-{#=======#}
-{#   #}
-{##}
-{##}
-{#        #}
-{#        <br>#}
-{#        <br>#}
-{#        <br>#}
-{#        <br>#}
-{#        <br>#}
-{#        <!-- Heading -->#}
-{##}
-{#        <div class="col-mt-9">#}
-{#            <center> <h4 class="display-4">Courses Offered</h4> </center>#}
-{#            <br>#}
-{#            <ul class="list-group">#}
-{#                {% for course in courses %}#}
-{#                <li class="list-group-item list-group-item-light">#}
-{#                    <h5> <b> {{ course.course_name }}: {{ course.title }}  </b> | Dept: {{ course.department }}      </h5>#}
-{#                    #}
-{#                </li>#}
-{#               {% endfor %}#}
-{#            </ul>#}
-{#        </div>#}
-{##}
-{#        <br>#}
-{#        <br>#}
-{#        <br>#}
-{#        <br>#}
-{#        <div class="col-mt-9">#}
-{#            <center> <h4 class="display-4">Best Rated Classes</h4> </center>#}
-{#            <br>#}
-{#            <div class="table-wrapper-scroll-y">#}
-{##}
-{#                <table class="table table-bordered table-striped">#}
-{#                    <thead>#}
-{#                        <tr>#}
-{#                        <th scope="col">#</th>#}
-{#                        <th scope="col">Course</th>#}
-{#                        <th scope="col">Instructor</th>#}
-{#                        <th scope="col">Average Rating</th>#}
-{#                        {% if request.user.is_superuser %}#}
-{#                        <th scope="col">Action</th>#}
-{#                        {% endif %}#}
-{#                        </tr>#}
-{#                    </thead>#}
-{#                {% for class in classes %}#}
-{#                    {% if class.average_rating > 3.3 %}#}
-{#                    <tbody>#}
-{#                        #}
-{#                        <tr>#}
-{#                        <th scope="row">{{ if.counter }}</th>#}
-{#                        <td>{{ class.course }}</td>#}
-{#                        <td>{{ class.instructor}}</td>#}
-{#                        <td>{{ class.average_rating}}</td>#}
-{#                        #}
-{#                        </tr>#}
-{#                        {% endif %}#}
-{#                        {% empty %}#}
-{#                        #}
-{#                        <tr>#}
-{#                        <td></td>#}
-{#                        <td></td>#}
-{#                        <td>#}
-{#                        <span>No class available</span>#}
-{#                        </td>#}
-{#                        <td></td>#}
-{#                        <td></td>#}
-{#                        <td></td>#}
-{#                        </tr>#}
-{#                    </tbody>#}
-{##}
-{#                    #}
-{#                {% endfor %}#}
-{#                #}
-{#                </table>#}
-{#            </div>#}
-{#        </div>#}
-{##}
-{##}
-{#        <br>#}
-{#        <br>#}
-{#        <br>#}
-{#        <br>#}
-{#        <div class="col-mt-9">#}
-{#            <center> <h4 class="display-4">Worst Rated Classes</h4> </center>#}
-{#            <br>#}
-{#            <div class="table-wrapper-scroll-y">#}
-{##}
-{#                <table class="table table-bordered table-striped">#}
-{#                    <thead>#}
-{#                        <tr>#}
-{#                        <th scope="col">#</th>#}
-{#                        <th scope="col">Course</th>#}
-{#                        <th scope="col">Instructor</th>#}
-{#                        <th scope="col">Average Rating</th>#}
-{#                        {% if request.user.is_superuser %}#}
-{#                        <th scope="col">Action</th>#}
-{#                        {% endif %}#}
-{#                        </tr>#}
-{#                    </thead>#}
-{#                              #}
-{#                    <tbody>#}
-{#                    {% for class in classes %}#}
-{#                    {% if class.average_rating < 2.2 %}#}
-{#                        #}
-{#                        <tr>#}
-{#                        <th scope="row">{{ if.counter }}</th>#}
-{#                        <td>{{ class.course }}</td>#}
-{#                        <td>{{ class.instructor}}</td>#}
-{#                        <td>{{ class.average_rating}}</td>#}
-{#                        #}
-{#                        </tr>#}
-{#                        {% endif %}#}
-{#                        {% empty %}#}
-{#                        #}
-{#                        <tr>#}
-{#                        <td></td>#}
-{#                        <td></td>#}
-{#                        <td>#}
-{#                        <span>No class available</span>#}
-{#                        </td>#}
-{#                        <td></td>#}
-{#                        <td></td>#}
-{#                        <td></td>#}
-{#                        </tr>#}
-{#                    </tbody>#}
-{##}
-{#                                  #}
-{#                    {% endfor %}#}
-{#                               #}
-{#                </table>#}
-{#            </div>#}
-{#        </div>#}
-{##}
-{##}
-{#        <br>#}
-{#        <br>#}
-{#        <br>#}
-{#        <br>#}
-{#        <div class="col-mt-9">#}
-{#            #}
-{#            <center> <h4 class="display-4">Honor Roll Students</h4> </center>#}
-{#            <br>#}
-{#            <div class="table-wrapper-scroll-y">#}
-{##}
-{#                <table class="table table-bordered table-striped">#}
-{#                    <thead>#}
-{#                        <tr>#}
-{#                            <th scope="col">#</th>#}
-{#                            <th scope="col">Name</th>#}
-{#                            <th scope="col">Semester</th>#}
-{#                            #}
-{#                        </tr>#}
-{#                    </thead>#}
-{#                    {% for student in students %}#}
-{#                        <tbody>#}
-{#                            <tr>#}
-{#                            <th scope="row">{{ forloop.counter }}</th>#}
-{#                            <td>{{ student.student }}</td>#}
-{#                            <td>{{ student.level}}</td>#}
-{#                            #}
-{#                            </tr>#}
-{#                            {% empty %}#}
-{#                            #}
-{#                            <span>No student available</span>#}
-{#                            </td>#}
-{#                            <td></td>#}
-{#                            <td></td>#}
-{#                            <td></td>#}
-{#                            </tr>#}
-{#                        </tbody>#}
-{#                    {% endfor %}#}
-{#                </table>#}
-{#>>>>>>> merge-dec-7#}
+
             </div>
         </nav>
     </header>
     <main>
-        <h1 class="text-nowrap" style="margin-bottom: 4px;margin-right: 739px;margin-top: 32px;padding-right: 0px;padding-left: 15px;">City University of New York</h1>
+        <h1 class="display-3" style="margin-bottom: 4px;margin-right: 739px;margin-top: 32px;padding-right: 0px;padding-left: 15px;">City University of New York</h1>
         <h1 class="text-nowrap" style="margin-right: 884px;margin-top: 7px;padding-left: 15px;">Graduate School</h1><img class="img-fluid visible" src="{% static 'general/assets/img/cuny.jpeg' %}" style="margin: 0px;margin-top: -152px;height: 353px;width: 1466.7px;padding-top: 140px;margin-bottom: 0px;border-style: solid;border-right-color: transparent;border-left-color: transparent;padding-right: 0px;padding-left: 0px;">
         <ul class="nav nav-tabs" style="margin-top: -252px;margin-right: 0px;margin-left: 275px;transform: translate(416px) rotateX(0deg) rotateY(0deg) scale(1.26);padding-top: 0px;padding-bottom: 0px;height: 42px;margin-bottom: 0px;width: 450px;">
             <li class="nav-item" style="margin-right: 0px;"><a class="nav-link" href="{% url 'courses:first_class_list' %}">Honors</a></li>
@@ -266,7 +92,7 @@
             <li class="nav-item"><a class="nav-link" href="{% url 'graduation-apply' %}">Apply for Graduation</a></li>
         </ul>
     </main>
-    <h1 style="margin-top: 223px;margin-left: 30px;">Graduate School Program&nbsp;</h1>
+    <h1 <h4 class="display-4" style="margin-top: 223px;margin-left: 30px;">Graduate School Program&nbsp;</h1>
     <p style="margin-top: -207px;padding: 0px;padding-top: 234px;padding-left: 0px;margin-bottom: 47px;font-size: 21px;text-align: justify;margin-left: 73px;width: 1038px;">
         Graduate school is a postgraduate program of study that focuses on a certain academic area or professional field of interest. 
         Although traditionally “academic” in nature (focused on the generation of original research in a specific topic), graduate 

@@ -1,7 +1,7 @@
 {% extends "general/profilepage.html" %}
 {%  block content %}
 
-<div class="container-fluid mt-9" style="margin-top: -350px; width: 600px; margin-left: 0px;">
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -350px;">
 
     <!-- Heading -->
     <div class="card mb-4 wow fadeIn">
@@ -15,10 +15,8 @@
                 <span>Review Class</span>
             </h3>
         </div>
-
+        <br>
     </div>
-
-<br>
 <br>
 
 {% if course_list %}
@@ -26,7 +24,7 @@
         {% for course in course_list %}
             <div class="col-xs-7 col-lg-4">
                 <h5><a href="{% url 'courses:course_detail' course.id %}">
-                {{ course.course }} | Prof: {{course.instructor}}
+                {{ course.course }} - {{course.class_id}}| Prof: {{course.instructor}}
                 </a></h5>
                 <h6>{{ course.reviewclasses_set.count }} Reviews</h6>
                 <h6>{{ course.average_rating | floatformat }} Average Rating</h6>

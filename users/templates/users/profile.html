@@ -3,24 +3,27 @@
 
 
 {%  block content %}
-<div style="width: 550px; margin-left: 25px; margin-top: -350px;">
-    <div class="container-fluid mt-9" style="width: 350px; margin-top: -275px; margin-right: 215px;">
-        <div class="card mb-4 wow fadeIn" style="margin-left: -10px;">
 
-            <!--Card content-->
-            <div class="card-body d-sm-flex justify-content-between">
-                <h3 class="mb-2 mb-sm-0 pt-1">
-                    <a href="/">Home Page</a>
-                    <span>/</span>
-                    <span> Profile Page</span>
-                </h3>
-            </div>
-            </div>
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -350px;">
 
+    <!-- Heading -->
+    <div class="card mb-4 wow fadeIn">
+
+        <!--Card content-->
+        <div class="card-body d-sm-flex justify-content-between">
+
+            <h3 class="mb-2 mb-sm-0 pt-1">
+                <a href="{% url 'profile' %}">Home Page</a>
+                <span>/</span>
+                <span>Profile Page</span>
+            </h3>
+           
         </div>
-
+        <br>
+    </div>
+ 
         <div >
-            <h3>{{ user.first_name }} {{ user.m_initial }} {{ user.last_name }}</h3>
+            <h3 class="display-4"> <strong>{{ user.first_name }} {{ user.m_initial }} {{ user.last_name }} </strong></h3>
 
             <p> {% if user.is_student %}
                     -> Student
@@ -33,6 +36,12 @@
 
         <div>
            <br>
+
+    <center>
+        <h6 class="display-6"> {{current_period}} : {{current_session}} </h6>
+    </center>
+    <br>
+    <br>
             <div class="col-mt-9">
                 <center> <h3>Contact Information</h3> </center>
                 <br>
@@ -109,7 +118,7 @@
                             <tr>
                                 <th scope="row">{{ forloop.counter }}</th>
                                 <td>{{ course.classes }}</td>
-                                <td>{{ course.classes.days_and_time }}</td>
+                                <td>{{ course.classes.days }}: {{ course.classes.start_time }} - {{ course.classes.end_time }}</td>
                                 <td>{{course.classes.start_date}} -  {{course.classes.end_date}}</td>
                             </tr>
                         </tbody>
@@ -126,6 +135,6 @@
             </div>
 
         </div>
-    </div>
+    
 </div>
 {%  endblock content %}
