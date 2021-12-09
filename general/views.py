@@ -8,6 +8,9 @@ from courses.models import Course, Result, ReviewClasses
 def home(request):
     return render(request, 'general/home.html',{'title': 'Home'})
 
+def about(request):
+    return render(request, 'general/about.html',{'title': 'About'})
+
 def registerinstructor(request):
     return render(request, 'registerInstructor.html',{'title': 'registerInstructor'})
 
@@ -33,11 +36,9 @@ def change_password(request):
     return render(request, 'change_password.html',{'title': 'changepassword'})
 
 
-def studentuserguide(request):
-    return render(request, 'general/newuserguide.html', {'title':'newuserguide'})
+def usersguide(request):
+    return render(request, 'general/usersguide.html', {'title':'usersguide'})
 
-def instructoruserguide(request):
-    return render(request, 'general/newuserguideinstructor.html', {'title':'newuserguideinstructor'})
 
 def homepage(request):
     courses = Course.objects.all()

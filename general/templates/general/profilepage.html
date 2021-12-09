@@ -28,7 +28,7 @@
                 <div class="navbar-nav mr-auto" style="width: 650px;">
                     <!-- Tabs that ANYONE can see -->
                     <a class="nav-item nav-link" st href="{% url 'general-home' %}" style="color: white;">Home</a>
-                    <a class="nav-item nav-link" href="#"style="color: white;">About</a>
+                    <a class="nav-item nav-link" href="{% url 'general-about' %}"style="color: white;">About</a>
                     <a class="nav-item nav-link" href="{% url 'courses:review_list' %}"style="color: white;">Reviews</a>
                     {% if user.is_authenticated %}
                         {% if user.is_registrar or user.is_superuser %}
@@ -162,9 +162,11 @@
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="{% url 'general-home' %}">Home</a></li>
                 <li class="list-inline-item"><a href="#">Services</a></li>
-                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="{% url 'general-about' %}">About</a></li>
                 <li class="list-inline-item"><a href="#">Terms</a></li>
-                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                {% if user.is_authenticated %}
+                    <li class="list-inline-item"><a href="{% url 'usersguide' %}">Users Guide</a></li>
+                {% endif %}
             </ul>
             <p class="copyright">Company Name © 2021</p>
         </footer>
