@@ -210,10 +210,12 @@ class TakenCourse(models.Model):
 
 
     def get_total(self, ca, exam):
-        return int(ca) + int(exam)
+        total = 0.7 *  int(ca) + 0.3 * int(exam)
+        return total
 
     def get_grade(self, ca, exam):
-        total = int(ca) + int(exam)
+        total = 0.7 *  int(ca) + 0.3 * int(exam)
+
         if total >= 90:
             grade = A
         elif total >= 80:

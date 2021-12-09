@@ -1,8 +1,30 @@
 {% extends "general/profilepage.html" %}
 {% load crispy_forms_tags %}
 {%  block content %}
-<div style="width: 850px; margin-left: 50px; margin-top: -300px;">
-    <h2>Add Class</h2>
+
+
+
+{% if user.is_registrart or user.is_superuser %}
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -550px;">
+{% endif %}
+
+    <!-- Heading -->
+    <div class="card mb-4 wow fadeIn">
+
+        <!--Card content-->
+        <div class="card-body d-sm-flex justify-content-between">
+
+            <h3 class="mb-2 mb-sm-0 pt-1">
+                <a href="{% url 'profile' %}">Profile Page</a>
+                <span>/</span>
+                <span>Add Class</span>
+            </h3>
+           
+        </div>
+        <br>
+    </div>
+
+
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <fieldset class="form-group">
