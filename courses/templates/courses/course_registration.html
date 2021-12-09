@@ -18,7 +18,18 @@
 <script type="text/javascript" src="{% static 'js/disable_checkbox.js' %}"></script>
     {% endblock js %}
 
-<div class="container-fluid mt-9" style="width: 1050px; margin-left: 0px; margin-top: -350px;">
+    <style>
+        #sidebar{
+            position: absolute;
+            top:0; left: 0;
+            width: 50px;
+            height: 1000px;
+            background: transparent;
+        }
+        
+        </style>
+        <div id="sidebar"></div>
+        <div class="container-fluid mt-9" style="width: 950px; margin-left: 10px; margin-top: -350px;">
 
      <!-- Heading -->
      <div class="card mb-4 wow fadeIn">

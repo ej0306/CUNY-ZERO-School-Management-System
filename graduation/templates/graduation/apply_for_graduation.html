@@ -1,7 +1,18 @@
 {% extends "general/base.html" %}
 {% load crispy_forms_tags %}
 {%  block content %}
-    <div class="content-section" style="width: 950px; margin-left: 20px; margin-top:20px;">
+<style>
+    #sidebar{
+        position: absolute;
+        top:0; left: 0;
+        width: 50px;
+        height: 1000px;
+        background: transparent;
+    }
+    
+    </style>
+    <div id="sidebar"></div>
+    <div class="content-section" style="width: 950px; margin-left: 50px; margin-top: 0px;">
         <form method="post">
             {% csrf_token %}
             <fieldset class="form-group">
