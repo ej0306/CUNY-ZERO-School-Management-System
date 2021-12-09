@@ -1,4 +1,4 @@
-{% extends "general/base.html" %}
+{% extends "general/profilepage.html" %}
 {% load crispy_forms_tags %}
 {%  block content %}
     <style type="text/css">
@@ -9,8 +9,8 @@
     -ms-overflow-style: -ms-autohiding-scrollbar;
     }
     </style>
-
-<div class="container-fluid mt-5">
+<div class="content-section" style="width: 700px; margin-left: 100px; margin-top: -600px">
+<div class="">
     <h3>Enrollment Applications</h3>
             <!--Card content-->
     <div class="table-wrapper-scroll-y">
@@ -67,5 +67,5 @@
             </table>
         </div>
     </div>
-    <br>
+</div>
 {%  endblock content %}

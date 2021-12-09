@@ -4,13 +4,12 @@
     <style type="text/css">
         .table-wrapper-scroll-y {
     display: block;
-    max-height:  750px;
     overflow-y: auto;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     }
     </style>
-
-<div class="container-fluid mt-5">
+<div class="content-section" style="width: 700px; margin-left: 100px; margin-top: -600px;padding: 20px;">
+<div class="">
     <div class="card-body d-sm-flex justify-content-between">
         <h3>Issued Warnings</h3>
         <form class="" action="{% url 'issue_warning' %}">
@@ -44,5 +43,5 @@
             </table>
         </div>
     </div>
-    <br>
+</div>
 {%  endblock content %}

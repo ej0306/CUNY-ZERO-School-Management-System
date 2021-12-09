@@ -12,57 +12,37 @@
                 <a href="{% url 'profile' %}">Profile Page</a>
                 <span>/</span>
                 <span>Warnings</span>
-
-            </h5>
-            {% if user.is_registrart or user.is_superuser %}
-            <form action={% url 'courses:send_warnings_auto' %}>
-                <input type="submit" value="Send Auto Warnings" />
-            </form>
-            {% endif %}
-
             </h3>
-
         </div>
 <br>
     </div>
-   
-   <br>
+    <div class="table-wrapper-scroll-y">
 
-   {% if user.is_registrart or user.is_superuser %}
-
-   <ul>
-    {% for obj in all_warning %}
-    <li>
-        <p> <b> {{obj.user}} </b> </p> 
-        <p> {{obj.warning_text}}  </p>
-        <p> {{obj.date_added}}  </p>
-    </li>
-    {% endfor %}
-    </ul>
-
-    {% else %}
-    {% for obj in your_warning %}
-    <li>
-        <p> <b> {{obj.warning_text}} </b></p>
-        <p> {{obj.date_added}}  </p>
-    </li>
-    {% endfor %}
-</ul>
-
-   {% endif %}
-
-
-
-
+    <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID#</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Details</th>
+                        <th scope="col">Date Issued</th>
+                        <th scope="col">Issued by</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for w in my_warnings %}
+                        <tr>
+                            <th scope="row">{{ w.id }}</th>
+                            <td>{{ w.description }}</td>
+                            <td>{{ w.details }}</td>
+                            <td>{{ w.issue_date }}</td>
+                            <td>{{ w.registrar.user.first_name }} {{ w.registrar.user.last_name }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr><td>No warnings have been issued to you</td><td></td><td></td><td></td><td></td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
 </div>
-
-
-
-
-
-
-
-
-
 
 {%  endblock content %}

@@ -47,7 +47,7 @@
                     <tbody>
                         <tr>
                         <th scope="row">{{ forloop.counter }}</th>
-                        <td>{{ instructor.username }}</td>
+                        <td><a href="{% url 'user_profile' pk=instructor.user.id %}">{{ instructor.user.id }}</a></td>
                         <td>{{ instructor.user.first_name }}</td>
                         <td>{{ instructor.user.last_name }}</td>
                         <td>{{ instructor.user.email }}</td>

@@ -107,8 +107,7 @@
                                 <th scope="col">Course</th>
                                 <th scope="col">Days-Time</th>
                                 <th scope="col">Duration</th>
-
-
+                                <th scope="col">Grade</th>
                             </tr>
                         </thead>
 
@@ -119,6 +118,12 @@
                                 <td>{{ course.classes }}</td>
                                 <td>{{ course.classes.days }}: {{ course.classes.start_time }} - {{ course.classes.end_time }}</td>
                                 <td>{{course.classes.start_date}} -  {{course.classes.end_date}}</td>
+                                <td style="text-align: center">{% if course.grade == '' %}
+                                        N/A
+                                    {% else %}
+                                        {{course.grade}}
+                                    {% endif %}
+                                </td>
                             </tr>
                         </tbody>
                         {% empty %}

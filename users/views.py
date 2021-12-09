@@ -1,16 +1,19 @@
+from datetime import datetime
+
 from django.contrib.auth.mixins import AccessMixin
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.urls import reverse
+from django.utils import timezone
 from django.views import View
 
-from .forms import StudentApplicationForm, InstructorApplicationForm, AcceptApplication, EnrollmentApplication, LoginForm, UserCreation
+from .forms import StudentApplicationForm, InstructorApplicationForm, AcceptApplication, EnrollmentApplication, LoginForm, UserCreation, ReportForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.core.exceptions import PermissionDenied
-from users.models import Instructor, Student, User
+from users.models import Instructor, Student, User, Reports
 from django.core.mail import send_mail
 from django.conf import settings
 from django.http import Http404, FileResponse
@@ -76,14 +79,25 @@ def profile(request):
 # other user's profile
 def user_profile(request, pk):
     u = User.objects.filter(id=pk)
+    courses = Classes.objects.filter(instructor__pk=pk)
+    taken_course = TakenCourse.objects.filter(student__user__pk=pk)
+    current_session = Session.objects.get(is_current_session=True)
+    mine = False
 
     if not u.exists():
         raise Http404
     else:
         u = u.first()
 
+    if request.user.id == pk:
+        mine = True
+
     context = {
-        'u': u
+        'u': u,
+        "courses": courses,
+        "taken_course": taken_course,
+        "current_session": current_session,
+        'mine': mine
     }
     return render(request, 'users/user_profile.html', context)
 
@@ -115,7 +129,7 @@ def enrollment_application_details(request, pk):
 
             if application.student_application:
                 if form.data.get('reason') == '' and application.gpa <= 3.0:
-                    messages.error(request, 'Please provide a justification for this decision.')
+                    messages.warning(request, 'Please provide a justification for this decision.')
                     return render(request, 'users/enrollmentapplication_detail.html', {'form': form, 'application': application})
 
             application.status_approved = True
@@ -168,7 +182,7 @@ def enrollment_application_details(request, pk):
         else:
             if application.student_application:
                 if form.data.get('reason') == '' and application.gpa > 3.0:
-                    messages.error(request, 'Please provide a justification for this decision.')
+                    messages.warning(request, 'Please provide a justification for this decision.')
                     return render(request, 'users/enrollmentapplication_detail.html', {'form': form, 'application': application})
 
             application.status_rejected = True
@@ -289,7 +303,7 @@ def change_password(request):
             user.save()
             update_session_auth_hash(request, user)  # Important!
             messages.success(request, 'Your password was successfully updated!')
-            return redirect('general-home')
+            return redirect('usersguide')
         else:
             messages.error(request, 'Please correct the error below.')
     else:
@@ -374,3 +388,32 @@ class TerminateUser(View, AccessMixin):
         u.save()
         msg = "User " + u.first_name + " " + u.last_name + " has been terminated indefinitely."
         return redirect(reverse('user_profile', kwargs={'pk': pk}))
+
+
+@login_required
+def file_report(request):
+    form = ReportForm()
+
+    if request.method == 'POST':
+        form = ReportForm(request.POST)
+        if form.is_valid():
+            report = form.save(commit=False)
+            report.date_added = timezone.make_aware(datetime.now(), timezone.get_default_timezone())
+            report.owner = User.objects.get(id=request.user.id)
+            report.save()
+            return redirect('profile')
+
+    return render(request, 'users/file_report.html', {'form': form})
+
+
+@login_required
+def received_reports(request):
+    if not request.user.is_superuser or not request.user.is_registrar:
+        raise PermissionDenied()
+
+    user_reports = Reports.objects.all()
+    context = {
+        "reports": user_reports
+    }
+    return render(request, 'users/reports_list.html', context)
+

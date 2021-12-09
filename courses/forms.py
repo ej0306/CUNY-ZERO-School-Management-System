@@ -3,6 +3,7 @@ from django import forms
 from django.db import transaction
 from django.forms.widgets import Textarea, SelectDateWidget, DateTimeInput, DateInput
 from courses.models import ReviewClasses, TakenCourse, Course, Classes, Session
+from users.models import User, Instructor
 
 
 
@@ -28,6 +29,7 @@ class ReviewForm(forms.ModelForm):
 class ClassSetUp(forms.ModelForm):
     course = forms.ModelChoiceField(label="Course", queryset=Course.objects.all(), to_field_name="course_name", required=True)
     session = forms.ModelChoiceField(label="Session", queryset=Session.objects.all(), to_field_name="session", required=True)
+    instructor = forms.ModelChoiceField(label="Instructor", queryset=Instructor.objects.filter(user__is_instructor=True, user__is_suspended=False), required=True)
 
     class Meta:
         model = Classes
@@ -48,6 +50,11 @@ class CreateCourse(forms.ModelForm):
         fields = ['course_name', 'title', 'department', 'program', 'description']
         widgets = {
             'description': Textarea()
+        }
+        help_texts = {
+            'course_name': "e.g., CSC 10100, ECO 10400",
+            'title': "e.g., Software Engineering",
+            'department': "e.g., Computer Science",
         }
 
 

@@ -39,6 +39,8 @@ urlpatterns = [
     path('suspend_user/<int:pk>/', user_views.SuspendUser.as_view(), name='suspend_user'),
     path('lift_user_suspension/<int:pk>/', user_views.LiftSuspension.as_view(), name='lift_user_suspension'),
     path('terminate_user/<int:pk>/', user_views.TerminateUser.as_view(), name='terminate_user'),
+    path('user_report/', user_views.file_report, name='user_report'),
+    path('user_report_list/', user_views.received_reports, name='received_reports'),
 
     path('', include('general.urls')),
     path('graduation/', include('graduation.urls')),

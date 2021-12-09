@@ -7,9 +7,11 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.http import Http404, HttpResponseRedirect, HttpRequest, JsonResponse
 from django.urls.base import reverse
 from courses.models import *
-from users.models import Instructor, Student
+from users.models import Instructor, Student, Registrar
 from django.urls import reverse_lazy
 from django.db.models import Q
+
+from warningsystem.models import Warnings
 from .forms import *
 from django.contrib.auth.decorators import permission_required
 
@@ -648,6 +650,12 @@ def add_review(request, course_id):
                 reviews.save()
                 messages.warning(request, "Taboo words detected (1 warning). Please remain respectfull!")
 
+                Warnings.objects.create(user=request.user,
+                                        description='Class Review containing taboo words.',
+                                        details='Student ' + request.user.__str__() + ' posted a review containing ' + str(taboo_word_ct) + ' taboo word(s). The review has been censored and the user has been given a warning.',
+                                        issue_date=timezone.make_aware(datetime.datetime.now(), timezone.get_default_timezone()),
+                                        registrar=Registrar.objects.all().first())
+
                 if check_warning is None:
                     obj = WarningCount()
                     obj.student= request.user.student
@@ -664,6 +672,16 @@ def add_review(request, course_id):
             
             elif taboo_word_ct >= 2: 
                 messages.warning(request, "Too many taboo words. This count as 2 warning!")
+                Warnings.objects.create(user=request.user,
+                                        description='Class Review containing taboo words. #1',
+                                        details='Student ' + request.user.__str__() + ' posted a review containing ' + str(taboo_word_ct) + ' taboo words. The review has been hidden and the user has been given 2 warnings.',
+                                        issue_date=timezone.make_aware(datetime.datetime.now(), timezone.get_default_timezone()),
+                                        registrar=Registrar.objects.all().first())
+                Warnings.objects.create(user=request.user,
+                                        description='Class Review containing taboo words. #2',
+                                        details='Student ' + request.user.__str__() + ' posted a review containing ' + str(taboo_word_ct) + ' taboo words. The review has been hidden and the user has been given 2 warnings.',
+                                        issue_date=timezone.make_aware(datetime.datetime.now(), timezone.get_default_timezone()),
+                                        registrar=Registrar.objects.all().first())
                 if check_warning is None:
                     obj = WarningCount.objects.create(student = request.user.student, count = "2")
                     obj.save()
@@ -716,37 +734,10 @@ def send_warnings_auto(request):
     current_session = Session.objects.get(is_current_session=True)
     current_period = current_session.current_period
 
-    if request.method == 'POST':
+    my_warnings = Warnings.objects.filter(user=request.user)
 
-        if current_period == "Class Running Period":
+    context = {
+        "my_warnings": my_warnings,
+    }
 
-            for i in students:
-                courses = TakenCourse.objects.filter(student__pk = i.id)
-                number_of_courses = len(courses)
-                if number_of_courses <=2:
-                    obj = AutomaticWarning()
-                    obj.user = i 
-                    obj.warning_text = "ATTENTION! you only registered for two courses this semester. The registration period ended!"
-                    obj.date_added = DateTimeField.auto_created
-                    obj.save
-
-            for i in classes:
-                if i.get_currrent_capacity <= 5:
-                    obj = AutomaticWarning()
-                    obj.user = i.instructor
-                    obj.warning_text = "ATTENTION! Your class was cancelled due the two little number of students!"
-                    obj.date_added = DateTimeField.auto_created
-                    obj.save()
-
-        return redirect('courses:send_warnings_auto')
-
-    else:
-        all_warning = AutomaticWarning.objects.all()
-        your_warning = AutomaticWarning.objects.filter(user__pk = request.user.id)
-
-        context = {
-            "all_warning": all_warning,
-            "your_warning": your_warning,
-        }
-
-        return render(request, 'courses/warning.html', context)
+    return render(request, 'courses/warning.html', context)

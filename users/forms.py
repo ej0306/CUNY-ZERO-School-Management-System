@@ -3,7 +3,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import ModelForm
 from django.db import transaction
-from users.models import User, Instructor, EnrollmentApplication
+from users.models import User, Instructor, EnrollmentApplication, Reports
 
 
 # applications forms
@@ -191,3 +191,9 @@ class UserCreation(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'password1', 'password2', 'email', 'first_name', 'last_name')
+
+
+class ReportForm(ModelForm):
+    class Meta:
+        model = Reports
+        fields = ('subject', 'description')

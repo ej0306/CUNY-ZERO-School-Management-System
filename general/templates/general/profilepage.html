@@ -118,6 +118,9 @@
                   <li class="list-group-item list-group-item-light">
                     <a href="{% url 'courses:send_warnings_auto'%}">Warnings</a>
                   </li>
+                  <li class="list-group-item list-group-item-light">
+                    <a href="{% url 'user_report'%}">Submit a Report</a>
+                  </li>
 
               {% else %}
                   <li class="list-group-item list-group-item-light">
@@ -132,19 +135,24 @@
                   <li class="list-group-item list-group-item-light">
                       <a href="{% url 'courses:list_classes'%}">Class List</a>
                   </li>
-                  <li class="list-group-item list-group-item-light">
-                    <a href="{% url 'courses:wait_list_view'%}">Wait List</a>
-                    </li>
+                  {% if request.user.is_instructor %}
+                         <li class="list-group-item list-group-item-light">
+                        <a href="{% url 'courses:wait_list_view'%}">Wait List</a>
+                        </li>
+                  {% endif %}
                   <li class="list-group-item list-group-item-light">
                     <a href="{% url 'courses:course_allocation_view'%}">Class Allocation</a>
                   </li>
+                  {% if request.user.is_instructor %}
                   <li class="list-group-item list-group-item-light">
                     <a href="{% url 'courses:add_score'%}">Grade Class</a>
                   </li>
+                  {% endif %}
+                  {% if not request.user.is_registrar and request.user.is_authenticated %}
                   <li class="list-group-item list-group-item-light">
                     <a href="{% url 'courses:send_warnings_auto'%}">Warnings</a>
                   </li>
-
+                  {% endif %}
               {% endif %}
                 {% if request.user.is_registrar %}
                     <li class="list-group-item list-group-item-light">
@@ -154,7 +162,13 @@
                         <a href="{% url 'enrollment_applications' %}">Enrollment Applications</a>
                     </li>
                     <li class="list-group-item list-group-item-light">
+                        <a href="{% url 'grad_applications' %}">Graduation Applications</a>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
                         <a href="{% url 'courses:academic_sessions_list' %}">Academic Sessions</a>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                        <a href="{% url 'received_reports' %}">User Reports</a>
                     </li>
                 {% endif %}
 

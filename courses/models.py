@@ -26,6 +26,7 @@ GRADE = (
 		(C, 'C'),
 		(D, 'D'),
 		(F, 'F'),
+        (W, 'W'),
 	)
 
 COMMENT = (

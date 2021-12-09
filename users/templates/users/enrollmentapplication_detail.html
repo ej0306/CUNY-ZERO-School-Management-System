@@ -1,7 +1,7 @@
-{% extends "general/base.html" %}
+{% extends "general/profilepage.html" %}
 {% load crispy_forms_tags %}
 {%  block content %}
-    <div class="content-section">
+    <div class="content-section" style="width: 700px; margin-left: 100px; margin-top: -600px">
         <h4>{% if application.student_application %}
             Student Application
         {% endif %}
@@ -96,7 +96,7 @@
                 {% endif %}
             </b>
         </p>
-    </div>
+
 
     {% if application.status_pending %}
         <div class="content-section">
@@ -113,5 +113,5 @@
             </form>
         </div>
     {% endif %}
-
+    </div>
 {%  endblock content %}

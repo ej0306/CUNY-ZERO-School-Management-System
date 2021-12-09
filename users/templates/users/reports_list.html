@@ -1,0 +1,53 @@
+{% extends "general/profilepage.html" %}
+{%  block content %}
+
+    <style type="text/css">
+        .table-wrapper-scroll-y {
+    display: block;
+    max-height: 350px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+    </style>
+
+<div class="container-fluid mt-9" style="width: 1050px; margin-left: -20px; margin-top: -650px;">
+    <!-- Heading -->
+    <h3>Received User Reports</h3>
+            <!--Card content-->
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Filed by</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Details</th>
+                <th scope="col">Date Filed</th>
+                </tr>
+            </thead>
+            {% for r in reports %}
+                <tbody>
+                    <tr>
+                    <th scope="row" style="min-width:45px">{{ r.id }}</th>
+                    <td style="min-width:100px">{{ r.owner.first_name }} {{ r.owner.last_name }}</td>
+                    <td style="min-width:100px">{{ r.subject }}</td>
+                    <td style="min-width:200px">{{ r.description }}</td>
+                    <td style="min-width:100px">{{ r.date_added }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                    <th scope="row">No user reports received.</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    </tr>
+                </tbody>
+            {% endfor %}
+        </table>
+
+</div>
+<br>
+
+
+{%  endblock content %}
