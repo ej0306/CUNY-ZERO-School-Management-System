@@ -1,7 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -11,8 +10,9 @@
         <link rel="stylesheet" href="{% static 'general/assets/fonts/ionicons.min.css' %}">
         <link rel="stylesheet" href="{% static 'general/assets/css/Footer-Basic.css' %}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-        <link rel="stylesheet" href="{% static 'general/assets/css/Login-Form-Clean.css' %]">
+        <link rel="stylesheet" href="{% static 'general/assets/css/Login-Form-Clean.css' %}">
         <link rel="stylesheet" href="{% static 'general/assets/css/Navigation-with-Search.css' %}">
+        <link rel="stylesheet" href="{% static 'general/assets/css/Simple-Slider.css' %}">
         <link rel="stylesheet" href="{% static 'general/assets/css/styles.css' %}">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     </head>
@@ -20,15 +20,15 @@
     <body>
         <header style="background: var(--bs-blue);">
             <nav class="navbar navbar-light navbar-expand-lg navigation-clean-search" style="background: var(--bs-primary);border: 2px solid var(--bs-gray-900) ;border-right-style: solid;border-right-color: var(--bs-gray-900);">
-                <div class="container"><a class="navbar-brand" href="#" style="color: var(--bs-white);margin-right: 35px;margin-left: 0px;">CUNY Zero</a>
+                <div class="container"><a class="navbar-brand" style="color: var(--bs-white);margin-right: 35px;margin-left: 20px;">CUNY Zero</a>
                     <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
                         <span class="visually-hidden">Toggle navigation</span>
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="navbar-nav mr-auto" style="width: 650px;">
+                    <div class="navbar-nav mr-auto" style="width: 550px;">
                         <!-- Tabs that ANYONE can see -->
                         <a class="nav-item nav-link" st href="{% url 'general-home' %}" style="color: white;">Home</a>
-                        <a class="nav-item nav-link" href="#"style="color: white;">About</a>
+                        <a class="nav-item nav-link" href="{% url 'general-about' %}"style="color: white;">About</a>
                         <a class="nav-item nav-link" href="{% url 'courses:review_list' %}"style="color: white;">Reviews</a>
                         {% if user.is_authenticated %}
                             {% if user.is_registrar or user.is_superuser %}
@@ -42,7 +42,7 @@
                             {% endif %}
                             {% if user.is_student %}
                                 <!-- Tabs that STUDENTS can see -->
-                                <a class="nav-item nav-link text-nowrap" href="{% url 'graduation-apply' %}" style="color: white;">Apply for Graduation</a>
+                                <a class="nav-item nav-link" href="{% url 'graduation-apply' %}" style="color: white;">Apply for Graduation</a>
                             {% endif %}
                             {% if user.is_instructor %}
                                 <!-- Tabs that INSTRUCTORS can see -->
@@ -53,7 +53,7 @@
                             <li class="nav-item"></li>
                         </ul>
                         <form class="me-auto search-form" target="_self">
-                            <div class="d-flex align-items-center" style="margin-left: -50px;">
+                            <div class="d-flex align-items-center" style="margin-left: 25px;">
                                 <label class="form-label d-flex mb-0" for="search-field" style="margin-left: 0px;">
                                     <i class="fa fa-search"></i>
                                 </label>
@@ -61,7 +61,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="navbar-nav text-nowrap" style="width: 300px; margin-left: 20px;">
+                    <div class="navbar-nav" style="width: 400px; margin-left: 300px;">
                         {% if user.is_authenticated %}
                             <a class="nav-item nav-link" href="{% url 'profile' %}"style="color: white;">{{ user.first_name }} {{user.last_name }}</a>
                             <a class="nav-item nav-link" href="{% url 'logout' %}"style="color: white;">Log Out</a>
@@ -100,15 +100,19 @@
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="#">Home</a></li>
                 <li class="list-inline-item"><a href="#">Services</a></li>
-                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="{% url 'general-about' %}">About</a></li>
                 <li class="list-inline-item"><a href="#">Terms</a></li>
-                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                {% if user.is_authenticated %}
+                    <li class="list-inline-item"><a href="{% url 'usersguide' %}">Users Guide</a></li>
+                {% endif %}
             </ul>
             <p class="copyright">CUNY Zero © 2021 | City College of New York</p>
         </footer>
     </footer>
     <script src="{% static 'general/assets/bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'general/assets/js/bs-init.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="{% static 'general/assets/js/Simple-Slider.js' %}"></script>
 </body>
 
 </html>

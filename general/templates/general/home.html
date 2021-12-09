@@ -11,13 +11,12 @@
     <link rel="stylesheet" href="{% static 'general/assets/fonts/ionicons.min.css' %}">
     <link rel="stylesheet" href="{% static 'general/assets/css/Footer-Basic.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="{% static 'general/assets/css/Login-Form-Clean.css' %]">
+    <link rel="stylesheet" href="{% static 'general/assets/css/Login-Form-Clean.css' %}">
     <link rel="stylesheet" href="{% static 'general/assets/css/Navigation-with-Search.css' %}">
     <link rel="stylesheet" href="{% static 'general/assets/css/styles.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 
-{#<<<<<<< HEAD#}
 <body>
     <header style="background: var(--bs-blue);">
         <nav class="navbar navbar-light navbar-expand-lg navigation-clean-search" style="background: var(--bs-primary);border: 2px solid var(--bs-gray-900) ;border-right-style: solid;border-right-color: var(--bs-gray-900);">
@@ -29,7 +28,7 @@
                 <div class="navbar-nav mr-auto" style="width: 550px;">
                     <!-- Tabs that ANYONE can see -->
                     <a class="nav-item nav-link" st href="{% url 'general-home' %}" style="color: white;">Home</a>
-                    <a class="nav-item nav-link" href="#"style="color: white;">About</a>
+                    <a class="nav-item nav-link" href="{% url 'general-about' %}"style="color: white;">About</a>
                     <a class="nav-item nav-link" href="{% url 'courses:review_list' %}"style="color: white;">Reviews</a>
                     {% if user.is_authenticated %}
                         {% if user.is_registrar or user.is_superuser %}
@@ -62,7 +61,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="navbar-nav" style="width: 400px; margin-left: 150px;">
+                <div class="navbar-nav" style="width: 400px; margin-left: 300px;">
                     {% if user.is_authenticated %}
                         <a class="nav-item nav-link" href="{% url 'profile' %}"style="color: white;">{{ user.first_name }} {{user.last_name }}</a>
                         <a class="nav-item nav-link" href="{% url 'logout' %}"style="color: white;">Log Out</a>
@@ -84,15 +83,17 @@
         </nav>
     </header>
     <main>
+
         <h1 class="display-3" style="margin-bottom: 4px;margin-right: 739px;margin-top: 32px;padding-right: 0px;padding-left: 15px;">City University of New York</h1>
         <h1 class="text-nowrap" style="margin-right: 884px;margin-top: 7px;padding-left: 15px;">Graduate School</h1><img class="img-fluid visible" src="{% static 'general/assets/img/cuny.jpeg' %}" style="margin: 0px;margin-top: -152px;height: 353px;width: 1466.7px;padding-top: 140px;margin-bottom: 0px;border-style: solid;border-right-color: transparent;border-left-color: transparent;padding-right: 0px;padding-left: 0px;">
         <ul class="nav nav-tabs" style="margin-top: -252px;margin-right: 0px;margin-left: 275px;transform: translate(416px) rotateX(0deg) rotateY(0deg) scale(1.26);padding-top: 0px;padding-bottom: 0px;height: 42px;margin-bottom: 0px;width: 450px;">
+
             <li class="nav-item" style="margin-right: 0px;"><a class="nav-link" href="{% url 'courses:first_class_list' %}">Honors</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'courses:class_search' %}">Search for Classes</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'graduation-apply' %}">Apply for Graduation</a></li>
         </ul>
     </main>
-    <h1 <h4 class="display-4" style="margin-top: 223px;margin-left: 30px;">Graduate School Program&nbsp;</h1>
+    <h1><h4 class="display-4" style="margin-top: 223px;margin-left: 30px;">Graduate School Program&nbsp;</h1>
     <p style="margin-top: -207px;padding: 0px;padding-top: 234px;padding-left: 0px;margin-bottom: 47px;font-size: 21px;text-align: justify;margin-left: 73px;width: 1038px;">
         Graduate school is a postgraduate program of study that focuses on a certain academic area or professional field of interest. 
         Although traditionally “academic” in nature (focused on the generation of original research in a specific topic), graduate 
@@ -108,7 +109,8 @@
         <div style="margin-top: 0px;">
             {% block content %} {% endblock %}
            </div>
-    <footer style="margin-top: 33px;width: 1106px;">
+        </div>    
+    <footer style="margin-top: 33px;width: 1106px; margin-left: 150px;">
         <footer class="footer-basic">
             <div class="social">
                 <a href="https://instagram.com">
@@ -127,9 +129,11 @@
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="{% url 'general-home'%}">Home</a></li>
                 <li class="list-inline-item"><a href="#">Services</a></li>
-                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="{% url 'general-about' %}">About</a></li>
                 <li class="list-inline-item"><a href="#">Terms</a></li>
-                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                {% if user.is_authenticated %}
+                    <li class="list-inline-item"><a href="{% url 'usersguide' %}">Users Guide</a></li>
+                {% endif %}
             </ul>
             <p class="copyright">CUNY Zero © 2021 | City College of New York</p>
         </footer>

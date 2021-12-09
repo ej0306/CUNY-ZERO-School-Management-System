@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en" style="background: var(--bs-white);">
-
+<html lang="en">
+    
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -38,7 +38,7 @@
                         {% endif %}
                         {% if user.is_superuser %}
                             <!-- Tabs that ADMINS can see -->
-                            <a class="nav-item nav-link" href="{% url 'create_user' %}"style="color: white;">Create User</a>
+                            <a class="nav-item nav-link text-nowrap" href="{% url 'create_user' %}"style="color: white;">Create User</a>
                         {% endif %}
                         {% if user.is_student %}
                             <!-- Tabs that STUDENTS can see -->
@@ -61,12 +61,12 @@
                         </div>
                     </form>
                 </div>
-                <div class="navbar-nav text-nowrap" style="width: 400px; margin-left: 300px;">
+                <div class="navbar-nav" style="width: 400px; margin-left: 300px;">
                     {% if user.is_authenticated %}
                         <a class="nav-item nav-link" href="{% url 'profile' %}"style="color: white;">{{ user.first_name }} {{user.last_name }}</a>
-                        <a class="nav-item nav-link text-nowrap" href="{% url 'logout' %}"style="color: white;">Log Out</a>
+                        <a class="nav-item nav-link" href="{% url 'logout' %}"style="color: white;">Log Out</a>
                     {% else %}
-                        <a class="nav-item nav-link text-nowrap" href="{% url 'login' %}"style="color: white;">Log In</a>
+                        <a class="nav-item nav-link" href="{% url 'login' %}"style="color: white;">Log In</a>
                         <div class="dropdown">
                           <button class="nav-item nav-link btn btn-secondary dropdown-toggle" href="#" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:white">
                             Enrollment
@@ -81,19 +81,34 @@
             </div>
         </nav>
     </header>
+    <main>
         <h1 class="text-nowrap" style="margin-bottom: 4px;margin-right: 739px;margin-top: 32px;padding-right: 0px;padding-left: 15px;">City University of New York</h1>
-        <h1 class="text-nowrap" style="margin-right: 884px;margin-top: 7px;padding-left: 15px;">Graduate School</h1>
-        <img class="img-fluid visible" src="{% static 'general/assets/img/cuny.jpeg' %}" style="margin: 0px;margin-top: -152px;height: 353px;width: 1566.7px;padding-top: 140px;margin-bottom: 0px;border-style: solid;border-right-color: transparent;border-left-color: transparent;padding-right: 0px;padding-left: 0px;">
-        <ul class="nav nav-tabs float-start" style="margin-top: -252px;margin-right: 20px;margin-left: 525px;transform: translate(416px) rotateX(0deg) rotateY(0deg) scale(1.26);padding-top: 0px;padding-bottom: 0px;height: 42px;margin-bottom: 0px;width: 440px;">
+        <h1 class="text-nowrap" style="margin-right: 884px;margin-top: 7px;padding-left: 15px;">Graduate School</h1><img class="img-fluid visible" src="{% static 'general/assets/img/cuny.jpeg' %}" style="margin: 0px;margin-top: -152px;height: 353px;width: 1566.7px;padding-top: 140px;margin-bottom: 0px;border-style: solid;border-right-color: transparent;border-left-color: transparent;padding-right: 0px;padding-left: 0px;">
+        <ul class="nav nav-tabs" style="margin-top: -252px;margin-right: 0px;margin-left: 525px;transform: translate(416px) rotateX(0deg) rotateY(0deg) scale(1.26);padding-top: 0px;padding-bottom: 0px;height: 42px;margin-bottom: 0px;width: 450px;">
             <li class="nav-item" style="margin-right: 0px;"><a class="nav-link" href="{% url 'courses:first_class_list' %}">Honors</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'courses:class_search' %}">Search for Classes</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'graduation-apply' %}">Apply for Graduation</a></li>
         </ul>
-        {% block content %} {% endblock %}
-
     </main>
-    <footer style="margin-top: 0px;padding-top: 0px;margin-right: 0px;">
-        <footer class="footer-basic" style="margin-top: 0px;">
+   
+    <h1 style="margin-top: 223px;margin-left: 30px;">Graduate School Program Overview&nbsp;</h1>
+<p style="margin-top: -251px;padding: 0px;padding-top: 234px;padding-left: 0px;margin-bottom: 47px;font-size: 21px;text-align: justify;margin-left: 48px;width: 1256px;height: 577px;"><br>The City College master’s, doctoral and advanced certificate programs are designed for the student seeking a master’s degree, those preparing for admission into doctoral degree programs, career advancement and also for personal enrichment. Our programs also lead to careers in the medical field, non-profit and government agencies as well as careers throughout the arts.With hundreds of master’s degrees conferred each year, City College with more than sixty different graduate level programs is a great choice for graduate study. We offer a wide range of specialized learning opportunities, including 6 PhD programs and 10+ accelerated master’s degrees.<br><br></p>
+<div class="container" style="margin-top: -128px;width: 1060px;font-size: 27px;text-align: center;margin-left: 84.5px;height: 368px;">
+    <ul class="list-unstyled" style="margin-top: 0px;height: 214px;">
+        <li><a href="#" style="font-weight: normal; text-decoration:none;">Bernard and Anne Spitzer School of Architecture</a></li>
+        <li><a href="#" style="font-weight: normal; text-decoration:none;">Colin Powell School for Civic and Global Leadership</a></li>
+        <li><a href="#" style="font-weight: normal; text-decoration:none;">CUNY School of Medicine</a></li>
+        <li><a href="#" style="font-weight: normal; text-decoration:none;">Division of Humanities and the Arts</a></li>
+        <li><a href="#" style="font-weight: normal; text-decoration:none;">Division of Interdisciplinary Studies at the Center of Worker Education (CWE)</a></li>
+        <li><a href="#" style="font-style: normal; text-decoration: none;">Division of Science</a></li>
+        <li><a href="#" style="font-style: normal; text-decoration: none;">The Grove School of Engineering</a></li>
+        <li><a href="#" style="font-style: normal; text-decoration: none;">School of Education</a></li>
+        <li><a href="#" style="font-style: normal; text-decoration: none;">Sustainability in the Urban Environment, (Interdisciplinary Studies)</a></li>
+    </ul>
+</div>
+
+    <footer style="margin-top: 33px;width: 1106px; margin-left: 150px;">
+        <footer class="footer-basic">
             <div class="social">
                 <a href="https://instagram.com">
                     <i class="icon ion-social-instagram"></i>
@@ -104,16 +119,18 @@
                 <a href="https://twitter.com">
                     <i class="icon ion-social-twitter"></i>
                 </a>
-                <a href="https://faccebook.com">
+                <a href="https://facebook.com">
                     <i class="icon ion-social-facebook"></i>
                 </a>
             </div>
             <ul class="list-inline">
-                <li class="list-inline-item"><a href="{% url  'general-home' %}">Home</a></li>
+                <li class="list-inline-item"><a href="{% url 'general-home'%}">Home</a></li>
                 <li class="list-inline-item"><a href="#">Services</a></li>
                 <li class="list-inline-item"><a href="{% url 'general-about' %}">About</a></li>
                 <li class="list-inline-item"><a href="#">Terms</a></li>
-                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                {% if user.is_authenticated %}
+                    <li class="list-inline-item"><a href="{% url 'usersguide' %}">Users Guide</a></li>
+                {% endif %}
             </ul>
             <p class="copyright">CUNY Zero © 2021 | City College of New York</p>
         </footer>

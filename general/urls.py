@@ -11,6 +11,7 @@ from django.conf.urls import url
 urlpatterns = [
     path('', views.homepage, name='general-home'),
     path('login/', views.login, name='login'),
+    path('about/', views.about, name='general-about'),
     path('logout/', views.logout, name='logout'),
     path('registerInstructor/', views.registerinstructor, name='registerInstructor'),
     path('registerStudent/', views.registerStudent, name='registerStudent'),
@@ -19,5 +20,6 @@ urlpatterns = [
     path('instructorlist/', views.instructor_list, name='instructorlist'),
     path('change_password/', views.change_password, name='instructorlist'),
     path('studentpage/', views.studentpage, name='studentpage'),
+    path('userguide/',views.usersguide, name='usersguide'),
 ]
 

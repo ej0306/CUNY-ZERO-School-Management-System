@@ -18,6 +18,9 @@ def home(request):
     }
     return render(request, 'general/home.html',context)
 
+def about(request):
+    return render(request, 'general/about.html',{'title': 'About'})
+
 def registerinstructor(request):
     return render(request, 'registerInstructor.html',{'title': 'registerInstructor'})
 
@@ -41,6 +44,10 @@ def instructor_list(request):
 
 def change_password(request):
     return render(request, 'change_password.html',{'title': 'changepassword'})
+
+
+def usersguide(request):
+    return render(request, 'general/usersguide.html', {'title':'usersguide'})
 
 
 def homepage(request):
