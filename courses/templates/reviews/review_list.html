@@ -2,7 +2,8 @@
 
 {% block content %}
 
-<div class="container-fluid mt-9" style="margin-top: -350px; width: 850px; margin-left: 0px;">
+
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -350px;">
 
     <!-- Heading -->
     <div class="card mb-4 wow fadeIn">
@@ -16,7 +17,7 @@
                 <span>Latest Reviews</span>
             </h3>
         </div>
-
+        <br>
     </div>
 
     <div div class="container-fluid mt-5"> 
@@ -26,7 +27,7 @@
                 {% for review in latest_review_list %}
                     <div class="col-xs-6 col-lg-4">
                         <h4><a href="{% url 'courses:review_detail' review.id %}">
-                        {{ review.course.course }}
+                        {{ review.course.course }} 
                         </a></h4>
                         <h6>Rated {{ review.rate }}/5 by Student </a></h6>
                         <p>{{ review.review }}</p>

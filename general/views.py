@@ -6,7 +6,17 @@ from courses.models import Classes, Course, Result, ReviewClasses
 
 # Create your views here.
 def home(request):
-    return render(request, 'general/home.html',{'title': 'Home'})
+    courses = Course.objects.all()
+    students = Result.objects.filter(cgpa__gte=3.5)
+    classes = Classes.objects.all()
+
+    context = {
+        'title': 'Home',
+        "students": students,
+        "classes": classes,
+        "courses": courses,
+    }
+    return render(request, 'general/home.html',context)
 
 def registerinstructor(request):
     return render(request, 'registerInstructor.html',{'title': 'registerInstructor'})

@@ -66,10 +66,12 @@ def add_score(request):
 def add_score_for(request, id):
     """ Show the page where an instructor will grade students enrolled in a 
         specific class """
-    course = Classes.objects.get(course__pk = id)
+   
+    course = Classes.objects.get(pk = id)
     current_session = Session.objects.get(is_current_session=True)
     if request.method  == 'GET':
         courses = Classes.objects.filter(instructor__pk = request.user.id) #Check
+        
        
         students = TakenCourse.objects.filter(classes__instructor__pk = request.user.id).filter(classes__id = id) #Check
         context = {
