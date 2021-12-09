@@ -18,15 +18,15 @@
             </div>
 
         </div>
-
+<div style="margin-left: 150px; width: 750px;">
         <div >
             <h3>{{ user.first_name }} {{ user.m_initial }} {{ user.last_name }}</h3>
 
             <p> {% if user.is_student %}
-                    -> Student
+                    <p style="font-style: normal; font-weight: bold;">-> Student </p>
                 {% endif %}
                 {% if user.is_instructor %}
-                    -> Instructor
+                    <p style="font-style: normal; font-weight: bold;">-> Instructor</p>
                 {% endif %}
              </p>
         </div>
@@ -126,6 +126,7 @@
             </div>
 
         </div>
+    </div>
     </div>
 </div>
 {%  endblock content %}

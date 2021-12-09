@@ -1,7 +1,7 @@
 {% extends "general/profilepage.html" %}
 {%  block content %}
 
-<div class="container-fluid mt-9"style="width: 950px; margin-right: 400px; margin-top: -300px;">
+<div class="container-fluid mt-9"style="width: 1050px; margin-right: 400px; margin-top: -300px;">
 
  <!-- Heading -->
     <div class="card mb-4 wow fadeIn">
@@ -27,7 +27,7 @@
 		    <div class="col-md-3"><i data-toggle="tooltip" title="click on the dropdown button to select a course">No class selected</i></div>
 		    <div class="col-md-4">
 		    	<div class="dropdown">
-	    			<button class="btn btn-primary dropdown-toggle float-right" type="button" id="dropdownMenu3" 		data-toggle="dropdown"
+	    			<button class="btn btn-primary dropdown-toggle float-right" type="button" id="dropdownMenu3" 		data-bs-toggle="dropdown"
 		    			aria-haspopup="true" aria-expanded="false">
 		    			Select Class
 		    		</button>
@@ -35,9 +35,9 @@
 					<div class="dropdown-menu" aria-labelledby="dropdownMenu3">
 	    				<h6 class="dropdown-header">Select Class</h6>
 	    				{% for class in classes %}
-	    				<a data-bs-toggle="tooltip" title="{{ class.course.course_name }}" class="dropdown-item" href="{% url 'courses:add_score_for' class.id %}">{{ class.class_id }}</a>
+	    				<a data-toggle="tooltip" title="{{ class.course.course_name }}" class="dropdown-item" href="{% url 'courses:add_score_for' class.id %}">{{ class.class_id }}</a>
 	    				{% empty %}
-		    				<h6 data-bs-toggle="tooltip" class="text-center" title="maybe you have'nt been allocated any course yet">
+		    				<h6 data-toggle="tooltip" class="text-center" title="maybe you have'nt been allocated any course yet">
 			    					No class
 		    				</h6>
 	    				{% endfor %}

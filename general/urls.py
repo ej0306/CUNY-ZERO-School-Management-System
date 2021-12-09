@@ -19,5 +19,7 @@ urlpatterns = [
     path('instructorlist/', views.instructor_list, name='instructorlist'),
     path('change_password/', views.change_password, name='instructorlist'),
     path('studentpage/', views.studentpage, name='studentpage'),
+    path('userguidestudent/',views.studentuserguide, name='userguidestudent'),
+    path('userguideinstructor/',views.instructoruserguide, name='userguideinstructor'),
 ]
 

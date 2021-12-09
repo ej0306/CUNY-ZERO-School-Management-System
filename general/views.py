@@ -33,6 +33,12 @@ def change_password(request):
     return render(request, 'change_password.html',{'title': 'changepassword'})
 
 
+def studentuserguide(request):
+    return render(request, 'general/newuserguide.html', {'title':'newuserguide'})
+
+def instructoruserguide(request):
+    return render(request, 'general/newuserguideinstructor.html', {'title':'newuserguideinstructor'})
+
 def homepage(request):
     courses = Course.objects.all()
     students = Result.objects.filter(cgpa__gte=3.5)

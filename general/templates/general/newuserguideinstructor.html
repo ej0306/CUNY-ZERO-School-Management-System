@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -10,9 +11,10 @@
         <link rel="stylesheet" href="{% static 'general/assets/fonts/ionicons.min.css' %}">
         <link rel="stylesheet" href="{% static 'general/assets/css/Footer-Basic.css' %}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-        <link rel="stylesheet" href="{% static 'general/assets/css/Login-Form-Clean.css' %]">
+        <link rel="stylesheet" href="{% static 'general/assets/css/Login-Form-Clean.css' %}">
         <link rel="stylesheet" href="{% static 'general/assets/css/Navigation-with-Search.css' %}">
         <link rel="stylesheet" href="{% static 'general/assets/css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'general/assets/css/Simple-Slider.css' %}">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     </head>
     
@@ -80,22 +82,27 @@
                 </div>
             </nav>
         </header>
-
-    {% block content %} {% endblock %}
-    <footer style="margin-top: 100px;">
-        <footer class="footer-basic">
-            <div class="social"><a href="#">
-                <i class="icon ion-social-instagram"></i>
-            </a>
-            <a href="#"><i class="icon ion-social-snapchat"></i>
-            </a>
-            <a href="#">
-                <i class="icon ion-social-twitter"></i>
-            </a>
-            <a href="#">
-                <i class="icon ion-social-facebook"></i>
-            </a>
+        <div class="simple-slider" style="margin-top: 109px;width: 1460px;margin-left: -12px;min-width: 0px;">
+            <div class="swiper-container" style="width: 1287px;height: 487px;">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;) center center / cover no-repeat;"><img srcl= "{% static 'general/assets//img/Home.png' %}" style="width: 1301px;height: 492.1px;"></div>
+                    <div class="swiper-slide" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;) center center / cover no-repeat;width: 1471px;height: 500px;"><img srcl= "{% static 'general/assets//img/studentlist.png' %}" style="height: 501px;width: 1292.6px;"></div>
+                    <div class="swiper-slide" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;) center center / cover no-repeat;"><img srcl= "{% static 'general/assets//img/instructorlist.png' %}" style="height: 488px;width: 1287.9px;"></div>
+                    <div class="swiper-slide" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;) center center / cover no-repeat;"><img srcl= "{% static 'general/assets//img/class%20list.png' %}" style="height: 493px;width: 1288.7px;"></div>
+                    <div class="swiper-slide" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;) center center / cover no-repeat;"><img srcl= "{% static 'general/assets//img/classalloc.png' %}" style="width: 1290px;height: 498.8px;"></div>
+                    <div class="swiper-slide" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;) center center / cover no-repeat;"><img srcl= "{% static 'general/assets//img/gradeclass.png' %}" style="height: 500px;width: 1289.9px;"></div>
+                    <div class="swiper-slide" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;) center center / cover no-repeat;"><img srcl= "{% static 'general/assets//img/gradeclassfor.png' %}" style="height: 500px;width: 1290.9px;"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
         </div>
+        <h1 style="margin-top: 39px;margin-left: 419px;">Userguide for new instructor user</h1>
+    
+    <footer style="margin-top: 553px;">
+        <footer class="footer-basic">
+            <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="#">Home</a></li>
                 <li class="list-inline-item"><a href="#">Services</a></li>
@@ -103,11 +110,13 @@
                 <li class="list-inline-item"><a href="#">Terms</a></li>
                 <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
             </ul>
-            <p class="copyright">CUNY Zero © 2021 | City College of New York</p>
+            <p class="copyright">Company Name © 2021</p>
         </footer>
     </footer>
     <script src="{% static 'general/assets/bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'general/assets/js/bs-init.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="{% static 'general/assets/js/Simple-Slider.js' %}"></script>
 </body>
 
 </html>

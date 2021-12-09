@@ -1,6 +1,8 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -10,8 +12,9 @@
         <link rel="stylesheet" href="{% static 'general/assets/fonts/ionicons.min.css' %}">
         <link rel="stylesheet" href="{% static 'general/assets/css/Footer-Basic.css' %}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-        <link rel="stylesheet" href="{% static 'general/assets/css/Login-Form-Clean.css' %]">
+        <link rel="stylesheet" href="{% static 'general/assets/css/Login-Form-Clean.css' %}">
         <link rel="stylesheet" href="{% static 'general/assets/css/Navigation-with-Search.css' %}">
+        <link rel="stylesheet" href="{% static 'general/assets/css/Simple-Slider.css' %}">
         <link rel="stylesheet" href="{% static 'general/assets/css/styles.css' %}">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     </head>
@@ -81,21 +84,45 @@
             </nav>
         </header>
 
-    {% block content %} {% endblock %}
-    <footer style="margin-top: 100px;">
-        <footer class="footer-basic">
-            <div class="social"><a href="#">
-                <i class="icon ion-social-instagram"></i>
-            </a>
-            <a href="#"><i class="icon ion-social-snapchat"></i>
-            </a>
-            <a href="#">
-                <i class="icon ion-social-twitter"></i>
-            </a>
-            <a href="#">
-                <i class="icon ion-social-facebook"></i>
-            </a>
+<body style="border-width: 0px;border-color: var(--bs-white);">
+    <header style="background: var(--bs-blue);">
+        <nav class="navbar navbar-light navbar-expand-lg navigation-clean-search" style="background: var(--bs-primary);border-width: 2px;border-style: solid;">
+            <div class="container"><a class="navbar-brand" href="#" style="color: var(--bs-white);margin-right: 35px;margin-left: -56px;">CUNY Zero</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button><a class="text-uppercase" data-bss-hover-animate="pulse" href="#" style="margin-right: 22px;color: var(--bs-white); text-decoration: none;">Home</a>
+                <div class="collapse navbar-collapse" id="navcol-1"><a class="text-uppercase" data-bss-hover-animate="pulse" href="#" style="margin-right: 23px;color: var(--bs-white); text-decoration: none;">About</a>
+                    <ul class="navbar-nav">
+                        <li class="nav-item"></li>
+                    </ul>
+                    <form class="me-auto search-form" target="_self">
+                        <div class="d-flex align-items-center" style="margin-left: 195px;"><label class="form-label d-flex mb-0" for="search-field"><i class="fa fa-search"></i></label><input class="form-control search-field" type="search" id="search-field" name="search" style="border-width: 2px;border-color: var(--bs-gray-100);"></div>
+                    </form><a class="text-uppercase" data-bss-hover-animate="pulse" href="#" style="margin-right: 25px;color: var(--bs-white); text-decoration: none;">Login</a>
+                </div>
+                <div class="dropdown"><a class="dropdown-toggle text-uppercase" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="color: var(--bs-white);margin-right: -51px; text-decoration: none;">Register&nbsp;</a>
+                    <div class="dropdown-menu" style="padding-right: 0px;margin-right: 0px;margin-left: -78px;margin-top: 6px;padding-left: 0px;width: 60px;border: 2px solid var(--bs-gray-900);background: var(--bs-gray-100);border-radius: 9px;"><a class="dropdown-item" href="#">Instructor</a><a class="dropdown-item" href="#">Student</a></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="simple-slider" style="margin-top: 109px;width: 1460px;margin-left: -12px;min-width: 0px;">
+        <div class="swiper-container" style="width: 1287px;height: 487px;">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;) center center / cover no-repeat;"><img src="{% static 'general/assets/img/Home.png' %}" style="width: 1301px;height: 492.1px;"></div>
+                <div class="swiper-slide" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;) center center / cover no-repeat;width: 1471px;height: 500px;"><img src="{% static 'general/assets/img/profile%20home.png' %}" style="height: 501px;width: 1292.6px;"></div>
+                <div class="swiper-slide" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;) center center / cover no-repeat;"><img src="{% static 'general/assets/img/course%20offered.png' %}" style="height: 884px;width: 1287.9px;"></div>
+                <div class="swiper-slide" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;) center center / cover no-repeat;"><img src="{% static 'general/assets/img/searchclasses.png' %}" style="height: 574px;width: 1288.7px;"></div>
+                <div class="swiper-slide" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;) center center / cover no-repeat;"><img src="{% static 'general/assets/img/addordrop.png' %}" style="width: 1290px;height: 498.8px;"></div>
+                <div class="swiper-slide" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;) center center / cover no-repeat;"><img src="{% static 'general/assets/img/grade.png' %}" style="height: 500px;width: 1289.9px;"></div>
+                <div class="swiper-slide" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;) center center / cover no-repeat;"><img src="{% static 'general/assets/img/reviewclasses.png' %}" style="height: 500px;width: 1290.9px;"></div>
+                <div class="swiper-slide" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;) center center / cover no-repeat;"><img src="{% static 'general/assets/img/post%20a%20review.png' %}" style="height: 505px;width: 1297.9px;"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
+    </div>
+    <h1 style="margin-top: 39px;margin-left: 419px;">Userguide for new student user</h1>
+    <footer style="margin-top: 553px;">
+        <footer class="footer-basic">
+            <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="#">Home</a></li>
                 <li class="list-inline-item"><a href="#">Services</a></li>
@@ -103,11 +130,13 @@
                 <li class="list-inline-item"><a href="#">Terms</a></li>
                 <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
             </ul>
-            <p class="copyright">CUNY Zero © 2021 | City College of New York</p>
+            <p class="copyright">Company Name © 2021</p>
         </footer>
     </footer>
     <script src="{% static 'general/assets/bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'general/assets/js/bs-init.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="{% static 'general/assets/js/Simple-Slider.js' %}"></script>
 </body>
 
 </html>

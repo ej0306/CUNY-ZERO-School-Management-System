@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{% static 'general/assets/fonts/ionicons.min.css' %}">
     <link rel="stylesheet" href="{% static 'general/assets/css/Footer-Basic.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="{% static 'general/assets/css/Login-Form-Clean.css' %]">
+    <link rel="stylesheet" href="{% static 'general/assets/css/Login-Form-Clean.css' %}">
     <link rel="stylesheet" href="{% static 'general/assets/css/Navigation-with-Search.css' %}">
     <link rel="stylesheet" href="{% static 'general/assets/css/styles.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -61,7 +61,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="navbar-nav text-nowrap" style="width: 400px; margin-left: 150px;">
+                <div class="navbar-nav text-nowrap" style="width: 400px; margin-left: 300px;">
                     {% if user.is_authenticated %}
                         <a class="nav-item nav-link" href="{% url 'profile' %}"style="color: white;">{{ user.first_name }} {{user.last_name }}</a>
                         <a class="nav-item nav-link text-nowrap" href="{% url 'logout' %}"style="color: white;">Log Out</a>
@@ -83,8 +83,8 @@
     </header>
         <h1 class="text-nowrap" style="margin-bottom: 4px;margin-right: 739px;margin-top: 32px;padding-right: 0px;padding-left: 15px;">City University of New York</h1>
         <h1 class="text-nowrap" style="margin-right: 884px;margin-top: 7px;padding-left: 15px;">Graduate School</h1>
-        <img class="img-fluid visible" src="{% static 'general/assets/img/cuny.jpeg' %}" style="margin: 0px;margin-top: -152px;height: 353px;width: 1466.7px;padding-top: 140px;margin-bottom: 0px;border-style: solid;border-right-color: transparent;border-left-color: transparent;padding-right: 0px;padding-left: 0px;">
-        <ul class="nav nav-tabs float-start" style="margin-top: -252px;margin-right: 20px;margin-left: 357px;transform: translate(416px) rotateX(0deg) rotateY(0deg) scale(1.26);padding-top: 0px;padding-bottom: 0px;height: 42px;margin-bottom: 0px;width: 440px;">
+        <img class="img-fluid visible" src="{% static 'general/assets/img/cuny.jpeg' %}" style="margin: 0px;margin-top: -152px;height: 353px;width: 1566.7px;padding-top: 140px;margin-bottom: 0px;border-style: solid;border-right-color: transparent;border-left-color: transparent;padding-right: 0px;padding-left: 0px;">
+        <ul class="nav nav-tabs float-start" style="margin-top: -252px;margin-right: 20px;margin-left: 525px;transform: translate(416px) rotateX(0deg) rotateY(0deg) scale(1.26);padding-top: 0px;padding-bottom: 0px;height: 42px;margin-bottom: 0px;width: 440px;">
             <li class="nav-item" style="margin-right: 0px;"><a class="nav-link" href="{% url 'courses:first_class_list' %}">Honors</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'courses:class_search' %}">Search for Classes</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'graduation-apply' %}">Apply for Graduation</a></li>
