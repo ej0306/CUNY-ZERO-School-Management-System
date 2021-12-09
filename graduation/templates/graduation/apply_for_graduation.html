@@ -1,16 +1,18 @@
-{% extends "general/base.html" %}
+{% extends "general/profilepage.html" %}
 {% load crispy_forms_tags %}
 {%  block content %}
-    <div class="content-section" style="width: 950px; margin-left: 20px; margin-top:20px;">
+    <div class="content-section" style="width: 750px; margin-left: 200px; margin-top:20px;">
         <form method="post">
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Apply for Graduation</legend>
                 {{ form|crispy }}
             </fieldset>
-            <div class="form-group">
-                <button  class="btn btn-outline-info" type="submit">Log In</button>
-            </div>
+            <p>
+                <div class="form-group">
+                    <button  class="btn btn-outline-info" type="submit">Submit</button>
+                </div>
+            <p></p>
         </form>
         <p>
             <b>WARNING:</b> Before applying for graduation, you must fulfill the requirements for graduation. If you have not

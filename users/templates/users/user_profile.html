@@ -1,4 +1,4 @@
-{% extends "general/base.html" %}
+{% extends "general/profilepage.html" %}
 {% load crispy_forms_tags %}
 
 
@@ -8,19 +8,28 @@
         <div class="d-sm-flex justify-content-between">
             <h2>
                 {{ u.first_name }} {{ u.m_initial }} {{ u.last_name }}
-                {% if u.is_suspended %}
+                {% if not u.is_active %}
+                    <span style="color: red">(TERMINATED)</span>
+                {% elif u.is_suspended %}
                     <span style="color: red">(SUSPENDED)</span>
                 {% endif %}
             </h2>
                 {% if user.is_registrar or user.is_superuser %}
-                    {% if not u.is_suspended %}
-                        <form action='#'>
-                            <input type="submit" value="Suspend" />
-                        </form>
+                    {% if not u.is_suspended and not u.is_registrar %}
+                        {% if u.is_active %}
+                            <form action='{% url 'suspend_user' pk=u.id %}'>
+                                {% if u.is_instructor %}
+                                    <a type="button" href="{% url 'terminate_user' pk=u.id %}" class="btn btn-warning" style="color: white">Terminate</a>
+                                {% endif %}
+                                <input type="submit" value="Suspend" class=" btn btn-danger" />
+                            </form>
+                        {% endif %}
                     {% else %}
-                        <form action='#'>
-                            <input type="submit" value="Lift Suspension" />
-                        </form>
+                        {% if u.is_active %}
+                            <form action='{% url 'lift_user_suspension' pk=u.id %}'>
+                                <input type="submit" value="Lift Suspension" class="btn btn-success" />
+                            </form>
+                        {% endif %}
                     {% endif %}
                 {% endif %}
         </div>

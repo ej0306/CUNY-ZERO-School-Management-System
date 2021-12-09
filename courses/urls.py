@@ -21,6 +21,8 @@ urlpatterns = [
     path('add_course/', views.add_course, name='add_course'),
      path('wait_list/', views.wait_list_view, name='wait_list_view'),
     path('set_up_session/', views.set_up_session, name='set_up_session'),
+    path('academic_sessions/', views.sessions_list, name='academic_sessions_list'),
+    path('academic_sessions/<int:pk>/', views.session_details, name='academic_session_details'),
 #-----------------------------------------------------------------------------------------#
 #                            Reviews Classes URLs                                         #
 #-----------------------------------------------------------------------------------------#

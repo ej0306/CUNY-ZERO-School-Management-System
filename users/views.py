@@ -1,7 +1,9 @@
+from django.contrib.auth.mixins import AccessMixin
 from django.contrib.auth.views import LoginView
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.urls import reverse
+from django.views import View
 
 from .forms import StudentApplicationForm, InstructorApplicationForm, AcceptApplication, EnrollmentApplication, LoginForm, UserCreation
 from django.contrib.auth.decorators import login_required
@@ -316,3 +318,54 @@ def show_pdf(request, file_name):
 def show_application_file(request, pk, file_name):
     filepath = os.path.join(settings.MEDIA_ROOT, file_name)
     return FileResponse(open(filepath, 'rb'), content_type='application/pdf')
+
+
+class SuspendUser(View, AccessMixin):
+    def get(self, request, pk):
+        if not request.user.is_registrar:
+            raise PermissionDenied()
+        u = get_object_or_404(User, id__iexact=pk)
+        return render(request, 'users/confirm_suspension.html', context={'u': u})
+
+    def post(self, request, pk):
+        if not request.user.is_registrar:
+            raise PermissionDenied()
+        u = get_object_or_404(User, id__iexact=pk)
+        u.is_suspended = True
+        u.save()
+        msg = "User " + u.first_name + " " + u.last_name + " has been suspended."
+        return redirect(reverse('user_profile', kwargs={'pk': pk}))
+
+
+class LiftSuspension(View, AccessMixin):
+    def get(self, request, pk):
+        if not request.user.is_registrar:
+            raise PermissionDenied()
+        u = get_object_or_404(User, id__iexact=pk)
+        return render(request, 'users/lift_suspension.html', context={'u': u})
+
+    def post(self, request, pk):
+        if not request.user.is_registrar:
+            raise PermissionDenied()
+        u = get_object_or_404(User, id__iexact=pk)
+        u.is_suspended = False
+        u.save()
+        msg = "The suspension of user " + u.first_name + " " + u.last_name + " has been lifted."
+        return redirect(reverse('user_profile', kwargs={'pk': pk}))
+
+
+class TerminateUser(View, AccessMixin):
+    def get(self, request, pk):
+        if not request.user.is_registrar:
+            raise PermissionDenied()
+        u = get_object_or_404(User, id__iexact=pk)
+        return render(request, 'users/terminate_user.html', context={'u': u})
+
+    def post(self, request, pk):
+        if not request.user.is_registrar:
+            raise PermissionDenied()
+        u = get_object_or_404(User, id__iexact=pk)
+        u.is_active = False
+        u.save()
+        msg = "User " + u.first_name + " " + u.last_name + " has been terminated indefinitely."
+        return redirect(reverse('user_profile', kwargs={'pk': pk}))

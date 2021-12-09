@@ -5,6 +5,6 @@ class GeneralConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'general'
 
-    def ready(self):
-        from .updater import start
-        start()
+    # def ready(self):
+    #     from .updater import start
+    #     start()

@@ -1,0 +1,17 @@
+{% extends 'general/profilepage.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <form class="" action="{{ u.get_lift_suspension_url }}" method="post">
+            {% csrf_token %}
+            <h3>Are you sure you want to lift the suspension of
+                {% if u.is_instructor %}
+                    instructor
+                {% elif u.is_student %}
+                    student
+                {% endif %}  id#: {{ u.id }} - {{ u.first_name }} {{ u.last_name }}?</h3>
+            <a href="{{ u.get_absolute_url }}" class="btn" style="background-color: #dddddd">Cancel</a>
+            <button type="submit" name="button" class="btn btn-success">Lift Suspension</button>
+        </form>
+    </div>
+{% endblock %}

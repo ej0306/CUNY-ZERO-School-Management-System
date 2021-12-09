@@ -26,7 +26,7 @@
                 </h6>
                 {% if user.is_registrar or user.is_superuser %}
                 <form action={% url 'courses:add_class' %}>
-                    <input type="submit" value="Add Class" />
+                    <input type="submit" value="Add Class" class="btn btn-primary"/>
                 </form>
                 {% endif %}
 

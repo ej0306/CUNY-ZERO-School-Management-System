@@ -36,10 +36,15 @@ urlpatterns = [
     path('student_list/', user_views.student_list, name='student_list'),
     path('student_list/<int:pk>/', user_views.user_profile, name='student_list_user_profile'),
     path('instructor_list/', user_views.instructor_list, name='instructor_list'),
+    path('suspend_user/<int:pk>/', user_views.SuspendUser.as_view(), name='suspend_user'),
+    path('lift_user_suspension/<int:pk>/', user_views.LiftSuspension.as_view(), name='lift_user_suspension'),
+    path('terminate_user/<int:pk>/', user_views.TerminateUser.as_view(), name='terminate_user'),
+
     path('', include('general.urls')),
     path('graduation/', include('graduation.urls')),
     path('courses/', include('courses.urls')),
     path('user_warnings/', include('warningsystem.urls')),
+
     path('createuser/', user_views.create_user, name='create_user'),
 ]
 

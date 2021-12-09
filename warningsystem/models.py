@@ -11,7 +11,7 @@ class Warnings(models.Model):
     id = models.IntegerField(primary_key=True, auto_created=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, unique=False, primary_key=False, null=True)
     registrar = models.ForeignKey(Registrar, on_delete=models.CASCADE, unique=False, primary_key=False, null=True)
-    description = models.CharField(max_length=30, null=True, blank=True)
+    description = models.CharField(max_length=50, null=True, blank=True)
     details = models.TextField(null=True, blank=True)
     issue_date = models.DateTimeField(auto_now=False, auto_now_add=False)
 

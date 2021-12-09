@@ -1,0 +1,55 @@
+{% extends "general/profilepage.html" %}
+{% load crispy_forms_tags %}
+{%  block content %}
+    <style type="text/css">
+        .table-wrapper-scroll-y {
+    display: block;
+    max-height:  750px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+    </style>
+
+<div class="container-fluid mt-5">
+    <div class="card-body d-sm-flex justify-content-between">
+        <h3>Academic Sessions</h3>
+        <a class="btn btn-primary" href="{% url 'courses:set_up_session' %}">Add</a>
+    </div>
+            <!--Card content-->
+    <div class="table-wrapper-scroll-y">
+
+    <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">Session</th>
+                    <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for s in sessions %}
+                        {% if s.is_current_session %}
+                            <tr>
+                                <th scope="row"><a href="{{ s.id }}">{{ s.session }}</a></th>
+                                <td><div style="color: goldenrod"><strong>Ongoing</strong></div></td>
+                            </tr>
+                        {% endif %}
+                    {% empty %}
+                        <tr>
+                            <th scope="row">No academic sessions have been created.</th>
+                            <td>N/A</td>
+                        </tr>
+                    {% endfor %}
+                    {% for s in sessions %}
+                        {% if not s.is_current_session %}
+                            <tr>
+                                <th scope="row"><a href="{{ s.id }}">{{ s.session }}</a></th>
+                                <td><div style="color: red"><strong>Not active</strong></div></td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+{%  endblock content %}

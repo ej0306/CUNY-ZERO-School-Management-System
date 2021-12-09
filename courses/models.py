@@ -85,6 +85,9 @@ class Classes(models.Model):
     end_time = models.TimeField(auto_now=False, auto_now_add=False, null= True)
     instructor = models.ForeignKey(Instructor, on_delete= models.CASCADE, null= True)
 
+    cancelled = models.BooleanField(default=False)
+    session = models.ForeignKey('Session', null=True, blank=True, on_delete=models.DO_NOTHING)
+
 
     def get_cur_capacity(self):
         cur_capacity = TakenCourse.objects.filter(classes__class_id= self.class_id)
@@ -172,6 +175,8 @@ class TakenCourse(models.Model):
     total = models.PositiveIntegerField(blank=True, null=True, default=0)
     grade = models.CharField(choices=GRADE, max_length=1, blank=True)
     comment = models.CharField(choices=COMMENT, max_length=200, blank=True)
+
+    dropped = models.BooleanField(default=False)
 
     # def get_absolute_url(self):
     #     return Reversible('update_score', kwargs={'pk': self.pk})

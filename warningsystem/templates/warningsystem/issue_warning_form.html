@@ -1,7 +1,7 @@
-{% extends "general/profile_base.html" %}
+{% extends "general/profilepage.html" %}
 {% load crispy_forms_tags %}
 {%  block content %}
-    <div class="content-section">
+    <div class="">
         <form method="post">
             {% csrf_token %}
             <fieldset class="form-group">
@@ -9,7 +9,7 @@
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">
-                <button  class="btn btn-outline-info" type="submit">Send</button>
+                <button  class="btn btn-outline-info" type="submit">Submit</button>
             </div>
         </form>
     </div>

@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render, get_object_or_404
 from django.http import Http404, HttpResponseRedirect, HttpRequest, JsonResponse
 from django.urls.base import reverse
-from courses.models import Course, Classes, RepeatingStudent, ReviewClasses, Session, TakenCourse, Result, WaitList, WarningCount
+from courses.models import Course, Classes, RepeatingStudent, ReviewClasses, Session, TakenCourse, Result, WaitList, WarningCount, CourseAllocation
 from users.models import Student
 from django.urls import reverse_lazy
 from django.db.models import Q
@@ -365,9 +365,20 @@ def course_drop(request):
         for s in range (0, len(ids)):
             student = Student.objects.get(user__pk = request.user.id)
             classes = Classes.objects.get(pk = ids[s])
-            obj = TakenCourse.objects.get(student = student, classes = classes)
-            obj.delete()
-            messages.success(request, 'Successfully Dropped!')
+            obj = TakenCourse.objects.get(student=student, classes=classes)
+
+            if Session.objects.filter(is_current_session=True).first().is_class_running_period() or Session.objects.filter(is_current_session=True).first().is_grading_period():
+                obj.dropped = True
+                obj.grade = 'W'
+                obj.save()
+                messages.warning(request, 'Successfully dropped with grade W')
+                if TakenCourse.objects.filter(student__user_id=request.user.id, dropped=True, classes__session__is_current_session=True).count() == TakenCourse.objects.filter(student__user_id=request.user.id, classes__session__is_current_session=True).count():
+                    u = Student.user.objects.filter(user_id=request.user.id).first().is_suspended = True
+                    u.save()
+            else:
+                obj.delete()
+                messages.success(request, 'Successfully Dropped!')
+
         return redirect('courses:course_registration')
 
 
@@ -422,6 +433,17 @@ def add_class(request):
             new_class.current_capacity = 0
             new_class.class_id = new_class.id
             new_class.save()
+
+            ca = CourseAllocation.objects.filter(instructor__user__id__iexact=new_class.instructor.user_id)
+
+            if ca.exists():
+                ca = ca.first()
+                ca.courses.add(new_class)
+                ca.save()
+            else:
+                ca = CourseAllocation.objects.create(instructor=new_class.instructor, session=Session.objects.filter(is_current_session=True).first())
+                ca.save()
+
             return redirect('courses:list_classes')
     else:
         form = ClassSetUp()
@@ -432,14 +454,14 @@ def add_class(request):
 @login_required
 def add_course(request):
     if not (request.user.is_registrar or request.user.is_superuser):
-        return redirect('courses:list_classes')
+        return redirect('courses:course_list')
 
     if request.method == 'POST':
         form = CreateCourse(request.POST)
         if form.is_valid():
             new_course = form.save()
             new_course.save()
-            return redirect('courses:course_list')
+            return redirect('courses:courses_offered')
     else:
         form = CreateCourse()
 
@@ -456,11 +478,43 @@ def set_up_session(request):
         if form.is_valid():
             new_session = form.save()
             new_session.save()
-            return redirect('courses:course_list')
+            return redirect('courses:academic_sessions_list')
     else:
         form = SetUpSession()
 
     return render(request, 'courses/set_up_session.html', {'form': form, 'title': 'Set Up Academic Session'})
+
+
+@login_required()
+def sessions_list(request):
+    if not (request.user.is_registrar or request.user.is_superuser):
+        return redirect('courses:course_list')
+    sessions = Session.objects.all()
+
+    return render(request, 'courses/academic_sessions_list.html', {'sessions': sessions})
+
+
+@login_required
+def session_details(request, pk):
+    s = Session.objects.filter(id=pk)
+
+    if not s.exists():
+        raise Http404
+    else:
+        s = s.first()
+        csup = s.is_class_set_up_period()
+        crp = s.is_course_registration_period()
+        rp = s.is_class_running_period()
+        gp = s.is_grading_period()
+
+    context = {
+        'session': s,
+        'set_up_p': csup,
+        'reg_p': crp,
+        'run_p': rp,
+        'grad_p': gp,
+    }
+    return render(request, 'courses/session_details.html', context)
 
 
 # -----------------------------------------------------------------------------------------#

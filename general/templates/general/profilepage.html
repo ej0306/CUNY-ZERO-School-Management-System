@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{% static 'general/assets/fonts/ionicons.min.css' %}">
     <link rel="stylesheet" href="{% static 'general/assets/css/Footer-Basic.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="{% static 'general/assets/css/Login-Form-Clean.css' %]">
+    <link rel="stylesheet" href="{% static 'general/assets/css/Login-Form-Clean.css' %}">
     <link rel="stylesheet" href="{% static 'general/assets/css/Navigation-with-Search.css' %}">
     <link rel="stylesheet" href="{% static 'general/assets/css/styles.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -33,8 +33,7 @@
                     {% if user.is_authenticated %}
                         {% if user.is_registrar or user.is_superuser %}
                             <!-- Tabs that REGISTRARS can see -->
-                            <a class="nav-item nav-link" href="{% url 'enrollment_applications' %}"style="color: white;">Applications</a>
-                            <a class="nav-item nav-link" href="{% url 'courses:set_up_session' %}"style="color: white;">Sessions</a>
+
                         {% endif %}
                         {% if user.is_superuser %}
                             <!-- Tabs that ADMINS can see -->
@@ -124,6 +123,9 @@
                     <a href="{% url 'instructor_list'%}">View Instructors</a>
                   </li>
                   <li class="list-group-item list-group-item-light">
+                    <a class="text-right" href="{% url 'courses:courses_offered' %}">Courses Offered</a>
+                  </li>
+                  <li class="list-group-item list-group-item-light">
                       <a href="{% url 'courses:list_classes'%}">Class List</a>
                   </li>
                   <li class="list-group-item list-group-item-light">
@@ -134,6 +136,17 @@
                   </li>
 
               {% endif %}
+                {% if request.user.is_registrar %}
+                    <li class="list-group-item list-group-item-light">
+                        <a href="{% url 'warnings_list' %}">Issued Warnings</a>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                        <a href="{% url 'enrollment_applications' %}">Enrollment Applications</a>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                        <a href="{% url 'courses:academic_sessions_list' %}">Academic Sessions</a>
+                    </li>
+                {% endif %}
 
             </ul>
           </p>

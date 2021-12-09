@@ -27,18 +27,18 @@ class ReviewForm(forms.ModelForm):
 
 class ClassSetUp(forms.ModelForm):
     course = forms.ModelChoiceField(label="Course", queryset=Course.objects.all(), to_field_name="course_name", required=True)
+    session = forms.ModelChoiceField(label="Session", queryset=Session.objects.all(), to_field_name="session", required=True)
 
     class Meta:
         model = Classes
-        fields = ['course', 'section_num', 'credit', 'year', 'semester', 'full_capacity', 'start_date', 'end_date',
-# <<<<<<< HEAD
+        fields = ['course', 'section_num', 'session', 'credit', 'year', 'semester', 'full_capacity', 'start_date', 'end_date',
                   'days', 'start_time', 'end_time', 'instructor']
-# =======
-#                   'days','start_time', 'end_time', 'instructor']
-# >>>>>>> merge-dec-7
         widgets = {
             'start_date': SelectDateWidget(),
             'end_date': SelectDateWidget()
+        }
+        help_texts = {
+            'start_time': 'HH:MM:SS'
         }
 
 

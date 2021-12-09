@@ -8,6 +8,8 @@ from django.db.models.fields import DateTimeField
 
 
 # Create your models here.
+from django.urls import reverse
+
 FIRST = "First"
 SECOND = "Second"
 
@@ -23,6 +25,7 @@ class User(AbstractUser):
     is_registrar = models.BooleanField(default=False)
 
     is_suspended = models.BooleanField(default=False)
+    suspend_next_sem = models.BooleanField(default=False)
     new_user = models.BooleanField(default=False)
 
     first_name = models.CharField(max_length=50, default='', blank=True)
@@ -39,6 +42,18 @@ class User(AbstractUser):
     def __str__(self) -> str:
         return self.last_name + ", " + self.first_name
 
+    def get_absolute_url(self):
+        return reverse('user_profile', kwargs={'pk': self.id})
+
+    def get_suspend_url(self):
+        return reverse('suspend_user', kwargs={'pk': self.id})
+
+    def get_lift_suspension_url(self):
+        return reverse('lift_user_suspension', kwargs={'pk': self.id})
+
+    def get_termination_url(self):
+        return reverse('terminate_user', kwargs={'pk': self.id})
+
 
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
@@ -52,6 +67,7 @@ class Student(models.Model):
     transcript = models.FileField(null=True, blank=True)
 
     graduation_class = models.ForeignKey("graduation.GraduatingClass", related_name='students', blank=True, null=True, on_delete=models.DO_NOTHING)
+    special_registration = models.BooleanField(default=False)
 
     def __str__(self) -> str:
         return self.user.last_name + ", " + self.user.first_name

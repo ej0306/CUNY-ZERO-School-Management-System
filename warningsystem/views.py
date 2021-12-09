@@ -29,7 +29,7 @@ def issue_warning(request):
             w.issue_date = datetime.now()
             w.save()
 
-            return redirect('warningsystem/issued_warnings_list.html')
+            return redirect(reverse('warnings_list'))
     else:
         form = IssueWarningForm()
 
@@ -42,7 +42,7 @@ def issued_warnings_list(request):
         raise PermissionDenied()
 
     context = {
-        'warnings': Warnings.objects.all()
+        'warnings': Warnings.objects.all().order_by('-issue_date')
     }
 
     return render(request, 'warningsystem/issued_warnings_list.html', context)
@@ -73,5 +73,6 @@ class RemoveWarning(View, AccessMixin):
         w = get_object_or_404(Warnings, id__iexact=pk)
         w_id = w.id
         w.delete()
-        messages.success("Warning has been removed. #" + str(w_id))
+        msg = "Warning has been removed. #" + str(w_id)
+        messages.success(request, msg)
         return redirect(reverse('warnings_list'))
