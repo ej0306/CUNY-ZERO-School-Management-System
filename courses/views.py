@@ -71,6 +71,7 @@ def add_score_for(request, id):
    
     course = Classes.objects.get(pk = id)
     current_session = Session.objects.get(is_current_session=True)
+    current_period = current_session.current_period
     if request.method  == 'GET':
         courses = Classes.objects.filter(instructor__pk = request.user.id) #Check
         
@@ -85,35 +86,39 @@ def add_score_for(request, id):
         }
         return render(request, "courses/add_score_for.html", context)
 
-    if request.method == 'POST':
-        ids = ()
-        data = request.POST.copy()
-        data.pop('csrfmiddlewaretoken', None) #remove csrf_token
-        for key in data.keys():
-            ids = ids + (str(key),)      # gather all the all students id (i.e the keys) in a tuple
+    if current_period == "Grading Period":
+        if request.method == 'POST':
+            ids = ()
+            data = request.POST.copy()
+            data.pop('csrfmiddlewaretoken', None) #remove csrf_token
+            for key in data.keys():
+                ids = ids + (str(key),)      # gather all the all students id (i.e the keys) in a tuple
 
-        for s in range(0,len(ids)):      # iterate over the list of student ids gathered above
-            student = TakenCourse.objects.get(id = ids[s])
-            courses = Classes.objects.filter(semester = student.student.semester)
-            total_unit_semester = 0
-            for i in courses:
-                if i ==courses.count():
-                    break
-                else:
-                    total_unit_semester += int(i.credit)
+            for s in range(0,len(ids)):      # iterate over the list of student ids gathered above
+                student = TakenCourse.objects.get(id = ids[s])
+                courses = Classes.objects.filter(semester = student.student.semester)
+                total_unit_semester = 0
+                for i in courses:
+                    if i ==courses.count():
+                        break
+                    else:
+                        total_unit_semester += int(i.credit)
 
-            score = data.getlist(ids[s])
-            ca = score[0]
-            exam = score[1]
-            obj = TakenCourse.objects.get(pk =ids [s])
-            obj.ca = ca
-            obj.exam = exam
-            obj.total = obj.get_total(ca = ca, exam = exam)
-            obj.grade = obj.get_grade(ca=ca, exam=exam)
-            obj.comment = obj.get_comment(obj.grade)
-            obj.save()
+                score = data.getlist(ids[s])
+                ca = score[0]
+                exam = score[1]
+                obj = TakenCourse.objects.get(pk =ids [s])
+                obj.ca = ca
+                obj.exam = exam
+                obj.total = obj.get_total(ca = ca, exam = exam)
+                obj.grade = obj.get_grade(ca=ca, exam=exam)
+                obj.comment = obj.get_comment(obj.grade)
+                obj.save()
 
-        messages.success(request, 'Succesfully Recorded!')
+            messages.success(request, 'Succesfully Recorded!')
+    else: 
+        messages.warning(request, "Can't assign  grade at this time!")
+
 
         return HttpResponseRedirect(reverse_lazy('courses:add_score_for', kwargs = {'id': id }))
     return HttpResponseRedirect(reverse_lazy('courses:add_score_for', kwargs = {'id': id }))
