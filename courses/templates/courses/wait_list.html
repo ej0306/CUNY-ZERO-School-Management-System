@@ -1,0 +1,128 @@
+{% extends "general/profilepage.html" %}
+{% load static %}
+
+{% block js %}
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="{% static 'js/tbl_scroll.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/disable_checkbox.js' %}"></script>
+{% endblock js %}
+
+
+{%  block content %}
+
+{% if user.is_registrart or user.is_superuser %}
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -550px;">
+{% endif %}
+
+{% if user.is_student  %}
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -350px;">
+{% endif %}
+
+
+{% if user.is_instructor  %}
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -450px;">
+{% endif %}
+
+
+     <!-- Heading -->
+     <div class="card mb-4 wow fadeIn">
+
+        <!--Card content-->
+        <div class="card-body d-sm-flex justify-content-between">
+
+            <h3 class="mb-2 mb-sm-0 pt-1">
+                <a href="{% url 'profile' %}">Profile Page</a>
+                <span>/</span>
+                <span>Wait Lists</span>
+            </h3>
+        </div>
+
+        <br>
+    </div>
+    <br>
+
+    <form method="POST" action="{% url 'courses:wait_list_view' %}">{% csrf_token %}
+
+        <div class="card card-cascade narrower">
+
+            <!--Card image-->
+            <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+        
+                <div>
+                    <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-plus" aria-hidden="true"></i> Accept Selected
+                    </button>
+                </div>
+            
+                <a href="" class="white-text mx-3">Wait List Students</a>
+                <!-- <span class="pull-right white-text">Level: {{ student.semester }}</span> -->
+                
+            </div>
+    
+        </div>
+
+
+        <!--/Card image-->
+        <div class="px-4">
+
+            <div class="table-wrapper">
+                    <!--Table-->
+                    <table id="dtVerticalScrollExample" class="table table-hover mb-0">
+
+                        <!--Table head-->
+                        <thead>
+                            <tr>
+                                <th>
+                                
+                                </th>
+                                <th class="th-lg">
+                                    <a>Student
+                                    </a>
+                                <th class="th-lg">
+                                <a>Course
+                                </a>
+                                </th>
+                                
+                                <th class="th-lg">
+                                <a href="">Days-Time
+                                </a>
+                                </th>
+                                
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for obj in wait_list %}
+                            <tr>
+                                <th scope="row">
+                                    <input name="{{ obj.pk }}" value="{{ obj.credit }}" class="form-check-input" type="checkbox" id="checkbox1">
+                                    <label class="form-check-label" for="checkbox1" class="label-table"></label>
+                                </th>
+                                <td> {{obj.student}}</td>
+                                <td> {{obj.course}} </td>
+                                <td> {{obj.course.days}} : {{obj.course.start_time}} - 
+                                    {{obj.course.end_time}}
+
+                                </td>
+
+                            </tr>
+                            {% endfor %}
+
+
+
+
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+
+{% endblock %}

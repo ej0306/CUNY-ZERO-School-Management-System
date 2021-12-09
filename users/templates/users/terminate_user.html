@@ -1,0 +1,15 @@
+{% extends 'general/profilepage.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="container-fluid mt-9" style="width: 1050px; margin-left: -20px; margin-top: -550px;">
+    <div class="content-section">
+        <form class="" action="{{ u.get_termination_url }}" method="post">
+            {% csrf_token %}
+            <h3>Are you sure you want to terminate instructor id #{{ u.id }} - {{ u.first_name }} {{ u.last_name }}?</h3>
+            <p><strong style="color: red">This action cannot be undone.</strong></p>
+            <a href="{{ u.get_absolute_url }}" class="btn" style="background-color: #dddddd">Cancel</a>
+            <button type="submit" name="button" class="btn btn-danger">Terminate</button>
+        </form>
+    </div>
+    </div>
+{% endblock %}

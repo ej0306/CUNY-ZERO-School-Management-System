@@ -1,0 +1,105 @@
+{% extends "general/profilepage.html" %}
+{%  block content %}
+
+    <style type="text/css">
+        .table-wrapper-scroll-y {
+    display: block;
+    max-height: 750px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+    </style>
+
+{% if user.is_registrart or user.is_superuser %}
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -550px;">
+{% endif %}
+
+{% if user.is_student  %}
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -350px;">
+{% endif %}
+
+
+{% if user.is_instructor  %}
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -450px;">
+{% endif %}
+
+        <!-- Heading -->
+        <div class="card mb-4 wow fadeIn">
+
+            <!--Card content-->
+            <div class="card-body d-sm-flex justify-content-between">
+
+                <h3 class="mb-2 mb-sm-0 pt-1">
+                    <a href="{% url 'profile' %}">Profile Page</a>
+                    <span>/</span>
+                    <span>Classes' List</span>
+
+                </h6>
+                {% if user.is_registrar or user.is_superuser %}
+                <form action={% url 'courses:add_class' %}>
+                    <input type="submit" value="Add Class" class="btn btn-primary"/>
+                </form>
+                {% endif %}
+
+                </h3>
+
+            </div>
+
+            <br>
+        </div>
+        <br>
+            <!--Card content-->
+    <div class="table-wrapper-scroll-y">
+
+    <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Course</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Instructor</th>
+                    <th scope="col">Days-Time</th>
+                    <th scope="col">Information</th>
+                    
+                    </tr>
+                </thead>
+                
+           
+            {% for class in classes %}
+                <tbody>
+                    <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ class.course.course_name }}</td>
+                    <td>{{ class.class_id }}</td>
+                    <td>{{ class.course.title }}</td>
+                    <td>{{ class.instructor }}</td>
+                    <td>{{class.days}} : {{class.start_time}} - {{class.end_time}} </td>
+                    <td> {{class.year}} {{class.semester}} Term: 
+                        {{class.start_date}} -  {{class.end_date}} <br>
+                        Seats: {{class.get_cur_capacity}}/{{class.full_capacity}} <br>
+                        Credit: {{class.credit}}.0 
+            
+                    </td>
+                   
+                    </tr>
+                    {% empty %}
+                    <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    
+                    </tr>
+                </tbody>
+            {% endfor %}
+            </table>
+        </div>
+    </div>
+    <br>
+
+
+
+{%  endblock content %}

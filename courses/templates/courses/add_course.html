@@ -1,0 +1,37 @@
+{% extends "general/profilepage.html" %}
+{% load crispy_forms_tags %}
+
+{%  block content %}
+
+
+{% if user.is_registrart or user.is_superuser %}
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -550px;">
+{% endif %}
+
+    <!-- Heading -->
+    <div class="card mb-4 wow fadeIn">
+
+        <!--Card content-->
+        <div class="card-body d-sm-flex justify-content-between">
+
+            <h3 class="mb-2 mb-sm-0 pt-1">
+                <a href="{% url 'profile' %}">Profile Page</a>
+                <span>/</span>
+                <span>Add Course</span>
+            </h3>
+           
+        </div>
+        <br>
+    </div>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+        {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button  class="btn btn-outline-info" type="submit">Create</button>
+        </div>
+    </form>
+</div>
+{%  endblock content %}

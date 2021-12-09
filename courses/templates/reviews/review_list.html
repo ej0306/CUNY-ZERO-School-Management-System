@@ -1,0 +1,57 @@
+{% extends "general/profilepage.html" %}
+
+{% block content %}
+
+
+
+{% if user.is_registrart or user.is_superuser %}
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -550px;">
+{% endif %}
+
+{% if user.is_student  %}
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -400px;">
+{% endif %}
+
+
+{% if user.is_instructor  %}
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -450px;">
+{% endif %}
+
+
+    <!-- Heading -->
+    <div class="card mb-4 wow fadeIn">
+
+        <!--Card content-->
+        <div class="card-body d-sm-flex justify-content-between">
+
+            <h3 class="mb-2 mb-sm-0 pt-1">
+                <a href="{% url 'courses:course_list'%}">Review Page</a>
+                <span>/</span>
+                <span>Latest Reviews</span>
+            </h3>
+        </div>
+        <br>
+    </div>
+
+    <div div class="container-fluid mt-5"> 
+        {% if latest_review_list %}
+
+            <div class="row">
+                {% for review in latest_review_list %}
+                    <div class="col-xs-6 col-lg-4">
+                        <h4><a href="{% url 'courses:review_detail' review.id %}">
+                        {{ review.course.course }} 
+                        </a></h4>
+                        <h6>Rated {{ review.rate }}/5 by Student </a></h6>
+                        <p>{{ review.review }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+        <p>No reviews are available.</p>
+
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

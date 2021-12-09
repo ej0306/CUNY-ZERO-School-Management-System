@@ -1,0 +1,133 @@
+{% extends "general/profilepage.html" %}
+{% load crispy_forms_tags %}
+{%  block content %}
+    <div class="content-section" style="width: 700px; margin-left: 100px; margin-top: -600px">
+    <style type="text/css">
+        .table-wrapper-scroll-y {
+        display: block;
+        overflow-y: auto;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        }
+    </style>
+    <h4>Graduation Application</h4>
+    <div class="content-section">
+        <h5>Personal Information</h5>
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>Student Name:</th>
+                <td>{{ application.student.user.first_name }} {{ application.studet.user.m_initial }} {{ application.student.user.last_name }}</td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <th>ID:</th>
+                <td>{{ application.student.user.id }}</td>
+            </tr>
+        </table>
+
+        <h5>Academic Information</h5>
+            <div class="table-wrapper-scroll-y">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Course </th>
+                            <th scope="col">GRADE</th>
+                        </tr>
+                    </thead>
+                    <u>First Semester:</u>
+                    {% for course in courses %}
+                    {% if course.classes.semester == "First" %}
+                    <tbody>
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{ course.classes }}</td>
+                            <td>{{ course.grade }}</td>
+                        </tr>
+                    </tbody>
+                    {% endif %}
+                    {% endfor %}
+                     <br>
+                </table>
+
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Course</th>
+                            <th scope="col">GRADE</th>
+                        </tr>
+                    </thead>
+                    <u>Second Semester:</u>
+                    {% for course in courses %}
+                    {% if course.classes.semester == "Second" %}
+                    <tbody>
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{ course.classes }}</td>
+                            <td>{{ course.grade }}</td>
+                        </tr>
+                    </tbody>
+                    {% endif %}
+                    {% endfor %}
+                </table>
+            </div>
+            <br>
+        <div>
+            <table>
+                <tbody>
+                    {% for result in result %}
+                    {% if result.level == "First" %}
+                    <tr>
+                        <th scope="row"></th>
+                        <th></th>
+                        <th><label>First Semester GPA:</label> {{ result.gpa }}</th>
+                    </tr>
+                    <br>
+                    {% elif result.level == "Second" %}
+                    <tr>
+                        <th scope="row"></th>
+                        <th></th>
+                        <th><label>Second Semester GPA:</label> {{ result.gpa }}</th>
+                    </tr>
+                    <br>
+                    {% endif %}
+                    {% endfor %}
+                    <tr>
+                        <th scope="row"></th>
+                        <th></th>
+                        <th><label>GPA:</label> {{ application.student.gpa }}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% if application.pending %}
+        <div class="content-section">
+            <h5>Process Application:</h5>
+            <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                <fieldset class="form-group">
+                        {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button  class="btn btn-outline-info" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    {% else %}
+        <p>
+            <b>
+                Application Status:
+                {% if application.approved %}
+                    <span style="color: limegreen">APPROVED</span>
+                {% elif application.rejected %}
+                    <span style="color: red">REJECTED</span>
+                {% elif application.pending %}
+                    <span style="color: goldenrod">PENDING</span>
+                {% endif %}
+            </b>
+        </p>
+    {% endif %}
+    </div>
+{%  endblock content %}

@@ -1,0 +1,14 @@
+{% extends 'general/profilepage.html' %}
+{% load crispy_forms_tags %}
+{%  block content %}
+    <div class="content-section" style="width: 700px; margin-left: 100px; margin-top: -400px;padding: 20px;">
+        <h3>File a Report</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{form|crispy}}
+            <br>
+            <a class="btn" style="background-color: #dddddd" onclick="history.back()">back</a>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+{%  endblock %}

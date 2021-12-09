@@ -1,0 +1,116 @@
+{% extends "general/profilepage.html" %}
+{%  block content %}
+
+ <div class="container-fluid mt-9" style="width: 1050px; margin-top: -400px; margin-left: 0px;">
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+    <style type="text/css">
+        .table-wrapper-scroll-y {
+        display: block;
+        max-height: 350px;
+        overflow-y: auto;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        }
+    </style>
+     <!-- Heading -->
+     <div class="card mb-4 wow fadeIn">
+
+        <!--Card content-->
+        <div class="card-body d-sm-flex justify-content-between">
+
+            <h3 class="mb-2 mb-sm-0 pt-1">
+                <a href="{% url 'profile' %}">Profile Page</a>
+                <span>/</span>
+                <span>View Grades</span>
+            </h3>
+        </div>
+        <br>
+    </div>
+    <br>
+    <br>
+    <center> <h4> {{current_session}} - Result </h4></center>
+    <div class="table-wrapper-scroll-y">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Course </th>
+                    <th scope="col">GRADE</th>
+                </tr>
+            </thead>
+            <u>First Semester:</u>
+            {% for course in courses %}
+            {% if course.classes.semester == "First" %}
+            <tbody>
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ course.classes }}</td>
+                    <td>{{ course.grade }}</td>
+                </tr>
+            </tbody>
+            {% endif %}
+            {% endfor %}
+             <br>
+        </table>
+
+
+        <br>
+        <br>
+        <br>
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Course</th>
+                    <th scope="col">GRADE</th>
+                </tr>
+            </thead>
+            <u>Seccond Semester:</u>
+            {% for course in courses %}
+            {% if course.classes.semester == "Second" %}
+            <tbody>
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ course.classes }}</td>
+                    <td>{{ course.grade }}</td>
+                </tr>
+            </tbody>
+            {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+    <br>
+    <tbody>
+        {% for result in result %}
+        {% if result.level == "First" %}
+        <tr>
+            <th scope="row"></th>
+            <th></th>
+            <th><label>First Semester GPA:</label> {{ result.gpa }}</th>
+        </tr>
+        <br>
+        {% elif result.level == "Second" %}
+        <tr>
+            <th scope="row"></th>
+            <th></th>
+            <th><label>Second Semester GPA:</label> {{ result.gpa }}</th>
+        </tr>
+        <br>
+        {% endif %}
+        {% endfor %}
+        <tr>
+            <th scope="row"></th>
+            <th></th>
+            <!-- <th><label>Previous CGPA:</label> {{ previousCGPA }}</th> -->
+        </tr>
+    </tbody>
+</div>
+    <br>
+{% endblock %}

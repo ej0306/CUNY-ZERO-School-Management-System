@@ -1,0 +1,16 @@
+{% extends "general/base.html" %}
+{% load crispy_forms_tags %}
+{%  block content %}
+<div style="width: 500px; margin-top: 0px; margin-left: 50px;">
+    <h3>{{ title }}</h3>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+        {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button  class="btn btn-outline-info" type="submit">Save</button>
+        </div>
+    </form>
+</div>
+{%  endblock content %}

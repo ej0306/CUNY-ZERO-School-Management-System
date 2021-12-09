@@ -1,0 +1,100 @@
+{% extends "general/profilepage.html" %}
+{%  block content %}
+
+<style type="text/css">
+  .table-wrapper-scroll-y {
+display: block;
+max-height: 350px;
+overflow-y: auto;
+-ms-overflow-style: -ms-autohiding-scrollbar;
+}
+</style>
+
+
+{% if user.is_registrart or user.is_superuser %}
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -550px;">
+{% endif %}
+
+{% if user.is_student  %}
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -350px;">
+{% endif %}
+
+
+{% if user.is_instructor  %}
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -450px;">
+{% endif %}
+
+
+            <!-- Heading -->
+            <div class="card mb-4 wow fadeIn">
+
+                <!--Card content-->
+                <div class="card-body d-sm-flex justify-content-between">
+
+                    <h3 class="mb-2 mb-sm-0 pt-1">
+                        <a href="/">Home Page</a>
+                        <span>/</span>
+                        <span>Best Rated Classes</span>
+                    </h3>
+                </div>
+                <br>
+            </div>
+            <br>
+            {% if request.user.is_superuser %}
+            <!-- Heading -->
+            <h6 class="mb-2 mb-sm-0 pt-1">
+            <a class="pull-right btn btn-default btn-rounded mb-3" href="" class="btn btn-default btn-rounded mb-4">
+               <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Print
+            </a>
+            </h6>
+            {% endif %}
+
+                <!--Card content-->
+  <div class="table-wrapper-scroll-y">
+
+  <table class="table table-bordered table-striped">
+                     <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Course</th>
+                          <th scope="col">Instructor</th>
+                          <th scope="col">Average Rating</th>
+                          {% if request.user.is_superuser %}
+                          <th scope="col">Action</th>
+                          {% endif %}
+                        </tr>
+                    </thead>
+                {% for class in classes %}
+                    {% if class.course.average_rating > 3.5 %}
+                    <tbody>
+                        
+                        <tr>
+                          <th scope="row">{{ if.counter }}</th>
+                          <td>{{ class.course }}</td>
+                          <td>{{ class.course.instructor}}</td>
+                          <td>{{ class.course.average_rating}}</td>
+                         
+                        </tr>
+                        {% endif %}
+                        {% empty %}
+                       
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td>
+                          <span>No class available</span>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        </tr>
+                    </tbody>
+
+                    
+                {% endfor %}
+                 
+                 </table>
+            </div>
+        </div>
+        <br>
+{% endblock %}

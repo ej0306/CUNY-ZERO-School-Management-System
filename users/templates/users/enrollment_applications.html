@@ -1,0 +1,71 @@
+{% extends "general/profilepage.html" %}
+{% load crispy_forms_tags %}
+{%  block content %}
+    <style type="text/css">
+        .table-wrapper-scroll-y {
+    display: block;
+    max-height:  750px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+    </style>
+<div class="content-section" style="width: 700px; margin-left: 100px; margin-top: -600px">
+<div class="">
+    <h3>Enrollment Applications</h3>
+            <!--Card content-->
+    <div class="table-wrapper-scroll-y">
+
+    <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">ID#</th>
+                    <th scope="col">Applicant Name</th>
+                    <th scope="col">Application Type</th>
+                    <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ap in applications %}
+                        {% if ap.status_pending %}
+                            <tr>
+                            <th scope="row">{{ ap.id }}</th>
+                                <td><a href="{{ ap.id }}">{{ ap.first_name }} {{ ap.last_name }}</a></td>
+                                <td>
+                                    {% if ap.student_application %}
+                                        Student
+                                    {% elif ap.Instructor_application %}
+                                        Instructor
+                                    {% endif %}
+                                </td>
+                                <td><div style="color: darkgoldenrod"><b>Pending</b></div></td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    {% for ap in applications %}
+                        {% if not ap.status_pending %}
+                        <tr>
+                        <th scope="row">{{ ap.id }}</th>
+                            <td><a href="{{ ap.id }}">{{ ap.first_name }} {{ ap.last_name }}</a></td>
+                            <td>
+                                {% if ap.student_application %}
+                                    Student
+                                {% elif ap.Instructor_application %}
+                                    Instructor
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ap.status_approved %}
+                                    <div style="color: limegreen"><b>Approved</b></div>
+                                {% elif ap.status_rejected %}
+                                    <div style="color: red"><b>Rejected</b></div>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{%  endblock content %}

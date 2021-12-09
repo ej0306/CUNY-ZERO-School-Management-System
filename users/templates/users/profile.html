@@ -1,0 +1,154 @@
+{% extends "general/profilepage.html" %}
+{% load crispy_forms_tags %}
+
+
+{%  block content %}
+
+{% if user.is_registrart or user.is_superuser %}
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -550px;">
+{% endif %}
+
+{% if user.is_student  %}
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -400px;">
+{% endif %}
+
+
+{% if user.is_instructor  %}
+<div class="container-fluid mt-9" style="width: 950px; margin-left: -20px; margin-top: -450px;">
+{% endif %}
+
+    <!-- Heading -->
+    <div class="card mb-4 wow fadeIn">
+
+        <!--Card content-->
+        <div class="card-body d-sm-flex justify-content-between">
+
+            <h3 class="mb-2 mb-sm-0 pt-1">
+                <a href="{% url 'profile' %}">Home Page</a>
+                <span>/</span>
+                <span>Profile Page</span>
+            </h3>
+           
+        </div>
+        <br>
+    </div>
+        <div >
+            <h3 class="display-4"> <strong>{{ user.first_name }} {{ user.m_initial }} {{ user.last_name }} </strong></h3>
+
+            <p> {% if user.is_student %}
+                    <p style="font-style: normal; font-weight: bold;">-> Student </p>
+                {% endif %}
+                {% if user.is_instructor %}
+                    <p style="font-style: normal; font-weight: bold;">-> Instructor</p>
+                {% endif %}
+             </p>
+        </div>
+
+        <div>
+           <br>
+
+    <center>
+        <h6 class="display-6"> {{current_period}} : {{current_session}} </h6>
+    </center>
+    <br>
+    <br>
+            <div class="col-mt-9">
+                <center> <h3>Contact Information</h3> </center>
+                <br>
+                <ul class="list-group">
+                    
+                    <li class="list-group-item list-group-item-light">
+                        <h5> <b> Email : </b>  {{ user.email }}  </h5>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                        <h5> <b> Phone Number : </b>  {{ user.phone_number }}  </h5>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                        <h5> <b> DOB : </b>  {{ user.birth_date }}  </h5>
+                    </li>
+
+                </ul>
+                <br>
+                <br>
+
+                {% if user.is_instructor %}
+                    
+                    <center> <h3>Your Classes</h3> </center>
+                    <br>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Course</th>
+                                <th scope="col">Days-Time</th>
+                                <th scope="col">Duration</th>
+
+
+                            </tr>
+                        </thead>
+
+                        {% for course in courses %}
+                        <tbody>
+                            <tr>
+                                <th scope="row">{{ forloop.counter }}</th>
+                                <td>{{ course.course }}</td>
+                                <td>{{ course.days }}: {{ course.start_time }} - {{ course.end_time }}</td>
+                                <td>{{course.start_date}} -  {{course.end_date}}</td>
+                            </tr>
+                        </tbody>
+                        {% empty %}
+                        <p>No classes have been assigned to you yet!</p>
+
+                        {% endfor %}
+                        
+
+                    </table>
+                    
+
+                {% endif %}
+
+                {% if user.is_student %}
+                    
+                    <center> <h3>Your Classes</h3> </center>
+                    <br>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Course</th>
+                                <th scope="col">Days-Time</th>
+                                <th scope="col">Duration</th>
+                                <th scope="col">Grade</th>
+                            </tr>
+                        </thead>
+
+                        {% for course in taken_course %}
+                        <tbody>
+                            <tr>
+                                <th scope="row">{{ forloop.counter }}</th>
+                                <td>{{ course.classes }}</td>
+                                <td>{{ course.classes.days }}: {{ course.classes.start_time }} - {{ course.classes.end_time }}</td>
+                                <td>{{course.classes.start_date}} -  {{course.classes.end_date}}</td>
+                                <td style="text-align: center">{% if course.grade == '' %}
+                                        N/A
+                                    {% else %}
+                                        {{course.grade}}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        </tbody>
+                        {% empty %}
+                        <p>You have not enrolled for any classes yet!</p>
+
+                        {% endfor %}
+                        
+
+                    </table>
+                    
+
+                {% endif %}
+            </div>
+
+        </div>
+</div>
+{%  endblock content %}

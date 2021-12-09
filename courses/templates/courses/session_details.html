@@ -1,0 +1,81 @@
+{% extends "general/base.html" %}
+{% load crispy_forms_tags %}
+{%  block content %}
+    <style type="text/css">
+        .table-wrapper-scroll-y {
+        display: block;
+        overflow-y: auto;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        }
+    </style>
+    <div class="content-section" style="width: 700px; margin-left: 100px; margin-top: 50px">
+        <h4>Academic Session: {{ session.session }}</h4>
+        <h6>
+            <strong>Status:</strong>
+            {% if session.is_current_session %}
+                <span style="color: limegreen"><strong>Ongoing</strong></span>
+            {% else %}
+                <span style="color: red"><strong>Not active</strong></span>
+            {% endif %} 
+        </h6>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Session Period</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tr>
+                <th>Class Set up</th>
+                <td>{{ session.class_set_up_period_start }}</td>
+                <td>{{ session.class_set_up_period_end }}</td>
+                <td>
+                    {% if set_up_p %}
+                        <span style="color: limegreen"><strong>Ongoing</strong></span>
+                    {% else %}
+                        <span style="color: red"><strong>Not active</strong></span>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Registration</th>
+                <td>{{ session.course_registration_period_start }}</td>
+                <td>{{ session.course_registration_period_end }}</td>
+                <td>
+                    {% if reg_p %}
+                        <span style="color: limegreen"><strong>Ongoing</strong></span>
+                    {% else %}
+                        <span style="color: red"><strong>Not active</strong></span>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Class Running</th>
+                <td>{{ session.class_running_period_start }}</td>
+                <td>{{ session.class_running_period_end }}</td>
+                <td>
+                    {% if run_p %}
+                        <span style="color: limegreen"><strong>Ongoing</strong></span>
+                    {% else %}
+                        <span style="color: red"><strong>Not active</strong></span>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Grading</th>
+                <td>{{ session.grading_period_start }}</td>
+                <td>{{ session.grading_period_end }}</td>
+                <td>
+                    {% if grad_p %}
+                        <span style="color: limegreen"><strong>Ongoing</strong></span>
+                    {% else %}
+                        <span style="color: red"><strong>Not active</strong></span>
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+        <p><a href="{% url 'courses:academic_sessions_list' %}" class="btn" style="background-color: #dddddd">back</a></p>
+    </div>
+{%  endblock content %}
