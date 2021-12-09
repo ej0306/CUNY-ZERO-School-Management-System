@@ -1,4 +1,5 @@
 {% extends "general/home.html" %}
+
 {%  block content %}
 <div class="container-fluid mt-9" style="width: 600px; margin-left: 250px;">
    
@@ -28,7 +29,7 @@
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                    <th scope="col">#</th>
+                   
                     <th scope="col">Course</th>
                     <th scope="col">Instructor</th>
                     <th scope="col">Average Rating</th>
@@ -42,10 +43,10 @@
                 <tbody>
                     
                     <tr>
-                    <th scope="row">{{ if.counter }}</th>
+                    
                     <td>{{ class.course }}</td>
                     <td>{{ class.instructor}}</td>
-                    <td>{{ class.average_rating}}</td>
+                    <td>{{ class.average_rating | floatformat}}</td>
                     
                     </tr>
                     {% endif %}
@@ -83,7 +84,7 @@
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                    <th scope="col">#</th>
+                    
                     <th scope="col">Course</th>
                     <th scope="col">Instructor</th>
                     <th scope="col">Average Rating</th>
@@ -95,13 +96,13 @@
                           
                 <tbody>
                 {% for class in classes %}
-                {% if class.average_rating < 2.2 %}
+                {% if class.average_rating < 2.5 %}
                     
                     <tr>
-                    <th scope="row">{{ if.counter }}</th>
+                   
                     <td>{{ class.course }}</td>
                     <td>{{ class.instructor}}</td>
-                    <td>{{ class.average_rating}}</td>
+                    <td>{{ class.average_rating | floatformat}}</td>
                     
                     </tr>
                     {% endif %}

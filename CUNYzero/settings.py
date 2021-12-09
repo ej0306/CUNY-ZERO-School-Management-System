@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'mathfilters',
     'numpy',
     "django_apscheduler",
+    'django.contrib.humanize',
     
 
     'django.contrib.admin',

@@ -116,6 +116,10 @@
                   <li class="list-group-item list-group-item-light">
                     <a class="text-right" href="{% url 'courses:course_list' %}">Review Classes</a>
                   </li>
+                  <li class="list-group-item list-group-item-light">
+                    <a href="{% url 'courses:send_warnings_auto'%}">Warnings</a>
+                  </li>
+
               {% else %}
                   <li class="list-group-item list-group-item-light">
                     <a href="{% url 'student_list'%}">View Students</a>
@@ -134,6 +138,9 @@
                   </li>
                   <li class="list-group-item list-group-item-light">
                     <a href="{% url 'courses:add_score'%}">Grade Class</a>
+                  </li>
+                  <li class="list-group-item list-group-item-light">
+                    <a href="{% url 'courses:send_warnings_auto'%}">Warnings</a>
                   </li>
 
               {% endif %}

@@ -4,11 +4,11 @@ from typing import Optional, Reversible
 from django.db import models
 from django.db.models.deletion import CASCADE
 from django.db.models.fields import IntegerField
-from django.utils import timezone
+from django.utils import timezone, tree
 import numpy as np
 import datetime
 import pytz
-from users.models import Instructor, Student
+from users.models import Instructor, Student, User
 
 # Create your models here.
 A = "A"
@@ -16,6 +16,7 @@ B = "B"
 C = "C"
 D = "D"
 F = "F"
+W = "W"
 PASS = "PASS"
 FAIL = "FAIL"
 
@@ -52,6 +53,20 @@ DAYS = (
 
 )
 
+CSU_PERIOD = "Class Set-Up Period"
+CR_PERIOD = "Course Registration Period"
+CLR_PERIOD = "Class Running Period"
+GR_PERIOD = "Grading Period"
+
+
+PERIODS = (
+    (CSU_PERIOD , "Class Set-Up Period"),
+    (CR_PERIOD , "Course Registration Period"),
+    (CLR_PERIOD , "Class Running Period"),
+    (GR_PERIOD , "Grading Period"),
+
+)
+
 
 # -----------------------------------------------------------------------------------------#
 #                              Courses/Classes Related Models                             #
@@ -85,6 +100,7 @@ class Classes(models.Model):
     end_time = models.TimeField(auto_now=False, auto_now_add=False, null= True)
     instructor = models.ForeignKey(Instructor, on_delete= models.CASCADE, null= True)
 
+    
 
     def get_cur_capacity(self):
         cur_capacity = TakenCourse.objects.filter(classes__class_id= self.class_id)
@@ -93,7 +109,8 @@ class Classes(models.Model):
 
     def average_rating(self):
         all_ratings = map(lambda x: x.rate, self.reviewclasses_set.all())
-        return np.mean(list(all_ratings)) # np -> numpy
+        ar = np.mean(list(all_ratings)) # np -> numpy
+        return ar
 
     def __str__(self):
         return self.course.course_name + " -  " + self.class_id + " -  " + self.course.title + " -  " + self.section_num
@@ -106,6 +123,8 @@ class Session(models.Model):
     session = models.CharField(max_length=200, unique=True)
     is_current_session = models.BooleanField(default=False, blank=True, null=True)
     next_session_begins = models.DateField(blank=True, null=True)
+
+    current_period = models.CharField(choices= PERIODS, max_length= 200,  null= True, blank= True)
 
     class_set_up_period_start = models.DateTimeField(default=datetime.datetime(datetime.date.today().year, 1, 1))
     class_set_up_period_end = models.DateTimeField(default=datetime.datetime(datetime.date.today().year, 1, 1, 23, 59, 59))
@@ -351,3 +370,10 @@ class ReviewClasses(models.Model):
 class WarningCount(models.Model):
     student = models.ForeignKey(Student, on_delete= models.CASCADE)
     count = models.CharField(max_length=1,  null= True)
+
+
+class AutomaticWarning(models.Model):
+    user = models.ForeignKey(User, on_delete= models.CASCADE)
+    warning_text = models.TextField(null = True, blank= True)
+    date_added = models.DateTimeField(auto_now_add= False, null= True)
+

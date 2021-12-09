@@ -15,7 +15,7 @@ from django.http import Http404, FileResponse
 from CUNYzero import settings
 import os
 
-from courses.models import Classes, TakenCourse 
+from courses.models import Classes, Session, TakenCourse 
 
 # Create your views here.
 def register_student(request):
@@ -57,11 +57,16 @@ def register_instructor(request):
 def profile(request):
     courses = Classes.objects.filter(instructor__pk = request.user.id)
     taken_course = TakenCourse.objects.filter(student__user__pk = request.user.id)
-
+    current_session = Session.objects.get(is_current_session=True)
+    current_period = current_session.current_period
+ 
 
     context = {
         "courses": courses,
         "taken_course": taken_course,
+        "current_session": current_session,
+        "current_period": current_period,
+            
     }
     return render(request, 'users/profile.html', context)
 

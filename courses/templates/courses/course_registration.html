@@ -45,6 +45,12 @@
             <br>
     </div>
     <br>
+
+    <center>
+        <h6 class="display-6"> {{current_period}} : {{current_session}} </h6>
+    </center>
+    <br>
+    <br>
         <!-- Table with panel -->
     {% if not all_courses_are_registered %}
         <form method="POST" action="{% url 'courses:course_registration' %}">{% csrf_token %}

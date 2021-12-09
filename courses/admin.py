@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.db import models
-from courses.models import CarryOverStudent, Course, Classes, RepeatingStudent, Result, ReviewClasses, Session, TakenCourse, CourseAllocation, WaitList, WarningCount
+from courses.models import AutomaticWarning, CarryOverStudent, Course, Classes, RepeatingStudent, Result, ReviewClasses, Session, TakenCourse, CourseAllocation, WaitList, WarningCount
 
 # Register your models here.
 #class CityAdmin(admin.ModelAdmin):
@@ -34,6 +34,14 @@ class WaitListAdm(admin.ModelAdmin):
     models = WaitList
     list_display = ('student', 'course', 'instructor')
 
+
+class AutoWarningAdmin(admin.ModelAdmin):
+    model = AutomaticWarning
+    list_display = ('user', 'warning_text', 'date_added')
+    list_filter = ['date_added', 'user']
+    search_fields = ['warning_text']
+
+
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Classes, ClassesAdmin)
 admin.site.register(TakenCourse, ScoreAdmin)
@@ -46,4 +54,5 @@ admin.site.register(WaitList, WaitListAdm)
 
 
 admin.site.register(WarningCount, WarningAdmin)
+admin.site.register(AutomaticWarning, AutoWarningAdmin)
 admin.site.register(ReviewClasses, ReviewAdmin)
