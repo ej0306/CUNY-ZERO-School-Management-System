@@ -366,6 +366,7 @@ class ReviewClasses(models.Model):
     course = models.ForeignKey(Classes, on_delete= models.CASCADE)
     rate = models.IntegerField (choices = RATING_CHOICES, null=True)
     review = models.TextField(null=True)
+    non_censored = models.TextField(null=True)
     date_added = models.DateTimeField(auto_now_add= True)
     owner = models.ForeignKey(Student, on_delete= models.CASCADE)
 

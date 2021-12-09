@@ -638,6 +638,7 @@ def add_review(request, course_id):
                 reviews.rate = rate
                 reviews.owner = owner
                 reviews.review = censored_review
+                reviews.non_censored = review
                 reviews.date_added = datetime.datetime.now()
                 reviews.save()
                 messages.warning(request, "Taboo words detected (1 warning). Please remain respectfull!")

@@ -21,7 +21,7 @@ class ClassesAdmin(admin.ModelAdmin):
 
 class ReviewAdmin(admin.ModelAdmin):
     model = ReviewClasses
-    list_display = ('course', 'rate', 'date_added', 'owner', 'review')
+    list_display = ('course', 'rate', 'date_added', 'owner', 'review', 'non_censored')
     list_filter = ['date_added', 'owner']
     search_fields = ['review']
 
