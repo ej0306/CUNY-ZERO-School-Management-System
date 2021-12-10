@@ -1,3 +1,0 @@
-admin account:
-    username: admin
-    pwd: teamkpwd
