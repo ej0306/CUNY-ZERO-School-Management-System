@@ -26,8 +26,8 @@ A graduate program management system
 9. Copy localhost link (http://127.0.0.1:8000/) and paste it to your browser.
 
 10. Go to Django admin site (http://127.0.0.1:8000/admin). Login using your superuser account
- 	and select "Registrar", then "add registrar", from the user dropdown, select the account (might be displayed as " , ")
-	and then click the pencil next to the dropdown menu.
+ 	and select "Registrar", then "add registrar", from the user dropdown, select the account (might be 
+	displayed as " , ") and then click the pencil next to the dropdown menu.
 	A new window will pop-up. Scroll down on the new window and check the box "is registrar" and mark it true.
 	Next, you can change first name and last name. Then click Save.
 
